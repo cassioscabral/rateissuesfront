@@ -1,0 +1,7 @@
+{
+  "generator-react-webpack": {
+    "appName": "rateissuesfront",
+    "style": "sass",
+    "postcss": true
+  }
+}
