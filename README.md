@@ -3,9 +3,13 @@ Frontend made with React + Relay and all the goodies for the project [rateissues
 
 For matter of separation of concerns and responsability this front will be developed separated from the backend
 
-I have a first [mockup](https://app.moqups.com/cassioscabral@gmail.com/X4e0gZ6L5B/view/page/ade98745f)(click to see it) ready that I made with the awesome online app [Moqups](https://moqups.com/).
+I have a first [mockup](https://app.moqups.com/cassioscabral@gmail.com/X4e0gZ6L5B/view/page/ade98745f) ready that I made with the awesome online app [Moqups](https://moqups.com/).
 
 My inspirations for this design was 9gag, S.O. and Spotify. Since I am not a designer or anything I tried to make it more functional than pretty right now, but for sure this will be **pretty** and **simple** =).
+
+Screenshot below; Thanks to the [Moqups](https://moqups.com/) team for giving me a temporary upgrade in my account so I could export this image.
+
+![alt tag](https://cloud.githubusercontent.com/assets/2073557/11826245/ed52b34c-a362-11e5-8467-cbdedda411ed.png)
 
 
 ### Prerequisites to integrate with the backend
@@ -36,7 +40,8 @@ Following the suggestions by the React Facebook site and their tutorial this wor
   - Atomic design adapted, see [below](#atomic)
   - ES6 with [*BABEL*](https://github.com/babel/babel)
   - Editor Config
-  - coming more soon...
+  - Name conventions suggested for JS and React
+  - more should be add here
 
 
 
