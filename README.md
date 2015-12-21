@@ -68,5 +68,4 @@ Inside the component folder it will have all the files related with that compone
 
   - stylesheets
   - tests
-  - docs if necessary(still looking for how to document better before making the rule)
   - the component itself
