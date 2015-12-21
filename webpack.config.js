@@ -8,13 +8,14 @@ var allowedEnvs = ['dev', 'dist', 'test'];
 
 // Set the correct environment
 var env;
-if(args._.length > 0 && args._.indexOf('start') !== -1) {
+if (args._.length > 0 && args._.indexOf('start') !== -1) {
   env = 'test';
 } else if (args.env) {
   env = args.env;
 } else {
   env = 'dev';
 }
+
 process.env.REACT_WEBPACK_ENV = env;
 
 // Get available configurations
@@ -22,7 +23,7 @@ var configs = {
   base: require(path.join(__dirname, 'cfg/base')),
   dev: require(path.join(__dirname, 'cfg/dev')),
   dist: require(path.join(__dirname, 'cfg/dist')),
-  test: require(path.join(__dirname, 'cfg/test'))
+  test: require(path.join(__dirname, 'cfg/test')),
 };
 
 /**
