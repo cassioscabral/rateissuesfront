@@ -69,3 +69,7 @@ Inside the component folder it will have all the files related with that compone
   - stylesheets
   - tests
   - the component itself
+
+To improve the development I used this Yeoman generator [atomic-reactor](https://github.com/cassioscabral/generator-atomic-reactor) that I build. It will commands such as:
+
+`yo atomic-reactor:atom my_component`
