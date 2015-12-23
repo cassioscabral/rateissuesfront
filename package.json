@@ -23,6 +23,7 @@
   "keywords": [],
   "author": "Cassio Cabral(@cassioscabral)",
   "devDependencies": {
+    "autoprefixer": "^6.2.1",
     "babel-core": "^6.0.0",
     "babel-eslint": "^5.0.0-beta4",
     "babel-loader": "^6.0.0",
@@ -49,26 +50,26 @@
     "karma-webpack": "^1.7.0",
     "minimist": "^1.2.0",
     "mocha": "^2.2.5",
+    "node-sass": "^3.3.3",
     "null-loader": "^0.1.1",
     "open": "0.0.5",
     "phantomjs": "^1.9.18",
+    "postcss": "^5.0.11",
+    "postcss-loader": "^0.8.0",
     "react-hot-loader": "^1.2.9",
     "rimraf": "^2.4.3",
+    "sass-loader": "^1.0.1",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.0",
-    "webpack-dev-server": "^1.12.0",
-    "sass-loader": "^1.0.1",
-    "node-sass": "^3.3.3",
-    "postcss": "^5.0.11",
-    "postcss-loader": "^0.8.0"
+    "webpack-dev-server": "^1.12.0"
   },
   "dependencies": {
     "core-js": "^1.2.6",
     "lodash": "^3.10.1",
     "normalize.css": "^3.0.3",
-    "react": "^0.14.0",
-    "react-addons-test-utils": "^0.14.0",
-    "react-dom": "^0.14.0"
+    "react": "^0.14.3",
+    "react-addons-test-utils": "^0.14.3",
+    "react-dom": "^0.14.3"
   }
 }

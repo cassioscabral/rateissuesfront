@@ -73,3 +73,9 @@ Inside the component folder it will have all the files related with that compone
 To improve the development I used this Yeoman generator [atomic-reactor](https://github.com/cassioscabral/generator-atomic-reactor) that I build. It will commands such as:
 
 `yo atomic-reactor:atom my_component`
+
+
+### Tools, packages and stuff used on this project
+
+  - the react-webpack generator from Simon Bailey and its default packages
+  - using airbnb preset on Atom jscs linter
