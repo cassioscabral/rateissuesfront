@@ -11,6 +11,10 @@ Screenshot below; Thanks to the [Moqups](https://moqups.com/) team for giving me
 
 ![alt tag](https://cloud.githubusercontent.com/assets/2073557/11826245/ed52b34c-a362-11e5-8467-cbdedda411ed.png)
 
+### Components organization
+
+![alt tag](https://cloud.githubusercontent.com/assets/2073557/11989355/4cc6776e-a9da-11e5-8b97-1904c78a911f.png)
+
 
 ### Prerequisites to integrate with the backend
 
