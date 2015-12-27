@@ -1,6 +1,8 @@
 'use strict';
 
 import React from 'react';
+import Logo from 'components/atoms/logo/Logo';
+import AppName from 'components/atoms/app_name/AppName';
 
 require('./stylesheets/logo_name.scss');
 
@@ -8,7 +10,8 @@ class LogoName extends React.Component {
   render() {
     return (
       <div className='logo-name-component'>
-        Please edit src/components/molecules/logo_name/LogoName.js to update this component!
+        <Logo />
+        <AppName />
       </div>
     );
   }
