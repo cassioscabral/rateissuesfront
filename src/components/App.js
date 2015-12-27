@@ -4,12 +4,18 @@ require('styles/App.scss');
 import React from 'react';
 import Hello from 'components/atoms/hello/Hello';
 import TopMenu from 'components/organisms/top_menu/TopMenu';
+import Sidebar from 'components/organisms/sidebar/Sidebar';
+import Main from 'components/organisms/main/Main';
 
 class AppComponent extends React.Component {
   render() {
     return (
       <div id='app' className='app'>
         <TopMenu />
+        <div className='row'>
+          <Main />
+          <Sidebar />
+        </div>
       </div>
     );
   }
