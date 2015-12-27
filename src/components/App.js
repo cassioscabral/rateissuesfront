@@ -2,7 +2,7 @@ require('normalize.css');
 require('styles/App.scss');
 
 import React from 'react';
-import Hello from 'components/atoms/hello/Hello';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import TopMenu from 'components/organisms/top_menu/TopMenu';
 import Sidebar from 'components/organisms/sidebar/Sidebar';
 import Main from 'components/organisms/main/Main';
