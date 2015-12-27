@@ -9,7 +9,6 @@ class AppComponent extends React.Component {
     return (
       <div id='app' className='app'>
         <div className='notice'>Please edit <code>src/components/App.js</code> to get started!</div>
-        <Hello />
       </div>
     );
   }
