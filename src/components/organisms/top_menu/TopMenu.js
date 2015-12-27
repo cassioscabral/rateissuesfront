@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import LogoName from 'components/molecules/logo_name/LogoName';
 
 require('./stylesheets/top_menu.scss');
 
@@ -8,7 +9,7 @@ class TopMenu extends React.Component {
   render() {
     return (
       <div className='top-menu-component'>
-        Please edit src/components/organisms/top_menu/TopMenu.js to update this component!
+        <LogoName />
       </div>
     );
   }

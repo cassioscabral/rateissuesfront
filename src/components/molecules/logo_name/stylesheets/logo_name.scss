@@ -1,3 +1,10 @@
 .logo-name-component {
-
+  display: flex;
+  justify-content: space-between;
+  & * {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+  }
 }

@@ -3,13 +3,13 @@ require('styles/App.scss');
 
 import React from 'react';
 import Hello from 'components/atoms/hello/Hello';
-import Logo from 'components/atoms/logo/Logo';
+import TopMenu from 'components/organisms/top_menu/TopMenu';
 
 class AppComponent extends React.Component {
   render() {
     return (
       <div id='app' className='app'>
-        <Logo />
+        <TopMenu />
       </div>
     );
   }
