@@ -1,14 +1,15 @@
 'use strict';
 
 import React from 'react';
-
+import Notifier from 'components/atoms/notifier/Notifier';
 require('./stylesheets/notification_center.scss');
 
 class NotificationCenter extends React.Component {
   render() {
     return (
       <div className='notification-center-component'>
-        Please edit src/components/molecules/notification_center/NotificationCenter.js to update this component!
+        <Notifier name='inbox' icon='inbox'></Notifier>
+        <Notifier name='notifications' icon='notifications'></Notifier>
       </div>
     );
   }

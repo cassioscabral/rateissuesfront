@@ -7,6 +7,8 @@ import TopMenu from 'components/organisms/top_menu/TopMenu';
 import Sidebar from 'components/organisms/sidebar/Sidebar';
 import Main from 'components/organisms/main/Main';
 
+injectTapEventPlugin();
+
 class AppComponent extends React.Component {
   render() {
     return (
