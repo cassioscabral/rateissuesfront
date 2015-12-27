@@ -7,7 +7,7 @@ require('./stylesheets/hello.scss');
 class Hello extends React.Component {
   render() {
     return (
-      <div className='hello'>
+      <div className='hello-component'>
         Hello World!
       </div>
     );
