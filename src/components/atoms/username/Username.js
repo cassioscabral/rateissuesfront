@@ -8,7 +8,7 @@ class Username extends React.Component {
   render() {
     return (
       <div className='username-component'>
-        Please edit src/components/atoms/username/Username.js to update this component!
+        {this.props.username}
       </div>
     );
   }
