@@ -3,12 +3,13 @@ require('styles/App.scss');
 
 import React from 'react';
 import Hello from 'components/atoms/hello/Hello';
+import Logo from 'components/atoms/logo/Logo';
 
 class AppComponent extends React.Component {
   render() {
     return (
       <div id='app' className='app'>
-        <div className='notice'>Please edit <code>src/components/App.js</code> to get started!</div>
+        <Logo />
       </div>
     );
   }

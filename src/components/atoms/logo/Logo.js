@@ -8,7 +8,7 @@ class Logo extends React.Component {
   render() {
     return (
       <div className='logo-component'>
-        Please edit src/components/atoms/logo/Logo.js to update this component!
+        <img src='https://placeholdit.imgix.net/~text?txtsize=5&txt=40%C3%9740&w=40&h=40' />
       </div>
     );
   }
