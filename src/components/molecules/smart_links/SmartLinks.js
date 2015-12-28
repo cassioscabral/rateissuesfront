@@ -8,7 +8,8 @@ class SmartLinks extends React.Component {
   render() {
     return (
       <div className='smart-links-component'>
-        Please edit src/components/molecules/smart_links/SmartLinks.js to update this component!
+        <a href='#'>About</a>
+        <a href='#'>Help</a>
       </div>
     );
   }

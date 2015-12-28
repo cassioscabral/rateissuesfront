@@ -1,3 +1,7 @@
 .smart-links-component {
-
+  display: flex;
+  a {
+    display: flex;
+    align-self: center;
+  }
 }

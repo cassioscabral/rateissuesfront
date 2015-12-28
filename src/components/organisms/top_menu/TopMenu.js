@@ -4,6 +4,7 @@ import React from 'react';
 import LogoName from 'components/molecules/logo_name/LogoName';
 import NotificationCenter from 'components/molecules/notification_center/NotificationCenter';
 import UserInfo from 'components/molecules/user_info/UserInfo';
+import SmartLinks from 'components/molecules/smart_links/SmartLinks';
 
 require('./stylesheets/top_menu.scss');
 
@@ -14,6 +15,7 @@ class TopMenu extends React.Component {
         <LogoName />
         <NotificationCenter />
         <UserInfo />
+        <SmartLinks />
       </div>
     );
   }
