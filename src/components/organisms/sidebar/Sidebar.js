@@ -1,6 +1,9 @@
 'use strict';
 
 import React from 'react';
+import Feed from 'components/molecules/feed/Feed';
+import UsersFeed from 'components/molecules/users_feed/UsersFeed';
+import ProjectsFeed from 'components/molecules/projects_feed/ProjectsFeed';
 
 require('./stylesheets/sidebar.scss');
 
@@ -8,7 +11,8 @@ class Sidebar extends React.Component {
   render() {
     return (
       <div className='sidebar-component'>
-        Please edit src/components/organisms/sidebar/Sidebar.js to update this component!
+        <UsersFeed />
+        <ProjectsFeed />
       </div>
     );
   }

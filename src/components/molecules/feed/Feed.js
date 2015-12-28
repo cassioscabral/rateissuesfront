@@ -6,9 +6,11 @@ require('./stylesheets/feed.scss');
 
 class Feed extends React.Component {
   render() {
+    var feed = this.props.feed;
     return (
       <div className='feed-component'>
-        Please edit src/components/molecules/feed/Feed.js to update this component!
+        {this.props.for}
+        {feed.map(feedItem => <FeedItem item={feedItem} />)}
       </div>
     );
   }
