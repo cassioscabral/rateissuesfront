@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import FontIcon from 'material-ui/lib/font-icon';
 
 require('./stylesheets/search_bar.scss');
 
@@ -8,7 +9,8 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div className='search-bar-component'>
-        Please edit src/components/molecules/search_bar/SearchBar.js to update this component!
+        <FontIcon className='material-icons' color='white'>search</FontIcon>
+        <input type='search' />
       </div>
     );
   }
