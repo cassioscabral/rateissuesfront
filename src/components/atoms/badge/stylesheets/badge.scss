@@ -1,3 +1,11 @@
 .badge-component {
-
+  display: flex;
+  align-self: center;
+  .round-badge {
+    display: flex;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    align-self: center;
+  }
 }

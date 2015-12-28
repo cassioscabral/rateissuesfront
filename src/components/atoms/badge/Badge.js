@@ -8,7 +8,8 @@ class Badge extends React.Component {
   render() {
     return (
       <div className='badge-component'>
-        Please edit src/components/atoms/badge/Badge.js to update this component!
+        <span className='round-badge' style={{'background-color': this.props.color}}></span>
+        <label>{this.props.amount}</label>
       </div>
     );
   }
