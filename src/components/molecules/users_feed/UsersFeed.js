@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import UserFeedItem from 'components/molecules/user_feed_item/UserFeedItem';
 
 require('./stylesheets/users_feed.scss');
 

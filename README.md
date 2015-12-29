@@ -82,4 +82,4 @@ To improve the development I used this Yeoman generator [atomic-reactor](https:/
 ### Tools, packages and stuff used on this project
 
   - the react-webpack generator from Simon Bailey and its default packages
-  - using airbnb preset on Atom jscs linter
+  - using google preset on Atom jscs linter

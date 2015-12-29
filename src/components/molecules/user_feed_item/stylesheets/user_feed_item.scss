@@ -1,3 +1,10 @@
 .user-feed-item-component {
-
+  display: flex;
+  span {
+    padding: 5px;
+  }
+  .profile-image-component {
+    display: flex;
+    align-self: center;
+  }
 }
