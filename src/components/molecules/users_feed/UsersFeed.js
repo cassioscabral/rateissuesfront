@@ -6,9 +6,10 @@ require('./stylesheets/users_feed.scss');
 
 class UsersFeed extends React.Component {
   render() {
+    var items = this.props.userActivities;
     return (
       <div className='users-feed-component'>
-        Please edit src/components/molecules/users_feed/UsersFeed.js to update this component!
+        {items.map(userFeedItem => <UserFeedItem activity={userFeedItem.activity} imageUrl={userFeedItem.imageUrl} />)}
       </div>
     );
   }
