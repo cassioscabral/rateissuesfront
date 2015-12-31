@@ -12,7 +12,11 @@ class IssuesList extends React.Component {
       <div className='issues-list-component'>
         {issues.map(issue => <Issue
           title={issue.title}
-          summary={issue.summary} />)
+          summary={issue.summary}
+          numVotes={issue.stats.numVotes}
+          numComments={issue.stats.numComments}
+          difficulty={issue.stats.difficulty}
+          />)
         }
       </div>
     );

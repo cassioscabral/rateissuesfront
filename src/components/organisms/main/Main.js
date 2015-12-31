@@ -11,11 +11,21 @@ class Main extends React.Component {
     var issuesData = [
       {
         title: 'Issue title explaining the problem',
-        summary: 'I have a problem, Houston'
+        summary: 'I have a problem, Houston',
+        stats: {
+          numVotes: 2,
+          numComments: 10,
+          difficulty: 5
+        }
       },
       {
         title: 'Something problematic for this project',
-        summary: 'I don\'t have enough cats here, what do I do?'
+        summary: 'I don\'t have enough cats here, what do I do?',
+        stats: {
+          numVotes: 5,
+          numComments: 3,
+          difficulty: 3
+        }
       }
     ];
     var tabs = ['hot', 'trending', 'fresh'];

@@ -7,8 +7,9 @@ require('./stylesheets/number_box.scss');
 class NumberBox extends React.Component {
   render() {
     return (
-      <div className='number-box-component'>
-        Please edit src/components/atoms/number_box/NumberBox.js to update this component!
+      <div className='number-box-component column'>
+        <span>{this.props.number}</span>
+        <span>{this.props.label}</span>
       </div>
     );
   }
