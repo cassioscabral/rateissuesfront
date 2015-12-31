@@ -1,16 +1,18 @@
 'use strict';
 
 import React from 'react';
-
+import CounterBox from 'components/molecules/counter_box/CounterBox';
 require('./stylesheets/issue.scss');
 
 class Issue extends React.Component {
   render() {
     var issue = this.props;
     return (
-      <div className='issue-component column'>
-        <CounterBox numVotes={issue.numVotes} />
-        <div className='description'>
+      <div className='issue-component row'>
+        <CounterBox numVotes={issue.numVotes}
+                    numComments={issue.numComments}
+                    difficulty={issue.difficulty} />
+        <div className='description column'>
           <header>
             <h4>{issue.title}</h4>
           </header>
