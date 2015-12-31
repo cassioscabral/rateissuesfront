@@ -11,11 +11,13 @@ class Sidebar extends React.Component {
     var usersData = [
     {
       activity: '@someone upvoted #123 in Rails',
-      imageUrl: 'http://www.gravatar.com/avatar/e426389cb417442835bb1d62273fb53d'
+      imageUrl:
+        'http://www.gravatar.com/avatar/e426389cb417442835bb1d62273fb53d'
     },
     {
       activity: '@someonelse upvoted #989 in React',
-      imageUrl: 'http://www.gravatar.com/avatar/e426389cb417442835bb1d62273fb53d'
+      imageUrl:
+        'http://www.gravatar.com/avatar/e426389cb417442835bb1d62273fb53d'
     }
     ];
     var projectsFeed = [
