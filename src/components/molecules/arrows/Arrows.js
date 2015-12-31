@@ -1,14 +1,17 @@
 'use strict';
 
 import React from 'react';
+import VoteDown from 'components/atoms/vote_down/VoteDown';
+import VoteUp from 'components/atoms/vote_up/VoteUp';
 
 require('./stylesheets/arrows.scss');
 
 class Arrows extends React.Component {
   render() {
     return (
-      <div className='arrows-component'>
-        Please edit src/components/molecules/arrows/Arrows.js to update this component!
+      <div className='arrows-component column'>
+        <VoteUp />
+        <VoteDown />
       </div>
     );
   }

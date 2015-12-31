@@ -2,6 +2,8 @@
 
 import React from 'react';
 import CounterBox from 'components/molecules/counter_box/CounterBox';
+import Arrows from 'components/molecules/arrows/Arrows';
+
 require('./stylesheets/issue.scss');
 
 class Issue extends React.Component {
@@ -12,6 +14,7 @@ class Issue extends React.Component {
         <CounterBox numVotes={issue.numVotes}
                     numComments={issue.numComments}
                     difficulty={issue.difficulty} />
+        <Arrows />
         <div className='description column'>
           <header>
             <h4>{issue.title}</h4>
