@@ -6,13 +6,17 @@ require('./stylesheets/issue.scss');
 
 class Issue extends React.Component {
   render() {
+    var issue = this.props;
     return (
       <div className='issue-component column'>
-        <header>
-          <h4>{this.props.title}</h4>
-        </header>
-        <div className='summary'>
-          {this.props.summary}
+        <CounterBox numVotes={issue.numVotes} />
+        <div className='description'>
+          <header>
+            <h4>{issue.title}</h4>
+          </header>
+          <div className='summary'>
+            {issue.summary}
+          </div>
         </div>
       </div>
     );
