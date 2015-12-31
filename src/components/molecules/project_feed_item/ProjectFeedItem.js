@@ -8,7 +8,7 @@ class ProjectFeedItem extends React.Component {
   render() {
     return (
       <div className='project-feed-item-component'>
-        Please edit src/components/molecules/project_feed_item/ProjectFeedItem.js to update this component!
+        {this.props.activity}
       </div>
     );
   }

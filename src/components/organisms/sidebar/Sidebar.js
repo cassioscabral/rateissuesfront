@@ -8,7 +8,7 @@ require('./stylesheets/sidebar.scss');
 
 class Sidebar extends React.Component {
   render() {
-    var userData = [
+    var usersData = [
     {
       activity: '@someone upvoted #123 in Rails',
       imageUrl: 'http://www.gravatar.com/avatar/e426389cb417442835bb1d62273fb53d'
@@ -18,10 +18,18 @@ class Sidebar extends React.Component {
       imageUrl: 'http://www.gravatar.com/avatar/e426389cb417442835bb1d62273fb53d'
     }
     ];
+    var projectsFeed = [
+      {
+        activity: 'Rails closed an issue'
+      },
+      {
+        activity: 'Meteor is trending'
+      }
+    ];
     return (
       <div className='sidebar-component'>
-        <UsersFeed userActivities={userData}/>
-        <ProjectsFeed />
+        <UsersFeed userActivities={usersData} />
+        <ProjectsFeed projectActivities={projectsFeed} />
       </div>
     );
   }
