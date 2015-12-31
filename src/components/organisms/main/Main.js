@@ -8,7 +8,10 @@ class Main extends React.Component {
   render() {
     return (
       <div className='main-component'>
-        Please edit src/components/organisms/main/Main.js to update this component!
+        <header>
+          Hot Issues
+        </header>
+        <IssuesList filter-selected='hot' />
       </div>
     );
   }
