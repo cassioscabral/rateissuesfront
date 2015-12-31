@@ -2,6 +2,7 @@
 
 import React from 'react';
 import IssuesList from 'components/molecules/issues_list/IssuesList';
+import IssuesTabs from 'components/molecules/issues_tabs/IssuesTabs';
 
 require('./stylesheets/main.scss');
 
@@ -17,17 +18,14 @@ class Main extends React.Component {
         summary: 'I don\'t have enough cats here, what do I do?'
       }
     ];
+    var tabs = ['hot', 'trending', 'fresh'];
     return (
       <div className='main-component column'>
         <div className='row'>
           <header>
             Hot Issues
           </header>
-          <div className='tabs'>
-            <span>Hot</span>
-            <span>Trending</span>
-            <span>Fresh</span>
-          </div>
+          <IssuesTabs tabs={tabs} />
         </div>
         <IssuesList filter-selected='hot' issues={issuesData} />
       </div>

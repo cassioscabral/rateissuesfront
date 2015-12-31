@@ -8,7 +8,7 @@ class Tab extends React.Component {
   render() {
     return (
       <div className='tab-component'>
-        Please edit src/components/atoms/tab/Tab.js to update this component!
+        <span>{this.props.name}</span>
       </div>
     );
   }
