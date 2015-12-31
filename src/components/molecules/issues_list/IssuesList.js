@@ -1,14 +1,19 @@
 'use strict';
 
 import React from 'react';
+import Issue from 'components/molecules/issue/Issue';
 
 require('./stylesheets/issues_list.scss');
 
 class IssuesList extends React.Component {
   render() {
+    var issues = this.props.issues;
     return (
       <div className='issues-list-component'>
-        Please edit src/components/molecules/issues_list/IssuesList.js to update this component!
+        {issues.map(issue => <Issue
+          title={issue.title}
+          summary={issue.summary} />)
+        }
       </div>
     );
   }

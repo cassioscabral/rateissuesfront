@@ -7,8 +7,13 @@ require('./stylesheets/issue.scss');
 class Issue extends React.Component {
   render() {
     return (
-      <div className='issue-component'>
-        Please edit src/components/molecules/issue/Issue.js to update this component!
+      <div className='issue-component column'>
+        <header>
+          <h4>{this.props.title}</h4>
+        </header>
+        <div className='summary'>
+          {this.props.summary}
+        </div>
       </div>
     );
   }

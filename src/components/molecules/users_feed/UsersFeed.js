@@ -10,7 +10,10 @@ class UsersFeed extends React.Component {
     var items = this.props.userActivities;
     return (
       <div className='users-feed-component'>
-        {items.map(userFeedItem => <UserFeedItem activity={userFeedItem.activity} imageUrl={userFeedItem.imageUrl} />)}
+        {items.map(userFeedItem => <UserFeedItem
+          activity={userFeedItem.activity}
+          imageUrl={userFeedItem.imageUrl} />)
+        }
       </div>
     );
   }
