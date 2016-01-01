@@ -3,6 +3,7 @@
 import React from 'react';
 import IssuesList from 'components/molecules/issues_list/IssuesList';
 import IssuesTabs from 'components/molecules/issues_tabs/IssuesTabs';
+import Settings from 'components/atoms/settings/Settings';
 
 require('./stylesheets/main.scss');
 
@@ -38,6 +39,7 @@ class Main extends React.Component {
           <IssuesTabs tabs={tabs} />
         </div>
         <IssuesList filter-selected='hot' issues={issuesData} />
+        <Settings />
       </div>
     );
   }
