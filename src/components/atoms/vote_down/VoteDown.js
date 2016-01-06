@@ -6,11 +6,12 @@ import FontIcon from 'material-ui/lib/font-icon';
 require('./stylesheets/vote_down.scss');
 
 class VoteDown extends React.Component {
+
   render() {
     return (
-      <div className='vote-down-component'>
+      <div className='vote-down-component' onClick={this.props.onClick}>
         <FontIcon className='material-icons'
-                  color='grey'>
+                  color={this.props.color}>
         arrow_drop_down
         </FontIcon>
       </div>
