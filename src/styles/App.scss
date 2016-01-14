@@ -3,7 +3,9 @@
 body * {
   border: 1px solid rgb(237, 144, 20); // easier to develop, not made for production
 }
-
+html {
+  height: 100%;
+}
 body {
   color: rgb(255, 255, 255);
   background: rgb(28, 32, 38);
