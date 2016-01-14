@@ -11,7 +11,7 @@ class Settings extends React.Component {
     super(props);
     this.state = {active: false};
   }
-  handleClick(e) {
+  handleClick() {
     this.setState({active: !this.state.active});
   }
   render() {
