@@ -23,11 +23,10 @@ class Arrows extends React.Component {
   handleUpvote() {
     this.setState({up: !this.state.up,
                    down: false,
-                   colorUp: this.state.up ? 'grey' : 'rgb(75, 242, 7)',
+                   colorUp: this.state.up ? 'grey' : 'rgb(88, 200, 42)',
                    colorDown: 'grey'
                  });
   }
-
   render() {
     return (
       <div className='arrows-component column'>

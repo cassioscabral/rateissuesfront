@@ -9,8 +9,8 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div className='search-bar-component'>
-        <FontIcon className='material-icons' color='white'>search</FontIcon>
-        <input type='search' />
+        <FontIcon className='material-icons' color='grey'>search</FontIcon>
+        <input type='search' value='search'/>
       </div>
     );
   }

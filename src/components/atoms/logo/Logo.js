@@ -9,7 +9,7 @@ class Logo extends React.Component {
   render() {
     return (
       <div className='logo-component'>
-        <FontIcon className='material-icons' color='white'>home</FontIcon>
+        <FontIcon className='material-icons' color='grey'>home</FontIcon>
       </div>
     );
   }

@@ -17,7 +17,7 @@ class Settings extends React.Component {
   render() {
     return (
       <div className='settings-component' onClick={this.handleClick.bind(this)}>
-        <FontIcon className='material-icons' color='white'>settings</FontIcon>
+        <FontIcon className='material-icons' color='grey'>settings</FontIcon>
         <MainSettings show={this.state.active} />
       </div>
     );

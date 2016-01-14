@@ -2,4 +2,11 @@
   display: flex;
   min-width: 75%;
   min-height: 100%;
+  .tabs {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    header {
+      margin-top: 0.3rem;
+    }
+  }
 }

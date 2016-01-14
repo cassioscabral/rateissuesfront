@@ -8,8 +8,8 @@ class SmartLinks extends React.Component {
   render() {
     return (
       <div className='smart-links-component'>
-        <a href='#'>About</a>
-        <a href='#'>Help</a>
+        <a href='#'>about</a>
+        <a href='#'>help</a>
       </div>
     );
   }

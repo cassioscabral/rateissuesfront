@@ -8,10 +8,13 @@ require('./stylesheets/vote_down.scss');
 class VoteDown extends React.Component {
 
   render() {
+    const iconStyles = {
+      fontSize: '42px',
+    };
     return (
       <div className='vote-down-component' onClick={this.props.onClick}>
         <FontIcon className='material-icons'
-                  color={this.props.color}>
+                  color={this.props.color} style={iconStyles}>
         arrow_drop_down
         </FontIcon>
       </div>

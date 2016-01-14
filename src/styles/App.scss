@@ -1,14 +1,16 @@
 /* Base Application Styles */
 
 body * {
-  border: 1px solid rgb(237, 144, 20); // easier to develop, not made for production
+  // border: 1px solid rgb(237, 144, 20); // easier to develop, not made for production
 }
 html {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 body {
-  color: rgb(255, 255, 255);
-  background: rgb(28, 32, 38);
+  color: black;
+  background: #D8DEFC;
   width: 100%;
   height: 100%;
   display: flex;
@@ -19,6 +21,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  height: 100%;
 }
 
 .column {
@@ -29,7 +32,7 @@ body {
 #app {
   display: flex;
   flex-direction: column;
-  width: 100%;
   height: 100%;
-  min-height: 450px;
+  width: 100%;
+  min-height: 100%;
 }
