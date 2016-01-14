@@ -1,4 +1,8 @@
 .issue-component {
   display: flex;
   align-self: center;
+
+  .description {
+    min-width: 75%;
+  }
 }
