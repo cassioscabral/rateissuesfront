@@ -2,7 +2,7 @@
 Frontend made with React + Relay and all the goodies for the project [rateissues](https://github.com/cassioscabral/rateissues). **Name is just a placeholder, might change in the future**
 
 # Goal
-An application interely open-source, build to help people start to develop and contribute with open-source code and improve the workflow of core contributors. Using a different UI and a better UX than the one provided by Github.
+An application interely open-source, build to help people start to develop and contribute with open-source code and improve the workflow of core contributors. Using a different UI and a better UX than the one provided by Github.**Using Github API.**
 
 ## Main features
  * Classify, filter and rate issues to allow searchs like "the easiests JS open issues"
