@@ -1,3 +1,14 @@
 .setting-option-component {
   display: flex;
+  padding: 0.2rem;
+  border: 1px solid black;
+  &:first-child {
+    border-radius: 5px 5px 0 0;
+  }
+  &:last-child {
+    border-radius: 0 0 5px 5px;
+  }
+  &:hover {
+    background-color: grey;
+  }
 }
