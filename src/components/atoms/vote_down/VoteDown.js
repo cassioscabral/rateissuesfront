@@ -9,7 +9,7 @@ class VoteDown extends React.Component {
 
   render() {
     const iconStyles = {
-      fontSize: '42px',
+      fontSize: '42px'
     };
     return (
       <div className='vote-down-component' onClick={this.props.onClick}>

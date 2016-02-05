@@ -8,7 +8,7 @@ require('./stylesheets/vote_up.scss');
 class VoteUp extends React.Component {
   render() {
     const iconStyles = {
-      fontSize: '42px',
+      fontSize: '42px'
     };
     return (
       <div className='vote-up-component' onClick={this.props.onClick}>
