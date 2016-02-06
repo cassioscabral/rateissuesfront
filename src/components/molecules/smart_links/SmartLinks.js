@@ -18,8 +18,7 @@ class SmartLinks extends React.Component {
       <div className='smart-links-component'>
         <a href='#'>about</a>
         <a href='#'>help</a>
-        <a onClick={this.showLock.bind(this)}>Sign In</a>
-
+        <a href='#' onClick={this.showLock.bind(this)}>Sign In</a>
       </div>
     );
   }
