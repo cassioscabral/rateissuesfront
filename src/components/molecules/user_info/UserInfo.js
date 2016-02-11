@@ -8,12 +8,18 @@ import Badges from 'components/molecules/badges/Badges';
 require('./stylesheets/user_info.scss');
 
 class UserInfo extends React.Component {
+  getUserProfile() {
+    return JSON.parse(localStorage.getItem('userProfile'));
+  }
   render() {
+
+    let userProfile = this.getUserProfile();
+    console.log(userProfile);
     return (
       <div className='user-info-component'>
-        <ProfileImage email='cassioscabral@gmail.com' />
+        <ProfileImage email={userProfile.email} />
         <div className='column'>
-          <Username username='cassioscabral' />
+          <Username username={userProfile.nickname} />
           <Badges points='500' />
         </div>
       </div>
