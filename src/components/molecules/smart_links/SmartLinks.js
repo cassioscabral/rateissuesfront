@@ -6,21 +6,64 @@ require('./stylesheets/smart_links.scss');
 
 class SmartLinks extends React.Component {
   componentWillMount() {
-    this.lock = new Auth0Lock('wrongAuth', 'rateissues.auth0.com');
+    this.lock = new Auth0Lock('', 'rateissues.auth0.com');
+    this.setState({idToken: this.getIdToken()});
+  }
+  componentDidMount() {
+    // In this case, the lock and token are retrieved from the parent component
+    // If these are available locally, use `this.lock` and `this.idToken`
+    this.lock.getProfile(this.state.idToken, function(err, profile) {
+      if (err) {
+        console.log('Error loading the Profile', err);
+        return;
+      }
+      this.setState({profile: profile});
+      localStorage.setItem('userProfile', JSON.stringify(profile));
+
+    }.bind(this));
+  }
+  getIdToken() {
+    var idToken = localStorage.getItem('userToken');
+    var authHash = this.lock.parseHash(window.location.hash);
+    if (!idToken && authHash) {
+      if (authHash.id_token) {
+        idToken = authHash.id_token;
+        localStorage.setItem('userToken', authHash.id_token);
+      }
+      if (authHash.error) {
+        console.log('Error signing in', authHash);
+        return null;
+      }
+    }
+    return idToken;
   }
   showLock() {
     // We receive lock from the parent component in this case
     // If you instantiate it in this component, just do this.lock.show()
     this.lock.show();
   }
+  logout() {
+    localStorage.removeItem('userToken');
+    this.setState({idToken: null});
+  }
   render() {
-    return (
-      <div className='smart-links-component'>
-        <a href='#'>about</a>
-        <a href='#'>help</a>
-        <a href='#' onClick={this.showLock.bind(this)}>Sign In</a>
-      </div>
-    );
+    if (this.state.idToken) {
+      return (
+        <div className='smart-links-component'>
+          <a href='#'>about</a>
+          <a href='#'>help</a>
+          <a href='#' onClick={this.logout.bind(this)}>Logout</a>
+        </div>
+      );
+    } else {
+      return (
+        <div className='smart-links-component'>
+          <a href='#'>about</a>
+          <a href='#'>help</a>
+          <a href='#' onClick={this.showLock.bind(this)}>Sign In</a>
+        </div>
+      );
+    }
   }
 }
 
