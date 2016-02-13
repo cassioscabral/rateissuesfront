@@ -29,14 +29,13 @@ class Main extends React.Component {
         }
       }
     ];
-    var tabs = ['hot', 'trending', 'fresh'];
     return (
       <div className='main-component column'>
         <div className='tabs row'>
           <header>
           <b>Hot Issues</b>
           </header>
-          <IssuesTabs tabs={tabs} />
+          <IssuesTabs/>
         </div>
         <IssuesList filter-selected='hot' issues={issuesData} />
         <Settings />

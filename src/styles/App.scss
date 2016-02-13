@@ -1,32 +1,8 @@
 /* Base Application Styles */
-
+@import 'colors';
 body * {
   // border: 1px solid rgb(237, 144, 20); // easier to develop, not made for production
-}
-html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-body {
-  color: black;
-  background: #D8DEFC;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  font-family: 'Roboto', sans-serif;
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 100%;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
+  box-sizing: border-box;
 }
 
 #app {

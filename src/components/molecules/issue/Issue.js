@@ -11,10 +11,6 @@ class Issue extends React.Component {
     var issue = this.props;
     return (
       <div className='issue-component row'>
-        <CounterBox numVotes={issue.numVotes}
-                    numComments={issue.numComments}
-                    difficulty={issue.difficulty} />
-        <Arrows />
         <div className='description column'>
           <header>
             <h4>{issue.title}</h4>
@@ -33,5 +29,11 @@ Issue.displayName = 'MoleculeIssue';
 // Uncomment properties you need
 // Issue.propTypes = {};
 // Issue.defaultProps = {};
+
+// TODO add this when open issues, to make the interaction only when the user wants to, instead of throwing at their face
+// <CounterBox numVotes={issue.numVotes}
+//             numComments={issue.numComments}
+//             difficulty={issue.difficulty} />
+// <Arrows />
 
 export default Issue;

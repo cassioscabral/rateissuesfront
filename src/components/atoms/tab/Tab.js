@@ -1,13 +1,17 @@
 'use strict';
+var classNames = require('classnames');
 
 import React from 'react';
-
 require('./stylesheets/tab.scss');
 
 class Tab extends React.Component {
   render() {
+    let tabClass = classNames({
+      'tab-component': true,
+      'active': this.props.active
+    });
     return (
-      <div className='tab-component'>
+      <div className={tabClass}>
         <span>{this.props.name}</span>
       </div>
     );

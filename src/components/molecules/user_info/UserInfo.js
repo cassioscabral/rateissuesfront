@@ -14,7 +14,6 @@ class UserInfo extends React.Component {
   render() {
 
     let userProfile = this.getUserProfile();
-    console.log(userProfile);
     return (
       <div className='user-info-component'>
         <ProfileImage email={userProfile.email} />

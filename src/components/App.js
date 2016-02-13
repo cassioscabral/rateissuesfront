@@ -1,6 +1,8 @@
 require('normalize.css');
+require('styles/_colors.scss');
+require('styles/_utils.scss');
+require('styles/_layout.scss');
 require('styles/App.scss');
-require('styles/utils.scss');
 
 import React from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';

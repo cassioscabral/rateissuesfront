@@ -1,3 +1,6 @@
-.issues-list-component {
+@import '../../../../styles/colors';
 
+.issues-list-component {
+  background: $active-background;
+  height: 100%;
 }
