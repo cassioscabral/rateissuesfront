@@ -9,26 +9,6 @@ require('./stylesheets/main.scss');
 
 class Main extends React.Component {
   render() {
-    var issuesData = [
-      {
-        title: 'Issue title explaining the problem',
-        summary: 'I have a problem, Houston',
-        stats: {
-          numVotes: 2,
-          numComments: 10,
-          difficulty: 5
-        }
-      },
-      {
-        title: 'Something problematic for this project',
-        summary: 'I don\'t have enough cats here, what do I do?',
-        stats: {
-          numVotes: 5,
-          numComments: 3,
-          difficulty: 3
-        }
-      }
-    ];
     return (
       <div className='main-component column'>
         <div className='tabs row'>
@@ -37,7 +17,7 @@ class Main extends React.Component {
           </header>
           <IssuesTabs/>
         </div>
-        <IssuesList filter-selected='hot' issues={issuesData} />
+        <IssuesList filter-selected='hot'/>
         <Settings />
       </div>
     );

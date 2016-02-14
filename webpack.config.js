@@ -3,6 +3,7 @@
 var path = require('path');
 var args = require('minimist')(process.argv.slice(2));
 var classNames = require('classnames');
+
 // List of allowed environments
 var allowedEnvs = ['dev', 'dist', 'test'];
 

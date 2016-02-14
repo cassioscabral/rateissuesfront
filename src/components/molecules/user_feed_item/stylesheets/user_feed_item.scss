@@ -1,6 +1,9 @@
+@import '../../../../styles/colors';
+
 .user-feed-item-component {
   display: flex;
   padding: 0.3rem 0.2rem;
+  cursor: pointer;
   span {
     padding: 5px;
   }
@@ -8,5 +11,9 @@
     display: flex;
     align-self: center;
     margin-bottom: 0.3rem;
+  }
+
+  &:hover {
+    background-color: $active-background;
   }
 }

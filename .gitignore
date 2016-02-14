@@ -31,3 +31,6 @@ bower_components/
 
 # Env
 .env
+
+# API KEY exclusive to Auth0
+API_KEY.js

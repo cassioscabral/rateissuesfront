@@ -3,10 +3,11 @@
 import React from 'react';
 
 require('./stylesheets/smart_links.scss');
+const API_KEY = require('./API_KEY.js').API_KEY; // File is ignored by git
 
 class SmartLinks extends React.Component {
   componentWillMount() {
-    this.lock = new Auth0Lock('', 'rateissues.auth0.com');
+    this.lock = new Auth0Lock(API_KEY, 'rateissues.auth0.com');
     this.setState({idToken: this.getIdToken()});
   }
   componentDidMount() {

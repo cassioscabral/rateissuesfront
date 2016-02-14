@@ -16,7 +16,7 @@ class Issue extends React.Component {
             <h4>{issue.title}</h4>
           </header>
           <div className='summary'>
-            {issue.summary}
+            {issue.description}
           </div>
         </div>
       </div>
