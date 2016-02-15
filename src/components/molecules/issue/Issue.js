@@ -43,7 +43,8 @@ class Issue extends React.Component {
     var issueClasses = classNames({
      'issue-component': true,
      'row': true,
-     'active': this.state.active
+     'active': this.state.active,
+     'no-body': issue.body == '' || issue.body == null
    });
     return (
       <div className={issueClasses}>

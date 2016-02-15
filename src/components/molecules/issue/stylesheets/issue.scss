@@ -2,18 +2,24 @@
 
 .issue-component {
   display: flex;
+  height: auto;
   align-self: center;
   padding-bottom: 0.5rem;
   padding-left: 0.7rem;
   position: relative;
   z-index: 2;
-  overflow: hidden;
   .description {
+    width: 100%;
     header h4 {
       cursor: pointer;
       display: inline-block;
       margin: 0.5rem 0 1rem 0;
     }
+  }
+
+  &.no-body {
+    color: lighten($background, 30%);
+    cursor: none;
   }
 
   &:hover {
@@ -36,17 +42,21 @@
   }
 
 
+
   .summary {
+    display: none;
     max-height: 0;
     transition: max-height 0.4s ease-in;
+    overflow: auto;
   }
 
   &.active .summary  {
+    display: flex;
     max-height: 500px;
     transition: max-height 0.2s ease-out;
   }
 
   &.active {
-    overflow: scroll;
+    overflow: visible;
   }
 }
