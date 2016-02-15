@@ -16,6 +16,13 @@ I have a first [mockup](https://app.moqups.com/cassioscabral@gmail.com/X4e0gZ6L5
 
 My inspirations for this design was 9gag, S.O. and Spotify. Since I am not a designer or anything I tried to make it more functional than pretty right now, but for sure this will be **pretty** and **simple** =).
 
+**New interface based on Atom:**
+
+![new_interface](https://cloud.githubusercontent.com/assets/2073557/13057343/315d7eb0-d3fa-11e5-8df9-cbf05f478d4c.png)
+
+-
+
+
 Screenshot below; Thanks to the [Moqups](https://moqups.com/) team for giving me a temporary upgrade in my account so I could export this image.
 
 ![alt tag](https://cloud.githubusercontent.com/assets/2073557/11826245/ed52b34c-a362-11e5-8467-cbdedda411ed.png)
