@@ -70,6 +70,7 @@
     "github-api": "^0.11.2",
     "halogen": "^0.1.10",
     "lodash": "^3.10.1",
+    "marked": "^0.3.5",
     "material-ui": "^0.14.0",
     "md5": "^2.0.0",
     "normalize.css": "^3.0.3",
