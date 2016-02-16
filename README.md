@@ -18,7 +18,7 @@ My inspirations for this design was 9gag, S.O. and Spotify. Since I am not a des
 
 **New interface based on Atom:**
 
-![new_interface](https://cloud.githubusercontent.com/assets/2073557/13057343/315d7eb0-d3fa-11e5-8df9-cbf05f478d4c.png)
+![new_interface](https://cloud.githubusercontent.com/assets/2073557/13088840/aab28d8c-d4cc-11e5-9199-6fe88b68f636.png)
 
 -
 
