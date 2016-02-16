@@ -14,7 +14,8 @@ class IssuesList extends React.Component {
 
   componentDidMount() {
     let github = new Github({});
-    let search = github.getSearch('language:ruby&sort=stars&order=desc');
+    // let search = github.getSearch('language:ruby&sort=stars&order=desc');
+    let search = github.getSearch('language:ruby+type:issue+state:open+comments:>0');
     var that = this;
 
     search.issues(null, function(err, issues) {

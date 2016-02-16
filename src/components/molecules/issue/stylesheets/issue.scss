@@ -16,12 +16,24 @@
     }
   }
 
+  .issue-creator-profile {
+    float: right;
+    border-radius: 50%;
+  }
+
+  .github-html-url{
+    display: none;
+  }
+
   &.no-body {
     color: lighten($background, 30%);
     cursor: none;
   }
 
   &:hover {
+    .github-html-url {
+      display: inline;
+    }
     background-color: lighten($active-background, 10%);
     transition: 0.2s;
   }

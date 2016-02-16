@@ -35,7 +35,6 @@ class Issue extends React.Component {
     return `${splittedUrl[splittedUrl.length - 1]}: `;
   }
   toggleIssue() {
-    console.log('toggling');
     this.setState({active: !this.state.active});
   }
   render() {
@@ -51,8 +50,12 @@ class Issue extends React.Component {
         <div className='description column'>
           <header>
             <h4 onClick={this.toggleIssue.bind(this)}><b>{this.getRepoName(issue.repository_url)}</b>{issue.title}</h4>
+            <img title={issue.user.login} className='issue-creator-profile' src={issue.user.avatar_url} alt='user that created this issue' width='30px' height='30px'/>
+
+            <br/>
+            <smalll className='github-html-url'><a href={issue.html_url} target='_blank'>View on Github</a></smalll>
           </header>
-          <div className='summary'
+          <div className='summary column'
             dangerouslySetInnerHTML={this.rawMarkup(marked(issue.body || ''))}>
           </div>
         </div>
