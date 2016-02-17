@@ -1,6 +1,11 @@
 .issues-tabs-component {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  height: auto;
+  position: relative;
+  .tabs {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    header {
+      margin-top: 0.3rem;
+    }
+  }
 }
