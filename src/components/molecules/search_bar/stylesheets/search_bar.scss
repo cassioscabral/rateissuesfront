@@ -8,13 +8,13 @@
     align-self: center;
   }
   input {
-    background-color: $active-background;
+    background-color: lighten($active-background, 10%);
     color: $standard-font;
     outline: none;
     border: 0;
     padding: 0 0.2rem;
     &:active, &:focus {
-      background-color: $active-background;
+      background-color: lighten($active-background, 30%);
     }
   }
 }
