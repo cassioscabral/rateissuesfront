@@ -1,8 +1,20 @@
+@import '../../../../styles/colors';
+
 .search-bar-component {
   display: flex;
   justify-content: center;
   * {
     display: flex;
     align-self: center;
+  }
+  input {
+    background-color: $active-background;
+    color: $standard-font;
+    outline: none;
+    border: 0;
+    padding: 0 0.2rem;
+    &:active, &:focus {
+      background-color: $active-background;
+    }
   }
 }
