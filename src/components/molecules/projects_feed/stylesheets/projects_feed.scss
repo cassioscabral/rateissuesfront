@@ -2,7 +2,7 @@
 
 .projects-feed-component {
   min-height: 40%;
-  border-top: 1px solid lighten($background, 8%);
+  border-top: 1px solid lighten($background, 10%);
   &::before {
     content:"";
     display:block;
@@ -12,6 +12,6 @@
     left: 0;
     right: 0;
     top: -2px;
-    border-top: 1px solid lighten($background, 80%);
+    border-top: 1px solid lighten($background, 50%);
   }
 }
