@@ -3,6 +3,7 @@
 import React from 'react';
 import Issue from 'components/molecules/issue/Issue';
 import Github from 'github-api';
+import GithubQueryBuilder from '../../helpers/GithubQueryBuilder';
 
 require('./stylesheets/issues_list.scss');
 
@@ -14,8 +15,8 @@ class IssuesList extends React.Component {
 
   componentDidMount() {
     let github = new Github({});
-    // let search = github.getSearch('language:ruby&sort=stars&order=desc');
-    let search = github.getSearch('language:ruby+type:issue+state:open+comments:>0');
+    let githubQuery = new GithubQueryBuilder();
+    let search = github.getSearch(githubQuery.getQuery());
     var that = this;
 
     search.issues(null, function(err, issues) {
