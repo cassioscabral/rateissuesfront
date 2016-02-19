@@ -7,10 +7,15 @@ require('./stylesheets/issues_tabs.scss');
 class IssuesTabs extends React.Component {
   render() {
     return (
-      <div className='issues-tabs-component row'>
-        <Tab name='hot' active='active'/>
-        <Tab name='trending' />
-        <Tab name='fresh' />
+      <div className='issues-tabs-component'>
+        <header>
+          <h4>Hot Issues</h4>
+        </header>
+        <div className='row tabs'>
+          <Tab name='hot' active='active'/>
+          <Tab name='trending' />
+          <Tab name='fresh' />
+        </div>
       </div>
     );
   }

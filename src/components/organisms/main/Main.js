@@ -11,12 +11,7 @@ class Main extends React.Component {
   render() {
     return (
       <div className='main-component column'>
-        <div className='tabs row'>
-          <header>
-          <b>Hot Issues</b>
-          </header>
-          <IssuesTabs/>
-        </div>
+        <IssuesTabs/>
         <IssuesList filter-selected='hot'/>
         <Settings />
       </div>
