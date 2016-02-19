@@ -1,3 +1,17 @@
+@import '../../../../styles/colors';
+
 .projects-feed-component {
   min-height: 40%;
+  border-top: 1px solid lighten($background, 8%);
+  &::before {
+    content:"";
+    display:block;
+    position:absolute;
+    z-index:-1;
+    top: 0;
+    left: 0;
+    right: 0;
+    top: -2px;
+    border-top: 1px solid lighten($background, 80%);
+  }
 }
