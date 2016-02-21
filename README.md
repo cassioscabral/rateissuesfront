@@ -98,3 +98,10 @@ To improve the development I used this Yeoman generator [atomic-reactor](https:/
 
   - the react-webpack generator from Simon Bailey and its default packages
   - using google preset on Atom jscs linter
+  - using Auth0 for authentication
+
+### Some setup and stuff you should do to run the project
+
+  - inside the smart_links component you should add .js file with the name API_KEY.js for the Auth0 API and add a social plugin(on Auth0 website settings) with Github integration, inside the .js add a content like this:
+
+  `module.exports = {API_KEY: 'myAuth0ApiKey'};`
