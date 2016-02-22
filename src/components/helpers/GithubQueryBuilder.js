@@ -10,6 +10,25 @@ class GithubQueryBuilder {
     this.sort = 'comments';
   }
 
+  _setComments() {
+    let activeTab = localStorage.getItem('activeTab');
+    if (activeTab) {
+      switch (activeTab) {
+      case 'hot':
+        this.setHotFilter();
+        break;
+      case 'trending':
+        this.setTrendingFilter();
+        break;
+      case 'fresh':
+        this.setFreshFilter();
+        break;
+      default:
+        this.setFreshFilter();
+      }
+    }
+  }
+
   // TODO deal with range comments
   setHotFilter() {
     this.comments = 10;
@@ -26,6 +45,7 @@ class GithubQueryBuilder {
   }
 
   _buildQuery() {
+    this._setComments();
     let newQuery = '';
     newQuery += `language:${this.language}`;
     newQuery += `+type:${this.type}`;
