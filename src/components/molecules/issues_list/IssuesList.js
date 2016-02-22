@@ -10,13 +10,13 @@ require('./stylesheets/issues_list.scss');
 class IssuesList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {issues:  []};
+    let githubQuery = new GithubQueryBuilder();
+    this.state = {issues: [], query: githubQuery.getQuery()};
   }
 
   componentDidMount() {
     let github = new Github({});
-    let githubQuery = new GithubQueryBuilder();
-    let search = github.getSearch(githubQuery.getQuery());
+    let search = github.getSearch(this.state.query);
     var that = this;
 
     search.issues(null, function(err, issues) {
@@ -31,7 +31,6 @@ class IssuesList extends React.Component {
     });
 
   };
-
   render() {
     return (
       <div className='issues-list-component'>
