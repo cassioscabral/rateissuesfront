@@ -5,13 +5,16 @@ import React from 'react';
 require('./stylesheets/tab.scss');
 
 class Tab extends React.Component {
+  alterate() {
+    this.props.onClick(this.props.name);
+  }
   render() {
     let tabClass = classNames({
       'tab-component': true,
-      'active': this.props.active
+      'active': this.props.activeTab == this.props.name
     });
     return (
-      <div className={tabClass}>
+      <div className={tabClass} onClick={this.alterate.bind(this)}>
         <span>{this.props.name}</span>
       </div>
     );
