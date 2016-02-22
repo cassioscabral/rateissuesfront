@@ -34,3 +34,5 @@ bower_components/
 
 # API KEY exclusive to Auth0
 API_KEY.js
+
+string
