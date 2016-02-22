@@ -12,7 +12,7 @@ class Main extends React.Component {
     return (
       <div className='main-component column'>
         <IssuesTabs/>
-        <IssuesList filter-selected='hot'/>
+        <IssuesList/>
         <Settings />
       </div>
     );
