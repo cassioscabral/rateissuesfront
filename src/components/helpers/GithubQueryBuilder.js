@@ -3,30 +3,11 @@ class GithubQueryBuilder {
   // language:ruby+type:issue+state:open+comments:>0
   constructor() {
     this.query = 'language:ruby+type:issue+state:open+comments:>0';
-    this.comments = 0;
+    this.comments = 10;
     this.language = 'javascript';
     this.type = 'issue';
     this.state = 'open';
     this.sort = 'comments';
-  }
-
-  _setComments() {
-    let activeTab = localStorage.getItem('activeTab');
-    if (activeTab) {
-      switch (activeTab) {
-      case 'hot':
-        this.setHotFilter();
-        break;
-      case 'trending':
-        this.setTrendingFilter();
-        break;
-      case 'fresh':
-        this.setFreshFilter();
-        break;
-      default:
-        this.setFreshFilter();
-      }
-    }
   }
 
   // TODO deal with range comments
@@ -39,13 +20,27 @@ class GithubQueryBuilder {
   setFreshFilter() {
     this.comments = 0;
   }
+  applyFilter(tab) {
+    switch (tab) {
+    case 'hot':
+      this.setHotFilter();
+      break;
+    case 'trending':
+      this.setTrendingFilter();
+      break;
+    case 'fresh':
+      this.setFreshFilter();
+      break;
+    default:
+      this.setFreshFilter();
+    }
+  }
   setLanguage(language) {
     // TODO deal with invalid data
     this.language = language;
   }
 
   _buildQuery() {
-    this._setComments();
     let newQuery = '';
     newQuery += `language:${this.language}`;
     newQuery += `+type:${this.type}`;
