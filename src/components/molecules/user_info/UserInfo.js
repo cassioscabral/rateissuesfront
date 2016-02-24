@@ -9,7 +9,7 @@ require('./stylesheets/user_info.scss');
 
 class UserInfo extends React.Component {
   getUserProfile() {
-    return JSON.parse(localStorage.getItem('userProfile'));
+    return JSON.parse(localStorage.getItem('userProfile')) || {email:"",nickname:""};
   }
   render() {
 
