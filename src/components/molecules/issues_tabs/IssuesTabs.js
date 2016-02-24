@@ -12,7 +12,6 @@ class IssuesTabs extends React.Component {
   }
   changeTab(tab) {
     this.setState({activeTab: tab});
-    localStorage.setItem('activeTab', tab);
   }
   render() {
     return (

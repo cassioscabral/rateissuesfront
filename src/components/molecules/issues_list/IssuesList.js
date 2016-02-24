@@ -11,10 +11,9 @@ class IssuesList extends React.Component {
   constructor(props) {
     super(props);
     let githubQuery = new GithubQueryBuilder();
-    this.state = {issues: [], query: githubQuery.getQuery()};
+    this.state = {issues: [], activeTab: this.props.activeTab, query: githubQuery.getQuery()};
   }
-
-  componentDidMount() {
+  requestGithub() {
     let github = new Github({});
     let search = github.getSearch(this.state.query);
     var that = this;
@@ -29,7 +28,9 @@ class IssuesList extends React.Component {
       console.log(oldIssues[0]);
       console.log(oldIssues[1]);
     });
-
+  }
+  componentDidMount() {
+    this.requestGithub();
   };
   render() {
     return (
