@@ -3,7 +3,6 @@
 import React from 'react';
 import IssuesList from 'components/molecules/issues_list/IssuesList';
 import IssuesTabs from 'components/molecules/issues_tabs/IssuesTabs';
-import Settings from 'components/atoms/settings/Settings';
 import Tab from 'components/atoms/tab/Tab';
 import Github from 'github-api';
 import GithubQueryBuilder from '../../helpers/GithubQueryBuilder';
@@ -58,7 +57,6 @@ class Main extends React.Component {
           </div>
         </div>
         <IssuesList issues={this.state.issues} activeTab={this.state.activeTab}/>
-        <Settings />
       </div>
     );
   }

@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import Settings from 'components/atoms/settings/Settings';
 
 require('./stylesheets/smart_links.scss');
 const API_KEY = require('./API_KEY.js').API_KEY; // File is ignored by git
@@ -51,6 +52,7 @@ class SmartLinks extends React.Component {
     if (this.state.idToken) {
       return (
         <div className='smart-links-component'>
+          <a href='#'><Settings /></a>
           <a href='#'>about</a>
           <a href='#'>help</a>
           <a href='#' onClick={this.logout.bind(this)}>Logout</a>
