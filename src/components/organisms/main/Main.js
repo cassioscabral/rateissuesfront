@@ -32,11 +32,11 @@ class Main extends React.Component {
     let search = github.getSearch(this.state.githubQuery.getQuery());
     var that = this;
 
-    search.issues(null, function(err, issues) {
-      var oldIssues = that.state.issues;
+    search.issues(null, (err, issues) => {
+      var oldIssues = this.state.issues;
 
       // oldIssues.push(...issues.items);
-      that.setState({
+      this.setState({
         issues: issues.items
       });
       console.log(oldIssues[0]);
