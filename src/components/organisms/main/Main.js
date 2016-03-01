@@ -30,7 +30,6 @@ class Main extends React.Component {
   requestGithub() {
     let github = new Github({});
     let search = github.getSearch(this.state.githubQuery.getQuery());
-    var that = this;
 
     search.issues(null, (err, issues) => {
       var oldIssues = this.state.issues;
