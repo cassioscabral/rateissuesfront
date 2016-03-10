@@ -50,6 +50,7 @@ class Main extends React.Component {
             <h4>{_.capitalize(this.state.activeTab)} Issues</h4>
           </header>
           <div className='row tabs'>
+            <Tab name='custom' onClick={this.changeTab.bind(this)} activeTab={this.state.activeTab}/>
             <Tab name='hot' onClick={this.changeTab.bind(this)} activeTab={this.state.activeTab}/>
             <Tab name='trending' onClick={this.changeTab.bind(this)} activeTab={this.state.activeTab} />
             <Tab name='fresh' onClick={this.changeTab.bind(this)} activeTab={this.state.activeTab} />
