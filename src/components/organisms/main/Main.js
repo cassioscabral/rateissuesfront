@@ -24,17 +24,21 @@ class Main extends React.Component {
   }
   changeTab(tab) {
     this.setState({activeTab: tab});
-    this.state.githubQuery.applyFilter(tab);
-    this.requestGithub();
+    if (tab === 'custom') {
+      this.setState({
+        issues: []
+      });
+    } else {
+      this.state.githubQuery.applyFilter(tab);
+      this.requestGithub();
+    }
+
   }
   requestGithub() {
     let github = new Github({});
     let search = github.getSearch(this.state.githubQuery.getQuery());
 
     search.issues(null, (err, issues) => {
-      var oldIssues = this.state.issues;
-
-      // oldIssues.push(...issues.items);
       this.setState({
         issues: issues.items
       });

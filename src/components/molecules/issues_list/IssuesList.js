@@ -10,15 +10,17 @@ class IssuesList extends React.Component {
     super(props);
   }
   render() {
-    return (
-      <div className='issues-list-component'>
-        {this.props.issues.map(issue => <Issue
-          key={issue.id}
-          issue={issue}
-         />)
-        }
-      </div>
-    );
+    if (this.props.activeTab !== 'custom') {
+      return (
+        <div className='issues-list-component'>
+          {this.props.issues.map(issue => <Issue
+            key={issue.id}
+            issue={issue}
+           />)
+          }
+        </div>
+      );
+    }
   }
 }
 
