@@ -13,17 +13,17 @@ class CustomFilter extends React.Component {
     });
     return (
       <div className={customFilterClass}>
-        <ul className='custom-filters'>
-          <li className='custom-filter'>
+        <div className='custom-filters'>
+          <div className='custom-filter'>
             <h4>Languages</h4>
-          </li>
-          <li className='custom-filter'>
+          </div>
+          <div className='custom-filter'>
             <h4>Favorite Projects</h4>
-          </li>
-          <li className='custom-filter'>
+          </div>
+          <div className='custom-filter'>
             Others
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     );
   }

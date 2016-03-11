@@ -1,7 +1,7 @@
 @import '../../../../styles/colors';
 
 .custom-filter-component {
-  position: absolute;
+  position: fixed;
   width: 100%;
   min-height: 600px;
   opacity: 0;
@@ -10,7 +10,11 @@
   &.active {
     opacity: 1;
     height: 100%;
+    background-color: $active-background
   }
+  border: 1px solid white;
+  left: 0;
+  z-index: 99999;
 }
 
 .custom-filters {
