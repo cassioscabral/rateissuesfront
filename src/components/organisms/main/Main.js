@@ -6,6 +6,7 @@ import IssuesTabs from 'components/molecules/issues_tabs/IssuesTabs';
 import Tab from 'components/atoms/tab/Tab';
 import Github from 'github-api';
 import GithubQueryBuilder from '../../helpers/GithubQueryBuilder';
+import Settings from 'components/atoms/settings/Settings';
 
 _ = require('lodash');
 require('./stylesheets/main.scss');
@@ -24,15 +25,8 @@ class Main extends React.Component {
   }
   changeTab(tab) {
     this.setState({activeTab: tab});
-    if (tab === 'custom') {
-      this.setState({
-        issues: []
-      });
-    } else {
-      this.state.githubQuery.applyFilter(tab);
-      this.requestGithub();
-    }
-
+    this.state.githubQuery.applyFilter(tab);
+    this.requestGithub();
   }
   requestGithub() {
     let github = new Github({});
@@ -54,11 +48,11 @@ class Main extends React.Component {
             <h4>{_.capitalize(this.state.activeTab)} Issues</h4>
           </header>
           <div className='row tabs'>
-            <Tab name='custom' onClick={this.changeTab.bind(this)} activeTab={this.state.activeTab}/>
             <Tab name='hot' onClick={this.changeTab.bind(this)} activeTab={this.state.activeTab}/>
             <Tab name='trending' onClick={this.changeTab.bind(this)} activeTab={this.state.activeTab} />
             <Tab name='fresh' onClick={this.changeTab.bind(this)} activeTab={this.state.activeTab} />
           </div>
+          <Settings></Settings>
         </div>
         <IssuesList issues={this.state.issues} activeTab={this.state.activeTab}/>
       </div>
