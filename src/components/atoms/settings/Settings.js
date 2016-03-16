@@ -2,7 +2,6 @@
 
 import React from 'react';
 import FontIcon from 'material-ui/lib/font-icon';
-import MainSettings from 'components/molecules/main_settings/MainSettings';
 
 require('./stylesheets/settings.scss');
 
@@ -18,7 +17,6 @@ class Settings extends React.Component {
     return (
       <div className='settings-component' onClick={this.handleClick.bind(this)}>
         <FontIcon className='material-icons' color='grey'>settings</FontIcon>
-        <MainSettings show={this.state.active} />
       </div>
     );
   }
