@@ -8,7 +8,7 @@ require('./stylesheets/settings.scss');
 class Settings extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {active: false};
+    this.state = {active: false, color: 'grey'};
   }
   handleClick() {
     this.setState({active: !this.state.active});
@@ -16,7 +16,7 @@ class Settings extends React.Component {
   render() {
     return (
       <div className='settings-component' onClick={this.handleClick.bind(this)}>
-        <FontIcon className='material-icons' color='grey'>settings</FontIcon>
+        <FontIcon className='material-icons' color={this.state.color}>settings</FontIcon>
       </div>
     );
   }

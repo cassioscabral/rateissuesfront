@@ -1,6 +1,10 @@
+@import '../../../../styles/utils';
+@import '../../../../styles/colors';
+
 .main-component {
   display: flex;
   min-width: 75%;
   min-height: 100%;
   height: auto;
+  @include double-border('right', 1, 'solid', lighten($background, 10%));
 }

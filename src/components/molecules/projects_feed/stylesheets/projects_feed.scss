@@ -1,17 +1,19 @@
 @import '../../../../styles/colors';
+@import '../../../../styles/utils';
 
 .projects-feed-component {
   min-height: 40%;
-  border-top: 1px solid lighten($background, 10%);
-  &::before {
-    content:"";
-    display:block;
-    position:absolute;
-    z-index:-1;
-    top: 0;
-    left: 0;
-    right: 0;
-    top: -2px;
-    border-top: 1px solid lighten($background, 50%);
-  }
+  @include double-border('top', 1, 'solid', lighten($background, 10%), "after");
+  // border-top: 1px solid lighten($background, 10%);
+  // &::before {
+  //   content:"";
+  //   display:block;
+  //   position:absolute;
+  //   z-index:-1;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   top: -2px;
+  //   border-top: 1px solid lighten($background, 50%);
+  // }
 }
