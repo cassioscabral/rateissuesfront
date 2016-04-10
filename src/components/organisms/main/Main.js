@@ -1,44 +1,48 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import IssuesList from 'components/molecules/issues_list/IssuesList';
-import IssuesTabs from 'components/molecules/issues_tabs/IssuesTabs';
-import Tab from 'components/atoms/tab/Tab';
-import Github from 'github-api';
-import GithubQueryBuilder from '../../helpers/GithubQueryBuilder';
-import Settings from 'components/atoms/settings/Settings';
+import React from 'react'
+import IssuesList from 'components/molecules/issues_list/IssuesList'
+import IssuesTabs from 'components/molecules/issues_tabs/IssuesTabs'
+import Tab from 'components/atoms/tab/Tab'
+import Github from 'github-api'
+import GithubQueryBuilder from '../../helpers/GithubQueryBuilder'
+import Settings from 'components/atoms/settings/Settings'
 
-_ = require('lodash');
-require('./stylesheets/main.scss');
+_ = require('lodash')
+require('./stylesheets/main.scss')
 
 class Main extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     // TODO associate creation of query with tab passing the value on the constructor
-    this.state = {issues: [], activeTab: 'hot', githubQuery: new GithubQueryBuilder()};
+    this.state = {
+      issues: [],
+      activeTab: 'hot',
+      githubQuery: new GithubQueryBuilder()
+    }
   }
   setGithubQuery() {
-    this.state.githubQuery.applyFilter(tab);
+    this.state.githubQuery.applyFilter(tab)
   }
   componentDidMount() {
-    this.requestGithub();
+    this.requestGithub()
   }
   changeTab(tab) {
-    this.setState({activeTab: tab});
-    this.state.githubQuery.applyFilter(tab);
-    this.requestGithub();
+    this.setState({activeTab: tab})
+    this.state.githubQuery.applyFilter(tab)
+    this.requestGithub()
   }
   requestGithub() {
-    let github = new Github({});
-    let search = github.getSearch(this.state.githubQuery.getQuery());
+    let github = new Github({})
+    let search = github.getSearch(this.state.githubQuery.getQuery())
 
     search.issues(null, (err, issues) => {
       this.setState({
         issues: issues.items
-      });
-      console.log(oldIssues[0]);
-      console.log(oldIssues[1]);
-    });
+      })
+      console.log(oldIssues[0])
+      console.log(oldIssues[1])
+    })
   }
   render() {
     return (
@@ -48,22 +52,26 @@ class Main extends React.Component {
             <h4>{_.capitalize(this.state.activeTab)} Issues</h4>
           </header>
           <div className='row tabs'>
-            <Tab name='hot' onClick={this.changeTab.bind(this)} activeTab={this.state.activeTab}/>
-            <Tab name='trending' onClick={this.changeTab.bind(this)} activeTab={this.state.activeTab} />
-            <Tab name='fresh' onClick={this.changeTab.bind(this)} activeTab={this.state.activeTab} />
+            <Tab name='hot' onClick={this.changeTab.bind(this)}
+               activeTab={this.state.activeTab}/>
+            <Tab name='trending' onClick={this.changeTab.bind(this)}
+               activeTab={this.state.activeTab} />
+            <Tab name='fresh' onClick={this.changeTab.bind(this)}
+               activeTab={this.state.activeTab} />
           </div>
           <Settings></Settings>
         </div>
-        <IssuesList issues={this.state.issues} activeTab={this.state.activeTab}/>
+        <IssuesList issues={this.state.issues}
+          activeTab={this.state.activeTab}/>
       </div>
-    );
+    )
   }
 }
 
-Main.displayName = 'OrganismMain';
+Main.displayName = 'OrganismMain'
 
 // Uncomment properties you need
 // Main.propTypes = {};
 // Main.defaultProps = {};
 
-export default Main;
+export default Main
