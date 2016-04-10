@@ -6,19 +6,22 @@ import Tag from 'components/atoms/tag/Tag'
 require('./stylesheets/tag_manager.scss')
 
 class TagManager extends React.Component {
+  addTag() {
+    console.log('add tag')
+  }
   render() {
     return (
-      <div className='tag-manager-component'>
+      <div className='tag-manager-component u-margin-top-2'>
         <div className='row padding-box'>
           <h3>{this.props.name}</h3>
         </div>
         <div className='row padding-box'>
           <div className='new-entry'>
             <input type='text'/>
-            <button type='submit'>OK</button>
+            <button onClick={this.addTag.bind(this)} type='submit'>OK</button>
           </div>
           <div className='tags'>
-            <Tag name='Javascript'></Tag>
+            {this.props.tags.map((tag) => <Tag name={tag}></Tag>)}
           </div>
         </div>
       </div>

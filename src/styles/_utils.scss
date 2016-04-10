@@ -99,3 +99,20 @@
 .padding-box {
   padding: 6px;
 }
+
+// create util classes like .u-margin-top-2 which will set margin-top: 2%;
+// this mixin will create classes for this property through 1 to 12%
+@mixin build-utils($property) {
+  $directions: ('top', 'right', 'bottom', 'left');
+  @for $i from 1 through 12 {
+    @for $dir from 0 to length($directions) {
+      $current: nth($directions, $dir+1);
+      .u-#{$property}-#{$current}-#{$i} {
+        #{$property}-#{$current}: #{$i}%;
+      }
+    }
+  }
+}
+
+@include build-utils('margin');
+@include build-utils('padding');

@@ -2,6 +2,7 @@
 
 import React from 'react'
 import FontIcon from 'material-ui/lib/font-icon'
+import TagManager from 'components/molecules/tag_manager/TagManager'
 
 require('./stylesheets/filters.scss')
 
@@ -14,10 +15,12 @@ class Filters extends React.Component {
     }
   }
   render() {
+    let languageCollection = ['Javascript', 'Ruby']
+    let favoriteProjects = ['Rails', 'React', 'Vue']
     return (
       <div className='filters-component'>
         <div className='row'>
-          <h2 className='padding-box'>Filters Component</h2>
+          <h2 className='padding-box'>Filters</h2>
           <FontIcon className='material-icons clickable padding-box'
                     color='#6F1D1D'
                     style={{fontSize: '34px'}}
@@ -25,6 +28,10 @@ class Filters extends React.Component {
             close
           </FontIcon>
         </div>
+        <TagManager name='Languages' tags={languageCollection}>
+        </TagManager>
+        <TagManager name='Favorite Projects' tags={favoriteProjects}>
+        </TagManager>
       </div>
     )
   }
