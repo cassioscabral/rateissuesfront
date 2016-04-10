@@ -19,6 +19,7 @@
     "no-undef": 1,
     "global-strict": 0,
     "no-extra-semi": 1,
+    "semi": 0,
     "no-underscore-dangle": 0,
     "no-console": 1,
     "no-unused-vars": 1,

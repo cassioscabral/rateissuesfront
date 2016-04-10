@@ -1,16 +1,16 @@
-// require('normalize.css'); FIXME npm package is not updated
-require('styles/_colors.scss');
-require('styles/_utils.scss');
-require('styles/_layout.scss');
-require('styles/App.scss');
+// require('normalize.css') FIXME npm package is not updated
+require('styles/_colors.scss')
+require('styles/_utils.scss')
+require('styles/_layout.scss')
+require('styles/App.scss')
 
-import React from 'react';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import TopMenu from 'components/organisms/top_menu/TopMenu';
-import Sidebar from 'components/organisms/sidebar/Sidebar';
-import Main from 'components/organisms/main/Main';
+import React from 'react'
+import injectTapEventPlugin from 'react-tap-event-plugin'
+import TopMenu from 'components/organisms/top_menu/TopMenu'
+import Sidebar from 'components/organisms/sidebar/Sidebar'
+import Main from 'components/organisms/main/Main'
 
-injectTapEventPlugin();
+injectTapEventPlugin()
 
 class AppComponent extends React.Component {
   render() {
@@ -22,11 +22,11 @@ class AppComponent extends React.Component {
           <Sidebar />
         </div>
       </div>
-    );
+    )
   }
 }
 
 AppComponent.defaultProps = {
-};
+}
 
-export default AppComponent;
+export default AppComponent
