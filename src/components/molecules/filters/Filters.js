@@ -16,11 +16,15 @@ class Filters extends React.Component {
   render() {
     return (
       <div className='filters-component'>
-        <span>Filters Component</span>
-        <FontIcon className='material-icons clickable' color='grey'
-                  onClick={this.handleClick.bind(this)} >
-          close
-        </FontIcon>
+        <div className='row'>
+          <h2 className='padding-box'>Filters Component</h2>
+          <FontIcon className='material-icons clickable padding-box'
+                    color='#6F1D1D'
+                    style={{fontSize: '34px'}}
+                    onClick={this.handleClick.bind(this)}>
+            close
+          </FontIcon>
+        </div>
       </div>
     )
   }
