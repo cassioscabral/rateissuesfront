@@ -5,6 +5,7 @@ import CounterBox from 'components/molecules/counter_box/CounterBox'
 import Arrows from 'components/molecules/arrows/Arrows'
 import marked from 'marked'
 import classNames from 'classnames'
+
 require('./stylesheets/issue.scss')
 
 class Issue extends React.Component {
