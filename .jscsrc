@@ -2,5 +2,6 @@
   "preset": "google",
   "esnext": true,
   "disallowSemicolons": true,
-  "requireSemicolons": false
+  "requireSemicolons": false,
+  "requireCamelCaseOrUpperCaseIdentifiers": false
 }
