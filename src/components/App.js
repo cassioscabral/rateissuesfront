@@ -1,4 +1,4 @@
-require('normalize.css');
+// require('normalize.css'); FIXME npm package is not updated
 require('styles/_colors.scss');
 require('styles/_utils.scss');
 require('styles/_layout.scss');
