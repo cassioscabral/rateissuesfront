@@ -11,7 +11,13 @@ class Settings extends React.Component {
     this.state = {active: false, color: 'grey'}
   }
   handleClick() {
-    this.setState({active: !this.state.active})
+    if (this.props.onClick) {
+      if (this.props.changeComponentTo) {
+        console.log(this.props.changeComponentTo)
+        this.props.onClick(this.props.changeComponentTo)
+        this.setState({active: !this.state.active})
+      }
+    }
   }
   render() {
     return (
