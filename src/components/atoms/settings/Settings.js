@@ -1,31 +1,33 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import FontIcon from 'material-ui/lib/font-icon';
+import React from 'react'
+import FontIcon from 'material-ui/lib/font-icon'
 
-require('./stylesheets/settings.scss');
+require('./stylesheets/settings.scss')
 
 class Settings extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = {active: false, color: 'grey'};
+    super(props)
+    this.state = {active: false, color: 'grey'}
   }
   handleClick() {
-    this.setState({active: !this.state.active});
+    this.setState({active: !this.state.active})
   }
   render() {
     return (
       <div className='settings-component' onClick={this.handleClick.bind(this)}>
-        <FontIcon className='material-icons' color={this.state.color}>settings</FontIcon>
+        <FontIcon className='material-icons' color={this.state.color}>
+          settings
+        </FontIcon>
       </div>
-    );
+    )
   }
 }
 
-Settings.displayName = 'AtomSettings';
+Settings.displayName = 'AtomSettings'
 
 // Uncomment properties you need
 // Settings.propTypes = {};
 // Settings.defaultProps = {};
 
-export default Settings;
+export default Settings
