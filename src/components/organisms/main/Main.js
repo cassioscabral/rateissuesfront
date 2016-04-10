@@ -7,6 +7,9 @@ import Tab from 'components/atoms/tab/Tab'
 import Github from 'github-api'
 import GithubQueryBuilder from '../../helpers/GithubQueryBuilder'
 import Settings from 'components/atoms/settings/Settings'
+import Filters from 'components/molecules/filters/Filters'
+import FontIcon from 'material-ui/lib/font-icon'
+import classNames from 'classnames'
 
 _ = require('lodash')
 require('./stylesheets/main.scss')
@@ -18,7 +21,8 @@ class Main extends React.Component {
     this.state = {
       issues: [],
       activeTab: 'hot',
-      githubQuery: new GithubQueryBuilder()
+      githubQuery: new GithubQueryBuilder(),
+      currentComponent: 'IssuesList'
     }
   }
   setGithubQuery() {
@@ -40,29 +44,46 @@ class Main extends React.Component {
       this.setState({
         issues: issues.items
       })
-      console.log(oldIssues[0])
-      console.log(oldIssues[1])
     })
+  }
+  currentComponentClass(component) {
+    let componentClass = classNames({
+      'component': true,
+      'active': this.state.currentComponent == component
+    })
+    return componentClass
+  }
+  changeCurrentComponent(component) {
+    this.setState({currentComponent: component})
   }
   render() {
     return (
       <div className='main-component column'>
-        <div className='issues-tabs-component'>
-          <header>
-            <h4>{_.capitalize(this.state.activeTab)} Issues</h4>
-          </header>
-          <div className='row tabs'>
-            <Tab name='hot' onClick={this.changeTab.bind(this)}
-               activeTab={this.state.activeTab}/>
-            <Tab name='trending' onClick={this.changeTab.bind(this)}
-               activeTab={this.state.activeTab} />
-            <Tab name='fresh' onClick={this.changeTab.bind(this)}
-               activeTab={this.state.activeTab} />
+        <div className={this.currentComponentClass('IssuesList')}>
+          <div className='issues-tabs-component'>
+            <header>
+              <h4>{_.capitalize(this.state.activeTab)} Issues</h4>
+            </header>
+            <div className='row tabs'>
+              <Tab name='hot' onClick={this.changeTab.bind(this)}
+                 activeTab={this.state.activeTab}/>
+              <Tab name='trending' onClick={this.changeTab.bind(this)}
+                 activeTab={this.state.activeTab} />
+              <Tab name='fresh' onClick={this.changeTab.bind(this)}
+                 activeTab={this.state.activeTab} />
+            </div>
+            <Settings changeComponentTo='Filters'
+                      onClick={this.changeCurrentComponent.bind(this)}>
+            </Settings>
           </div>
-          <Settings></Settings>
+          <IssuesList issues={this.state.issues}
+            activeTab={this.state.activeTab}/>
         </div>
-        <IssuesList issues={this.state.issues}
-          activeTab={this.state.activeTab}/>
+        <div className={this.currentComponentClass('Filters')}>
+          <Filters changeComponentTo='IssuesList'
+                   onClick={this.changeCurrentComponent.bind(this)}>
+          </Filters>
+        </div>
       </div>
     )
   }
