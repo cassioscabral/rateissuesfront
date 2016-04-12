@@ -17,13 +17,14 @@ require('./stylesheets/main.scss')
 class Main extends React.Component {
   constructor(props) {
     super(props)
-    // TODO associate creation of query with tab passing the value on the constructor
     this.state = {
       issues: [],
       activeTab: 'hot',
       githubQuery: new GithubQueryBuilder(),
       currentComponent: 'IssuesList'
     }
+    // default language on filters TODO move to a proper function
+    localStorage.setItem('languages', 'Javascript')
   }
   setGithubQuery() {
     this.state.githubQuery.applyFilter(tab)

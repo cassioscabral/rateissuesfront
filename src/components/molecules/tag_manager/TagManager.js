@@ -6,8 +6,32 @@ import Tag from 'components/atoms/tag/Tag'
 require('./stylesheets/tag_manager.scss')
 
 class TagManager extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      tagValue: 'test',
+      tags: this.props.tags
+    }
+  }
+  getTags() {
+    return this.state.tags
+  }
+  // tags are array saved as strings separated by '+'
   addTag() {
-    console.log('add tag')
+    // TODO deal with cases like C++
+    let tag = this.state.tagValue
+    let collectionName = this.props.collection
+    let tags = localStorage.getItem(collectionName) || ''
+    console.log(tag, collectionName, tags)
+    localStorage.setItem(collectionName, tags + `+${tag}`)
+
+    // deal with the array
+    // let oldTags = this.getTags()
+    // oldTags.push(tag)
+    // this.setState({tags: oldTags})
+  }
+  handleInput(event) {
+    this.setState({tagValue: event.target.value})
   }
   render() {
     return (
@@ -17,7 +41,11 @@ class TagManager extends React.Component {
         </div>
         <div className='row padding-box'>
           <div className='new-entry'>
-            <input type='text'/>
+            <input
+              type='text'
+              value={this.state.tagValue}
+              onChange={this.handleInput.bind(this)}
+            />
             <button onClick={this.addTag.bind(this)} type='submit'>OK</button>
           </div>
           <div className='tags'>

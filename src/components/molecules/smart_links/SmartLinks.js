@@ -70,10 +70,10 @@ class SmartLinks extends React.Component {
   }
 }
 
-SmartLinks.displayName = 'MoleculeSmartLinks';
+SmartLinks.displayName = 'MoleculeSmartLinks'
 
 // Uncomment properties you need
 // SmartLinks.propTypes = {};
 // SmartLinks.defaultProps = {};
 
-export default SmartLinks;
+export default SmartLinks

@@ -14,8 +14,15 @@ class Filters extends React.Component {
       }
     }
   }
+  getLanguages() {
+    return localStorage.getItem('languages')
+  }
+  addLanguage(language) {
+    languages = localStorage.getItem('languages') || ''
+    localStorage.setItem('languages', languages + `+${language}`)
+  }
   render() {
-    let languageCollection = ['Javascript', 'Ruby']
+    let languageCollection = this.getLanguages().split('+')
     let favoriteProjects = ['Rails', 'React', 'Vue']
     return (
       <div className='filters-component'>
@@ -28,7 +35,9 @@ class Filters extends React.Component {
             close
           </FontIcon>
         </div>
-        <TagManager name='Languages' tags={languageCollection}>
+        <TagManager collection='languages'
+                    name='Languages'
+                    tags={languageCollection}>
         </TagManager>
         <TagManager name='Favorite Projects' tags={favoriteProjects}>
         </TagManager>
