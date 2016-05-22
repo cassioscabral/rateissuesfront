@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import FontIcon from 'material-ui/lib/font-icon';
+// import {FontIcon} from 'material-ui'
 
 require('./stylesheets/notifier.scss');
 
@@ -9,7 +9,7 @@ class Notifier extends React.Component {
   render() {
     return (
       <div className='notifier-component'>
-        <FontIcon className='material-icons' color='white'>{this.props.icon}</FontIcon>
+        {/*<FontIcon className='material-icons' color='white'>{this.props.icon}</FontIcon>*/}
       </div>
     );
   }

@@ -8,7 +8,7 @@ import Github from 'github-api'
 import GithubQueryBuilder from '../../helpers/GithubQueryBuilder'
 import Settings from 'components/atoms/settings/Settings'
 import Filters from 'components/molecules/filters/Filters'
-import FontIcon from 'material-ui/lib/font-icon'
+// import FontIcon from 'material-ui/lib/font-icon'
 import classNames from 'classnames'
 
 _ = require('lodash')
@@ -25,7 +25,7 @@ class Main extends React.Component {
       currentComponent: 'IssuesList'
     }
   }
-  setGithubQuery() {
+  setGithubQuery(tab) {
     this.state.githubQuery.applyFilter(tab)
   }
   componentDidMount() {

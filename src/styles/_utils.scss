@@ -56,10 +56,8 @@
   $before-or-after: shows the border before or after the first border, default: "before"
 */
 @mixin double-border($direction, $size, $type, $color, $before-or-after: "before") {
-
-  @if ($before-or-after == "after") {
-    $inverter: 1;
-  } @else {
+  $inverter: 1;
+  @if ($before-or-after == "before") {
     $inverter: -1;
   }
   @include border($direction, $size, $type, $color);

@@ -70,12 +70,10 @@
     "github-api": "^0.11.2",
     "lodash": "^4.9.0",
     "marked": "^0.3.5",
-    "material-ui": "^0.15.0-alpha.2",
     "md5": "^2.0.0",
     "normalize.css": "^4.0.0",
-    "react": "^15.0.1",
-    "react-addons-test-utils": "^15.0.1",
-    "react-dom": "^15.0.1",
-    "react-tap-event-plugin": "^0.2.1"
+    "react": "latest",
+    "react-addons-test-utils": "latest",
+    "react-dom": "latest"
   }
 }

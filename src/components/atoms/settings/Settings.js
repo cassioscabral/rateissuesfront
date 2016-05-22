@@ -1,7 +1,7 @@
 'use strict'
 
 import React from 'react'
-import FontIcon from 'material-ui/lib/font-icon'
+// import {FontIcon} from 'material-ui'
 
 require('./stylesheets/settings.scss')
 
@@ -21,9 +21,9 @@ class Settings extends React.Component {
   render() {
     return (
       <div className='settings-component' onClick={this.handleClick.bind(this)}>
-        <FontIcon className='material-icons' color={this.state.color}>
+        {/*<FontIcon className='material-icons' color={this.state.color}>
           settings
-        </FontIcon>
+        </FontIcon>*/}
       </div>
     )
   }

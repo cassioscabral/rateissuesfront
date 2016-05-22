@@ -102,6 +102,6 @@ To improve the development I used this Yeoman generator [atomic-reactor](https:/
 
 ### Some setup and stuff you should do to run the project
 
-  - inside the smart_links component you should add .js file with the name API_KEY.js for the Auth0 API and add a social plugin(on Auth0 website settings) with Github integration, inside the .js add a content like this:
+  - inside the `molecules/smart_links/` component folder you should add .js file with the name API_KEY.js for the Auth0 API and add a social plugin(on Auth0 website settings) with Github integration, inside the .js add a content like this:
 
   `module.exports = {API_KEY: 'myAuth0ApiKey'};`

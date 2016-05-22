@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import FontIcon from 'material-ui/lib/font-icon';
+// import {FontIcon} from 'material-ui'
 
 require('./stylesheets/logo.scss');
 
@@ -9,7 +9,7 @@ class Logo extends React.Component {
   render() {
     return (
       <div className='logo-component'>
-        <FontIcon className='material-icons' color='grey'>home</FontIcon>
+        {/*<FontIcon className='material-icons' color='grey'>home</FontIcon>*/}
       </div>
     );
   }
