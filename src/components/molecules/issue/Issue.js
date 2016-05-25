@@ -33,7 +33,7 @@ class Issue extends React.Component {
   getRepoName(repoUrl) {
     let splittedUrl = repoUrl.split('/')
 
-    return `${splittedUrl[splittedUrl.length - 1]}: `
+    return `${splittedUrl[splittedUrl.length - 1]}`
   }
   toggleIssue() {
     this.setState({active: !this.state.active})
@@ -51,8 +51,10 @@ class Issue extends React.Component {
         <div className='description column'>
           <header>
             <h4 onClick={this.toggleIssue.bind(this)}>
-              <b>{this.getRepoName(issue.repository_url)}</b>{issue.title}
+              {issue.title}
             </h4>
+            <br/>
+            <small><b>Repo:  {this.getRepoName(issue.repository_url)}</b></small>
             <img title={issue.user.login} className='issue-creator-profile'
                src={issue.user.avatar_url} alt='user that created this issue'
                width='30px' height='30px'/>
