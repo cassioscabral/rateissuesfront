@@ -1,8 +1,8 @@
 'use strict'
 
 import React from 'react'
-import CounterBox from 'components/molecules/counter_box/CounterBox'
-import Arrows from 'components/molecules/arrows/Arrows'
+// import CounterBox from 'components/molecules/counter_box/CounterBox'
+// import Arrows from 'components/molecules/arrows/Arrows'
 import marked from 'marked'
 import classNames from 'classnames'
 
