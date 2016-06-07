@@ -5,12 +5,9 @@ require('styles/_layout.scss')
 require('styles/App.scss')
 
 import React from 'react'
-import injectTapEventPlugin from 'react-tap-event-plugin'
 import TopMenu from 'components/organisms/top_menu/TopMenu'
 import Sidebar from 'components/organisms/sidebar/Sidebar'
 import Main from 'components/organisms/main/Main'
-
-injectTapEventPlugin()
 
 class AppComponent extends React.Component {
   render() {
