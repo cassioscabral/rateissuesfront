@@ -4,11 +4,12 @@ import React from 'react';
 import Settings from 'components/atoms/settings/Settings';
 
 require('./stylesheets/smart_links.scss');
-const API_KEY = require('./API_KEY.js').API_KEY; // File is ignored by git
+const CLIENT_ID = require('./API_KEY.js').CLIENT_ID; // File is ignored by git
+const CLIENT_DOMAIN = require('./API_KEY.js').CLIENT_DOMAIN; // File is ignored by git
 
 class SmartLinks extends React.Component {
   componentWillMount() {
-    this.lock = new Auth0Lock(API_KEY, 'rateissues.auth0.com');
+    this.lock = new Auth0Lock(CLIENT_ID, CLIENT_DOMAIN);
     this.setState({idToken: this.getIdToken()});
   }
   componentDidMount() {
