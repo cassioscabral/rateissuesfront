@@ -12,9 +12,9 @@ class IssuesList extends React.Component {
   render() {
     return (
       <div className='issues-list-component'>
-        {this.props.issues.map(issue => <Issue
-          key={issue.id}
-          issue={issue}
+        { this.props.issues.map(issue => <Issue
+          key={ issue.id }
+          issue={ issue }
          />)
         }
       </div>

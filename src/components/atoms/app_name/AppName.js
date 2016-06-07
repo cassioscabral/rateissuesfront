@@ -1,9 +1,9 @@
 
-'use strict';
+'use strict'
 
-import React from 'react';
+import React from 'react'
 
-require('./stylesheets/app_name.scss');
+require('./stylesheets/app_name.scss')
 
 class AppName extends React.Component {
   render() {
@@ -11,14 +11,14 @@ class AppName extends React.Component {
       <div className='app-name-component'>
         RateIssues
       </div>
-    );
+    )
   }
 }
 
-AppName.displayName = 'AtomAppName';
+AppName.displayName = 'AtomAppName'
 
 // Uncomment properties you need
 // AppName.propTypes = {};
 // AppName.defaultProps = {};
 
-export default AppName;
+export default AppName

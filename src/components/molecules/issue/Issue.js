@@ -45,24 +45,24 @@ class Issue extends React.Component {
      'no-body': issue.body == '' || issue.body == null
    })
     return (
-      <div className={issueClasses}>
+      <div className={ issueClasses }>
         <div className='description column'>
           <header>
-            <h4 onClick={this.toggleIssue.bind(this)}>
-              {issue.title}
+            <h4 onClick={ this.toggleIssue.bind(this) }>
+              { issue.title }
             </h4>
-            <br/>
-            <small><b>Repo:  {this.getRepoName(issue.repository_url)}</b></small>
-            <img title={issue.user.login} className='issue-creator-profile'
-               src={issue.user.avatar_url} alt='user that created this issue'
-               width='30px' height='30px'/>
+            <br />
+            <small><b>Repo:  { this.getRepoName(issue.repository_url) }</b></small>
+            <img title={ issue.user.login } className='issue-creator-profile'
+              src={ issue.user.avatar_url } alt='user that created this issue'
+              width='30px' height='30px' />
 
-            <br/>
-            <smalll className='github-html-url'><a href={issue.html_url}
+            <br />
+            <smalll className='github-html-url'><a href={ issue.html_url }
               target='_blank'>View on Github</a></smalll>
           </header>
           <div className='summary column'
-            dangerouslySetInnerHTML={this.rawMarkup(marked(issue.body || ''))}>
+            dangerouslySetInnerHTML={ this.rawMarkup(marked(issue.body || '')) }>
           </div>
         </div>
       </div>

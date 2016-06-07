@@ -18,7 +18,7 @@ class Filters extends React.Component {
     return (
       <div className='filters-component'>
         <span>Filters Component</span>
-        {/*<FontIcon className='material-icons clickable' color='grey'
+        {/* <FontIcon className='material-icons clickable' color='grey'
                   onClick={this.handleClick.bind(this)} >
           close
         </FontIcon>*/}

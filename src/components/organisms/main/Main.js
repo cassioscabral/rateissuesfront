@@ -59,29 +59,29 @@ class Main extends React.Component {
   render() {
     return (
       <div className='main-component column'>
-        <div className={this.currentComponentClass('IssuesList')}>
+        <div className={ this.currentComponentClass('IssuesList') }>
           <div className='issues-tabs-component'>
             <header>
-              <h4>{_.capitalize(this.state.activeTab)} Issues</h4>
+              <h4>{ _.capitalize(this.state.activeTab) } Issues</h4>
             </header>
             <div className='row tabs'>
-              <Tab name='hot' onClick={this.changeTab.bind(this)}
-                 activeTab={this.state.activeTab}/>
-              <Tab name='trending' onClick={this.changeTab.bind(this)}
-                 activeTab={this.state.activeTab} />
-              <Tab name='fresh' onClick={this.changeTab.bind(this)}
-                 activeTab={this.state.activeTab} />
+              <Tab name='hot' onClick={ this.changeTab.bind(this) }
+                activeTab={ this.state.activeTab } />
+              <Tab name='trending' onClick={ this.changeTab.bind(this) }
+                activeTab={ this.state.activeTab } />
+              <Tab name='fresh' onClick={ this.changeTab.bind(this) }
+                activeTab={ this.state.activeTab } />
             </div>
             <Settings changeComponentTo='Filters'
-                      onClick={this.changeCurrentComponent.bind(this)}>
+              onClick={ this.changeCurrentComponent.bind(this) }>
             </Settings>
           </div>
-          <IssuesList issues={this.state.issues}
-            activeTab={this.state.activeTab}/>
+          <IssuesList issues={ this.state.issues }
+            activeTab={ this.state.activeTab } />
         </div>
-        <div className={this.currentComponentClass('Filters')}>
+        <div className={ this.currentComponentClass('Filters') }>
           <Filters changeComponentTo='IssuesList'
-                   onClick={this.changeCurrentComponent.bind(this)}>
+            onClick={ this.changeCurrentComponent.bind(this) }>
           </Filters>
         </div>
       </div>

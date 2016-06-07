@@ -17,16 +17,16 @@ class IssuesTabs extends React.Component {
     return (
       <div className='issues-tabs-component'>
         <header>
-          <h4>{_.capitalize(this.state.activeTab)} Issues</h4>
+          <h4>{ _.capitalize(this.state.activeTab) } Issues</h4>
         </header>
         <div className='row tabs'>
-          <Tab name='hot' onClick={this.changeTab.bind(this)}
-               activeTab={this.state.activeTab}/>
+          <Tab name='hot' onClick={ this.changeTab.bind(this) }
+            activeTab={ this.state.activeTab } />
           <Tab name='trending'
-               onClick={this.changeTab.bind(this)}
-               activeTab={this.state.activeTab} />
-          <Tab name='fresh' onClick={this.changeTab.bind(this)}
-               activeTab={this.state.activeTab} />
+            onClick={ this.changeTab.bind(this) }
+            activeTab={ this.state.activeTab } />
+          <Tab name='fresh' onClick={ this.changeTab.bind(this) }
+            activeTab={ this.state.activeTab } />
         </div>
       </div>
     )
