@@ -6,7 +6,7 @@ import React from 'react'
 require('./stylesheets/search_bar.scss')
 
 class SearchBar extends React.Component {
-  render() {
+  render () {
     return (
       <div className='search-bar-component'>
         {/* <FontIcon className='material-icons' color='grey'>search</FontIcon>*/}

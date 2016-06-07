@@ -7,7 +7,7 @@ import ProjectFeedItem from
 require('./stylesheets/projects_feed.scss')
 
 class ProjectsFeed extends React.Component {
-  render() {
+  render () {
     var items = this.props.projectActivities
     return (
       <div className='projects-feed-component'>

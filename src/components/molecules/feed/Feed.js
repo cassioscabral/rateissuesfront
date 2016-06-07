@@ -5,7 +5,7 @@ import React from 'react'
 require('./stylesheets/feed.scss')
 
 class Feed extends React.Component {
-  render() {
+  render () {
     var feed = this.props.feed
     return (
       <div className='feed-component'>

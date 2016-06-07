@@ -6,7 +6,7 @@ import SettingOption from 'components/atoms/setting_option/SettingOption'
 require('./stylesheets/main_settings.scss')
 
 class MainSettings extends React.Component {
-  render() {
+  render () {
     var style = {
       display: this.props.show ? 'flex' : 'none'
     }

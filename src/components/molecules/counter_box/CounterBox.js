@@ -5,7 +5,7 @@ import NumberBox from 'components/atoms/number_box/NumberBox'
 require('./stylesheets/counter_box.scss')
 
 class CounterBox extends React.Component {
-  render() {
+  render () {
     return (
       <div className='counter-box-component row'>
         <NumberBox number={ this.props.numVotes }

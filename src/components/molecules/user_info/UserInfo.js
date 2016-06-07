@@ -8,10 +8,10 @@ import Badges from 'components/molecules/badges/Badges'
 require('./stylesheets/user_info.scss')
 
 class UserInfo extends React.Component {
-  getUserProfile() {
+  getUserProfile () {
     return JSON.parse(localStorage.getItem('userProfile')) || {email:'',nickname:''}
   }
-  render() {
+  render () {
 
     let userProfile = this.getUserProfile()
     return (

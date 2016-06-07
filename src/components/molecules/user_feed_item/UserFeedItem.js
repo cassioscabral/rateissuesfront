@@ -6,7 +6,7 @@ import ProfileImage from 'components/atoms/profile_image/ProfileImage'
 require('./stylesheets/user_feed_item.scss')
 
 class UserFeedItem extends React.Component {
-  render() {
+  render () {
     var imageUrl = this.props.imageUrl
     var activity = this.props.activity
     // TODO make this activity look better in a separated component

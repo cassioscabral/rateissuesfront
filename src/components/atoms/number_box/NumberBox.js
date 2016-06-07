@@ -5,7 +5,7 @@ import React from 'react'
 require('./stylesheets/number_box.scss')
 
 class NumberBox extends React.Component {
-  render() {
+  render () {
     return (
       <div className='number-box-component column'>
         <span>{ this.props.number }</span>

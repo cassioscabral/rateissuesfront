@@ -6,7 +6,7 @@ import Badge from 'components/atoms/badge/Badge'
 require('./stylesheets/badges.scss')
 
 class Badges extends React.Component {
-  render() {
+  render () {
     return (
       <div className='badges-component'>
         <label>{ this.props.points }</label>

@@ -7,7 +7,7 @@ import AppName from 'components/atoms/app_name/AppName'
 require('./stylesheets/logo_name.scss')
 
 class LogoName extends React.Component {
-  render() {
+  render () {
     return (
       <div className='logo-name-component'>
         <Logo />

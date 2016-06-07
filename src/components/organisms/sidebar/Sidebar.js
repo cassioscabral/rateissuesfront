@@ -7,7 +7,7 @@ import ProjectsFeed from 'components/molecules/projects_feed/ProjectsFeed'
 require('./stylesheets/sidebar.scss')
 
 class Sidebar extends React.Component {
-  render() {
+  render () {
     var usersData = [
     {
       activity: '@someone upvoted #123 in Rails',

@@ -6,7 +6,7 @@ import React from 'react'
 require('./stylesheets/logo.scss')
 
 class Logo extends React.Component {
-  render() {
+  render () {
     return (
       <div className='logo-component'>
         {/* <FontIcon className='material-icons' color='grey'>home</FontIcon>*/}

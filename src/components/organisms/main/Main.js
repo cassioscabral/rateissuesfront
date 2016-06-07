@@ -14,7 +14,7 @@ import _ from 'lodash'
 require('./stylesheets/main.scss')
 
 class Main extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     // TODO associate creation of query with tab passing the value on the constructor
     this.state = {
@@ -24,18 +24,18 @@ class Main extends React.Component {
       currentComponent: 'IssuesList'
     }
   }
-  setGithubQuery(tab) {
+  setGithubQuery (tab) {
     this.state.githubQuery.applyFilter(tab)
   }
-  componentDidMount() {
+  componentDidMount () {
     this.requestGithub()
   }
-  changeTab(tab) {
+  changeTab (tab) {
     this.setState({activeTab: tab})
     this.state.githubQuery.applyFilter(tab)
     this.requestGithub()
   }
-  requestGithub() {
+  requestGithub () {
     let github = new Github({})
     let search = github.getSearch(this.state.githubQuery.getQuery())
 
@@ -45,17 +45,17 @@ class Main extends React.Component {
       })
     })
   }
-  currentComponentClass(component) {
+  currentComponentClass (component) {
     let componentClass = classNames({
       'component': true,
       'active': this.state.currentComponent === component
     })
     return componentClass
   }
-  changeCurrentComponent(component) {
+  changeCurrentComponent (component) {
     this.setState({currentComponent: component})
   }
-  render() {
+  render () {
     return (
       <div className='main-component column'>
         <div className={ this.currentComponentClass('IssuesList') }>

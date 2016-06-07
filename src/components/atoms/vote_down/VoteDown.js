@@ -7,7 +7,7 @@ require('./stylesheets/vote_down.scss')
 
 class VoteDown extends React.Component {
 
-  render() {
+  render () {
     // const iconStyles = {
     //   fontSize: '42px'
     // };

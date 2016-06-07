@@ -5,7 +5,7 @@ import React from 'react'
 require('./stylesheets/setting_option.scss')
 
 class SettingOption extends React.Component {
-  render() {
+  render () {
     return (
       <div className='setting-option-component'>
         { this.props.label }

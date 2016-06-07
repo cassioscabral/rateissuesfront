@@ -6,7 +6,7 @@ require('./stylesheets/custom_filter.scss')
 let classNames = require('classnames')
 
 class CustomFilter extends React.Component {
-  render() {
+  render () {
     let customFilterClass = classNames({
       'custom-filter-component': true,
       'active': this.props.activeTab === 'custom'

@@ -5,7 +5,7 @@ import React from 'react'
 require('./stylesheets/badge.scss')
 
 class Badge extends React.Component {
-  render() {
+  render () {
     return (
       <div className='badge-component'>
         <span className='round-badge'

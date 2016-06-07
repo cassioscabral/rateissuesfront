@@ -6,7 +6,7 @@ require('./stylesheets/profile_image.scss')
 let md5 = require('md5')
 
 class ProfileImage extends React.Component {
-  render() {
+  render () {
     var imageUrl = undefined
     if (this.props.email !== undefined) {
       imageUrl = 'http://www.gravatar.com/avatar/' + md5(this.props.email)

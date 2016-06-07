@@ -6,7 +6,7 @@ import UserFeedItem from 'components/molecules/user_feed_item/UserFeedItem'
 require('./stylesheets/users_feed.scss')
 
 class UsersFeed extends React.Component {
-  render() {
+  render () {
     var items = this.props.userActivities
     return (
       <div className='users-feed-component'>

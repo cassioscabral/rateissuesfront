@@ -5,7 +5,7 @@ import React from 'react'
 require('./stylesheets/username.scss')
 
 class Username extends React.Component {
-  render() {
+  render () {
     return (
       <div className='username-component'>
         { this.props.username }

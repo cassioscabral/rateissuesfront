@@ -7,14 +7,14 @@ import React from 'react'
 require('./stylesheets/filters.scss')
 
 class Filters extends React.Component {
-  handleClick() {
+  handleClick () {
     if (this.props.onClick) {
       if (this.props.changeComponentTo) {
         this.props.onClick(this.props.changeComponentTo)
       }
     }
   }
-  render() {
+  render () {
     return (
       <div className='filters-component'>
         <span>Filters Component</span>

@@ -6,7 +6,7 @@ import React from 'react'
 require('./stylesheets/vote_up.scss')
 
 class VoteUp extends React.Component {
-  render() {
+  render () {
     // const iconStyles = {
     //   fontSize: '42px'
     // };

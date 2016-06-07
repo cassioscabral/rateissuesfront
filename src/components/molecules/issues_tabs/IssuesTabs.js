@@ -7,14 +7,14 @@ import _ from 'lodash'
 require('./stylesheets/issues_tabs.scss')
 
 class IssuesTabs extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {activeTab: 'hot'}
   }
-  changeTab(tab) {
+  changeTab (tab) {
     this.setState({activeTab: tab})
   }
-  render() {
+  render () {
     return (
       <div className='issues-tabs-component'>
         <header>

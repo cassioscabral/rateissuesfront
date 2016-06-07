@@ -6,7 +6,7 @@ import React from 'react'
 require('./stylesheets/notifier.scss')
 
 class Notifier extends React.Component {
-  render() {
+  render () {
     return (
       <div className='notifier-component'>
         {/* <FontIcon className='material-icons' color='white'>{this.props.icon}</FontIcon>*/}

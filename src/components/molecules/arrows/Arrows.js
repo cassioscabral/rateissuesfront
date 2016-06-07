@@ -7,12 +7,12 @@ import VoteUp from 'components/atoms/vote_up/VoteUp'
 require('./stylesheets/arrows.scss')
 
 class Arrows extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {up: false, down: false, colorUp: 'grey', colorDown: 'grey'}
   }
 
-  handleDownVote() {
+  handleDownVote () {
     this.setState({down: !this.state.down,
                    up: false,
                    colorDown: this.state.down ?  'grey' : 'rgb(230, 40, 7)',
@@ -20,14 +20,14 @@ class Arrows extends React.Component {
                  })
   }
 
-  handleUpvote() {
+  handleUpvote () {
     this.setState({up: !this.state.up,
                    down: false,
                    colorUp: this.state.up ? 'grey' : 'rgb(88, 200, 42)',
                    colorDown: 'grey'
                  })
   }
-  render() {
+  render () {
     return (
       <div className='arrows-component column'>
         <VoteUp onClick={ this.handleUpvote.bind(this) }

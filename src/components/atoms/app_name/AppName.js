@@ -6,7 +6,7 @@ import React from 'react'
 require('./stylesheets/app_name.scss')
 
 class AppName extends React.Component {
-  render() {
+  render () {
     return (
       <div className='app-name-component'>
         RateIssues

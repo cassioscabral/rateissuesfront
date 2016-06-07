@@ -7,14 +7,14 @@ import classNames from 'classnames'
 require('./stylesheets/issue.scss')
 
 class Issue extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {active:  false}
   }
-  rawMarkup(sanitizedHTMLAfterMarked) {
+  rawMarkup (sanitizedHTMLAfterMarked) {
     return {__html: sanitizedHTMLAfterMarked}
   }
-  parseMarkdown(text) {
+  parseMarkdown (text) {
     // Default values
     marked.setOptions({
       renderer: new marked.Renderer(),
@@ -28,15 +28,15 @@ class Issue extends React.Component {
     })
     return marked(text)
   }
-  getRepoName(repoUrl) {
+  getRepoName (repoUrl) {
     let splittedUrl = repoUrl.split('/')
 
     return `${splittedUrl[splittedUrl.length - 1]}`
   }
-  toggleIssue() {
+  toggleIssue () {
     this.setState({active: !this.state.active})
   }
-  render() {
+  render () {
     var issue = this.props.issue
     var issueClasses = classNames({
      'issue-component': true,

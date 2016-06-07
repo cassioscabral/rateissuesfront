@@ -10,7 +10,7 @@ import SearchBar from 'components/molecules/search_bar/SearchBar'
 require('./stylesheets/top_menu.scss')
 
 class TopMenu extends React.Component {
-  render() {
+  render () {
     return (
       <div className='top-menu-component'>
         <LogoName />

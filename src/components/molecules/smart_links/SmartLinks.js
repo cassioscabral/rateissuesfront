@@ -9,14 +9,14 @@ const CLIENT_ID = require('./API_KEY.js').CLIENT_ID // File is ignored by git
 const CLIENT_DOMAIN = require('./API_KEY.js').CLIENT_DOMAIN // File is ignored by git
 
 class SmartLinks extends React.Component {
-  componentWillMount() {
+  componentWillMount () {
     this.lock = new Auth0Lock(CLIENT_ID, CLIENT_DOMAIN)
     this.setState({idToken: this.getIdToken()})
   }
-  componentDidMount() {
+  componentDidMount () {
     // In this case, the lock and token are retrieved from the parent component
     // If these are available locally, use `this.lock` and `this.idToken`
-    this.lock.getProfile(this.state.idToken, function(err, profile) {
+    this.lock.getProfile(this.state.idToken, function (err, profile) {
       if (err) {
         console.log('Error loading the Profile', err)
         return
@@ -26,7 +26,7 @@ class SmartLinks extends React.Component {
 
     }.bind(this))
   }
-  getIdToken() {
+  getIdToken () {
     var idToken = localStorage.getItem('userToken')
     var authHash = this.lock.parseHash(window.location.hash)
     if (!idToken && authHash) {
@@ -41,20 +41,20 @@ class SmartLinks extends React.Component {
     }
     return idToken
   }
-  showLock() {
+  showLock () {
     // We receive lock from the parent component in this case
     // If you instantiate it in this component, just do this.lock.show()
-    this.lock.show({}, function(err, profile) {
+    this.lock.show({}, function (err, profile) {
       // Popup automatically set to true in this case
       // auth0 already catch errors
       localStorage.setItem('userProfile', JSON.stringify(profile))
     })
   }
-  logout() {
+  logout () {
     localStorage.removeItem('userToken')
     this.setState({idToken: null})
   }
-  render() {
+  render () {
     if (this.state.idToken) {
       return (
         <div className='smart-links-component'>
