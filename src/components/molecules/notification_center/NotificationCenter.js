@@ -8,8 +8,10 @@ class NotificationCenter extends React.Component {
   render() {
     return (
       <div className='notification-center-component'>
-        <Notifier name='inbox' icon='inbox'></Notifier>
-        <Notifier name='notifications' icon='notifications'></Notifier>
+        <Notifier name='inbox'
+          icon='inbox'></Notifier>
+        <Notifier name='notifications'
+          icon='notifications'></Notifier>
       </div>
     )
   }

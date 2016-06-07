@@ -20,7 +20,8 @@ class Settings extends React.Component {
   }
   render() {
     return (
-      <div className='settings-component' onClick={ this.handleClick.bind(this) }>
+      <div className='settings-component'
+        onClick={ this.handleClick.bind(this) }>
         {/* <FontIcon className='material-icons' color={this.state.color}>
           settings
         </FontIcon>*/}

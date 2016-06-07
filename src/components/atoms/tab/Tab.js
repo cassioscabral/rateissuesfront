@@ -11,10 +11,11 @@ class Tab extends React.Component {
   render() {
     let tabClass = classNames({
       'tab-component': true,
-      'active': this.props.activeTab == this.props.name
+      'active': this.props.activeTab === this.props.name
     })
     return (
-      <div className={ tabClass } onClick={ this.alterate.bind(this) }>
+      <div className={ tabClass }
+        onClick={ this.alterate.bind(this) }>
         <span>{ this.props.name }</span>
       </div>
     )

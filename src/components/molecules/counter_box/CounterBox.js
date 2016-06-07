@@ -8,9 +8,12 @@ class CounterBox extends React.Component {
   render() {
     return (
       <div className='counter-box-component row'>
-        <NumberBox number={ this.props.numVotes } label='votes' />
-        <NumberBox number={ this.props.numComments } label='comments' />
-        <NumberBox number={ this.props.difficulty } label='difficulty' />
+        <NumberBox number={ this.props.numVotes }
+          label='votes' />
+        <NumberBox number={ this.props.numComments }
+          label='comments' />
+        <NumberBox number={ this.props.difficulty }
+          label='difficulty' />
       </div>
     )
   }

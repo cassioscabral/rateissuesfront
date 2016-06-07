@@ -42,7 +42,7 @@ class Issue extends React.Component {
      'issue-component': true,
      'row': true,
      'active': this.state.active,
-     'no-body': issue.body == '' || issue.body == null
+     'no-body': issue.body === '' || issue.body === null
    })
     return (
       <div className={ issueClasses }>
@@ -53,9 +53,12 @@ class Issue extends React.Component {
             </h4>
             <br />
             <small><b>Repo:  { this.getRepoName(issue.repository_url) }</b></small>
-            <img title={ issue.user.login } className='issue-creator-profile'
-              src={ issue.user.avatar_url } alt='user that created this issue'
-              width='30px' height='30px' />
+            <img title={ issue.user.login }
+              className='issue-creator-profile'
+              src={ issue.user.avatar_url }
+              alt='user that created this issue'
+              width='30px'
+              height='30px' />
 
             <br />
             <smalll className='github-html-url'><a href={ issue.html_url }

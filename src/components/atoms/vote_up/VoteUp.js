@@ -11,7 +11,8 @@ class VoteUp extends React.Component {
     //   fontSize: '42px'
     // };
     return (
-      <div className='vote-up-component' onClick={ this.props.onClick }>
+      <div className='vote-up-component'
+        onClick={ this.props.onClick }>
         {/* <FontIcon className='material-icons'
                   color={this.props.color} style={iconStyles}>
         arrow_drop_up

@@ -2,7 +2,8 @@
 
 import React from 'react'
 import Tab from 'components/atoms/tab/Tab'
-_ = require('lodash')
+import _ from 'lodash'
+
 require('./stylesheets/issues_tabs.scss')
 
 class IssuesTabs extends React.Component {
@@ -20,12 +21,14 @@ class IssuesTabs extends React.Component {
           <h4>{ _.capitalize(this.state.activeTab) } Issues</h4>
         </header>
         <div className='row tabs'>
-          <Tab name='hot' onClick={ this.changeTab.bind(this) }
+          <Tab name='hot'
+            onClick={ this.changeTab.bind(this) }
             activeTab={ this.state.activeTab } />
           <Tab name='trending'
             onClick={ this.changeTab.bind(this) }
             activeTab={ this.state.activeTab } />
-          <Tab name='fresh' onClick={ this.changeTab.bind(this) }
+          <Tab name='fresh'
+            onClick={ this.changeTab.bind(this) }
             activeTab={ this.state.activeTab } />
         </div>
       </div>

@@ -8,10 +8,9 @@ import Github from 'github-api'
 import GithubQueryBuilder from '../../helpers/GithubQueryBuilder'
 import Settings from 'components/atoms/settings/Settings'
 import Filters from 'components/molecules/filters/Filters'
-// import FontIcon from 'material-ui/lib/font-icon'
 import classNames from 'classnames'
+import _ from 'lodash'
 
-_ = require('lodash')
 require('./stylesheets/main.scss')
 
 class Main extends React.Component {
@@ -49,7 +48,7 @@ class Main extends React.Component {
   currentComponentClass(component) {
     let componentClass = classNames({
       'component': true,
-      'active': this.state.currentComponent == component
+      'active': this.state.currentComponent === component
     })
     return componentClass
   }
@@ -60,22 +59,25 @@ class Main extends React.Component {
     return (
       <div className='main-component column'>
         <div className={ this.currentComponentClass('IssuesList') }>
-          <div className='issues-tabs-component'>
+          <IssuesTabs className='issues-tabs-component'>
             <header>
               <h4>{ _.capitalize(this.state.activeTab) } Issues</h4>
             </header>
             <div className='row tabs'>
-              <Tab name='hot' onClick={ this.changeTab.bind(this) }
+              <Tab name='hot'
+                onClick={ this.changeTab.bind(this) }
                 activeTab={ this.state.activeTab } />
-              <Tab name='trending' onClick={ this.changeTab.bind(this) }
+              <Tab name='trending'
+                onClick={ this.changeTab.bind(this) }
                 activeTab={ this.state.activeTab } />
-              <Tab name='fresh' onClick={ this.changeTab.bind(this) }
+              <Tab name='fresh'
+                onClick={ this.changeTab.bind(this) }
                 activeTab={ this.state.activeTab } />
             </div>
             <Settings changeComponentTo='Filters'
               onClick={ this.changeCurrentComponent.bind(this) }>
             </Settings>
-          </div>
+          </IssuesTabs>
           <IssuesList issues={ this.state.issues }
             activeTab={ this.state.activeTab } />
         </div>

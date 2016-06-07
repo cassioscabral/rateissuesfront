@@ -10,9 +10,12 @@ class Badges extends React.Component {
     return (
       <div className='badges-component'>
         <label>{ this.props.points }</label>
-        <Badge color='gold' amount='4' />
-        <Badge color='silver' amount='15' />
-        <Badge color='orange' amount='40' />
+        <Badge color='gold'
+          amount='4' />
+        <Badge color='silver'
+          amount='15' />
+        <Badge color='orange'
+          amount='40' />
       </div>
     )
   }

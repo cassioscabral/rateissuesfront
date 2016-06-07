@@ -61,7 +61,8 @@ class SmartLinks extends React.Component {
           <a href='#'><Settings /></a>
           <a href='#'>about</a>
           <a href='#'>help</a>
-          <a href='#' onClick={ this.logout.bind(this) }>Logout</a>
+          <a href='#'
+            onClick={ this.logout.bind(this) }>Logout</a>
         </div>
       )
     } else {
@@ -69,7 +70,8 @@ class SmartLinks extends React.Component {
         <div className='smart-links-component'>
           <a href='#'>about</a>
           <a href='#'>help</a>
-          <a href='#' onClick={ this.showLock.bind(this) }>Sign In</a>
+          <a href='#'
+            onClick={ this.showLock.bind(this) }>Sign In</a>
         </div>
       )
     }

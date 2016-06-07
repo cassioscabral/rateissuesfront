@@ -15,7 +15,9 @@ class ProfileImage extends React.Component {
     }
     return (
       <div className='profile-image-component'>
-        <img src={ imageUrl } width='40px' height='40px' />
+        <img src={ imageUrl }
+          width='40px'
+          height='40px' />
       </div>
     )
   }
