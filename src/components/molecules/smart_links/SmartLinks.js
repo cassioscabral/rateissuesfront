@@ -43,7 +43,11 @@ class SmartLinks extends React.Component {
   showLock() {
     // We receive lock from the parent component in this case
     // If you instantiate it in this component, just do this.lock.show()
-    this.lock.show();
+    this.lock.show({}, function(err, profile) {
+      // Popup automatically set to true in this case
+      // auth0 already catch errors
+      localStorage.setItem('userProfile', JSON.stringify(profile));
+    });
   }
   logout() {
     localStorage.removeItem('userToken');
