@@ -1,8 +1,8 @@
-/* global Auth0Lock */
 'use strict'
 
 import React from 'react'
 import Settings from 'components/atoms/settings/Settings'
+let Auth0Lock = require('auth0-lock')
 
 require('./stylesheets/smart_links.scss')
 const CLIENT_ID = require('./API_KEY.js').CLIENT_ID // File is ignored by git
