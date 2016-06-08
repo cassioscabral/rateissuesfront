@@ -54,7 +54,7 @@
     "node-sass": "^3.3.3",
     "null-loader": "^0.1.1",
     "open": "0.0.5",
-    "phantomjs": "^2.1.7",
+    "phantomjs-prebuilt": "^2.0.0",
     "postcss": "^5.0.11",
     "postcss-loader": "^0.8.0",
     "react-hot-loader": "^1.2.9",
