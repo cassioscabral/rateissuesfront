@@ -1,35 +1,35 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import ProfileImage from 'components/atoms/profile_image/ProfileImage';
-import Username from 'components/atoms/username/Username';
-import Badges from 'components/molecules/badges/Badges';
+import React from 'react'
+import ProfileImage from 'components/atoms/profile_image/ProfileImage'
+import Username from 'components/atoms/username/Username'
+import Badges from 'components/molecules/badges/Badges'
 
-require('./stylesheets/user_info.scss');
+require('./stylesheets/user_info.scss')
 
 class UserInfo extends React.Component {
-  getUserProfile() {
-    return JSON.parse(localStorage.getItem('userProfile')) || {email:"",nickname:""};
+  getUserProfile () {
+    return JSON.parse(localStorage.getItem('userProfile')) || {email:'',nickname:''}
   }
-  render() {
+  render () {
 
-    let userProfile = this.getUserProfile();
+    let userProfile = this.getUserProfile()
     return (
       <div className='user-info-component'>
-        <ProfileImage email={userProfile.email} />
+        <ProfileImage email={ userProfile.email } />
         <div className='column'>
-          <Username username={userProfile.nickname} />
+          <Username username={ userProfile.nickname } />
           <Badges points='500' />
         </div>
       </div>
-    );
+    )
   }
 }
 
-UserInfo.displayName = 'MoleculeUserInfo';
+UserInfo.displayName = 'MoleculeUserInfo'
 
 // Uncomment properties you need
 // UserInfo.propTypes = {};
 // UserInfo.defaultProps = {};
 
-export default UserInfo;
+export default UserInfo

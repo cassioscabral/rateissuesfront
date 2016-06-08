@@ -10,9 +10,10 @@ import Sidebar from 'components/organisms/sidebar/Sidebar'
 import Main from 'components/organisms/main/Main'
 
 class AppComponent extends React.Component {
-  render() {
+  render () {
     return (
-      <div id='app' className='app'>
+      <div id='app'
+        className='app'>
         <TopMenu />
         <div className='row full-height'>
           <Main />

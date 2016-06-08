@@ -1,24 +1,24 @@
-'use strict';
+'use strict'
 
-import React from 'react';
+import React from 'react'
 
-require('./stylesheets/number_box.scss');
+require('./stylesheets/number_box.scss')
 
 class NumberBox extends React.Component {
-  render() {
+  render () {
     return (
       <div className='number-box-component column'>
-        <span>{this.props.number}</span>
-        <span>{this.props.label}</span>
+        <span>{ this.props.number }</span>
+        <span>{ this.props.label }</span>
       </div>
-    );
+    )
   }
 }
 
-NumberBox.displayName = 'AtomNumberBox';
+NumberBox.displayName = 'AtomNumberBox'
 
 // Uncomment properties you need
 // NumberBox.propTypes = {};
 // NumberBox.defaultProps = {};
 
-export default NumberBox;
+export default NumberBox

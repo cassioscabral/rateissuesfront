@@ -1,23 +1,23 @@
-'use strict';
+'use strict'
 
-import React from 'react';
+import React from 'react'
 
-require('./stylesheets/setting_option.scss');
+require('./stylesheets/setting_option.scss')
 
 class SettingOption extends React.Component {
-  render() {
+  render () {
     return (
       <div className='setting-option-component'>
-        {this.props.label}
+        { this.props.label }
       </div>
-    );
+    )
   }
 }
 
-SettingOption.displayName = 'AtomSettingOption';
+SettingOption.displayName = 'AtomSettingOption'
 
 // Uncomment properties you need
 // SettingOption.propTypes = {};
 // SettingOption.defaultProps = {};
 
-export default SettingOption;
+export default SettingOption

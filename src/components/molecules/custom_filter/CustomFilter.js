@@ -1,18 +1,18 @@
-'use strict';
+'use strict'
 
-import React from 'react';
+import React from 'react'
 
-require('./stylesheets/custom_filter.scss');
-let classNames = require('classnames');
+require('./stylesheets/custom_filter.scss')
+let classNames = require('classnames')
 
 class CustomFilter extends React.Component {
-  render() {
+  render () {
     let customFilterClass = classNames({
       'custom-filter-component': true,
       'active': this.props.activeTab === 'custom'
-    });
+    })
     return (
-      <div className={customFilterClass}>
+      <div className={ customFilterClass }>
         <div className='custom-filters'>
           <div className='custom-filter'>
             <h4>Languages</h4>
@@ -25,14 +25,14 @@ class CustomFilter extends React.Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-CustomFilter.displayName = 'MoleculeCustomFilter';
+CustomFilter.displayName = 'MoleculeCustomFilter'
 
 // Uncomment properties you need
 // CustomFilter.propTypes = {};
 // CustomFilter.defaultProps = {};
 
-export default CustomFilter;
+export default CustomFilter

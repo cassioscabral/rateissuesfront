@@ -6,15 +6,15 @@ import Issue from 'components/molecules/issue/Issue'
 require('./stylesheets/issues_list.scss')
 
 class IssuesList extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
   }
-  render() {
+  render () {
     return (
       <div className='issues-list-component'>
-        {this.props.issues.map(issue => <Issue
-          key={issue.id}
-          issue={issue}
+        { this.props.issues.map(issue => <Issue
+          key={ issue.id }
+          issue={ issue }
          />)
         }
       </div>

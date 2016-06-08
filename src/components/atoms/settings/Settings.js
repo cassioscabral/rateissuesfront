@@ -6,11 +6,11 @@ import React from 'react'
 require('./stylesheets/settings.scss')
 
 class Settings extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {active: false, color: 'grey'}
   }
-  handleClick() {
+  handleClick () {
     if (this.props.onClick) {
       if (this.props.changeComponentTo) {
         this.props.onClick(this.props.changeComponentTo)
@@ -18,10 +18,11 @@ class Settings extends React.Component {
       }
     }
   }
-  render() {
+  render () {
     return (
-      <div className='settings-component' onClick={this.handleClick.bind(this)}>
-        {/*<FontIcon className='material-icons' color={this.state.color}>
+      <div className='settings-component'
+        onClick={ this.handleClick.bind(this) }>
+        {/* <FontIcon className='material-icons' color={this.state.color}>
           settings
         </FontIcon>*/}
       </div>

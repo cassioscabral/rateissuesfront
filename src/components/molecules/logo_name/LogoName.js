@@ -1,26 +1,26 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import Logo from 'components/atoms/logo/Logo';
-import AppName from 'components/atoms/app_name/AppName';
+import React from 'react'
+import Logo from 'components/atoms/logo/Logo'
+import AppName from 'components/atoms/app_name/AppName'
 
-require('./stylesheets/logo_name.scss');
+require('./stylesheets/logo_name.scss')
 
 class LogoName extends React.Component {
-  render() {
+  render () {
     return (
       <div className='logo-name-component'>
         <Logo />
         <AppName />
       </div>
-    );
+    )
   }
 }
 
-LogoName.displayName = 'MoleculeLogoName';
+LogoName.displayName = 'MoleculeLogoName'
 
 // Uncomment properties you need
 // LogoName.propTypes = {};
 // LogoName.defaultProps = {};
 
-export default LogoName;
+export default LogoName

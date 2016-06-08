@@ -1,24 +1,24 @@
-'use strict';
+'use strict'
 
-import React from 'react';
+import React from 'react'
 // import {FontIcon} from 'material-ui'
 
-require('./stylesheets/logo.scss');
+require('./stylesheets/logo.scss')
 
 class Logo extends React.Component {
-  render() {
+  render () {
     return (
       <div className='logo-component'>
-        {/*<FontIcon className='material-icons' color='grey'>home</FontIcon>*/}
+        {/* <FontIcon className='material-icons' color='grey'>home</FontIcon>*/}
       </div>
-    );
+    )
   }
 }
 
-Logo.displayName = 'AtomLogo';
+Logo.displayName = 'AtomLogo'
 
 // Uncomment properties you need
 // Logo.propTypes = {};
 // Logo.defaultProps = {};
 
-export default Logo;
+export default Logo

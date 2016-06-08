@@ -8,14 +8,13 @@ import Github from 'github-api'
 import GithubQueryBuilder from '../../helpers/GithubQueryBuilder'
 import Settings from 'components/atoms/settings/Settings'
 import Filters from 'components/molecules/filters/Filters'
-// import FontIcon from 'material-ui/lib/font-icon'
 import classNames from 'classnames'
+import _ from 'lodash'
 
-_ = require('lodash')
 require('./stylesheets/main.scss')
 
 class Main extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     // TODO associate creation of query with tab passing the value on the constructor
     this.state = {
@@ -25,18 +24,18 @@ class Main extends React.Component {
       currentComponent: 'IssuesList'
     }
   }
-  setGithubQuery(tab) {
+  setGithubQuery (tab) {
     this.state.githubQuery.applyFilter(tab)
   }
-  componentDidMount() {
+  componentDidMount () {
     this.requestGithub()
   }
-  changeTab(tab) {
+  changeTab (tab) {
     this.setState({activeTab: tab})
     this.state.githubQuery.applyFilter(tab)
     this.requestGithub()
   }
-  requestGithub() {
+  requestGithub () {
     let github = new Github({})
     let search = github.getSearch(this.state.githubQuery.getQuery())
 
@@ -46,42 +45,45 @@ class Main extends React.Component {
       })
     })
   }
-  currentComponentClass(component) {
+  currentComponentClass (component) {
     let componentClass = classNames({
       'component': true,
-      'active': this.state.currentComponent == component
+      'active': this.state.currentComponent === component
     })
     return componentClass
   }
-  changeCurrentComponent(component) {
+  changeCurrentComponent (component) {
     this.setState({currentComponent: component})
   }
-  render() {
+  render () {
     return (
       <div className='main-component column'>
-        <div className={this.currentComponentClass('IssuesList')}>
-          <div className='issues-tabs-component'>
+        <div className={ this.currentComponentClass('IssuesList') }>
+          <IssuesTabs className='issues-tabs-component'>
             <header>
-              <h4>{_.capitalize(this.state.activeTab)} Issues</h4>
+              <h4>{ _.capitalize(this.state.activeTab) } Issues</h4>
             </header>
             <div className='row tabs'>
-              <Tab name='hot' onClick={this.changeTab.bind(this)}
-                 activeTab={this.state.activeTab}/>
-              <Tab name='trending' onClick={this.changeTab.bind(this)}
-                 activeTab={this.state.activeTab} />
-              <Tab name='fresh' onClick={this.changeTab.bind(this)}
-                 activeTab={this.state.activeTab} />
+              <Tab name='hot'
+                onClick={ this.changeTab.bind(this) }
+                activeTab={ this.state.activeTab } />
+              <Tab name='trending'
+                onClick={ this.changeTab.bind(this) }
+                activeTab={ this.state.activeTab } />
+              <Tab name='fresh'
+                onClick={ this.changeTab.bind(this) }
+                activeTab={ this.state.activeTab } />
             </div>
             <Settings changeComponentTo='Filters'
-                      onClick={this.changeCurrentComponent.bind(this)}>
+              onClick={ this.changeCurrentComponent.bind(this) }>
             </Settings>
-          </div>
-          <IssuesList issues={this.state.issues}
-            activeTab={this.state.activeTab}/>
+          </IssuesTabs>
+          <IssuesList issues={ this.state.issues }
+            activeTab={ this.state.activeTab } />
         </div>
-        <div className={this.currentComponentClass('Filters')}>
+        <div className={ this.currentComponentClass('Filters') }>
           <Filters changeComponentTo='IssuesList'
-                   onClick={this.changeCurrentComponent.bind(this)}>
+            onClick={ this.changeCurrentComponent.bind(this) }>
           </Filters>
         </div>
       </div>

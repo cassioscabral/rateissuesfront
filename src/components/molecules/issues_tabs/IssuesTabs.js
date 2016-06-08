@@ -2,31 +2,34 @@
 
 import React from 'react'
 import Tab from 'components/atoms/tab/Tab'
-_ = require('lodash')
+import _ from 'lodash'
+
 require('./stylesheets/issues_tabs.scss')
 
 class IssuesTabs extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {activeTab: 'hot'}
   }
-  changeTab(tab) {
+  changeTab (tab) {
     this.setState({activeTab: tab})
   }
-  render() {
+  render () {
     return (
       <div className='issues-tabs-component'>
         <header>
-          <h4>{_.capitalize(this.state.activeTab)} Issues</h4>
+          <h4>{ _.capitalize(this.state.activeTab) } Issues</h4>
         </header>
         <div className='row tabs'>
-          <Tab name='hot' onClick={this.changeTab.bind(this)}
-               activeTab={this.state.activeTab}/>
+          <Tab name='hot'
+            onClick={ this.changeTab.bind(this) }
+            activeTab={ this.state.activeTab } />
           <Tab name='trending'
-               onClick={this.changeTab.bind(this)}
-               activeTab={this.state.activeTab} />
-          <Tab name='fresh' onClick={this.changeTab.bind(this)}
-               activeTab={this.state.activeTab} />
+            onClick={ this.changeTab.bind(this) }
+            activeTab={ this.state.activeTab } />
+          <Tab name='fresh'
+            onClick={ this.changeTab.bind(this) }
+            activeTab={ this.state.activeTab } />
         </div>
       </div>
     )
