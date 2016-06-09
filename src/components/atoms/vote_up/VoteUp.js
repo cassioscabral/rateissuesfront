@@ -1,22 +1,18 @@
 'use strict'
 
 import React from 'react'
-// import {FontIcon} from 'material-ui'
+import MdArrowUp from 'react-icons/md/arrow_drop_up'
 
 require('./stylesheets/vote_up.scss')
 
 class VoteUp extends React.Component {
   render () {
-    // const iconStyles = {
-    //   fontSize: '42px'
-    // };
     return (
       <div className='vote-up-component'
         onClick={ this.props.onClick }>
-        {/* <FontIcon className='material-icons'
-                  color={this.props.color} style={iconStyles}>
-        arrow_drop_up
-        </FontIcon>*/}
+        <MdArrowUp
+          size='42'
+          color={ this.props.color } />
       </div>
     )
   }
