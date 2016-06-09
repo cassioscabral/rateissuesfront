@@ -78,6 +78,7 @@
     "react": "latest",
     "react-addons-test-utils": "latest",
     "react-dom": "latest",
+    "react-icons": "^2.1.0",
     "transform-loader": "^0.2.3"
   }
 }
