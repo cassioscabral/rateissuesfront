@@ -14,8 +14,7 @@ class AppComponent extends React.Component {
     return (
       <div
         id='app'
-        className='app'
-        >
+        className='app'>
         <TopMenu />
         <div className='row full-height'>
           <Main />
