@@ -45,6 +45,10 @@ module.exports = {
     ],
     loaders: [
       {
+        test: /react-icons\/(.)*(.js)$/,
+        loader: 'babel'
+      },
+      {
         test: /node_modules[\\\/]auth0-lock[\\\/].*\.js$/,
         loaders: [
           'transform-loader/cacheable?brfs',

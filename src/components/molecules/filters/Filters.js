@@ -1,7 +1,7 @@
 'use strict'
 
 import React from 'react'
-// import {FontIcon} from 'material-ui'
+import MdClose from 'react-icons/md/close'
 
 
 require('./stylesheets/filters.scss')
@@ -18,10 +18,10 @@ class Filters extends React.Component {
     return (
       <div className='filters-component'>
         <span>Filters Component</span>
-        {/* <FontIcon className='material-icons clickable' color='grey'
-                  onClick={this.handleClick.bind(this)} >
-          close
-        </FontIcon>*/}
+        <MdClose
+          size='24'
+          color='grey'
+          onClick={ this.handleClick.bind(this) } />
       </div>
     )
   }
