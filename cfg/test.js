@@ -1,12 +1,12 @@
-'use strict';
+'use strict'
 
-let path = require('path');
-let srcPath = path.join(__dirname, '/../src/');
+let path = require('path')
+let srcPath = path.join(__dirname, '/../src/')
 
-let baseConfig = require('./base');
+let baseConfig = require('./base')
 
 // Add needed plugins here
-let BowerWebpackPlugin = require('bower-webpack-plugin');
+let BowerWebpackPlugin = require('bower-webpack-plugin')
 
 module.exports = {
   devtool: 'eval',
@@ -39,7 +39,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [ '', '.js', '.jsx' ],
+    extensions: ['', '.js', '.jsx'],
     alias: {
       actions: srcPath + 'actions/',
       helpers: path.join(__dirname, '/../test/helpers'),
@@ -55,4 +55,4 @@ module.exports = {
       searchResolveModulesDirectories: false
     })
   ]
-};
+}

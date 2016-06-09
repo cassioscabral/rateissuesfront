@@ -1,9 +1,9 @@
-'use strict';
-let path = require('path');
-let port = 8000;
-let srcPath = path.join(__dirname, '/../src');
-let publicPath = '/assets/';
-let additionalPaths = [];
+'use strict'
+let path = require('path')
+let port = 8000
+let srcPath = path.join(__dirname, '/../src')
+let publicPath = '/assets/'
+let additionalPaths = []
 module.exports = {
   additionalPaths: additionalPaths,
   port: port,
@@ -11,7 +11,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/../dist/assets'),
     filename: 'app.js',
-    publicPath: publicPath,
+    publicPath: publicPath
   },
   devServer: {
     contentBase: './src/',
@@ -19,13 +19,13 @@ module.exports = {
     hot: true,
     port: port,
     publicPath: publicPath,
-    noInfo: false,
+    noInfo: false
   },
   resolve: {
     extensions: [
       '',
       '.js',
-      '.jsx',
+      '.jsx'
     ],
     alias: {
       actions: srcPath + '/actions/',
@@ -33,48 +33,48 @@ module.exports = {
       sources: srcPath + '/sources/',
       stores: srcPath + '/stores/',
       styles: srcPath + '/styles/',
-      config: srcPath + '/config/' + process.env.REACT_WEBPACK_ENV,
-    },
+      config: srcPath + '/config/' + process.env.REACT_WEBPACK_ENV
+    }
   },
   module: {
     preLoaders: [{
         test: /\.(js|jsx)$/,
         include: srcPath,
-        loader: 'eslint-loader',
-      },
+        loader: 'eslint-loader'
+      }
     ],
     loaders: [
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader!postcss-loader',
+        loader: 'style-loader!css-loader!postcss-loader'
       },
       {
         test: /\.sass/,
-        loader: 'style-loader!css-loader!postcss-loader!sass-loader?outputStyle=expanded&indentedSyntax',
+        loader: 'style-loader!css-loader!postcss-loader!sass-loader?outputStyle=expanded&indentedSyntax'
       },
       {
         test: /\.scss/,
-        loader: 'style-loader!css-loader!postcss-loader!sass-loader?outputStyle=expanded',
+        loader: 'style-loader!css-loader!postcss-loader!sass-loader?outputStyle=expanded'
       },
       {
         test: /\.less/,
-        loader: 'style-loader!css-loader!postcss-loader!less-loader',
+        loader: 'style-loader!css-loader!postcss-loader!less-loader'
       },
       {
         test: /\.styl/,
-        loader: 'style-loader!css-loader!postcss-loader!stylus-loader',
+        loader: 'style-loader!css-loader!postcss-loader!stylus-loader'
       },
       {
         test: /\.(png|jpg|gif|woff|woff2)$/,
-        loader: 'url-loader?limit=8192',
-      },
-    ],
+        loader: 'url-loader?limit=8192'
+      }
+    ]
   },
-  postcss: function() {
+  postcss: function () {
     return [
       require('autoprefixer')({
-        browsers: ['last 2 versions', 'ie >= 8'],
-      }),
-    ];
-  },
-};
+        browsers: ['last 2 versions', 'ie >= 8']
+      })
+    ]
+  }
+}
