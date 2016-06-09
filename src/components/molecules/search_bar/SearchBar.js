@@ -1,7 +1,7 @@
 'use strict'
 
 import React from 'react'
-// import {FontIcon} from 'material-ui'
+import MdSearch from 'react-icons/md/search'
 
 require('./stylesheets/search_bar.scss')
 
@@ -9,7 +9,9 @@ class SearchBar extends React.Component {
   render () {
     return (
       <div className='search-bar-component'>
-        {/* <FontIcon className='material-icons' color='grey'>search</FontIcon>*/}
+        <MdSearch
+          size='24'
+          color='grey' />
         <input type='search' />
       </div>
     )

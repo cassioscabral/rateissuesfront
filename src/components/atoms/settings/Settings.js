@@ -1,7 +1,7 @@
 'use strict'
 
 import React from 'react'
-// import {FontIcon} from 'material-ui'
+import MdSettings from 'react-icons/md/settings'
 
 require('./stylesheets/settings.scss')
 
@@ -22,9 +22,9 @@ class Settings extends React.Component {
     return (
       <div className='settings-component'
         onClick={ this.handleClick.bind(this) }>
-        {/* <FontIcon className='material-icons' color={this.state.color}>
-          settings
-        </FontIcon>*/}
+        <MdSettings
+          size='24'
+          color={ this.state.color } />
       </div>
     )
   }
