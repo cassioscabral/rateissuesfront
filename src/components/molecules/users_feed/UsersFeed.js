@@ -1,5 +1,3 @@
-'use strict'
-
 import React from 'react'
 import UserFeedItem from 'components/molecules/user_feed_item/UserFeedItem'
 
@@ -20,9 +18,5 @@ class UsersFeed extends React.Component {
 }
 
 UsersFeed.displayName = 'MoleculeUsersFeed'
-
-// Uncomment properties you need
-// UsersFeed.propTypes = {};
-// UsersFeed.defaultProps = {};
 
 export default UsersFeed
