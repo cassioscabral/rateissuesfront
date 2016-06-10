@@ -10,7 +10,9 @@ class ProjectsFeed extends React.Component {
     return (
       <div className='projects-feed-component'>
         { items.map(projectFeedItem =>
-          <ProjectFeedItem activity={ projectFeedItem.activity } />)
+          <ProjectFeedItem
+            key={ projectFeedItem.id }
+            activity={ projectFeedItem.activity } />)
         }
       </div>
     )

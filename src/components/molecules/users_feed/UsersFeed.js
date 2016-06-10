@@ -9,6 +9,7 @@ class UsersFeed extends React.Component {
     return (
       <div className='users-feed-component'>
         { items.map(userFeedItem => <UserFeedItem
+          key={ userFeedItem.id }
           activity={ userFeedItem.activity }
           imageUrl={ userFeedItem.imageUrl } />)
         }
