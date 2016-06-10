@@ -1,5 +1,3 @@
-'use strict'
-
 import React from 'react'
 import marked from 'marked'
 import classNames from 'classnames'

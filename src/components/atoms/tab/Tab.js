@@ -1,4 +1,3 @@
-'use strict'
 var classNames = require('classnames')
 
 import React from 'react'

@@ -1,5 +1,3 @@
-'use strict'
-
 import React from 'react'
 import Tab from 'components/atoms/tab/Tab'
 import _ from 'lodash'

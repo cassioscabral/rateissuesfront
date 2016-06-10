@@ -1,6 +1,5 @@
 /* eslint-env node, mocha */
 /* global expect */
-'use strict'
 
 // Uncomment the following lines to use the react test utilities
 // import React from 'react/addons'

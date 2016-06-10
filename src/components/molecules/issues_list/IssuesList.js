@@ -1,5 +1,3 @@
-'use strict'
-
 import React from 'react'
 import Issue from 'components/molecules/issue/Issue'
 

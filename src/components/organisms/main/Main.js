@@ -1,5 +1,3 @@
-'use strict'
-
 import React from 'react'
 import IssuesList from 'components/molecules/issues_list/IssuesList'
 import IssuesTabs from 'components/molecules/issues_tabs/IssuesTabs'

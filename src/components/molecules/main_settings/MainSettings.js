@@ -1,5 +1,3 @@
-'use strict'
-
 import React from 'react'
 import SettingOption from 'components/atoms/setting_option/SettingOption'
 

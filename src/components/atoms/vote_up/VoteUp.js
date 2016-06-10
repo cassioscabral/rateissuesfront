@@ -1,5 +1,3 @@
-'use strict'
-
 import React from 'react'
 import MdArrowUp from 'react-icons/md/arrow_drop_up'
 

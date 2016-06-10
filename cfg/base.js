@@ -1,9 +1,12 @@
+/* eslint strict: 0 */
 'use strict'
+
 let path = require('path')
 let port = 8000
 let srcPath = path.join(__dirname, '/../src')
 let publicPath = '/assets/'
 let additionalPaths = []
+
 module.exports = {
   additionalPaths: additionalPaths,
   port: port,

@@ -1,6 +1,5 @@
 /* eslint-env node, mocha */
 /* global expect */
-'use strict'
 
 import config from 'config'
 
