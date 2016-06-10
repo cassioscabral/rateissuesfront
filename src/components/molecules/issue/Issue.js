@@ -28,7 +28,6 @@ class Issue extends React.Component {
   }
   getRepoName (repoUrl) {
     let splittedUrl = repoUrl.split('/')
-
     return `${splittedUrl[splittedUrl.length - 1]}`
   }
   toggleIssue () {
@@ -57,7 +56,6 @@ class Issue extends React.Component {
               alt='user that created this issue'
               width='30px'
               height='30px' />
-
             <br />
             <smalll className='github-html-url'><a href={ issue.html_url }
               target='_blank'>View on Github</a></smalll>
@@ -72,9 +70,5 @@ class Issue extends React.Component {
 }
 
 Issue.displayName = 'MoleculeIssue'
-
-// Uncomment properties you need
-// Issue.propTypes = {};
-// Issue.defaultProps = {};
 
 export default Issue

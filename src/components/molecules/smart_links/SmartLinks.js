@@ -12,7 +12,7 @@ class SmartLinks extends React.Component {
   showLock () {
     // We receive lock from the parent component in this case
     // If you instantiate it in this component, just do this.lock.show()
-    this.lock.show({}, (err, profile, id_token) => {
+    this.lock.show({}, (err, profile, idToken) => {
       // Popup automatically set to true in this case
       // auth0 already catch errors
       if (!err){
@@ -20,14 +20,14 @@ class SmartLinks extends React.Component {
         this.lock.hide(() => {})
 
         localStorage.setItem('userProfile', JSON.stringify(profile))
-        localStorage.setItem('userToken', id_token)
-        console.log(id_token)
+        localStorage.setItem('userToken', idToken)
         this.props.setProfile(profile)
       }
     })
   }
   logout () {
     localStorage.removeItem('userProfile')
+    localStorage.removeItem('userToken')
     this.props.setProfile(null)
   }
   render () {

@@ -1,13 +1,11 @@
 import React from 'react'
 import IssuesList from 'components/molecules/issues_list/IssuesList'
 import IssuesTabs from 'components/molecules/issues_tabs/IssuesTabs'
-import Tab from 'components/atoms/tab/Tab'
+// TODO update github-api
 import Github from 'github-api'
 import GithubQueryBuilder from '../../helpers/GithubQueryBuilder'
-import Settings from 'components/atoms/settings/Settings'
 import Filters from 'components/molecules/filters/Filters'
 import classNames from 'classnames'
-import _ from 'lodash'
 
 require('./stylesheets/main.scss')
 
@@ -57,32 +55,17 @@ class Main extends React.Component {
     return (
       <div className='main-component column'>
         <div className={ this.currentComponentClass('IssuesList') }>
-          <IssuesTabs className='issues-tabs-component'>
-            <header>
-              <h4>{ _.capitalize(this.state.activeTab) } Issues</h4>
-            </header>
-            <div className='row tabs'>
-              <Tab name='hot'
-                onClick={ this.changeTab.bind(this) }
-                activeTab={ this.state.activeTab } />
-              <Tab name='trending'
-                onClick={ this.changeTab.bind(this) }
-                activeTab={ this.state.activeTab } />
-              <Tab name='fresh'
-                onClick={ this.changeTab.bind(this) }
-                activeTab={ this.state.activeTab } />
-            </div>
-            <Settings changeComponentTo='Filters'
-              onClick={ this.changeCurrentComponent.bind(this) }>
-            </Settings>
-          </IssuesTabs>
+          <IssuesTabs
+            className='issues-tabs-component'
+            changeTab={ this.changeTab.bind(this) }
+            activeTab={ this.state.activeTab }
+            changeCurrentComponent={ this.changeCurrentComponent.bind(this) } />
           <IssuesList issues={ this.state.issues }
             activeTab={ this.state.activeTab } />
         </div>
         <div className={ this.currentComponentClass('Filters') }>
           <Filters changeComponentTo='IssuesList'
-            onClick={ this.changeCurrentComponent.bind(this) }>
-          </Filters>
+            onClick={ this.changeCurrentComponent.bind(this) } />
         </div>
       </div>
     )
@@ -90,9 +73,5 @@ class Main extends React.Component {
 }
 
 Main.displayName = 'OrganismMain'
-
-// Uncomment properties you need
-// Main.propTypes = {};
-// Main.defaultProps = {};
 
 export default Main
