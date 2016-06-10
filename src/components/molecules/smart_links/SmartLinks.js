@@ -1,64 +1,39 @@
-'use strict'
-
 import React from 'react'
-import Settings from 'components/atoms/settings/Settings'
 import Auth0Lock from 'auth0-lock'
 
 require('./stylesheets/smart_links.scss')
-const CLIENT_ID = require('./API_KEY.js').CLIENT_ID // File is ignored by git
-const CLIENT_DOMAIN = require('./API_KEY.js').CLIENT_DOMAIN // File is ignored by git
+
+const API_KEYS = require('./API_KEY.js') // File is ignored by git
 
 class SmartLinks extends React.Component {
   componentWillMount () {
-    this.lock = new Auth0Lock(CLIENT_ID, CLIENT_DOMAIN)
-    this.setState({idToken: this.getIdToken()})
-  }
-  componentDidMount () {
-    // In this case, the lock and token are retrieved from the parent component
-    // If these are available locally, use `this.lock` and `this.idToken`
-    this.lock.getProfile(this.state.idToken, function (err, profile) {
-      if (err) {
-        console.log('Error loading the Profile', err)
-        return
-      }
-      this.setState({profile: profile})
-      localStorage.setItem('userProfile', JSON.stringify(profile))
-
-    }.bind(this))
-  }
-  getIdToken () {
-    var idToken = localStorage.getItem('userToken')
-    var authHash = this.lock.parseHash(window.location.hash)
-    if (!idToken && authHash) {
-      if (authHash.id_token) {
-        idToken = authHash.id_token
-        localStorage.setItem('userToken', authHash.id_token)
-      }
-      if (authHash.error) {
-        console.log('Error signing in', authHash)
-        return null
-      }
-    }
-    return idToken
+    this.lock = new Auth0Lock(API_KEYS.CLIENT_ID, API_KEYS.CLIENT_DOMAIN)
   }
   showLock () {
     // We receive lock from the parent component in this case
     // If you instantiate it in this component, just do this.lock.show()
-    this.lock.show({}, function (err, profile) {
+    this.lock.show({}, (err, profile, id_token) => {
       // Popup automatically set to true in this case
       // auth0 already catch errors
-      localStorage.setItem('userProfile', JSON.stringify(profile))
+      if (!err){
+        // fix logged pop up error
+        this.lock.hide(() => {})
+
+        localStorage.setItem('userProfile', JSON.stringify(profile))
+        localStorage.setItem('userToken', id_token)
+        console.log(id_token)
+        this.props.setProfile(profile)
+      }
     })
   }
   logout () {
-    localStorage.removeItem('userToken')
-    this.setState({idToken: null})
+    localStorage.removeItem('userProfile')
+    this.props.setProfile(null)
   }
   render () {
-    if (this.state.idToken) {
+    if (this.props.profile) {
       return (
         <div className='smart-links-component'>
-          <a href='#'><Settings /></a>
           <a href='#'>about</a>
           <a href='#'>help</a>
           <a href='#'
@@ -79,9 +54,5 @@ class SmartLinks extends React.Component {
 }
 
 SmartLinks.displayName = 'MoleculeSmartLinks'
-
-// Uncomment properties you need
-// SmartLinks.propTypes = {}
-// SmartLinks.defaultProps = {}
 
 export default SmartLinks

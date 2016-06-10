@@ -1,5 +1,3 @@
-'use strict'
-
 import React from 'react'
 import MdSettings from 'react-icons/md/settings'
 
@@ -31,9 +29,5 @@ class Settings extends React.Component {
 }
 
 Settings.displayName = 'AtomSettings'
-
-// Uncomment properties you need
-// Settings.propTypes = {};
-// Settings.defaultProps = {};
 
 export default Settings
