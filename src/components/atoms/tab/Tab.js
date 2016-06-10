@@ -1,7 +1,6 @@
-'use strict'
-var classNames = require('classnames')
-
 import React from 'react'
+import classNames from 'classnames'
+
 require('./stylesheets/tab.scss')
 
 class Tab extends React.Component {
@@ -23,9 +22,5 @@ class Tab extends React.Component {
 }
 
 Tab.displayName = 'AtomTab'
-
-// Uncomment properties you need
-// Tab.propTypes = {};
-// Tab.defaultProps = {};
 
 export default Tab

@@ -1,9 +1,7 @@
-'use strict'
-
 import React from 'react'
+import md5 from 'md5'
 
 require('./stylesheets/profile_image.scss')
-let md5 = require('md5')
 
 class ProfileImage extends React.Component {
   render () {
@@ -24,9 +22,5 @@ class ProfileImage extends React.Component {
 }
 
 ProfileImage.displayName = 'AtomProfileImage'
-
-// Uncomment properties you need
-// ProfileImage.propTypes = {};
-// ProfileImage.defaultProps = {};
 
 export default ProfileImage

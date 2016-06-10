@@ -1,5 +1,3 @@
-'use strict'
-
 import React from 'react'
 import NumberBox from 'components/atoms/number_box/NumberBox'
 require('./stylesheets/counter_box.scss')

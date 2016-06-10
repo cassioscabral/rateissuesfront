@@ -1,5 +1,3 @@
-'use strict'
-
 import React from 'react'
 import MdSearch from 'react-icons/md/search'
 
@@ -19,9 +17,5 @@ class SearchBar extends React.Component {
 }
 
 SearchBar.displayName = 'MoleculeSearchBar'
-
-// Uncomment properties you need
-// SearchBar.propTypes = {};
-// SearchBar.defaultProps = {};
 
 export default SearchBar

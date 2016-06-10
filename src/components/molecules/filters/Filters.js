@@ -1,5 +1,3 @@
-'use strict'
-
 import React from 'react'
 import MdClose from 'react-icons/md/close'
 
@@ -28,9 +26,5 @@ class Filters extends React.Component {
 }
 
 Filters.displayName = 'MoleculeFilters'
-
-// Uncomment properties you need
-// Filters.propTypes = {};
-// Filters.defaultProps = {};
 
 export default Filters

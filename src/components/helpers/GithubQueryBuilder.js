@@ -56,5 +56,4 @@ class GithubQueryBuilder {
     return this.query
   }
 }
-
 export default GithubQueryBuilder

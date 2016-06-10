@@ -1,5 +1,3 @@
-'use strict'
-
 import React from 'react'
 import ProjectFeedItem from
   'components/molecules/project_feed_item/ProjectFeedItem'
@@ -12,7 +10,9 @@ class ProjectsFeed extends React.Component {
     return (
       <div className='projects-feed-component'>
         { items.map(projectFeedItem =>
-          <ProjectFeedItem activity={ projectFeedItem.activity } />)
+          <ProjectFeedItem
+            key={ projectFeedItem.id }
+            activity={ projectFeedItem.activity } />)
         }
       </div>
     )
@@ -20,9 +20,5 @@ class ProjectsFeed extends React.Component {
 }
 
 ProjectsFeed.displayName = 'MoleculeProjectsFeed'
-
-// Uncomment properties you need
-// ProjectsFeed.propTypes = {};
-// ProjectsFeed.defaultProps = {};
 
 export default ProjectsFeed

@@ -1,19 +1,20 @@
-'use strict';
+/* eslint strict: 0 */
+'use strict'
 
-let path = require('path');
-let webpack = require('webpack');
-let _ = require('lodash');
+let path = require('path')
+let webpack = require('webpack')
+let _ = require('lodash')
 
-let baseConfig = require('./base');
+let baseConfig = require('./base')
 
 // Add needed plugins here
-let BowerWebpackPlugin = require('bower-webpack-plugin');
+let BowerWebpackPlugin = require('bower-webpack-plugin')
 
 let config = _.merge({
   entry: [
     'webpack-dev-server/client?http://127.0.0.1:8000',
     'webpack/hot/only-dev-server',
-    './src/components/run',
+    './src/components/run'
   ],
   cache: true,
   devtool: 'eval',
@@ -21,10 +22,10 @@ let config = _.merge({
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new BowerWebpackPlugin({
-      searchResolveModulesDirectories: false,
-    }),
-  ],
-}, baseConfig);
+      searchResolveModulesDirectories: false
+    })
+  ]
+}, baseConfig)
 
 // Add needed loaders
 config.module.loaders.push({
@@ -33,7 +34,7 @@ config.module.loaders.push({
   include: [].concat(
     config.additionalPaths,
     [path.join(__dirname, '/../src')]
-  ),
-});
+  )
+})
 
-module.exports = config;
+module.exports = config

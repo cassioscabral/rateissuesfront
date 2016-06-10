@@ -1,5 +1,3 @@
-'use strict'
-
 import React from 'react'
 import Badge from 'components/atoms/badge/Badge'
 
@@ -10,11 +8,14 @@ class Badges extends React.Component {
     return (
       <div className='badges-component'>
         <label>{ this.props.points }</label>
-        <Badge color='gold'
+        <Badge
+          color='gold'
           amount='4' />
-        <Badge color='silver'
+        <Badge
+          color='silver'
           amount='15' />
-        <Badge color='orange'
+        <Badge
+          color='orange'
           amount='40' />
       </div>
     )
@@ -22,9 +23,5 @@ class Badges extends React.Component {
 }
 
 Badges.displayName = 'MoleculeBadges'
-
-// Uncomment properties you need
-// Badges.propTypes = {};
-// Badges.defaultProps = {};
 
 export default Badges

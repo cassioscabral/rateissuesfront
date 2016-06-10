@@ -1,5 +1,3 @@
-'use strict'
-
 import React from 'react'
 import VoteDown from 'components/atoms/vote_down/VoteDown'
 import VoteUp from 'components/atoms/vote_up/VoteUp'

@@ -1,5 +1,3 @@
-'use strict'
-
 import React from 'react'
 import ProfileImage from 'components/atoms/profile_image/ProfileImage'
 
@@ -22,9 +20,5 @@ class UserFeedItem extends React.Component {
 }
 
 UserFeedItem.displayName = 'MoleculeUserFeedItem'
-
-// Uncomment properties you need
-// UserFeedItem.propTypes = {};
-// UserFeedItem.defaultProps = {};
 
 export default UserFeedItem

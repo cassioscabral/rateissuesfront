@@ -1,6 +1,3 @@
-
-'use strict'
-
 import React from 'react'
 
 require('./stylesheets/app_name.scss')
@@ -16,9 +13,5 @@ class AppName extends React.Component {
 }
 
 AppName.displayName = 'AtomAppName'
-
-// Uncomment properties you need
-// AppName.propTypes = {};
-// AppName.defaultProps = {};
 
 export default AppName

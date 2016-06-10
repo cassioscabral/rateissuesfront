@@ -1,5 +1,3 @@
-'use strict'
-
 import React from 'react'
 import Logo from 'components/atoms/logo/Logo'
 import AppName from 'components/atoms/app_name/AppName'
@@ -18,9 +16,5 @@ class LogoName extends React.Component {
 }
 
 LogoName.displayName = 'MoleculeLogoName'
-
-// Uncomment properties you need
-// LogoName.propTypes = {};
-// LogoName.defaultProps = {};
 
 export default LogoName

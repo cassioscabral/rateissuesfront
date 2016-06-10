@@ -1,5 +1,3 @@
-'use strict'
-
 import React from 'react'
 import MdHome from 'react-icons/md/home'
 
@@ -18,9 +16,5 @@ class Logo extends React.Component {
 }
 
 Logo.displayName = 'AtomLogo'
-
-// Uncomment properties you need
-// Logo.propTypes = {};
-// Logo.defaultProps = {};
 
 export default Logo

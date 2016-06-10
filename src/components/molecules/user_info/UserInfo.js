@@ -1,5 +1,3 @@
-'use strict'
-
 import React from 'react'
 import ProfileImage from 'components/atoms/profile_image/ProfileImage'
 import Username from 'components/atoms/username/Username'
@@ -8,17 +6,14 @@ import Badges from 'components/molecules/badges/Badges'
 require('./stylesheets/user_info.scss')
 
 class UserInfo extends React.Component {
-  getUserProfile () {
-    return JSON.parse(localStorage.getItem('userProfile')) || {email:'',nickname:''}
-  }
-  render () {
 
-    let userProfile = this.getUserProfile()
+  render () {
+    let profile = this.props.profile || {email:'', nickname:''}
     return (
       <div className='user-info-component'>
-        <ProfileImage email={ userProfile.email } />
+        <ProfileImage email={ profile.email } />
         <div className='column'>
-          <Username username={ userProfile.nickname } />
+          <Username username={ profile.nickname } />
           <Badges points='500' />
         </div>
       </div>
@@ -27,9 +22,5 @@ class UserInfo extends React.Component {
 }
 
 UserInfo.displayName = 'MoleculeUserInfo'
-
-// Uncomment properties you need
-// UserInfo.propTypes = {};
-// UserInfo.defaultProps = {};
 
 export default UserInfo
