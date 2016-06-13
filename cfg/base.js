@@ -48,7 +48,7 @@ module.exports = {
     ],
     loaders: [
       {
-        test: /react-icons\/(.)*(.js)$/,
+        test: /react-icons[\\\/](.)*(.js)$/,
         loader: 'babel'
       },
       {
