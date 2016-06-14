@@ -28,11 +28,16 @@ module.exports = {
     extensions: [
       '',
       '.js',
-      '.jsx'
+      '.jsx',
+      '.scss'
     ],
     alias: {
       actions: srcPath + '/actions/',
       components: srcPath + '/components/',
+      molecules: srcPath + '/components/molecules',
+      helpers: srcPath + '/components/helpers',
+      atoms: srcPath + '/components/atoms',
+      organisms: srcPath + '/components/organisms',
       sources: srcPath + '/sources/',
       stores: srcPath + '/stores/',
       styles: srcPath + '/styles/',
@@ -98,5 +103,8 @@ module.exports = {
         browsers: ['last 2 versions', 'ie >= 8']
       })
     ]
+  },
+  sassLoader: {
+    includePaths: [srcPath]
   }
 }
