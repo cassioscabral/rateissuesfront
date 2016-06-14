@@ -1,23 +1,21 @@
-'use strict'
-
 import React from 'react'
 import Tag from 'components/atoms/tag/Tag'
 
 require('./stylesheets/tag_manager.scss')
 
 class TagManager extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       tagValue: 'test',
       tags: this.props.tags
     }
   }
-  getTags() {
+  getTags () {
     return this.state.tags
   }
   // tags are array saved as strings separated by '+'
-  addTag() {
+  addTag () {
     // TODO deal with cases like C++
     let tag = this.state.tagValue
     let collectionName = this.props.collection
@@ -30,26 +28,28 @@ class TagManager extends React.Component {
     // oldTags.push(tag)
     // this.setState({tags: oldTags})
   }
-  handleInput(event) {
+  handleInput (event) {
     this.setState({tagValue: event.target.value})
   }
-  render() {
+  render () {
     return (
       <div className='tag-manager-component u-margin-top-2'>
         <div className='row padding-box'>
-          <h3>{this.props.name}</h3>
+          <h3>{ this.props.name }</h3>
         </div>
         <div className='row padding-box'>
           <div className='new-entry'>
             <input
               type='text'
-              value={this.state.tagValue}
-              onChange={this.handleInput.bind(this)}
+              value={ this.state.tagValue }
+              onChange={ this.handleInput.bind(this) }
             />
-            <button onClick={this.addTag.bind(this)} type='submit'>OK</button>
+            <button
+              onClick={ this.addTag.bind(this) }
+              type='submit'>OK</button>
           </div>
           <div className='tags'>
-            {this.props.tags.map((tag) => <Tag name={tag}></Tag>)}
+            { this.props.tags.map((tag) => <Tag name={ tag }></Tag>) }
           </div>
         </div>
       </div>
@@ -58,9 +58,5 @@ class TagManager extends React.Component {
 }
 
 TagManager.displayName = 'MoleculeTagManager'
-
-// Uncomment properties you need
-// TagManager.propTypes = {};
-// TagManager.defaultProps = {};
 
 export default TagManager
