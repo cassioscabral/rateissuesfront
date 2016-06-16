@@ -7,15 +7,15 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React from 'react';
-import Register from './Register';
+import React from 'react'
+import Register from './Register'
 
 export default {
 
   path: '/register',
 
   action() {
-    return <Register />;
+    return <Register />
   },
 
-};
+}

@@ -10,12 +10,12 @@
 import {
   GraphQLSchema as Schema,
   GraphQLObjectType as ObjectType,
-} from 'graphql';
+} from 'graphql'
 
-import me from './queries/me';
-import content from './queries/content';
-import news from './queries/news';
-import intl from './queries/intl';
+import me from './queries/me'
+import content from './queries/content'
+import news from './queries/news'
+import intl from './queries/intl'
 
 const schema = new Schema({
   query: new ObjectType({
@@ -27,6 +27,6 @@ const schema = new Schema({
       intl,
     },
   }),
-});
+})
 
-export default schema;
+export default schema

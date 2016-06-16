@@ -7,12 +7,12 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React, { Component, PropTypes } from 'react';
-import emptyFunction from 'fbjs/lib/emptyFunction';
-import s from './App.css';
-import Header from '../Header';
-import Feedback from '../Feedback';
-import Footer from '../Footer';
+import React, {Component, PropTypes} from 'react'
+import emptyFunction from 'fbjs/lib/emptyFunction'
+import s from './App.css'
+import Header from '../Header'
+import Feedback from '../Feedback'
+import Footer from '../Footer'
 
 class App extends Component {
 
@@ -33,38 +33,38 @@ class App extends Component {
   };
 
   getChildContext() {
-    const context = this.props.context;
+    const context = this.props.context
     return {
       insertCss: context.insertCss || emptyFunction,
       setTitle: context.setTitle || emptyFunction,
       setMeta: context.setMeta || emptyFunction,
-    };
+    }
   }
 
   componentWillMount() {
-    const { insertCss } = this.props.context;
-    this.removeCss = insertCss(s);
+    const {insertCss} = this.props.context
+    this.removeCss = insertCss(s)
   }
 
   componentWillUnmount() {
-    this.removeCss();
+    this.removeCss()
   }
 
   render() {
     if (this.props.error) {
-      return this.props.children;
+      return this.props.children
     }
 
     return (
       <div>
         <Header />
-        {this.props.children}
+        { this.props.children }
         <Feedback />
         <Footer />
       </div>
-    );
+    )
   }
 
 }
 
-export default App;
+export default App

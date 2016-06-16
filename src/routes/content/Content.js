@@ -7,9 +7,9 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React, { Component, PropTypes } from 'react';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Content.css';
+import React, {Component, PropTypes} from 'react'
+import withStyles from 'isomorphic-style-loader/lib/withStyles'
+import s from './Content.css'
 
 class Content extends Component {
 
@@ -24,20 +24,20 @@ class Content extends Component {
   };
 
   componentWillMount() {
-    this.context.setTitle(this.props.title);
+    this.context.setTitle(this.props.title)
   }
 
   render() {
     return (
-      <div className={s.root}>
-        <div className={s.container}>
-          {this.props.path === '/' ? null : <h1>{this.props.title}</h1>}
-          <div dangerouslySetInnerHTML={{ __html: this.props.content || '' }} />
+      <div className={ s.root }>
+        <div className={ s.container }>
+          { this.props.path === '/' ? null : <h1>{ this.props.title }</h1> }
+          <div dangerouslySetInnerHTML={ {__html: this.props.content || ''} } />
         </div>
       </div>
-    );
+    )
   }
 
 }
 
-export default withStyles(s)(Content);
+export default withStyles(s)(Content)

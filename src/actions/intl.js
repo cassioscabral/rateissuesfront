@@ -1,18 +1,18 @@
-import fetch from '../core/fetch';
+import fetch from '../core/fetch'
 import {
   SET_LOCALE_START,
   SET_LOCALE_SUCCESS,
   SET_LOCALE_ERROR,
-} from '../constants';
+} from '../constants'
 
-export function setLocale({ locale }) {
+export function setLocale({locale}) {
   return async (dispatch) => {
     dispatch({
       type: SET_LOCALE_START,
       payload: {
         locale,
       },
-    });
+    })
 
     try {
       const resp = await fetch('/graphql', {
@@ -25,25 +25,25 @@ export function setLocale({ locale }) {
           query: `query{intl(locale:${JSON.stringify(locale)}){id,message}}`,
         }),
         credentials: 'include',
-      });
-      if (resp.status !== 200) throw new Error(resp.statusText);
-      const { data } = await resp.json();
+      })
+      if (resp.status !== 200) throw new Error(resp.statusText)
+      const {data} = await resp.json()
       const messages = data.intl.reduce((msgs, msg) => {
-        msgs[msg.id] = msg.message; // eslint-disable-line no-param-reassign
-        return msgs;
-      }, {});
+        msgs[msg.id] = msg.message // eslint-disable-line no-param-reassign
+        return msgs
+      }, {})
       dispatch({
         type: SET_LOCALE_SUCCESS,
         payload: {
           locale,
           messages,
         },
-      });
+      })
 
       // remember locale for every new request
       if (process.env.BROWSER) {
-        const maxAge = 3650 * 24 * 3600; // 10 years in seconds
-        document.cookie = `lang=${locale};path=/;max-age=${maxAge}`;
+        const maxAge = 3650 * 24 * 3600 // 10 years in seconds
+        document.cookie = `lang=${locale};path=/;max-age=${maxAge}`
       }
     } catch (error) {
       dispatch({
@@ -52,10 +52,10 @@ export function setLocale({ locale }) {
           locale,
           error,
         },
-      });
-      return false;
+      })
+      return false
     }
 
-    return true;
-  };
+    return true
+  }
 }

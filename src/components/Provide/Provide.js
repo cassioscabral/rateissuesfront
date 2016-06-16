@@ -1,15 +1,15 @@
-import React, { PropTypes } from 'react';
-import { Provider } from 'react-redux';
-import IntlProvider from './IntlProvider';
+import React, {PropTypes} from 'react'
+import {Provider} from 'react-redux'
+import IntlProvider from './IntlProvider'
 
-function Provide({ store, children }) {
+function Provide({store, children}) {
   return (
-    <Provider store={store}>
+    <Provider store={ store }>
       <IntlProvider>
-        {children}
+        { children }
       </IntlProvider>
     </Provider>
-  );
+  )
 }
 
 Provide.propTypes = {
@@ -19,6 +19,6 @@ Provide.propTypes = {
     getState: PropTypes.func.isRequired,
   }).isRequired,
   children: PropTypes.element.isRequired,
-};
+}
 
-export default Provide;
+export default Provide

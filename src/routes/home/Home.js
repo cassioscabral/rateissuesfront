@@ -7,39 +7,42 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React, { PropTypes } from 'react';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Home.css';
-import { FormattedRelative } from 'react-intl';
+import React, {PropTypes} from 'react'
+import withStyles from 'isomorphic-style-loader/lib/withStyles'
+import s from './Home.css'
+import {FormattedRelative} from 'react-intl'
 
-const title = 'React Starter Kit';
+const title = 'React Starter Kit'
 
-function Home({ news }, context) {
-  context.setTitle(title);
+function Home({news}, context) {
+  context.setTitle(title)
   return (
-    <div className={s.root}>
-      <div className={s.container}>
-        <h1 className={s.title}>React.js News</h1>
-        <ul className={s.news}>
-          {news.map((item, index) => (
-            <li key={index} className={s.newsItem}>
-              <span className={s.newsTitle}>
-                <a href={item.link}>{item.title}</a>
-                {' '}
-                <span className={s.publishedDate}>
-                  <FormattedRelative value={item.publishedDate} />
+    <div className={ s.root }>
+      <div className={ s.container }>
+        <h1 className={ s.title }>React.js News</h1>
+        <ul className={ s.news }>
+          { news.map((item, index) => (
+            <li
+              key={ index }
+              className={ s.newsItem }
+            >
+              <span className={ s.newsTitle }>
+                <a href={ item.link }>{ item.title }</a>
+                { ' ' }
+                <span className={ s.publishedDate }>
+                  <FormattedRelative value={ item.publishedDate } />
                 </span>
               </span>
               <span
-                className={s.newsDesc}
-                dangerouslySetInnerHTML={{ __html: item.contentSnippet }}
+                className={ s.newsDesc }
+                dangerouslySetInnerHTML={ {__html: item.contentSnippet} }
               />
             </li>
-          ))}
+          )) }
         </ul>
       </div>
     </div>
-  );
+  )
 }
 
 Home.propTypes = {
@@ -48,7 +51,7 @@ Home.propTypes = {
     link: PropTypes.string.isRequired,
     contentSnippet: PropTypes.string,
   })).isRequired,
-};
-Home.contextTypes = { setTitle: PropTypes.func.isRequired };
+}
+Home.contextTypes = {setTitle: PropTypes.func.isRequired}
 
-export default withStyles(s)(Home);
+export default withStyles(s)(Home)

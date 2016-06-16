@@ -7,23 +7,23 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import 'babel-polyfill';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import FastClick from 'fastclick';
-import { match } from 'universal-router';
-import routes from './routes';
-import history from './core/history';
-import configureStore from './store/configureStore';
-import { addEventListener, removeEventListener } from './core/DOMUtils';
-import Provide from './components/Provide';
+import 'babel-polyfill'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import FastClick from 'fastclick'
+import {match} from 'universal-router'
+import routes from './routes'
+import history from './core/history'
+import configureStore from './store/configureStore'
+import {addEventListener, removeEventListener} from './core/DOMUtils'
+import Provide from './components/Provide'
 
-import { addLocaleData } from 'react-intl';
+import {addLocaleData} from 'react-intl'
 
-import en from 'react-intl/locale-data/en';
+import en from 'react-intl/locale-data/en'
 import cs from 'react-intl/locale-data/cs';
 
-[en, cs].forEach(addLocaleData);
+[en, cs].forEach(addLocaleData)
 
 const context = {
   store: null,
@@ -32,44 +32,44 @@ const context = {
   setMeta: (name, content) => {
     // Remove and create a new <meta /> tag in order to make it work
     // with bookmarks in Safari
-    const elements = document.getElementsByTagName('meta');
+    const elements = document.getElementsByTagName('meta')
     Array.from(elements).forEach((element) => {
       if (element.getAttribute('name') === name) {
-        element.parentNode.removeChild(element);
+        element.parentNode.removeChild(element)
       }
-    });
-    const meta = document.createElement('meta');
-    meta.setAttribute('name', name);
-    meta.setAttribute('content', content);
+    })
+    const meta = document.createElement('meta')
+    meta.setAttribute('name', name)
+    meta.setAttribute('content', content)
     document
       .getElementsByTagName('head')[0]
-      .appendChild(meta);
+      .appendChild(meta)
   },
-};
+}
 
 // Restore the scroll position if it was saved into the state
 function restoreScrollPosition(state) {
   if (state && state.scrollY !== undefined) {
-    window.scrollTo(state.scrollX, state.scrollY);
+    window.scrollTo(state.scrollX, state.scrollY)
   } else {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0)
   }
 }
 
 let renderComplete = (state, callback) => {
-  const elem = document.getElementById('css');
-  if (elem) elem.parentNode.removeChild(elem);
-  callback(true);
+  const elem = document.getElementById('css')
+  if (elem) elem.parentNode.removeChild(elem)
+  callback(true)
   renderComplete = (s) => {
-    restoreScrollPosition(s);
+    restoreScrollPosition(s)
 
     // Google Analytics tracking. Don't send 'pageview' event after
     // the initial rendering, as it was already sent
-    window.ga('send', 'pageview');
+    window.ga('send', 'pageview')
 
-    callback(true);
-  };
-};
+    callback(true)
+  }
+}
 
 function render(container, state, config, component) {
   return new Promise((resolve, reject) => {
@@ -77,76 +77,76 @@ function render(container, state, config, component) {
       console.log(// eslint-disable-line no-console
         'React rendering. State:',
         config.store.getState()
-      );
+      )
     }
 
     try {
       ReactDOM.render(
         <Provide {...config}>
-          {component}
+          { component }
         </Provide>,
         container,
         renderComplete.bind(undefined, state, resolve)
-      );
+      )
     } catch (err) {
-      reject(err);
+      reject(err)
     }
-  });
+  })
 }
 
 function run() {
-  let currentLocation = null;
-  const container = document.getElementById('app');
+  let currentLocation = null
+  const container = document.getElementById('app')
   const initialState = JSON.parse(
     document.
       getElementById('source').
       getAttribute('data-initial-state')
-  );
+  )
 
   // Make taps on links and buttons work fast on mobiles
-  FastClick.attach(document.body);
+  FastClick.attach(document.body)
 
-  const store = configureStore(initialState);
-  context.store = store;
+  const store = configureStore(initialState)
+  context.store = store
 
   // Re-render the app when window.location changes
   const removeHistoryListener = history.listen(location => {
-    currentLocation = location;
+    currentLocation = location
     match(routes, {
       path: location.pathname,
       query: location.query,
       state: location.state,
       context,
-      render: render.bind(undefined, container, location.state, { store }),
-    }).catch(err => console.error(err)); // eslint-disable-line no-console
-  });
+      render: render.bind(undefined, container, location.state, {store}),
+    }).catch(err => console.error(err)) // eslint-disable-line no-console
+  })
 
   // Save the page scroll position into the current location's state
-  const supportPageOffset = window.pageXOffset !== undefined;
-  const isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat');
+  const supportPageOffset = window.pageXOffset !== undefined
+  const isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat')
   const setPageOffset = () => {
-    currentLocation.state = currentLocation.state || Object.create(null);
+    currentLocation.state = currentLocation.state || Object.create(null)
     if (supportPageOffset) {
-      currentLocation.state.scrollX = window.pageXOffset;
-      currentLocation.state.scrollY = window.pageYOffset;
+      currentLocation.state.scrollX = window.pageXOffset
+      currentLocation.state.scrollY = window.pageYOffset
     } else {
       currentLocation.state.scrollX = isCSS1Compat ?
-        document.documentElement.scrollLeft : document.body.scrollLeft;
+        document.documentElement.scrollLeft : document.body.scrollLeft
       currentLocation.state.scrollY = isCSS1Compat ?
-        document.documentElement.scrollTop : document.body.scrollTop;
+        document.documentElement.scrollTop : document.body.scrollTop
     }
-  };
+  }
 
-  addEventListener(window, 'scroll', setPageOffset);
+  addEventListener(window, 'scroll', setPageOffset)
   addEventListener(window, 'pagehide', () => {
-    removeEventListener(window, 'scroll', setPageOffset);
-    removeHistoryListener();
-  });
+    removeEventListener(window, 'scroll', setPageOffset)
+    removeHistoryListener()
+  })
 }
 
 // Run the application when both DOM is ready and page content is loaded
 if (['complete', 'loaded', 'interactive'].includes(document.readyState) && document.body) {
-  run();
+  run()
 } else {
-  document.addEventListener('DOMContentLoaded', run, false);
+  document.addEventListener('DOMContentLoaded', run, false)
 }

@@ -1,5 +1,5 @@
-import DataType from 'sequelize';
-import Model from '../sequelize';
+import DataType from 'sequelize'
+import Model from '../sequelize'
 
 const UserProfile = Model.define('UserProfile', {
 
@@ -28,6 +28,6 @@ const UserProfile = Model.define('UserProfile', {
     type: DataType.STRING(256),
   },
 
-});
+})
 
-export default UserProfile;
+export default UserProfile

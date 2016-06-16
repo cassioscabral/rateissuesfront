@@ -7,8 +7,8 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import DataType from 'sequelize';
-import Model from '../sequelize';
+import DataType from 'sequelize'
+import Model from '../sequelize'
 
 const UserLogin = Model.define('UserLogin', {
 
@@ -22,6 +22,6 @@ const UserLogin = Model.define('UserLogin', {
     primaryKey: true,
   },
 
-});
+})
 
-export default UserLogin;
+export default UserLogin

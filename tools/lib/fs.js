@@ -7,24 +7,24 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import fs from 'fs';
-import mkdirp from 'mkdirp';
-import globPkg from 'glob';
+import fs from 'fs'
+import mkdirp from 'mkdirp'
+import globPkg from 'glob'
 
 const readFile = (file) => new Promise((resolve, reject) => {
-  fs.readFile(file, 'utf8', (err, content) => err ? reject(err) : resolve(content));
-});
+  fs.readFile(file, 'utf8', (err, content) => err ? reject(err) : resolve(content))
+})
 
 const writeFile = (file, contents) => new Promise((resolve, reject) => {
-  fs.writeFile(file, contents, 'utf8', err => err ? reject(err) : resolve());
-});
+  fs.writeFile(file, contents, 'utf8', err => err ? reject(err) : resolve())
+})
 
 const makeDir = (name) => new Promise((resolve, reject) => {
-  mkdirp(name, err => err ? reject(err) : resolve());
-});
+  mkdirp(name, err => err ? reject(err) : resolve())
+})
 
 const glob = (pattern) => new Promise((resolve, reject) => {
-  globPkg(pattern, (err, val) => err ? reject(err) : resolve(val));
-});
+  globPkg(pattern, (err, val) => err ? reject(err) : resolve(val))
+})
 
-export default { readFile, writeFile, makeDir, glob };
+export default {readFile, writeFile, makeDir, glob}

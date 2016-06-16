@@ -7,15 +7,15 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React, { Component, PropTypes } from 'react';
-import history from '../../core/history';
+import React, {Component, PropTypes} from 'react'
+import history from '../../core/history'
 
 function isLeftClickEvent(event) {
-  return event.button === 0;
+  return event.button === 0
 }
 
 function isModifiedEvent(event) {
-  return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
+  return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey)
 }
 
 class Link extends Component { // eslint-disable-line react/prefer-stateless-function
@@ -26,39 +26,43 @@ class Link extends Component { // eslint-disable-line react/prefer-stateless-fun
   };
 
   handleClick = (event) => {
-    let allowTransition = true;
+    let allowTransition = true
 
     if (this.props.onClick) {
-      this.props.onClick(event);
+      this.props.onClick(event)
     }
 
     if (isModifiedEvent(event) || !isLeftClickEvent(event)) {
-      return;
+      return
     }
 
     if (event.defaultPrevented === true) {
-      allowTransition = false;
+      allowTransition = false
     }
 
-    event.preventDefault();
+    event.preventDefault()
 
     if (allowTransition) {
       if (this.props.to) {
-        history.push(this.props.to);
+        history.push(this.props.to)
       } else {
         history.push({
           pathname: event.currentTarget.pathname,
           search: event.currentTarget.search,
-        });
+        })
       }
     }
   };
 
   render() {
-    const { to, ...props } = this.props; // eslint-disable-line no-use-before-define
-    return <a href={history.createHref(to)} {...props} onClick={this.handleClick} />;
+    const {to, ...props} = this.props // eslint-disable-line no-use-before-define
+    return (<a
+      href={ history.createHref(to) }
+      {...props}
+      onClick={ this.handleClick }
+    />)
   }
 
 }
 
-export default Link;
+export default Link

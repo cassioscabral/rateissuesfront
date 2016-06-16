@@ -7,15 +7,15 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React from 'react';
-import Login from './Login';
+import React from 'react'
+import Login from './Login'
 
 export default {
 
   path: '/login',
 
   action() {
-    return <Login />;
+    return <Login />
   },
 
-};
+}

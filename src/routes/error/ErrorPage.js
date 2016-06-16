@@ -7,34 +7,34 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React, { PropTypes } from 'react';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './ErrorPage.css';
+import React, {PropTypes} from 'react'
+import withStyles from 'isomorphic-style-loader/lib/withStyles'
+import s from './ErrorPage.css'
 
-function ErrorPage({ error }, context) {
-  let title = 'Error';
-  let content = 'Sorry, a critical error occurred on this page.';
-  let errorMessage = null;
+function ErrorPage({error}, context) {
+  let title = 'Error'
+  let content = 'Sorry, a critical error occurred on this page.'
+  let errorMessage = null
 
   if (error.status === 404) {
-    title = 'Page Not Found';
-    content = 'Sorry, the page you were trying to view does not exist.';
+    title = 'Page Not Found'
+    content = 'Sorry, the page you were trying to view does not exist.'
   } else if (process.env.NODE_ENV !== 'production') {
-    errorMessage = <pre>{error.stack}</pre>;
+    errorMessage = <pre>{ error.stack }</pre>
   }
 
-  context.setTitle(title);
+  context.setTitle(title)
 
   return (
     <div>
-      <h1>{title}</h1>
-      <p>{content}</p>
-      {errorMessage}
+      <h1>{ title }</h1>
+      <p>{ content }</p>
+      { errorMessage }
     </div>
-  );
+  )
 }
 
-ErrorPage.propTypes = { error: PropTypes.object.isRequired };
-ErrorPage.contextTypes = { setTitle: PropTypes.func.isRequired };
+ErrorPage.propTypes = {error: PropTypes.object.isRequired}
+ErrorPage.contextTypes = {setTitle: PropTypes.func.isRequired}
 
-export default withStyles(s)(ErrorPage);
+export default withStyles(s)(ErrorPage)

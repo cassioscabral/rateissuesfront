@@ -7,15 +7,15 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React from 'react';
-import Contact from './Contact';
+import React from 'react'
+import Contact from './Contact'
 
 export default {
 
   path: '/contact',
 
   action() {
-    return <Contact />;
+    return <Contact />
   },
 
-};
+}

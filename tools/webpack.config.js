@@ -7,14 +7,14 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import path from 'path';
-import webpack from 'webpack';
-import extend from 'extend';
-import AssetsPlugin from 'assets-webpack-plugin';
+import path from 'path'
+import webpack from 'webpack'
+import extend from 'extend'
+import AssetsPlugin from 'assets-webpack-plugin'
 
-const DEBUG = !process.argv.includes('--release');
-const VERBOSE = process.argv.includes('--verbose');
-const INTL_REQUIRE_DESCRIPTIONS = true;
+const DEBUG = !process.argv.includes('--release')
+const VERBOSE = process.argv.includes('--verbose')
+const INTL_REQUIRE_DESCRIPTIONS = true
 const AUTOPREFIXER_BROWSERS = [
   'Android 2.3',
   'Android >= 4',
@@ -24,11 +24,11 @@ const AUTOPREFIXER_BROWSERS = [
   'iOS >= 7',
   'Opera >= 12',
   'Safari >= 7.1',
-];
+]
 const GLOBALS = {
   'process.env.NODE_ENV': DEBUG ? '"development"' : '"production"',
   __DEV__: DEBUG,
-};
+}
 
 //
 // Common configuration chunk to be used for both
@@ -100,7 +100,7 @@ const config = {
         test: /\.scss$/,
         loaders: [
           'isomorphic-style-loader',
-          `css-loader?${JSON.stringify({ sourceMap: DEBUG, minimize: !DEBUG })}`,
+          `css-loader?${JSON.stringify({sourceMap: DEBUG, minimize: !DEBUG})}`,
           'postcss-loader?pack=sass',
           'sass-loader',
         ],
@@ -161,7 +161,7 @@ const config = {
       default: [
         // Transfer @import rule by inlining content, e.g. @import 'normalize.css'
         // https://github.com/postcss/postcss-import
-        require('postcss-import')({ addDependencyTo: bundler }),
+        require('postcss-import')({addDependencyTo: bundler}),
         // W3C variables, e.g. :root { --color: red; } div { background: var(--color); }
         // https://github.com/postcss/postcss-custom-properties
         require('postcss-custom-properties')(),
@@ -197,14 +197,14 @@ const config = {
         require('postcss-selector-not')(),
         // Add vendor prefixes to CSS rules using values from caniuse.com
         // https://github.com/postcss/autoprefixer
-        require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS }),
+        require('autoprefixer')({browsers: AUTOPREFIXER_BROWSERS}),
       ],
       sass: [
-        require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS }),
+        require('autoprefixer')({browsers: AUTOPREFIXER_BROWSERS}),
       ],
-    };
+    }
   },
-};
+}
 
 //
 // Configuration for the client-side bundle (client.js)
@@ -224,7 +224,7 @@ const clientConfig = extend(true, {}, config, {
 
     // Define free variables
     // https://webpack.github.io/docs/list-of-plugins.html#defineplugin
-    new webpack.DefinePlugin({ ...GLOBALS, 'process.env.BROWSER': true }),
+    new webpack.DefinePlugin({...GLOBALS, 'process.env.BROWSER': true}),
 
     // Emit a file with assets paths
     // https://github.com/sporto/assets-webpack-plugin#options
@@ -263,7 +263,7 @@ const clientConfig = extend(true, {}, config, {
   // Choose a developer tool to enhance debugging
   // http://webpack.github.io/docs/configuration.html#devtool
   devtool: DEBUG ? 'cheap-module-eval-source-map' : false,
-});
+})
 
 //
 // Configuration for the server-side bundle (server.js)
@@ -285,8 +285,8 @@ const serverConfig = extend(true, {}, config, {
       const isExternal =
         request.match(/^[@a-z][a-z\/\.\-0-9]*$/i) &&
         !request.match(/^react-routing/) &&
-        !context.match(/[\\/]react-routing/);
-      cb(null, Boolean(isExternal));
+        !context.match(/[\\/]react-routing/)
+      cb(null, Boolean(isExternal))
     },
   ],
 
@@ -294,12 +294,12 @@ const serverConfig = extend(true, {}, config, {
 
     // Define free variables
     // https://webpack.github.io/docs/list-of-plugins.html#defineplugin
-    new webpack.DefinePlugin({ ...GLOBALS, 'process.env.BROWSER': false }),
+    new webpack.DefinePlugin({...GLOBALS, 'process.env.BROWSER': false}),
 
     // Adds a banner to the top of each generated chunk
     // https://webpack.github.io/docs/list-of-plugins.html#bannerplugin
     new webpack.BannerPlugin('require("source-map-support").install();',
-      { raw: true, entryOnly: false }),
+      {raw: true, entryOnly: false}),
   ],
 
   node: {
@@ -312,6 +312,6 @@ const serverConfig = extend(true, {}, config, {
   },
 
   devtool: 'source-map',
-});
+})
 
-export default [clientConfig, serverConfig];
+export default [clientConfig, serverConfig]

@@ -7,16 +7,16 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React from 'react';
-import App from '../components/App';
+import React from 'react'
+import App from '../components/App'
 
 // Child routes
-import home from './home';
-import contact from './contact';
-import login from './login';
-import register from './register';
-import content from './content';
-import error from './error';
+import home from './home'
+import contact from './contact'
+import login from './login'
+import register from './register'
+import content from './content'
+import error from './error'
 
 export default {
 
@@ -31,12 +31,12 @@ export default {
     error,
   ],
 
-  async action({ next, render, context }) {
-    const component = await next();
-    if (component === undefined) return component;
+  async action({next, render, context}) {
+    const component = await next()
+    if (component === undefined) return component
     return render(
-      <App context={context}>{component}</App>
-    );
+      <App context={ context }>{ component }</App>
+    )
   },
 
-};
+}

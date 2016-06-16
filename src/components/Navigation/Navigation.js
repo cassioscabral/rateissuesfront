@@ -7,12 +7,12 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React, { PropTypes } from 'react';
-import { defineMessages, FormattedMessage } from 'react-intl';
-import cx from 'classnames';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Navigation.css';
-import Link from '../Link';
+import React, {PropTypes} from 'react'
+import {defineMessages, FormattedMessage} from 'react-intl'
+import cx from 'classnames'
+import withStyles from 'isomorphic-style-loader/lib/withStyles'
+import s from './Navigation.css'
+import Link from '../Link'
 
 const messages = defineMessages({
   about: {
@@ -40,33 +40,48 @@ const messages = defineMessages({
     defaultMessage: 'Sign up',
     description: 'Sign up link in header',
   },
-});
+})
 
-function Navigation({ className }) {
+function Navigation({className}) {
   return (
-    <div className={cx(s.root, className)} role="navigation">
-      <Link className={s.link} to="/about">
+    <div
+      className={ cx(s.root, className) }
+      role="navigation"
+    >
+      <Link
+        className={ s.link }
+        to="/about"
+      >
         <FormattedMessage {...messages.about} />
       </Link>
-      <Link className={s.link} to="/contact">
+      <Link
+        className={ s.link }
+        to="/contact"
+      >
         <FormattedMessage {...messages.contact} />
       </Link>
-      <span className={s.spacer}> | </span>
-      <Link className={s.link} to="/login">
+      <span className={ s.spacer }> | </span>
+      <Link
+        className={ s.link }
+        to="/login"
+      >
         <FormattedMessage {...messages.login} />
       </Link>
-      <span className={s.spacer}>
+      <span className={ s.spacer }>
         <FormattedMessage {...messages.or} />
       </span>
-      <Link className={cx(s.link, s.highlight)} to="/register">
+      <Link
+        className={ cx(s.link, s.highlight) }
+        to="/register"
+      >
         <FormattedMessage {...messages.signup} />
       </Link>
     </div>
-  );
+  )
 }
 
 Navigation.propTypes = {
   className: PropTypes.string,
-};
+}
 
-export default withStyles(s)(Navigation);
+export default withStyles(s)(Navigation)

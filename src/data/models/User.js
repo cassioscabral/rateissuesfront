@@ -7,8 +7,8 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import DataType from 'sequelize';
-import Model from '../sequelize';
+import DataType from 'sequelize'
+import Model from '../sequelize'
 
 const User = Model.define('User', {
 
@@ -20,7 +20,7 @@ const User = Model.define('User', {
 
   email: {
     type: DataType.STRING(256),
-    validate: { isEmail: true },
+    validate: {isEmail: true},
   },
 
   emailConfirmed: {
@@ -31,9 +31,9 @@ const User = Model.define('User', {
 }, {
 
   indexes: [
-    { fields: ['email'] },
+    {fields: ['email']},
   ],
 
-});
+})
 
-export default User;
+export default User
