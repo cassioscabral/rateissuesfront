@@ -1,7 +1,0 @@
-@import '../../../../styles/colors';
-@import '../../../../styles/utils';
-
-.projects-feed-component {
-  min-height: 40%;
-  @include double-border('top', 1, 'solid', lighten($background, 10%), "after");
-}
