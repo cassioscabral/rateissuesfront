@@ -23,11 +23,11 @@ const AUTOPREFIXER_BROWSERS = [
   'Explorer >= 9',
   'iOS >= 7',
   'Opera >= 12',
-  'Safari >= 7.1',
+  'Safari >= 7.1'
 ]
 const GLOBALS = {
   'process.env.NODE_ENV': DEBUG ? '"development"' : '"production"',
-  __DEV__: DEBUG,
+  __DEV__: DEBUG
 }
 
 //
@@ -41,7 +41,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, '../build/public/assets'),
     publicPath: '/assets/',
-    sourcePrefix: '  ',
+    sourcePrefix: '  '
   },
 
   module: {
@@ -51,7 +51,7 @@ const config = {
         loader: 'babel-loader',
         include: [
           path.resolve(__dirname, '../node_modules/react-routing/src'),
-          path.resolve(__dirname, '../src'),
+          path.resolve(__dirname, '../src')
         ],
         query: {
           // https://github.com/babel/babel-loader#options
@@ -62,24 +62,24 @@ const config = {
           presets: [
             'react',
             'es2015',
-            'stage-0',
+            'stage-0'
           ],
           plugins: [
             'transform-runtime',
             ...DEBUG ? [] : [
               'transform-react-remove-prop-types',
               'transform-react-constant-elements',
-              'transform-react-inline-elements',
+              'transform-react-inline-elements'
             ],
 
             // https://github.com/yahoo/babel-plugin-react-intl#options
             ['react-intl',
               {
-                enforceDescriptions: INTL_REQUIRE_DESCRIPTIONS,
-              },
-            ],
-          ],
-        },
+                enforceDescriptions: INTL_REQUIRE_DESCRIPTIONS
+              }
+            ]
+          ]
+        }
       },
       {
         test: /\.css/,
@@ -91,10 +91,10 @@ const config = {
             modules: true,
             localIdentName: DEBUG ? '[name]_[local]_[hash:base64:3]' : '[hash:base64:4]',
             // CSS Nano http://cssnano.co/options/
-            minimize: !DEBUG,
+            minimize: !DEBUG
           })}`,
-          'postcss-loader?pack=default',
-        ],
+          'postcss-loader?pack=default'
+        ]
       },
       {
         test: /\.scss$/,
@@ -102,43 +102,43 @@ const config = {
           'isomorphic-style-loader',
           `css-loader?${JSON.stringify({sourceMap: DEBUG, minimize: !DEBUG})}`,
           'postcss-loader?pack=sass',
-          'sass-loader',
-        ],
+          'sass-loader'
+        ]
       },
       {
         test: /\.json$/,
-        loader: 'json-loader',
+        loader: 'json-loader'
       },
       {
         test: /\.txt$/,
-        loader: 'raw-loader',
+        loader: 'raw-loader'
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
         loader: 'url-loader',
         query: {
           name: DEBUG ? '[path][name].[ext]?[hash]' : '[hash].[ext]',
-          limit: 10000,
-        },
+          limit: 10000
+        }
       },
       {
         test: /\.(eot|ttf|wav|mp3)$/,
         loader: 'file-loader',
         query: {
-          name: DEBUG ? '[path][name].[ext]?[hash]' : '[hash].[ext]',
-        },
+          name: DEBUG ? '[path][name].[ext]?[hash]' : '[hash].[ext]'
+        }
       },
       {
         test: /\.jade$/,
-        loader: 'jade-loader',
-      },
-    ],
+        loader: 'jade-loader'
+      }
+    ]
   },
 
   resolve: {
     root: path.resolve(__dirname, '../src'),
     modulesDirectories: ['node_modules'],
-    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.json'],
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.json']
   },
 
   cache: DEBUG,
@@ -153,7 +153,7 @@ const config = {
     chunks: VERBOSE,
     chunkModules: VERBOSE,
     cached: VERBOSE,
-    cachedAssets: VERBOSE,
+    cachedAssets: VERBOSE
   },
 
   postcss(bundler) {
@@ -197,13 +197,13 @@ const config = {
         require('postcss-selector-not')(),
         // Add vendor prefixes to CSS rules using values from caniuse.com
         // https://github.com/postcss/autoprefixer
-        require('autoprefixer')({browsers: AUTOPREFIXER_BROWSERS}),
+        require('autoprefixer')({browsers: AUTOPREFIXER_BROWSERS})
       ],
       sass: [
-        require('autoprefixer')({browsers: AUTOPREFIXER_BROWSERS}),
-      ],
+        require('autoprefixer')({browsers: AUTOPREFIXER_BROWSERS})
+      ]
     }
-  },
+  }
 }
 
 //
@@ -215,7 +215,7 @@ const clientConfig = extend(true, {}, config, {
 
   output: {
     filename: DEBUG ? '[name].js?[chunkhash]' : '[name].[chunkhash].js',
-    chunkFilename: DEBUG ? '[name].[id].js?[chunkhash]' : '[name].[id].[chunkhash].js',
+    chunkFilename: DEBUG ? '[name].[id].js?[chunkhash]' : '[name].[id].[chunkhash].js'
   },
 
   target: 'web',
@@ -231,7 +231,7 @@ const clientConfig = extend(true, {}, config, {
     new AssetsPlugin({
       path: path.resolve(__dirname, '../build'),
       filename: 'assets.js',
-      processOutput: x => `module.exports = ${JSON.stringify(x)};`,
+      processOutput: x => `module.exports = ${JSON.stringify(x)};`
     }),
 
     // Assign the module and chunk ids by occurrence count
@@ -250,19 +250,19 @@ const clientConfig = extend(true, {}, config, {
       new webpack.optimize.UglifyJsPlugin({
         compress: {
           screw_ie8: true, // jscs:ignore requireCamelCaseOrUpperCaseIdentifiers
-          warnings: VERBOSE,
-        },
+          warnings: VERBOSE
+        }
       }),
 
       // A plugin for a more aggressive chunk merging strategy
       // https://webpack.github.io/docs/list-of-plugins.html#aggressivemergingplugin
-      new webpack.optimize.AggressiveMergingPlugin(),
-    ],
+      new webpack.optimize.AggressiveMergingPlugin()
+    ]
   ],
 
   // Choose a developer tool to enhance debugging
   // http://webpack.github.io/docs/configuration.html#devtool
-  devtool: DEBUG ? 'cheap-module-eval-source-map' : false,
+  devtool: DEBUG ? 'cheap-module-eval-source-map' : false
 })
 
 //
@@ -274,7 +274,7 @@ const serverConfig = extend(true, {}, config, {
 
   output: {
     filename: '../../server.js',
-    libraryTarget: 'commonjs2',
+    libraryTarget: 'commonjs2'
   },
 
   target: 'node',
@@ -287,7 +287,7 @@ const serverConfig = extend(true, {}, config, {
         !request.match(/^react-routing/) &&
         !context.match(/[\\/]react-routing/)
       cb(null, Boolean(isExternal))
-    },
+    }
   ],
 
   plugins: [
@@ -299,7 +299,7 @@ const serverConfig = extend(true, {}, config, {
     // Adds a banner to the top of each generated chunk
     // https://webpack.github.io/docs/list-of-plugins.html#bannerplugin
     new webpack.BannerPlugin('require("source-map-support").install();',
-      {raw: true, entryOnly: false}),
+      {raw: true, entryOnly: false})
   ],
 
   node: {
@@ -308,10 +308,10 @@ const serverConfig = extend(true, {}, config, {
     process: false,
     Buffer: false,
     __filename: false,
-    __dirname: false,
+    __dirname: false
   },
 
-  devtool: 'source-map',
+  devtool: 'source-map'
 })
 
 export default [clientConfig, serverConfig]

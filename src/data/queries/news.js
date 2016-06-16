@@ -49,7 +49,7 @@ const news = {
     }
 
     return items
-  },
+  }
 }
 
 export default news

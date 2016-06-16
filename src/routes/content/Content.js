@@ -14,13 +14,13 @@ import s from './Content.css'
 class Content extends Component {
 
   static contextTypes = {
-    setTitle: PropTypes.func.isRequired,
+    setTitle: PropTypes.func.isRequired
   };
 
   static propTypes = {
     path: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
-    title: PropTypes.string,
+    title: PropTypes.string
   };
 
   componentWillMount() {

@@ -28,7 +28,7 @@ export default {
     login,
     register,
     content,
-    error,
+    error
   ],
 
   async action({next, render, context}) {
@@ -37,6 +37,6 @@ export default {
     return render(
       <App context={ context }>{ component }</App>
     )
-  },
+  }
 
 }

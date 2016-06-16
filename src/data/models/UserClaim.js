@@ -13,12 +13,12 @@ import Model from '../sequelize'
 const UserClaim = Model.define('UserClaim', {
 
   type: {
-    type: DataType.STRING,
+    type: DataType.STRING
   },
 
   value: {
-    type: DataType.INTEGER,
-  },
+    type: DataType.INTEGER
+  }
 
 })
 

@@ -16,7 +16,7 @@ import fetch from './lib/fetch'
 const getRemote = (slot) => ({
   name: slot || 'production',
   url: `https://example${slot ? `-${slot}` : ''}.scm.azurewebsites.net:443/example.git`,
-  website: `http://example${slot ? `-${slot}` : ''}.azurewebsites.net`,
+  website: `http://example${slot ? `-${slot}` : ''}.azurewebsites.net`
 })
 
 /**

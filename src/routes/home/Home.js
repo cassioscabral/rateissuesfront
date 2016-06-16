@@ -49,8 +49,8 @@ Home.propTypes = {
   news: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
-    contentSnippet: PropTypes.string,
-  })).isRequired,
+    contentSnippet: PropTypes.string
+  })).isRequired
 }
 Home.contextTypes = {setTitle: PropTypes.func.isRequired}
 

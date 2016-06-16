@@ -20,16 +20,16 @@ export default {
       method: 'post',
       headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        query: '{news{title,link,publishedDate,contentSnippet}}',
+        query: '{news{title,link,publishedDate,contentSnippet}}'
       }),
-      credentials: 'include',
+      credentials: 'include'
     })
     const {data} = await resp.json()
     if (!data || !data.news) throw new Error('Failed to load the news feed.')
     return <Home news={ data.news } />
-  },
+  }
 
 }

@@ -18,28 +18,28 @@ const messages = defineMessages({
   about: {
     id: 'navigation.about',
     defaultMessage: 'About',
-    description: 'About link in header',
+    description: 'About link in header'
   },
   contact: {
     id: 'navigation.contact',
     defaultMessage: 'Contact',
-    description: 'Contact link in header',
+    description: 'Contact link in header'
   },
   login: {
     id: 'navigation.login',
     defaultMessage: 'Log in',
-    description: 'Log in link in header',
+    description: 'Log in link in header'
   },
   or: {
     id: 'navigation.separator.or',
     defaultMessage: 'or',
-    description: 'Last separator in list, lowercase "or"',
+    description: 'Last separator in list, lowercase "or"'
   },
   signup: {
     id: 'navigation.signup',
     defaultMessage: 'Sign up',
-    description: 'Sign up link in header',
-  },
+    description: 'Sign up link in header'
+  }
 })
 
 function Navigation({className}) {
@@ -81,7 +81,7 @@ function Navigation({className}) {
 }
 
 Navigation.propTypes = {
-  className: PropTypes.string,
+  className: PropTypes.string
 }
 
 export default withStyles(s)(Navigation)

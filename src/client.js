@@ -44,7 +44,7 @@ const context = {
     document
       .getElementsByTagName('head')[0]
       .appendChild(meta)
-  },
+  }
 }
 
 // Restore the scroll position if it was saved into the state
@@ -117,7 +117,7 @@ function run() {
       query: location.query,
       state: location.state,
       context,
-      render: render.bind(undefined, container, location.state, {store}),
+      render: render.bind(undefined, container, location.state, {store})
     }).catch(err => console.error(err)) // eslint-disable-line no-console
   })
 

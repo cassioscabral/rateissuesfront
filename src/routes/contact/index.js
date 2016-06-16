@@ -16,6 +16,6 @@ export default {
 
   action() {
     return <Contact />
-  },
+  }
 
 }

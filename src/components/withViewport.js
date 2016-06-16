@@ -29,7 +29,7 @@ function withViewport(ComposedComponent) {
       super()
 
       this.state = {
-        viewport: canUseDOM ? {width: window.innerWidth, height: window.innerHeight} : viewport,
+        viewport: canUseDOM ? {width: window.innerWidth, height: window.innerHeight} : viewport
       }
     }
 

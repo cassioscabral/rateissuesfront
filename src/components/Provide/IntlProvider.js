@@ -15,9 +15,9 @@ function ProvideIntl({intl, children}) {
 
 ProvideIntl.propTypes = {
   ...IntlProvider.propTypes,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.element.isRequired
 }
 
 export default connect(state => ({
-  intl: state.intl,
+  intl: state.intl
 }))(ProvideIntl)

@@ -9,7 +9,7 @@
 
 import {
   GraphQLSchema as Schema,
-  GraphQLObjectType as ObjectType,
+  GraphQLObjectType as ObjectType
 } from 'graphql'
 
 import me from './queries/me'
@@ -24,9 +24,9 @@ const schema = new Schema({
       me,
       content,
       news,
-      intl,
-    },
-  }),
+      intl
+    }
+  })
 })
 
 export default schema

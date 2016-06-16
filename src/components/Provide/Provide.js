@@ -16,9 +16,9 @@ Provide.propTypes = {
   store: PropTypes.shape({
     subscribe: PropTypes.func.isRequired,
     dispatch: PropTypes.func.isRequired,
-    getState: PropTypes.func.isRequired,
+    getState: PropTypes.func.isRequired
   }).isRequired,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.element.isRequired
 }
 
 export default Provide

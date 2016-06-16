@@ -10,7 +10,7 @@
 import {
   GraphQLObjectType as ObjectType,
   GraphQLString as StringType,
-  GraphQLNonNull as NonNull,
+  GraphQLNonNull as NonNull
 } from 'graphql'
 
 const NewsItemType = new ObjectType({
@@ -20,8 +20,8 @@ const NewsItemType = new ObjectType({
     link: {type: new NonNull(StringType)},
     author: {type: StringType},
     publishedDate: {type: new NonNull(StringType)},
-    contentSnippet: {type: StringType},
-  },
+    contentSnippet: {type: StringType}
+  }
 })
 
 export default NewsItemType

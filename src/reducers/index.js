@@ -4,5 +4,5 @@ import intl from './intl'
 
 export default combineReducers({
   runtime,
-  intl,
+  intl
 })

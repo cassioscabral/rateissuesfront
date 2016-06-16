@@ -86,7 +86,7 @@ function mergeMessages() {
         description: newMsg.description || message.description,
         defaultMessage: newMsg.defaultMessage || message.defaultMessage,
         message: newMsg.message || message.message || '',
-        files: message.files ? [...message.files, fileName] : [fileName],
+        files: message.files ? [...message.files, fileName] : [fileName]
       }
     })
   })
@@ -119,7 +119,7 @@ async function extractMessages({watch} = {}) {
       const code = await fs.readFile(fileName)
       const result = transform(code, {
         presets: pkg.babel.presets,
-        plugins: ['react-intl'],
+        plugins: ['react-intl']
       }).metadata['react-intl']
       if (result.messages && result.messages.length) {
         fileToMessages[fileName] = result.messages.sort(compareMessages)

@@ -20,17 +20,17 @@ export default {
       method: 'post',
       headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        query: `{content(path:"${path}"){path,title,content,component}}`,
+        query: `{content(path:"${path}"){path,title,content,component}}`
       }),
-      credentials: 'include',
+      credentials: 'include'
     })
     if (resp.status !== 200) throw new Error(resp.statusText)
     const {data} = await resp.json()
     if (!data || !data.content) return undefined
     return <Content {...data.content} />
-  },
+  }
 
 }

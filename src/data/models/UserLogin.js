@@ -14,13 +14,13 @@ const UserLogin = Model.define('UserLogin', {
 
   name: {
     type: DataType.STRING(50),
-    primaryKey: true,
+    primaryKey: true
   },
 
   key: {
     type: DataType.STRING(100),
-    primaryKey: true,
-  },
+    primaryKey: true
+  }
 
 })
 

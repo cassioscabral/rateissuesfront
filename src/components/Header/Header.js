@@ -20,18 +20,18 @@ const messages = defineMessages({
   brand: {
     id: 'header.brand',
     defaultMessage: 'Your Company Brand',
-    description: 'Brand name displayed in header',
+    description: 'Brand name displayed in header'
   },
   bannerTitle: {
     id: 'header.banner.title',
     defaultMessage: 'React',
-    description: 'Title in page header',
+    description: 'Title in page header'
   },
   bannerDesc: {
     id: 'header.banner.desc',
     defaultMessage: 'Complex web apps made easy',
-    description: 'Description in header',
-  },
+    description: 'Description in header'
+  }
 })
 
 function Header() {

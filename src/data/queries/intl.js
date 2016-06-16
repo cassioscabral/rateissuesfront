@@ -13,7 +13,7 @@ import Promise from 'bluebird'
 import {
   GraphQLList as List,
   GraphQLString as StringType,
-  GraphQLNonNull as NonNull,
+  GraphQLNonNull as NonNull
 } from 'graphql'
 import IntlMessageType from '../types/IntlMessageType'
 import {locales} from '../../config'
@@ -26,7 +26,7 @@ const readFile = Promise.promisify(fs.readFile)
 const intl = {
   type: new List(IntlMessageType),
   args: {
-    locale: {type: new NonNull(StringType)},
+    locale: {type: new NonNull(StringType)}
   },
   async resolve({request}, {locale}) {
     if (!locales.includes(locale)) {
@@ -43,7 +43,7 @@ const intl = {
     }
 
     return JSON.parse(localeData)
-  },
+  }
 }
 
 export default intl

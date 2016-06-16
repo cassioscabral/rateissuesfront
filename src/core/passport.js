@@ -26,7 +26,7 @@ passport.use(new FacebookStrategy({
   clientSecret: config.facebook.secret,
   callbackURL: '/login/facebook/return',
   profileFields: ['name', 'email', 'link', 'locale', 'timezone'],
-  passReqToCallback: true,
+  passReqToCallback: true
 }, (req, accessToken, refreshToken, profile, done) => {
   /* eslint-disable no-underscore-dangle */
   const loginName = 'facebook'
@@ -35,7 +35,7 @@ passport.use(new FacebookStrategy({
     if (req.user) {
       const userLogin = await UserLogin.findOne({
         attributes: ['name', 'key'],
-        where: {name: loginName, key: profile.id},
+        where: {name: loginName, key: profile.id}
       })
       if (userLogin) {
         // There is already a Facebook account that belongs to you.
@@ -46,26 +46,26 @@ passport.use(new FacebookStrategy({
           id: req.user.id,
           email: profile._json.email,
           logins: [
-            {name: loginName, key: profile.id},
+            {name: loginName, key: profile.id}
           ],
           claims: [
-            {type: claimType, value: profile.id},
+            {type: claimType, value: profile.id}
           ],
           profile: {
             displayName: profile.displayName,
             gender: profile._json.gender,
-            picture: `https://graph.facebook.com/${profile.id}/picture?type=large`,
-          },
+            picture: `https://graph.facebook.com/${profile.id}/picture?type=large`
+          }
         }, {
           include: [
             {model: UserLogin, as: 'logins'},
             {model: UserClaim, as: 'claims'},
-            {model: UserProfile, as: 'profile'},
-          ],
+            {model: UserProfile, as: 'profile'}
+          ]
         })
         done(null, {
           id: user.id,
-          email: user.email,
+          email: user.email
         })
       }
     } else {
@@ -77,9 +77,9 @@ passport.use(new FacebookStrategy({
             attributes: ['name', 'key'],
             model: UserLogin,
             as: 'logins',
-            required: true,
-          },
-        ],
+            required: true
+          }
+        ]
       })
       if (users.length) {
         done(null, users[0])
@@ -94,26 +94,26 @@ passport.use(new FacebookStrategy({
             email: profile._json.email,
             emailVerified: true,
             logins: [
-              {name: loginName, key: profile.id},
+              {name: loginName, key: profile.id}
             ],
             claims: [
-              {type: claimType, value: accessToken},
+              {type: claimType, value: accessToken}
             ],
             profile: {
               displaynName: profile.displayName,
               gender: profile._json.gender,
-              picture: `https://graph.facebook.com/${profile.id}/picture?type=large`,
-            },
+              picture: `https://graph.facebook.com/${profile.id}/picture?type=large`
+            }
           }, {
             include: [
               {model: UserLogin, as: 'logins'},
               {model: UserClaim, as: 'claims'},
-              {model: UserProfile, as: 'profile'},
-            ],
+              {model: UserProfile, as: 'profile'}
+            ]
           })
           done(null, {
             id: user.id,
-            email: user.email,
+            email: user.email
           })
         }
       }

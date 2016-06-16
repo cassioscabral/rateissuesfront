@@ -22,7 +22,7 @@ class Link extends Component { // eslint-disable-line react/prefer-stateless-fun
 
   static propTypes = {
     to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
-    onClick: PropTypes.func,
+    onClick: PropTypes.func
   };
 
   handleClick = (event) => {
@@ -48,7 +48,7 @@ class Link extends Component { // eslint-disable-line react/prefer-stateless-fun
       } else {
         history.push({
           pathname: event.currentTarget.pathname,
-          search: event.currentTarget.search,
+          search: event.currentTarget.search
         })
       }
     }

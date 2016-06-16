@@ -11,7 +11,7 @@ import {
   GraphQLObjectType as ObjectType,
   GraphQLString as StringType,
   GraphQLNonNull as NonNull,
-  GraphQLList as List,
+  GraphQLList as List
 } from 'graphql'
 
 const IntlMessageType = new ObjectType({
@@ -21,8 +21,8 @@ const IntlMessageType = new ObjectType({
     defaultMessage: {type: new NonNull(StringType)},
     message: {type: StringType},
     description: {type: StringType},
-    files: {type: new List(StringType)},
-  },
+    files: {type: new List(StringType)}
+  }
 })
 
 export default IntlMessageType

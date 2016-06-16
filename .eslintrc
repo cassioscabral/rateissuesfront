@@ -28,7 +28,10 @@
       1,
       "never"
     ],
-    "comma-dangle": 1,
+    "comma-dangle": [
+      1,
+      "never"
+    ],
     "curly": 1,
     "default-case": 1,
     "eqeqeq": 1,

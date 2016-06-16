@@ -31,12 +31,12 @@ function LanguageSwitcher({currentLocale, availableLocales, setLocale}) {
 LanguageSwitcher.propTypes = {
   currentLocale: PropTypes.string.isRequired,
   availableLocales: PropTypes.arrayOf(PropTypes.string).isRequired,
-  setLocale: PropTypes.func.isRequired,
+  setLocale: PropTypes.func.isRequired
 }
 
 export default connect(state => ({
   availableLocales: state.runtime.availableLocales,
-  currentLocale: state.intl.locale,
+  currentLocale: state.intl.locale
 }), {
-  setLocale,
+  setLocale
 })(LanguageSwitcher)

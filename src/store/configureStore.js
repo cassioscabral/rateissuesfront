@@ -9,7 +9,7 @@ let enhancer
 if (__DEV__ && process.env.BROWSER) {
   const createLogger = require('redux-logger') // eslint-disable-line global-require
   const logger = createLogger({
-    collapsed: true,
+    collapsed: true
   })
   middleware.push(logger)
 

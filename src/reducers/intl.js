@@ -1,13 +1,13 @@
 import {
   SET_LOCALE_START,
   SET_LOCALE_SUCCESS,
-  SET_LOCALE_ERROR,
+  SET_LOCALE_ERROR
 } from '../constants'
 
 export default function intl(state = null, action) {
   if (state === null) {
     return {
-      initialNow: Date.now(),
+      initialNow: Date.now()
     }
   }
 
@@ -17,7 +17,7 @@ export default function intl(state = null, action) {
       return {
         ...state,
         locale,
-        newLocale: action.payload.locale,
+        newLocale: action.payload.locale
       }
     }
 
@@ -28,15 +28,15 @@ export default function intl(state = null, action) {
         newLocale: null,
         messages: {
           ...state.messages,
-          [action.payload.locale]: action.payload.messages,
-        },
+          [action.payload.locale]: action.payload.messages
+        }
       }
     }
 
     case SET_LOCALE_ERROR: {
       return {
         ...state,
-        newLocale: null,
+        newLocale: null
       }
     }
 

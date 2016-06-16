@@ -53,10 +53,10 @@ app.use(requestLanguage({
     name: 'lang',
     options: {
       path: '/',
-      maxAge: 3650 * 24 * 3600 * 1000, // 10 years in miliseconds
+      maxAge: 3650 * 24 * 3600 * 1000 // 10 years in miliseconds
     },
-    url: '/lang/{language}',
-  },
+    url: '/lang/{language}'
+  }
 }))
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
@@ -68,7 +68,7 @@ app.use(expressJwt({
   secret: auth.jwt.secret,
   credentialsRequired: false,
   /* jscs:disable requireCamelCaseOrUpperCaseIdentifiers */
-  getToken: req => req.cookies.id_token,
+  getToken: req => req.cookies.id_token
   /* jscs:enable requireCamelCaseOrUpperCaseIdentifiers */
 }))
 app.use(passport.initialize())
@@ -93,7 +93,7 @@ app.use('/graphql', expressGraphQL(req => ({
   schema,
   graphiql: true,
   rootValue: {request: req},
-  pretty: process.env.NODE_ENV !== 'production',
+  pretty: process.env.NODE_ENV !== 'production'
 })))
 
 //
@@ -111,7 +111,7 @@ app.get('*', async (req, res, next) => {
       description: '',
       css: '',
       body: '',
-      entry: assets.main.js,
+      entry: assets.main.js
     }
 
     if (process.env.NODE_ENV === 'production') {
@@ -122,16 +122,16 @@ app.get('*', async (req, res, next) => {
 
     store.dispatch(setRuntimeVariable({
       name: 'initialNow',
-      value: Date.now(),
+      value: Date.now()
     }))
 
     store.dispatch(setRuntimeVariable({
       name: 'availableLocales',
-      value: locales,
+      value: locales
     }))
 
     await store.dispatch(setLocale({
-      locale,
+      locale
     }))
 
     await match(routes, {
@@ -141,7 +141,7 @@ app.get('*', async (req, res, next) => {
         store,
         insertCss: styles => css.push(styles._getCss()), // eslint-disable-line no-underscore-dangle
         setTitle: value => (data.title = value),
-        setMeta: (key, value) => (data[key] = value),
+        setMeta: (key, value) => (data[key] = value)
       },
       render(component, status = 200) {
         css = []
@@ -163,7 +163,7 @@ app.get('*', async (req, res, next) => {
 
         data.css = css.join('')
         return true
-      },
+      }
     })
 
     res.status(statusCode)
@@ -187,7 +187,7 @@ app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   res.status(statusCode)
   res.send(template({
     message: err.message,
-    stack: process.env.NODE_ENV === 'production' ? '' : err.stack,
+    stack: process.env.NODE_ENV === 'production' ? '' : err.stack
   }))
 })
 

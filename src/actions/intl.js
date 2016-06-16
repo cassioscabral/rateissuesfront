@@ -2,7 +2,7 @@ import fetch from '../core/fetch'
 import {
   SET_LOCALE_START,
   SET_LOCALE_SUCCESS,
-  SET_LOCALE_ERROR,
+  SET_LOCALE_ERROR
 } from '../constants'
 
 export function setLocale({locale}) {
@@ -10,8 +10,8 @@ export function setLocale({locale}) {
     dispatch({
       type: SET_LOCALE_START,
       payload: {
-        locale,
-      },
+        locale
+      }
     })
 
     try {
@@ -19,12 +19,12 @@ export function setLocale({locale}) {
         method: 'post',
         headers: {
           Accept: 'application/json',
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          query: `query{intl(locale:${JSON.stringify(locale)}){id,message}}`,
+          query: `query{intl(locale:${JSON.stringify(locale)}){id,message}}`
         }),
-        credentials: 'include',
+        credentials: 'include'
       })
       if (resp.status !== 200) throw new Error(resp.statusText)
       const {data} = await resp.json()
@@ -36,8 +36,8 @@ export function setLocale({locale}) {
         type: SET_LOCALE_SUCCESS,
         payload: {
           locale,
-          messages,
-        },
+          messages
+        }
       })
 
       // remember locale for every new request
@@ -50,8 +50,8 @@ export function setLocale({locale}) {
         type: SET_LOCALE_ERROR,
         payload: {
           locale,
-          error,
-        },
+          error
+        }
       })
       return false
     }
