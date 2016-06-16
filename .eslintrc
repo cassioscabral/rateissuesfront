@@ -1,11 +1,15 @@
 {
   "parser": "babel-eslint",
+  "extends": "airbnb",
   "plugins": [
     "react"
   ],
   "ecmaFeatures": {
     "jsx": true,
     "modules": true
+  },
+  "globals": {
+    "__DEV__": true
   },
   "env": {
     "amd": true,
@@ -14,8 +18,20 @@
     "node": true
   },
   "rules": {
-    "array-bracket-spacing":[1, "never"],
-    "comma-dangle": 1,
+    "no-confusing-arrow": 0,
+    "react/jsx-quotes": 0,
+    "jsx-quotes": [
+      2,
+      "prefer-double"
+    ],
+    "array-bracket-spacing": [
+      1,
+      "never"
+    ],
+    "comma-dangle": [
+      1,
+      "never"
+    ],
     "curly": 1,
     "default-case": 1,
     "eqeqeq": 1,
@@ -29,27 +45,59 @@
     "no-extra-semi": 0,
     "no-floating-decimal": 1,
     "no-loop-func": 1,
-    "no-trailing-spaces": [1, { "skipBlankLines": true }],
+    "no-trailing-spaces": [
+      1,
+      {
+        "skipBlankLines": true
+      }
+    ],
     "no-undef": 1,
     "no-underscore-dangle": 0,
     "no-unreachable": 1,
     "no-unused-vars": 1,
-    "object-curly-spacing": [1, "never"],
-    "quotes": [ 1, "single" ],
-    "react/jsx-curly-spacing": [1, "always"],
-    "react/jsx-indent": [1, 2],
-    "react/jsx-indent-props": [1, 2],
+    "object-curly-spacing": [
+      1,
+      "never"
+    ],
+    "quotes": [
+      1,
+      "single"
+    ],
+    "react/jsx-curly-spacing": [
+      1,
+      "always"
+    ],
+    "react/jsx-indent": [
+      1,
+      2
+    ],
+    "react/jsx-indent-props": [
+      1,
+      2
+    ],
     "react/jsx-max-props-per-line": 1,
     "react/jsx-no-duplicate-props": 1,
     "react/jsx-pascal-case": 1,
-    "react/jsx-space-before-closing": [1, "always"],
+    "react/jsx-space-before-closing": [
+      1,
+      "always"
+    ],
     "react/jsx-uses-react": 1,
     "react/jsx-uses-vars": 1,
-    "react/prefer-es6-class": [1, "always"],
-    "semi": [1, "never" ],
-    "space-before-function-paren":1,
-    "space-in-parens":[1, "never"],
-    "spaced-comment":1,
+    "react/prefer-es6-class": [
+      1,
+      "always"
+    ],
+    "semi": [
+      1,
+      "never"
+    ],
+    "space-before-function-paren": 1,
+    "space-in-parens": [
+      1,
+      "never"
+    ],
+    "spaced-comment": 1,
     "strict": 1,
     "use-isnan": 1,
     "vars-on-top": 1
