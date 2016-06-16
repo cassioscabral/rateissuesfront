@@ -110,8 +110,8 @@
     "redbox-react": "^1.2.4",
     "redux-logger": "^2.6.1",
     "sinon": "^2.0.0-pre",
-    "stylelint": "^6.4.1",
-    "stylelint-config-standard": "^7.0.0",
+    "stylelint": "^6.6.0",
+    "stylelint-config-standard": "^9.0.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.0",
     "webpack-hot-middleware": "^2.10.0",
@@ -134,7 +134,16 @@
   "stylelint": {
     "extends": "stylelint-config-standard",
     "rules": {
-      "string-quotes": "single"
+      "string-quotes": "single",
+      "selector-pseudo-class-no-unknown": [
+        true,
+        {
+          "ignorePseudoClasses": [
+            "global",
+            "local"
+          ]
+        }
+      ]
     }
   },
   "scripts": {
