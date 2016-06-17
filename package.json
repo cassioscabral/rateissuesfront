@@ -5,6 +5,7 @@
     "npm": ">=3.3 <4"
   },
   "dependencies": {
+    "auth0-lock": "^9.2.1",
     "babel-polyfill": "6.9.0",
     "babel-runtime": "6.9.0",
     "bluebird": "3.4.0",
@@ -27,6 +28,7 @@
     "intl-locales-supported": "^1.0.0",
     "isomorphic-style-loader": "1.0.0",
     "jade": "1.11.0",
+    "json-loader": "^0.5.4",
     "jsonwebtoken": "6.2.0",
     "markdown-it": "6.0.2",
     "node-fetch": "1.5.2",
@@ -43,6 +45,7 @@
     "sequelize": "3.23.2",
     "source-map-support": "0.4.0",
     "sqlite3": "3.1.4",
+    "transform-loader": "^0.2.3",
     "universal-router": "1.2.1",
     "whatwg-fetch": "1.0.0"
   },
@@ -84,7 +87,6 @@
     "git-repository": "^0.1.4",
     "glob": "^7.0.3",
     "jade-loader": "^0.8.0",
-    "json-loader": "^0.5.4",
     "mkdirp": "^0.5.1",
     "mocha": "^2.4.5",
     "ncp": "^2.0.0",

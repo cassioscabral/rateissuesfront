@@ -18,6 +18,7 @@ class App extends Component {
 
   static propTypes = {
     context: PropTypes.shape({
+      lock: PropTypes.object,
       insertCss: PropTypes.func,
       setTitle: PropTypes.func,
       setMeta: PropTypes.func
@@ -51,12 +52,31 @@ class App extends Component {
   }
 
   render() {
+    // select a supported language
+    // lock.show({
+    //   dict: 'es'
+    // });
+    let showLock = () => {
+      this.props.context.lock.show({
+      }, (a, b, c) => {
+        console.log('A:', a)
+        console.log('B:', b)
+        console.log('C:', c)
+      })
+    }
+
     if (this.props.error) {
       return this.props.children
     }
 
     return (
       <div>
+        <a
+          href="#"
+          onClick={ showLock }
+        >
+            Sign In
+        </a>
         <Header />
         { this.props.children }
         <Feedback />
