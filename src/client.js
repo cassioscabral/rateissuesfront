@@ -18,8 +18,7 @@ import configureStore from './store/configureStore'
 import {addEventListener, removeEventListener} from './core/DOMUtils'
 import Provide from './components/Provide'
 
-import env from './env'
-import Auth0Lock from 'auth0-lock'
+import {lock} from './core/auth0'
 
 import {addLocaleData} from 'react-intl'
 
@@ -27,8 +26,6 @@ import en from 'react-intl/locale-data/en'
 import cs from 'react-intl/locale-data/cs';
 
 [en, cs].forEach(addLocaleData)
-
-const lock = new Auth0Lock(env.auth0.CLIENT_ID, env.auth0.CLIENT_DOMAIN)
 
 const context = {
   store: null,
