@@ -73,34 +73,18 @@ app.use(expressJwt({
 }))
 app.use(passport.initialize())
 
-// app.get('/login/auth0',
-//   passport.authenticate('auth0', {scope: ['email', 'user_location'], session: false})
-// )
 app.get('/login/auth0',
-  passport.authenticate('auth0', {session: false}), (req, res) => {
+  passport.authenticate('auth0', {scope: ['email', 'user_location'], session: false})
+)
+
+app.get('/login/auth0/return',
+  passport.authenticate('auth0', {failureRedirect: '/', session: false}),
+
+  (req, res) => {
     const expiresIn = 60 * 60 * 24 * 180 // 180 days
     const token = jwt.sign(req.user, auth.jwt.secret, {expiresIn})
     res.cookie('id_token', token, {maxAge: 1000 * expiresIn, httpOnly: true})
-    res.redirect('/')
-    res.redirect('/')
-  }
-)
-// app.get('/login/auth0/return',
-//   passport.authenticate('auth0', {failureRedirect: '/', session: false}),
-//   (req, res) => {
-//     const expiresIn = 60 * 60 * 24 * 180 // 180 days
-//     const token = jwt.sign(req.user, auth.jwt.secret, {expiresIn})
-//     res.cookie('id_token', token, {maxAge: 1000 * expiresIn, httpOnly: true})
-//     res.redirect('/')
-//   }
-// )
-app.get('/login/auth0/return',
-  passport.authenticate('auth0', {failureRedirect: '/login', session: false}),
-  (req, res) => {
-    if (!req.user) {
-      throw new Error('user null')
-    }
-    console.log('req.user:', req.user)
+
     res.redirect('/')
   }
 )
