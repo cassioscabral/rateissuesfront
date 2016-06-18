@@ -52,19 +52,9 @@ class App extends Component {
   }
 
   render() {
-    // select a supported language
-    // lock.show({
-    //   dict: 'es'
-    // });
-    let showLock = () => {
-      this.props.context.lock.show({
-      }, (a, b, c) => {
-        console.log('A:', a)
-        console.log('B:', b)
-        console.log('C:', c)
-      })
+    const showLock = () => {
+      this.props.context.lock.show()
     }
-
     if (this.props.error) {
       return this.props.children
     }

@@ -18,7 +18,9 @@ import configureStore from './store/configureStore'
 import {addEventListener, removeEventListener} from './core/DOMUtils'
 import Provide from './components/Provide'
 
-import {lock} from './core/auth0'
+import auth0 from './core/auth0'
+
+console.log('LOCK:', auth0)
 
 import {addLocaleData} from 'react-intl'
 
@@ -29,7 +31,7 @@ import cs from 'react-intl/locale-data/cs';
 
 const context = {
   store: null,
-  lock,
+  lock: auth0.lock,
   insertCss: styles => styles._insertCss(), // eslint-disable-line no-underscore-dangle
   setTitle: value => (document.title = value),
   setMeta: (name, content) => {
