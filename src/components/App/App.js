@@ -18,7 +18,6 @@ class App extends Component {
 
   static propTypes = {
     context: PropTypes.shape({
-      lock: PropTypes.object,
       insertCss: PropTypes.func,
       setTitle: PropTypes.func,
       setMeta: PropTypes.func
@@ -52,21 +51,12 @@ class App extends Component {
   }
 
   render() {
-    const showLock = () => {
-      this.props.context.lock.show()
-    }
     if (this.props.error) {
       return this.props.children
     }
 
     return (
       <div>
-        <a
-          href="#"
-          onClick={ showLock }
-        >
-            Sign In
-        </a>
         <Header />
         { this.props.children }
         <Feedback />

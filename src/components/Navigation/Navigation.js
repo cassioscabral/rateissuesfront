@@ -70,12 +70,12 @@ function Navigation({className}) {
       <span className={ s.spacer }>
         <FormattedMessage {...messages.or} />
       </span>
-      <Link
+      <a
         className={ cx(s.link, s.highlight) }
-        to="/register"
+        href="/login/auth0"
       >
         <FormattedMessage {...messages.signup} />
-      </Link>
+      </a>
     </div>
   )
 }
