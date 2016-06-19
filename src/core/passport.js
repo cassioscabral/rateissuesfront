@@ -60,7 +60,10 @@ passport.use(new Auth0Strategy({
     }
     // get from jwt cookie's token
     if (req.user) {
-      user = await User.findOne({where: {id: req.user.id}})
+      user = await UserLogin.findOne({
+        attributes: ['name', 'key'],
+        where: {name: loginName, key: req.user.id}
+      })
 
       // if user is already in DB
       // keep it as token
