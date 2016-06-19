@@ -15,13 +15,6 @@ import env from '../env'
 const loginName = 'auth0'
 const claimType = 'urn:auth0:github'
 
-const getUser = (user) => {
-  UserLogin.findOne({
-    attributes: ['name', 'key'],
-    where: {name: user.name, key: user.key}
-  })
-}
-
 const createUser = (profile) => {
   User.create({
     id: profile.id,
@@ -67,7 +60,7 @@ passport.use(new Auth0Strategy({
     }
     // get from jwt cookie's token
     if (req.user) {
-      user = await getUser({name: loginName, key: req.user.id})
+      user = await User.findOne({where: {id: req.user.id}})
 
       // if user is already in DB
       // keep it as token
