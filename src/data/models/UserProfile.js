@@ -12,6 +12,14 @@ const UserProfile = Model.define('UserProfile', {
     type: DataType.STRING(100)
   },
 
+  accessToken: {
+    type: DataType.STRING(256)
+  },
+
+  clientID: {
+    type: DataType.STRING(256)
+  },
+
   picture: {
     type: DataType.STRING(256)
   },

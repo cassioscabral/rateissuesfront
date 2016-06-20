@@ -29,7 +29,9 @@ const createUser = (profile) => {
     profile: {
       displayName: profile.nickname,
       // gender: profile._json.gender,
-      picture: profile.picture
+      picture: profile.picture,
+      accessToken: profile.identities[0].access_token,
+      clientID: profile._json.clientID
     }
   }, {
     include: [
