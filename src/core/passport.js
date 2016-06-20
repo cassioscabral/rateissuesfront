@@ -73,7 +73,7 @@ passport.use(new Auth0Strategy({
           email: req.user.email
         }
       } else {
-        await createUser(profile)
+        createUser(profile)
         userToken.id = profile.id
         userToken.email = profile._json.email
       }
@@ -84,7 +84,7 @@ passport.use(new Auth0Strategy({
         userToken.id = user.dataValues.id
         userToken.email = user.dataValues.email
       } else {
-        await createUser(profile)
+        createUser(profile)
         userToken.id = profile.id
         userToken.email = profile._json.email
       }
