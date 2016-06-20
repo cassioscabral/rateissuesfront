@@ -1,106 +1,94 @@
-## React Starter Kit — "isomorphic" web app boilerplate
+# Rate Issues
+This is an open-source app that will help developers to find and solve issues through a better interface than Github. Filtering, searching and ranking issues from Github projects so that others can help with the development of the project in a more collaborative way.
 
-> [React Starter Kit](https://www.reactstarterkit.com) is an opinionated
-> boilerplate for web development built on top of [Node.js](https://nodejs.org/),
-> [Express](http://expressjs.com/), [GraphQL](http://graphql.org/) and
-> [React](https://facebook.github.io/react/). Containing modern web development
-> tools such as [Webpack](http://webpack.github.io/), [Babel](http://babeljs.io/)
-> and [Browsersync](http://www.browsersync.io/). Helping you to stay productive
-> following the best practices. A solid starting point for both professionals
-> and newcomers to the industry.
+# Main Goal
+An application interely open-source, build to help people start to develop and contribute with open-source code.
 
-See [getting started](./docs/getting-started.md) &nbsp;|&nbsp;
-[demo](http://demo.reactstarterkit.com) &nbsp;|&nbsp;
-[docs](https://github.com/kriasoft/react-starter-kit/tree/master/docs) &nbsp;|&nbsp;
-[to-do list](https://waffle.io/kriasoft/react-starter-kit) &nbsp;|&nbsp;
-join [#react-starter-kit](https://gitter.im/kriasoft/react-starter-kit) chat room to stay up to date &nbsp;|&nbsp;
-visit our sponsors:<br><br>
+## Main features
+ * Classify, filter and rank issues to allow searches like "the easiests JS open issues"
+ * Upvote or Downvote issues to rank them like a big planning poker
+ * Make the contributions more social and engaging to new developers
 
-[![Rollbar - Full-stack error tracking for all apps in any language](https://dl.dropboxusercontent.com/u/16006521/react-starter-kit/rollbar.png)](https://rollbar.com/?utm_source=reactstartkit(github)&utm_medium=link&utm_campaign=reactstartkit(github)) &nbsp;&nbsp;
-[![Localize - Translate your web app in minutes](https://dl.dropboxusercontent.com/u/16006521/react-starter-kit/localize.png)](https://localizejs.com/?cid=802&utm_source=rsk)
 
-### Getting Started
+Early [mockup](https://app.moqups.com/cassioscabral@gmail.com/X4e0gZ6L5B/view/page/ade98745f) that I made with the awesome online app [Moqups](https://moqups.com/).
 
-  * Follow the [getting started guide](./docs/getting-started.md) to download and run the project
-  * Check the [code recipes](./docs/recipes) used in this boilerplate, or share yours
+My inspirations for this design was 9gag, S.O. and Spotify. Since I am not a designer or anything I tried to make it more functional than pretty right now, but for sure this will be **pretty** and **simple** =).
 
-### Customization
+**New interface based on Atom:**
 
-The `master` branch of React Starter Kit doesn't include a Flux implementation or any other
-advanced integrations. Nevertheless, we have some integrations available to you in *feature*
-branches that you can use either as a reference or merge into your project:
+![new_interface](https://cloud.githubusercontent.com/assets/2073557/13088840/aab28d8c-d4cc-11e5-9199-6fe88b68f636.png)
 
-  * [feature/redux](https://github.com/kriasoft/react-starter-kit/tree/feature/redux) — isomorphic
-    Redux by [Pavel Lang](https://github.com/langpavel) (see [how to integrate
-    Redux](./docs/recipes/how-to-integrate-redux.md))
-  * [feature/react-intl](https://github.com/kriasoft/react-starter-kit/tree/feature/react-intl) —
-    isomorphic Redux and React Intl by [Pavel Lang](https://github.com/langpavel) (see [how
-    to integrate React Intl](./docs/recipes/how-to-integrate-react-intl.md))
+-
 
-If you think that any of these features should be on `master`, or vise versa, some features should
-removed from the `master` branch, please [let us know](https://gitter.im/kriasoft/react-starter-kit).
-We love your feedback!
 
-### Backers
+Screenshot below; Thanks to the [Moqups](https://moqups.com/) team for giving me a temporary upgrade in my account so I could export this image.
 
-♥ React Starter Kit? Help us keep it alive by donating funds to cover project
-expenses via [OpenCollective](https://opencollective.com/react-starter-kit) or
-[PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RETHAJHV3T972)!
+![alt tag](https://cloud.githubusercontent.com/assets/2073557/11826245/ed52b34c-a362-11e5-8467-cbdedda411ed.png)
 
-<a href="http://www.nekst.me/" target="_blank" title="lehneres">
-  <img src="https://github.com/lehneres.png?size=64" width="64" height="64" alt="lehneres">
-</a>
-<a href="http://www.vidpanel.com/" target="_blank" title="Tarkan Anlar">
-  <img src="https://github.com/tarkanlar.png?size=64" width="64" height="64" alt="Tarkan Anlar">
-</a>
-<a href="https://morten.olsen.io/" target="_blank" title="Morten Olsen">
-  <img src="https://github.com/mortenolsendk.png?size=64" width="64" height="64" alt="Morten Olsen">
-</a>
-<a href="https://twitter.com/adamthomann" target="_blank" title="Adam">
-  <img src="https://github.com/athomann.png?size=64" width="64" height="64" alt="Adam">
-</a>
-<a href="http://dsernst.com/" target="_blank" title="David Ernst">
-  <img src="https://github.com/dsernst.png?size=64" width="64" height="64" alt="David Ernst">
-</a>
-<a href="http://zanehitchcox.com/" target="_blank" title="Zane Hitchcox">
-  <img src="https://github.com/zwhitchcox.png?size=64" width="64" height="64" alt="Zane Hitchcox">
-</a>
-<a href="https://opencollective.com/react-starter-kit" target="_blank">
-  <img src="https://opencollective.com/static/images/become_backer.svg" width="64" height="64" alt="">
-</a>
+### Components organization
 
-### Learn More
+![alt tag](https://cloud.githubusercontent.com/assets/2073557/11989355/4cc6776e-a9da-11e5-8b97-1904c78a911f.png)
 
-  * [Getting Started with React.js](http://facebook.github.io/react/)
-  * [Getting Started with GraphQL and Relay](https://quip.com/oLxzA1gTsJsE)
-  * [React.js Questions on StackOverflow](http://stackoverflow.com/questions/tagged/reactjs)
-  * [React.js Discussion Board](https://discuss.reactjs.org/)
-  * [Flux Architecture for Building User Interfaces](http://facebook.github.io/flux/)
-  * [Enzyme — JavaScript Testing utilities for React](http://airbnb.io/enzyme/)
-  * [Flow — A static type checker for JavaScript](http://flowtype.org/)
-  * [The Future of React](https://github.com/reactjs/react-future)
-  * [Learn ES6](https://babeljs.io/docs/learn-es6/), [ES6 Features](https://github.com/lukehoban/es6features#readme)
+### Workflow to build the app
 
-### Related Projects
+Following the suggestions by the React Facebook site and their tutorial this workflow it seems all right with me and I add something to fit my necessities better.
 
-  * [Membership Database](https://github.com/membership/membership.db) — SQL schema boilerplate for user accounts, profiles, roles, and auth claims
-  * [React Static Boilerplate](https://github.com/koistya/react-static-boilerplate) — Generates static websites from React components
-  * [Babel Starter Kit](https://github.com/kriasoft/babel-starter-kit) — Boilerplate for authoring JavaScript/React.js libraries
+  - Build mockup
+  - Separate the components
+  - Organize them in a hierarchy
+  - Identify reusable components
+  - Build skeletons components with some *"Hello World!"* in it
+  - Make it pretty with a nice amount of SASS(iness)
+  - Write [tests](https://facebook.github.io/react/docs/test-utils.html) after mvp is defined
+  
 
-### Support
+### Some patterns, good practices and packages used on this project
 
-  * [#react-starter-kit](http://stackoverflow.com/questions/tagged/react-starter-kit) on Stack Overflow — Questions and answers
-  * [#react-starter-kit](https://gitter.im/kriasoft/react-starter-kit) on Gitter — Watch announcements, share ideas and feedback
-  * [GitHub issues](https://github.com/kriasoft/react-starter-kit/issues), or [Scrum board](https://waffle.io/kriasoft/react-starter-kit) — File issues, send feature requests
-  * [appear.in/react](https://appear.in/react) — Open hours! Exchange ideas and experiences (React, GraphQL, Startups, etc.)
-  * [@koistya](https://twitter.com/koistya) on [Codementor](https://www.codementor.io/koistya), or [Skype](http://hatscripts.com/addskype?koistya) — Private consulting
+  - Atomic design adapted, see [below](#atomic)
+  - ES6 with [*BABEL*](https://github.com/babel/babel)
+  - Editor Config
+  - ESLint
+  - Name conventions suggested for JS and React
 
-### License
 
-Copyright © 2014-2016 Kriasoft, LLC. This source code is licensed under the MIT
-license found in the [LICENSE.txt](https://github.com/kriasoft/react-starter-kit/blob/master/LICENSE.txt)
-file. The documentation to the project is licensed under the
-[CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/) license.
 
----
-Made with ♥ by Konstantin Tarkus ([@koistya](https://twitter.com/koistya)) and [contributors](https://github.com/kriasoft/react-starter-kit/graphs/contributors)
+
+#### <a name="atomic"></a>Atomic design adapted
+
+Since [Atomic design](http://bradfrost.com/blog/post/atomic-web-design/) was made for pages and this is a SPA, although a great idea, I chose to use only the atomic(**atoms**) part of the project, the **molecules** and **organisms**. Since every part is a component from React the difference will be their name and folder the files are in it. The entire app(biggest component) would be my template and page in the Atomic design structure. So I won't define as such, it will be only App and it will be found on the root folder of components. Just for easy naming and simplicity.
+
+
+### Components folder structure
+
+Following the Atomic design structure it will have only 3 folders and one file.
+
+  - atoms/
+  - molecules/
+  - organisms/
+  - App.js
+
+Inside each folder it should have one folder per component
+
+  - my_component/ (in **snake_case**)
+
+Inside the component folder it will have all the files related with that component
+
+  - stylesheets
+  - tests
+  - the component itself
+
+To improve the development I used this Yeoman generator [atomic-reactor](https://github.com/cassioscabral/generator-atomic-reactor) that I built. It will give commands such as:
+
+`yo atomic-reactor:atom my_component`
+
+
+### Tools, packages and stuff used on this project
+
+  - the [react-webpack](https://github.com/newtriks/generator-react-webpack) generator from Simon Bailey and its default packages
+  - using Auth0 for authentication
+
+### Some setup and stuff you should do to run the project
+
+  - inside the `molecules/smart_links/` component folder you should add .js file with the name API_KEY.js for the Auth0 API and add a social plugin(on Auth0 website settings) with Github integration, inside the .js add a content like this:
+
+  `module.exports = {API_KEY: 'myAuth0ApiKey'};`
