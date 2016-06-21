@@ -54,7 +54,7 @@ passport.use(new Auth0Strategy({
   passReqToCallback: true
 }, (req, accessToken, refreshToken, profile, done) => {
   /* eslint-disable no-underscore-dangle */
-  const fooBar = async () => {
+  const authenticate = async () => {
     let user = null
     let userToken = {
       id: '',
@@ -93,7 +93,7 @@ passport.use(new Auth0Strategy({
     }
     done(null, userToken)
   }
-  fooBar().catch(done)
+  authenticate().catch(done)
 }))
 
 export default passport
