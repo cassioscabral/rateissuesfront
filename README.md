@@ -40,7 +40,7 @@ Following the suggestions by the React Facebook site and their tutorial this wor
   - Build skeletons components with some *"Hello World!"* in it
   - Make it pretty with a nice amount of SASS(iness)
   - Write [tests](https://facebook.github.io/react/docs/test-utils.html) after mvp is defined
-  
+
 
 ### Some patterns, good practices and packages used on this project
 
@@ -89,6 +89,10 @@ To improve the development I used this Yeoman generator [atomic-reactor](https:/
 
 ### Some setup and stuff you should do to run the project
 
-  - inside the `molecules/smart_links/` component folder you should add .js file with the name API_KEY.js for the Auth0 API and add a social plugin(on Auth0 website settings) with Github integration, inside the .js add a content like this:
+## Env
+  The `env` folder holds configuration files for different environments
+  These configurations are IGNORED by git, forcing each developer create it
 
-  `module.exports = {API_KEY: 'myAuth0ApiKey'};`
+## Auth0
+  The env must contain the id, domain and secret
+  The Auth0 is configured to login only with github
