@@ -19,12 +19,12 @@ const GLOB_PATTERN = 'src/**/*.{js,jsx}'
 const fileToMessages = {}
 let messages = {}
 
-async function writeMessages(fileName, msgs) {
+async function writeMessages (fileName, msgs) {
   await fs.writeFile(fileName, `${JSON.stringify(msgs, null, 2)}\n`)
 }
 
 // merge messages to source files
-async function mergeToFile(locale, toBuild) {
+async function mergeToFile (locale, toBuild) {
   const fileName = `src/messages/${locale}.json`
   const originalMessages = {}
   try {
@@ -77,7 +77,7 @@ async function mergeToFile(locale, toBuild) {
 }
 
 // call everytime before updating file!
-function mergeMessages() {
+function mergeMessages () {
   messages = {}
   Object.keys(fileToMessages).forEach(fileName => {
     fileToMessages[fileName].forEach(newMsg => {
@@ -92,7 +92,7 @@ function mergeMessages() {
   })
 }
 
-async function updateMessages(toBuild) {
+async function updateMessages (toBuild) {
   mergeMessages()
   await Promise.all(
     ['_default', ...locales].map(locale => mergeToFile(locale, toBuild))
@@ -103,7 +103,7 @@ async function updateMessages(toBuild) {
  * Extract react-intl messages and write it to src/messages/_default.json
  * Also extends known localizations
  */
-async function extractMessages({watch} = {}) {
+async function extractMessages ({watch} = {}) {
   const compare = (a, b) => {
     if (a === b) {
       return 0

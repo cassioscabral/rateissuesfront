@@ -4,7 +4,7 @@ import {
   SET_LOCALE_ERROR
 } from '../constants'
 
-export default function intl(state = null, action) {
+export default function intl (state = null, action) {
   if (state === null) {
     return {
       initialNow: Date.now()

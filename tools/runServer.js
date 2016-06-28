@@ -19,8 +19,8 @@ const {output} = webpackConfig.find(x => x.target === 'node')
 const serverPath = path.join(output.path, output.filename)
 
 // Launch or restart the Node.js server
-function runServer(cb) {
-  function onStdOut(data) {
+function runServer (cb) {
+  function onStdOut (data) {
     const time = new Date().toTimeString()
     const match = data.toString('utf8').match(RUNNING_REGEXP)
 

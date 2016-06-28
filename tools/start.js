@@ -24,7 +24,7 @@ const DEBUG = !process.argv.includes('--release')
  * Launches a development web server with "live reload" functionality -
  * synchronizing URLs, interactions and code changes across multiple devices.
  */
-async function start() {
+async function start () {
   await run(clean)
   await run(extractMessages.bind(undefined, {watch: true}))
   await run(copy.bind(undefined, {watch: true}))

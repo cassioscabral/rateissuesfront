@@ -13,7 +13,7 @@ import s from './Contact.css'
 
 const title = 'Contact Us'
 
-function Contact(props, context) {
+function Contact (props, context) {
   context.setTitle(title)
   return (
     <div className={ s.root }>

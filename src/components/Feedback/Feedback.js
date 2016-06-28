@@ -11,7 +11,7 @@ import React from 'react'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import s from './Feedback.css'
 
-function Feedback() {
+function Feedback () {
   return (
     <div className={ s.root }>
       <div className={ s.container }>

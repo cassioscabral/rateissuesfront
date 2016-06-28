@@ -4,7 +4,7 @@ import React, {PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {setLocale} from '../../actions/intl'
 
-function LanguageSwitcher({currentLocale, availableLocales, setLocale}) {
+function LanguageSwitcher ({currentLocale, availableLocales, setLocale}) {
   const isSelected = locale => locale === currentLocale
   return (
     <div>

@@ -10,11 +10,11 @@
 import React, {Component, PropTypes} from 'react'
 import history from '../../core/history'
 
-function isLeftClickEvent(event) {
+function isLeftClickEvent (event) {
   return event.button === 0
 }
 
-function isModifiedEvent(event) {
+function isModifiedEvent (event) {
   return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey)
 }
 
@@ -54,11 +54,11 @@ class Link extends Component { // eslint-disable-line react/prefer-stateless-fun
     }
   };
 
-  render() {
+  render () {
     const {to, ...props} = this.props // eslint-disable-line no-use-before-define
     return (<a
       href={ history.createHref(to) }
-      {...props}
+      { ...props }
       onClick={ this.handleClick }
     />)
   }

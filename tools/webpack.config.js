@@ -169,7 +169,7 @@ const config = {
     cachedAssets: VERBOSE
   },
 
-  postcss(bundler) {
+  postcss (bundler) {
     return {
       default: [
         // Transfer @import rule by inlining content, e.g. @import 'normalize.css'
@@ -294,7 +294,7 @@ const serverConfig = extend(true, {}, config, {
 
   externals: [
     /^\.\/assets$/,
-    function filter(context, request, cb) {
+    function filter (context, request, cb) {
       const isExternal =
         request.match(/^[@a-z][a-z\/\.\-0-9]*$/i) &&
         !request.match(/^react-routing/) &&

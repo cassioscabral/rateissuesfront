@@ -146,7 +146,7 @@ app.get('*', async (req, res, next) => {
         setTitle: value => (data.title = value),
         setMeta: (key, value) => (data[key] = value)
       },
-      render(component, status = 200) {
+      render (component, status = 200) {
         css = []
         statusCode = status
 

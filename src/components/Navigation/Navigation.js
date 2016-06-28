@@ -42,7 +42,7 @@ const messages = defineMessages({
   }
 })
 
-function Navigation({className}) {
+function Navigation ({className}) {
   return (
     <div
       className={ cx(s.root, className) }
@@ -52,29 +52,29 @@ function Navigation({className}) {
         className={ s.link }
         to="/about"
       >
-        <FormattedMessage {...messages.about} />
+        <FormattedMessage { ...messages.about } />
       </Link>
       <Link
         className={ s.link }
         to="/contact"
       >
-        <FormattedMessage {...messages.contact} />
+        <FormattedMessage { ...messages.contact } />
       </Link>
       <span className={ s.spacer }> | </span>
       <Link
         className={ s.link }
         to="/login"
       >
-        <FormattedMessage {...messages.login} />
+        <FormattedMessage { ...messages.login } />
       </Link>
       <span className={ s.spacer }>
-        <FormattedMessage {...messages.or} />
+        <FormattedMessage { ...messages.or } />
       </span>
       <a
         className={ cx(s.link, s.highlight) }
         href="/login/auth0"
       >
-        <FormattedMessage {...messages.signup} />
+        <FormattedMessage { ...messages.signup } />
       </a>
     </div>
   )

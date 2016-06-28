@@ -13,7 +13,7 @@ import s from './Register.css'
 
 const title = 'New User Registration'
 
-function Register(props, context) {
+function Register (props, context) {
   context.setTitle(title)
   return (
     <div className={ s.root }>

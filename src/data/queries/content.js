@@ -51,7 +51,7 @@ const fileExists = filename => new Promise(resolve => {
   fs.exists(filename, resolve)
 })
 
-async function resolveExtension(path, extension) {
+async function resolveExtension (path, extension) {
   let fileNameBase = join(CONTENT_DIR, `${path === '/' ? '/index' : path}`)
   let ext = extension
   if (!ext.startsWith('.')) {
@@ -72,7 +72,7 @@ async function resolveExtension(path, extension) {
   return {success: true, fileName}
 }
 
-async function resolveFileName(path) {
+async function resolveFileName (path) {
   const extensions = ['.jade', '.md', '.html']
 
   for (const extension of extensions) {
@@ -90,7 +90,7 @@ const content = {
   args: {
     path: {type: new NonNull(StringType)}
   },
-  async resolve({request}, {path}) {
+  async resolve ({request}, {path}) {
     const {success, fileName, extension} = await resolveFileName(path)
     if (!success) {
       return null

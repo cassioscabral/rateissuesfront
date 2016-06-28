@@ -23,7 +23,7 @@ const routes = [
   '/404' // https://help.github.com/articles/creating-a-custom-404-page-for-your-github-pages-site/
 ]
 
-async function render() {
+async function render () {
   let server
   await new Promise(resolve => (server = runServer(resolve)))
 

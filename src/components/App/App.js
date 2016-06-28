@@ -32,7 +32,7 @@ class App extends Component {
     setMeta: PropTypes.func.isRequired
   };
 
-  getChildContext() {
+  getChildContext () {
     const context = this.props.context
     return {
       insertCss: context.insertCss || emptyFunction,
@@ -41,16 +41,16 @@ class App extends Component {
     }
   }
 
-  componentWillMount() {
+  componentWillMount () {
     const {insertCss} = this.props.context
     this.removeCss = insertCss(s)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     this.removeCss()
   }
 
-  render() {
+  render () {
     if (this.props.error) {
       return this.props.children
     }
