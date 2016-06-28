@@ -14,7 +14,7 @@ export default {
 
   path: '/contact',
 
-  action() {
+  action () {
     return <Contact />
   }
 

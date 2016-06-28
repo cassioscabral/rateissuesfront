@@ -14,7 +14,7 @@ export default {
 
   path: '/login',
 
-  action() {
+  action () {
     return <Login />
   }
 

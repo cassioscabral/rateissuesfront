@@ -14,7 +14,7 @@ export default {
 
   path: '/register',
 
-  action() {
+  action () {
     return <Register />
   }
 

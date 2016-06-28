@@ -7,7 +7,7 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-export function addEventListener(node, event, listener) {
+export function addEventListener (node, event, listener) {
   if (node.addEventListener) {
     node.addEventListener(event, listener, false)
   } else {
@@ -15,7 +15,7 @@ export function addEventListener(node, event, listener) {
   }
 }
 
-export function removeEventListener(node, event, listener) {
+export function removeEventListener (node, event, listener) {
   if (node.removeEventListener) {
     node.removeEventListener(event, listener, false)
   } else {

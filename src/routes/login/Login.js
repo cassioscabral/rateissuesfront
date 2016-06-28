@@ -13,7 +13,7 @@ import s from './Login.css'
 
 const title = 'Log In'
 
-function Login(props, context) {
+function Login (props, context) {
   context.setTitle(title)
   return (
     <div className={ s.root }>

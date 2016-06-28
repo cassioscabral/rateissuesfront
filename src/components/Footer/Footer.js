@@ -12,7 +12,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import s from './Footer.css'
 import Link from '../Link'
 
-function Footer() {
+function Footer () {
   return (
     <div className={ s.root }>
       <div className={ s.container }>

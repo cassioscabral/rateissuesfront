@@ -23,11 +23,11 @@ class Content extends Component {
     title: PropTypes.string
   };
 
-  componentWillMount() {
+  componentWillMount () {
     this.context.setTitle(this.props.title)
   }
 
-  render() {
+  render () {
     return (
       <div className={ s.root }>
         <div className={ s.container }>

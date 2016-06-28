@@ -28,7 +28,7 @@ const intl = {
   args: {
     locale: {type: new NonNull(StringType)}
   },
-  async resolve({request}, {locale}) {
+  async resolve ({request}, {locale}) {
     if (!locales.includes(locale)) {
       throw new Error(`Locale '${locale}' not supported`)
     }

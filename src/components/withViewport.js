@@ -15,17 +15,17 @@ let EE
 let viewport = {width: 1366, height: 768} // Default size for server-side rendering
 const RESIZE_EVENT = 'resize'
 
-function handleWindowResize() {
+function handleWindowResize () {
   if (viewport.width !== window.innerWidth || viewport.height !== window.innerHeight) {
     viewport = {width: window.innerWidth, height: window.innerHeight}
     EE.emit(RESIZE_EVENT, viewport)
   }
 }
 
-function withViewport(ComposedComponent) {
+function withViewport (ComposedComponent) {
   return class WithViewport extends Component {
 
-    constructor() {
+    constructor () {
       super()
 
       this.state = {
@@ -33,7 +33,7 @@ function withViewport(ComposedComponent) {
       }
     }
 
-    componentDidMount() {
+    componentDidMount () {
       if (!EE) {
         EE = new EventEmitter()
         window.addEventListener('resize', handleWindowResize)
@@ -43,7 +43,7 @@ function withViewport(ComposedComponent) {
       EE.on(RESIZE_EVENT, this.handleResize, this)
     }
 
-    componentWillUnmount() {
+    componentWillUnmount () {
       EE.removeListener(RESIZE_EVENT, this.handleResize, this)
       if (!EE.listeners(RESIZE_EVENT, true)) {
         window.removeEventListener('resize', handleWindowResize)
@@ -52,14 +52,14 @@ function withViewport(ComposedComponent) {
       }
     }
 
-    render() {
+    render () {
       return (<ComposedComponent
-        {...this.props}
+        { ...this.props }
         viewport={ this.state.viewport }
       />)
     }
 
-    handleResize(value) {
+    handleResize (value) {
       this.setState({viewport: value}) // eslint-disable-line react/no-set-state
     }
 

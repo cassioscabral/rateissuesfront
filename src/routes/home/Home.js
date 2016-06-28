@@ -14,7 +14,7 @@ import {FormattedRelative} from 'react-intl'
 
 const title = 'React Starter Kit'
 
-function Home({news}, context) {
+function Home ({news}, context) {
   context.setTitle(title)
   return (
     <div className={ s.root }>

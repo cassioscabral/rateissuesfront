@@ -2,10 +2,10 @@ import React, {PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {IntlProvider} from 'react-intl'
 
-function ProvideIntl({intl, children}) {
+function ProvideIntl ({intl, children}) {
   return (
     <IntlProvider
-      {...intl}
+      { ...intl }
       messages={ intl.messages[intl.locale] }
     >
       { children }

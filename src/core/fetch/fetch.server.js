@@ -14,7 +14,7 @@ import {host} from '../../config'
 fetch.Promise = Promise
 Response.Promise = Promise
 
-function localUrl(url) {
+function localUrl (url) {
   if (url.startsWith('//')) {
     return `https:${url}`
   }
@@ -26,7 +26,7 @@ function localUrl(url) {
   return `http://${host}${url}`
 }
 
-function localFetch(url, options) {
+function localFetch (url, options) {
   return fetch(localUrl(url), options)
 }
 

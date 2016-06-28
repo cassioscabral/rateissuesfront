@@ -1,6 +1,6 @@
 import {SET_RUNTIME_VARIABLE} from '../constants'
 
-export default function runtime(state = {}, action) {
+export default function runtime (state = {}, action) {
   switch (action.type) {
     case SET_RUNTIME_VARIABLE:
       return {

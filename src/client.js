@@ -48,7 +48,7 @@ const context = {
 }
 
 // Restore the scroll position if it was saved into the state
-function restoreScrollPosition(state) {
+function restoreScrollPosition (state) {
   if (state && state.scrollY !== undefined) {
     window.scrollTo(state.scrollX, state.scrollY)
   } else {
@@ -58,7 +58,9 @@ function restoreScrollPosition(state) {
 
 let renderComplete = (state, callback) => {
   const elem = document.getElementById('css')
-  if (elem) elem.parentNode.removeChild(elem)
+  if (elem) {
+    elem.parentNode.removeChild(elem)
+  }
   callback(true)
   renderComplete = (s) => {
     restoreScrollPosition(s)
@@ -71,7 +73,7 @@ let renderComplete = (state, callback) => {
   }
 }
 
-function render(container, state, config, component) {
+function render (container, state, config, component) {
   return new Promise((resolve, reject) => {
     if (process.env.NODE_ENV === 'development') {
       console.log(// eslint-disable-line no-console
@@ -82,7 +84,7 @@ function render(container, state, config, component) {
 
     try {
       ReactDOM.render(
-        <Provide {...config}>
+        <Provide { ...config }>
           { component }
         </Provide>,
         container,
@@ -94,7 +96,7 @@ function render(container, state, config, component) {
   })
 }
 
-function run() {
+function run () {
   let currentLocation = null
   const container = document.getElementById('app')
   const initialState = JSON.parse(

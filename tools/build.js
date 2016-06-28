@@ -18,7 +18,7 @@ import render from './render'
  * Compiles the project from source files into a distributable
  * format and copies it to the output (build) folder.
  */
-async function build() {
+async function build () {
   await run(clean)
   await run(extractMessages)
   await run(copy)

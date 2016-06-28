@@ -5,7 +5,7 @@ import {
   SET_LOCALE_ERROR
 } from '../constants'
 
-export function setLocale({locale}) {
+export function setLocale ({locale}) {
   return async (dispatch) => {
     dispatch({
       type: SET_LOCALE_START,
@@ -26,7 +26,9 @@ export function setLocale({locale}) {
         }),
         credentials: 'include'
       })
-      if (resp.status !== 200) throw new Error(resp.statusText)
+      if (resp.status !== 200){
+        throw new Error(resp.statusText)
+      }
       const {data} = await resp.json()
       const messages = data.intl.reduce((msgs, msg) => {
         msgs[msg.id] = msg.message // eslint-disable-line no-param-reassign
