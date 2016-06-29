@@ -9,23 +9,26 @@
 
 @import '../../styles/variables.scss';
 
-:root {
-  --brand-color: #61dafb;
-}
-
 .root {
-  background: #373277;
+  background: #3b5998;
   color: #fff;
 }
 
 .container {
-  margin: 0 auto;
-  padding: 20px 0;
-  max-width: $max-content-width;
+  min-width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.linkHolder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .brand {
-  color: lighten(#61dafb, 10%);
+  color: #fff;
   text-decoration: none;
   font-size: 1.75em; /* ~28px */
 }
