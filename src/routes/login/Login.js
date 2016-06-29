@@ -9,7 +9,7 @@
 
 import React, {PropTypes} from 'react'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
-import s from './Login.css'
+import s from './Login.scss'
 
 const title = 'Log In'
 

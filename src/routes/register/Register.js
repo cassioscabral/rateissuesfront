@@ -9,7 +9,7 @@
 
 import React, {PropTypes} from 'react'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
-import s from './Register.css'
+import s from './Register.scss'
 
 const title = 'New User Registration'
 
