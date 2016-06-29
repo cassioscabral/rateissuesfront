@@ -1,0 +1,27 @@
+.newsItem {
+  list-style-type: none;
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  border: 1px solid #f7f7f7;
+}
+
+.newsTitle {
+  font-size: 1.125em;
+  color: #3b5998;
+}
+
+.separator {
+  border: 1px solid #dfe3ee;
+}
+
+.newsTitle,
+.newsDesc {
+  display: block;
+  padding: 10px 0;
+}
+
+.publishedDate {
+  font-size: 0.8em;
+  color: #8b9dc3;
+}

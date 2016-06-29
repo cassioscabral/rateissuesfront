@@ -10,7 +10,7 @@
 import React, {PropTypes} from 'react'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import s from './Home.scss'
-import {FormattedRelative} from 'react-intl'
+import Story from '../../components/Story'
 
 const title = 'React Starter Kit'
 
@@ -22,22 +22,10 @@ function Home ({news}, context) {
         <h1 className={ s.title }>React.js News</h1>
         <ul className={ s.news }>
           { news.map((item, index) => (
-            <li
+            <Story
               key={ index }
-              className={ s.newsItem }
-            >
-              <span className={ s.newsTitle }>
-                <a href={ item.link }>{ item.title }</a>
-                { ' ' }
-                <span className={ s.publishedDate }>
-                  <FormattedRelative value={ item.publishedDate } />
-                </span>
-              </span>
-              <span
-                className={ s.newsDesc }
-                dangerouslySetInnerHTML={ {__html: item.contentSnippet} }
-              />
-            </li>
+              story={ item }
+            />
           )) }
         </ul>
       </div>
