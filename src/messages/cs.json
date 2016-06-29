@@ -64,5 +64,23 @@
     "files": [
       "src/components/Navigation/Navigation.js"
     ]
+  },
+  {
+    "id": "storyinput.button",
+    "description": "message displayed in storyinput button",
+    "defaultMessage": "Commit",
+    "message": "",
+    "files": [
+      "src/components/StoryInput/StoryInput.js"
+    ]
+  },
+  {
+    "id": "storyinput.input.placeholder",
+    "description": "placeholder displayed in storyinput input",
+    "defaultMessage": "Share with us...",
+    "message": "",
+    "files": [
+      "src/components/StoryInput/StoryInput.js"
+    ]
   }
 ]

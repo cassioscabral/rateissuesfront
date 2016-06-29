@@ -11,6 +11,7 @@ import React, {PropTypes} from 'react'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import s from './Home.scss'
 import Story from '../../components/Story'
+import StoryInput from '../../components/StoryInput'
 
 const title = 'React Starter Kit'
 
@@ -19,7 +20,7 @@ function Home ({news}, context) {
   return (
     <div className={ s.root }>
       <div className={ s.container }>
-        <h1 className={ s.title }>React.js News</h1>
+        <StoryInput />
         <ul className={ s.news }>
           { news.map((item, index) => (
             <Story
