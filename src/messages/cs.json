@@ -42,25 +42,25 @@
     "id": "navigation.login",
     "defaultMessage": "Log in",
     "message": "Přihlásit",
-    "description": "Log in link in header",
-    "files": [
-      "src/components/Navigation/Navigation.js"
-    ]
+    "description": "Log in link in header"
   },
   {
     "id": "navigation.signup",
     "defaultMessage": "Sign up",
     "message": "Registrace",
-    "description": "Sign up link in header",
-    "files": [
-      "src/components/Navigation/Navigation.js"
-    ]
+    "description": "Sign up link in header"
   },
   {
     "id": "navigation.separator.or",
     "defaultMessage": "or",
     "message": "nebo",
-    "description": "Last separator in list, lowercase \"or\"",
+    "description": "Last separator in list, lowercase \"or\""
+  },
+  {
+    "id": "navigation.loginOrSignup",
+    "description": "Sign up link in header",
+    "defaultMessage": "login/Sign up",
+    "message": "",
     "files": [
       "src/components/Navigation/Navigation.js"
     ]

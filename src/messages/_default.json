@@ -27,28 +27,10 @@
     ]
   },
   {
-    "id": "navigation.login",
-    "defaultMessage": "Log in",
-    "message": "",
-    "description": "Log in link in header",
-    "files": [
-      "src/components/Navigation/Navigation.js"
-    ]
-  },
-  {
-    "id": "navigation.signup",
-    "defaultMessage": "Sign up",
-    "message": "",
+    "id": "navigation.loginOrSignup",
     "description": "Sign up link in header",
-    "files": [
-      "src/components/Navigation/Navigation.js"
-    ]
-  },
-  {
-    "id": "navigation.separator.or",
-    "defaultMessage": "or",
+    "defaultMessage": "login/Sign up",
     "message": "",
-    "description": "Last separator in list, lowercase \"or\"",
     "files": [
       "src/components/Navigation/Navigation.js"
     ]
