@@ -25,11 +25,6 @@ function Story ({story, index}) {
           <FormattedRelative value={ story.publishedDate } />
         </span>
       </span>
-      <div className={ s.separator } />
-      <span
-        className={ s.newsDesc }
-        dangerouslySetInnerHTML={ {__html: story.contentSnippet} }
-      />
     </li>
   )
 }
