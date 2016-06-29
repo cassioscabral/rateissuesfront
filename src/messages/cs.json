@@ -3,23 +3,17 @@
     "id": "header.banner.desc",
     "defaultMessage": "Complex web apps made easy",
     "message": "Komplexní aplikace jednodušše",
-    "description": "Description in header",
-    "files": [
-      "src/components/Header/Header.js"
-    ]
+    "description": "Description in header"
   },
   {
     "id": "header.banner.title",
     "defaultMessage": "React",
     "message": "React",
-    "description": "Title in page header",
-    "files": [
-      "src/components/Header/Header.js"
-    ]
+    "description": "Title in page header"
   },
   {
     "id": "header.brand",
-    "defaultMessage": "Your Company Brand",
+    "defaultMessage": "Rate Issues",
     "message": "Vaše firma",
     "description": "Brand name displayed in header",
     "files": [
