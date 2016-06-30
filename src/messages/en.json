@@ -1,25 +1,7 @@
 [
   {
-    "id": "header.banner.desc",
-    "defaultMessage": "Complex web apps made easy",
-    "message": "",
-    "description": "Description in header",
-    "files": [
-      "src/components/Header/Header.js"
-    ]
-  },
-  {
-    "id": "header.banner.title",
-    "defaultMessage": "React",
-    "message": "",
-    "description": "Title in page header",
-    "files": [
-      "src/components/Header/Header.js"
-    ]
-  },
-  {
     "id": "header.brand",
-    "defaultMessage": "Your Company Brand",
+    "defaultMessage": "Rate Issues",
     "message": "",
     "description": "Brand name displayed in header",
     "files": [
@@ -45,30 +27,30 @@
     ]
   },
   {
-    "id": "navigation.login",
-    "defaultMessage": "Log in",
-    "message": "",
-    "description": "Log in link in header",
-    "files": [
-      "src/components/Navigation/Navigation.js"
-    ]
-  },
-  {
-    "id": "navigation.signup",
-    "defaultMessage": "Sign up",
-    "message": "",
+    "id": "navigation.loginOrSignup",
     "description": "Sign up link in header",
+    "defaultMessage": "login/Sign up",
+    "message": "",
     "files": [
       "src/components/Navigation/Navigation.js"
     ]
   },
   {
-    "id": "navigation.separator.or",
-    "defaultMessage": "or",
+    "id": "storyinput.button",
+    "description": "message displayed in storyinput button",
+    "defaultMessage": "Commit",
     "message": "",
-    "description": "Last separator in list, lowercase \"or\"",
     "files": [
-      "src/components/Navigation/Navigation.js"
+      "src/components/StoryInput/StoryInput.js"
+    ]
+  },
+  {
+    "id": "storyinput.input.placeholder",
+    "description": "placeholder displayed in storyinput input",
+    "defaultMessage": "Share with us...",
+    "message": "",
+    "files": [
+      "src/components/StoryInput/StoryInput.js"
     ]
   }
 ]

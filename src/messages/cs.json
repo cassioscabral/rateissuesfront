@@ -3,23 +3,17 @@
     "id": "header.banner.desc",
     "defaultMessage": "Complex web apps made easy",
     "message": "Komplexní aplikace jednodušše",
-    "description": "Description in header",
-    "files": [
-      "src/components/Header/Header.js"
-    ]
+    "description": "Description in header"
   },
   {
     "id": "header.banner.title",
     "defaultMessage": "React",
     "message": "React",
-    "description": "Title in page header",
-    "files": [
-      "src/components/Header/Header.js"
-    ]
+    "description": "Title in page header"
   },
   {
     "id": "header.brand",
-    "defaultMessage": "Your Company Brand",
+    "defaultMessage": "Rate Issues",
     "message": "Vaše firma",
     "description": "Brand name displayed in header",
     "files": [
@@ -48,27 +42,45 @@
     "id": "navigation.login",
     "defaultMessage": "Log in",
     "message": "Přihlásit",
-    "description": "Log in link in header",
-    "files": [
-      "src/components/Navigation/Navigation.js"
-    ]
+    "description": "Log in link in header"
   },
   {
     "id": "navigation.signup",
     "defaultMessage": "Sign up",
     "message": "Registrace",
-    "description": "Sign up link in header",
-    "files": [
-      "src/components/Navigation/Navigation.js"
-    ]
+    "description": "Sign up link in header"
   },
   {
     "id": "navigation.separator.or",
     "defaultMessage": "or",
     "message": "nebo",
-    "description": "Last separator in list, lowercase \"or\"",
+    "description": "Last separator in list, lowercase \"or\""
+  },
+  {
+    "id": "navigation.loginOrSignup",
+    "description": "Sign up link in header",
+    "defaultMessage": "login/Sign up",
+    "message": "",
     "files": [
       "src/components/Navigation/Navigation.js"
+    ]
+  },
+  {
+    "id": "storyinput.button",
+    "description": "message displayed in storyinput button",
+    "defaultMessage": "Commit",
+    "message": "",
+    "files": [
+      "src/components/StoryInput/StoryInput.js"
+    ]
+  },
+  {
+    "id": "storyinput.input.placeholder",
+    "description": "placeholder displayed in storyinput input",
+    "defaultMessage": "Share with us...",
+    "message": "",
+    "files": [
+      "src/components/StoryInput/StoryInput.js"
     ]
   }
 ]

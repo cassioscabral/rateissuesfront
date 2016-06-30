@@ -13,6 +13,7 @@ import cx from 'classnames'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import s from './Navigation.scss'
 import Link from '../Link'
+import LanguageSwitcher from '../LanguageSwitcher'
 
 const messages = defineMessages({
   about: {
@@ -25,19 +26,9 @@ const messages = defineMessages({
     defaultMessage: 'Contact',
     description: 'Contact link in header'
   },
-  login: {
-    id: 'navigation.login',
-    defaultMessage: 'Log in',
-    description: 'Log in link in header'
-  },
-  or: {
-    id: 'navigation.separator.or',
-    defaultMessage: 'or',
-    description: 'Last separator in list, lowercase "or"'
-  },
-  signup: {
-    id: 'navigation.signup',
-    defaultMessage: 'Sign up',
+  loginOrSignup: {
+    id: 'navigation.loginOrSignup',
+    defaultMessage: 'login/Sign up',
     description: 'Sign up link in header'
   }
 })
@@ -61,20 +52,11 @@ function Navigation ({className}) {
         <FormattedMessage { ...messages.contact } />
       </Link>
       <span className={ s.spacer }> | </span>
-      <Link
-        className={ s.link }
-        to="/login"
-      >
-        <FormattedMessage { ...messages.login } />
-      </Link>
-      <span className={ s.spacer }>
-        <FormattedMessage { ...messages.or } />
-      </span>
       <a
         className={ cx(s.link, s.highlight) }
         href="/login/auth0"
       >
-        <FormattedMessage { ...messages.signup } />
+        <FormattedMessage { ...messages.loginOrSignup } />
       </a>
     </div>
   )
