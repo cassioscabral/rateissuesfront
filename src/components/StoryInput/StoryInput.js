@@ -20,8 +20,8 @@ function StoryInput () {
   return (
     <div className={ s.root } >
       <div className={ s.container } >
-        <input
-          type="text"
+        <textarea
+          rows="3"
           placeholder={ messages.inputPlaceholder.defaultMessage }
         />
         <button><FormattedMessage { ...messages.button }  /></button>
