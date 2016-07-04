@@ -38,10 +38,11 @@
   {
     "id": "storyinput.button",
     "description": "message displayed in storyinput button",
-    "defaultMessage": "Commit",
+    "defaultMessage": "Post",
     "message": "",
     "files": [
-      "src/components/StoryInput/StoryInput.js"
+      "src/components/StoryInput/StoryInput.js",
+      "src\\components\\StoryInput\\StoryInput.js"
     ]
   },
   {
@@ -50,7 +51,8 @@
     "defaultMessage": "Share with us...",
     "message": "",
     "files": [
-      "src/components/StoryInput/StoryInput.js"
+      "src/components/StoryInput/StoryInput.js",
+      "src\\components\\StoryInput\\StoryInput.js"
     ]
   }
 ]
