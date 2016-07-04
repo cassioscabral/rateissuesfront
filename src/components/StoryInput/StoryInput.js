@@ -3,7 +3,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import {defineMessages, FormattedMessage, injectIntl} from 'react-intl'
 import s from './StoryInput.scss'
 import su from '../../styles/utils.scss'
-import {classes} from '../../core/utils.js'
+import cn from 'classnames'
 
 const messages = defineMessages({
   inputPlaceholder: {
@@ -25,7 +25,7 @@ function StoryInput () {
         <textarea
           rows="3"
           placeholder={ messages.inputPlaceholder.defaultMessage }
-          className={ classes(su.noOutline, su.noResize) }
+          className={ cn(su.noOutline, su.noResize) }
         />
         <button><FormattedMessage { ...messages.button }  /></button>
       </div>
