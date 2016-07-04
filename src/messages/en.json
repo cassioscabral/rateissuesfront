@@ -14,7 +14,8 @@
     "message": "",
     "description": "About link in header",
     "files": [
-      "src/components/Navigation/Navigation.js"
+      "src/components/Navigation/Navigation.js",
+      "src\\components\\Navigation\\Navigation.js"
     ]
   },
   {
@@ -23,7 +24,8 @@
     "message": "",
     "description": "Contact link in header",
     "files": [
-      "src/components/Navigation/Navigation.js"
+      "src/components/Navigation/Navigation.js",
+      "src\\components\\Navigation\\Navigation.js"
     ]
   },
   {
@@ -53,6 +55,15 @@
     "files": [
       "src/components/StoryInput/StoryInput.js",
       "src\\components\\StoryInput\\StoryInput.js"
+    ]
+  },
+  {
+    "id": "navigation.enter",
+    "description": "Enter link in header",
+    "defaultMessage": "Enter",
+    "message": "",
+    "files": [
+      "src\\components\\Navigation\\Navigation.js"
     ]
   }
 ]
