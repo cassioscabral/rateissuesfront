@@ -56,41 +56,28 @@ passport.use(new Auth0Strategy({
   /* eslint-disable no-underscore-dangle */
   const authenticate = async () => {
     let user = null
-    let userToken = {
-      id: '',
-      email: ''
-    }
-    // get from jwt cookie's token
+    let userToken = {}
+
+    // req.user recived from jwt cookie's token
     if (req.user) {
       user = await UserLogin.findOne({
         attributes: ['name', 'key'],
         where: {name: loginName, key: req.user.id}
       })
-
-      // if user is already in DB
-      // keep it as token
-      if (user) {
-        userToken = {
-          id: req.user.id,
-          email: req.user.email
-        }
-      } else {
-        createUser(profile)
-        userToken.id = profile.id
-        userToken.email = profile._json.email
-      }
     } else {
       // search by email
       user = await User.findOne({where: {email: profile._json.email}})
-      if (user) {
-        userToken.id = user.dataValues.id
-        userToken.email = user.dataValues.email
-      } else {
-        createUser(profile)
-        userToken.id = profile.id
-        userToken.email = profile._json.email
-      }
     }
+
+    if (!user) {
+      createUser(profile)
+    }
+
+    userToken.id = profile.id
+    userToken.email = profile._json.email
+    userToken.displayName = profile.nickname
+    userToken.picture = profile.picture
+
     done(null, userToken)
   }
   authenticate().catch(done)
