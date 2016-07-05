@@ -1,6 +1,5 @@
 import {
-  USER_LOGIN,
-  USER_LOGOUT
+  USER_LOGIN
 } from '../constants'
 
 export function userLogin ({id, email, displayName, picture}) {
@@ -12,12 +11,5 @@ export function userLogin ({id, email, displayName, picture}) {
       displayName,
       picture
     }
-  }
-}
-
-export function userLogout () {
-  return {
-    type: USER_LOGOUT,
-    payload: {}
   }
 }

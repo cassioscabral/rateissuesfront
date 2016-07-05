@@ -4,4 +4,3 @@ export const SET_LOCALE_SUCCESS = 'SET_LOCALE_SUCCESS'
 export const SET_LOCALE_ERROR = 'SET_LOCALE_ERROR'
 
 export const USER_LOGIN = 'USER_LOGIN'
-export const USER_LOGOUT = 'USER_LOGOUT'
