@@ -52,5 +52,14 @@
     "files": [
       "src/components/StoryInput/StoryInput.js"
     ]
+  },
+  {
+    "id": "navigation.logout",
+    "description": "logout link in header",
+    "defaultMessage": "logout",
+    "message": "",
+    "files": [
+      "src/components/Navigation/Navigation.js"
+    ]
   }
 ]
