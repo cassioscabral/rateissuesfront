@@ -9,6 +9,7 @@
 
 import React, {PropTypes} from 'react'
 import {defineMessages, FormattedMessage} from 'react-intl'
+import {connect} from 'react-redux'
 import cx from 'classnames'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import s from './Navigation.scss'
@@ -25,6 +26,11 @@ const messages = defineMessages({
     defaultMessage: 'Contact',
     description: 'Contact link in header'
   },
+  logout: {
+    id: 'navigation.logout',
+    defaultMessage: 'logout',
+    description: 'logout link in header'
+  },
   enter: {
     id: 'navigation.enter',
     defaultMessage: 'Enter',
@@ -32,7 +38,28 @@ const messages = defineMessages({
   }
 })
 
-function Navigation ({className}) {
+function Navigation ({className, id}) {
+  const renderLogin = () => {
+    if (id) {
+      return (
+        <a
+          className={ cx(s.link, s.highlight) }
+          href="/logout/auth0"
+        >
+          <FormattedMessage { ...messages.logout } />
+        </a>
+      )
+    }else{
+      return (
+        <a
+          className={ cx(s.link, s.highlight) }
+          href="/login/auth0"
+        >
+          <FormattedMessage { ...messages.enter } />
+        </a>
+      )
+    }
+  }
   return (
     <div
       className={ cx(s.root, className) }
@@ -51,12 +78,7 @@ function Navigation ({className}) {
         <FormattedMessage { ...messages.contact } />
       </Link>
       <span className={ s.spacer }> | </span>
-      <a
-        className={ cx(s.link, s.highlight) }
-        href="/login/auth0"
-      >
-        <FormattedMessage { ...messages.enter } />
-      </a>
+      { renderLogin() }
     </div>
   )
 }
@@ -65,4 +87,6 @@ Navigation.propTypes = {
   className: PropTypes.string
 }
 
-export default withStyles(s)(Navigation)
+export default connect(state => ({
+  id: state.user.id
+}))(withStyles(s)(Navigation))

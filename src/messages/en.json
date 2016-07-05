@@ -14,8 +14,7 @@
     "message": "",
     "description": "About link in header",
     "files": [
-      "src/components/Navigation/Navigation.js",
-      "src\\components\\Navigation\\Navigation.js"
+      "src/components/Navigation/Navigation.js"
     ]
   },
   {
@@ -23,16 +22,6 @@
     "defaultMessage": "Contact",
     "message": "",
     "description": "Contact link in header",
-    "files": [
-      "src/components/Navigation/Navigation.js",
-      "src\\components\\Navigation\\Navigation.js"
-    ]
-  },
-  {
-    "id": "navigation.loginOrSignup",
-    "description": "Sign up link in header",
-    "defaultMessage": "login/Sign up",
-    "message": "",
     "files": [
       "src/components/Navigation/Navigation.js"
     ]
@@ -43,8 +32,7 @@
     "defaultMessage": "Post",
     "message": "",
     "files": [
-      "src/components/StoryInput/StoryInput.js",
-      "src\\components\\StoryInput\\StoryInput.js"
+      "src/components/StoryInput/StoryInput.js"
     ]
   },
   {
@@ -53,8 +41,7 @@
     "defaultMessage": "Share with us...",
     "message": "",
     "files": [
-      "src/components/StoryInput/StoryInput.js",
-      "src\\components\\StoryInput\\StoryInput.js"
+      "src/components/StoryInput/StoryInput.js"
     ]
   },
   {
@@ -63,7 +50,16 @@
     "defaultMessage": "Enter",
     "message": "",
     "files": [
-      "src\\components\\Navigation\\Navigation.js"
+      "src/components/Navigation/Navigation.js"
+    ]
+  },
+  {
+    "id": "navigation.logout",
+    "description": "logout link in header",
+    "defaultMessage": "logout",
+    "message": "",
+    "files": [
+      "src/components/Navigation/Navigation.js"
     ]
   }
 ]

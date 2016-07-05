@@ -11,6 +11,7 @@ import React from 'react'
 import {defineMessages, FormattedMessage, injectIntl} from 'react-intl'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import s from './Header.scss'
+import {connect} from 'react-redux'
 import Link from '../Link'
 import Navigation from '../Navigation'
 import LanguageSwitcher from '../LanguageSwitcher'
@@ -23,7 +24,20 @@ const messages = defineMessages({
   }
 })
 
-function Header () {
+function Header ({displayName, picture}) {
+  const renderUser = () => {
+    if (picture) {
+      return (
+        <div className={ s.user }>
+          <img
+            src={ picture }
+            alt="user's picture"
+          />
+          { displayName }
+        </div>
+      )
+    }
+  }
   return (
     <div className={ s.root }>
       <div className={ s.container }>
@@ -35,6 +49,7 @@ function Header () {
             <FormattedMessage { ...messages.brand } />
           </span>
         </Link>
+        { renderUser() }
         <div className={ s.linkHolder }>
           <LanguageSwitcher />
           <Navigation className={ s.nav } />
@@ -44,4 +59,7 @@ function Header () {
   )
 }
 
-export default injectIntl(withStyles(s)(Header))
+export default connect(state => ({
+  displayName: state.user.displayName,
+  picture: state.user.picture
+}))(withStyles(s)(injectIntl(withStyles(s)(Header))))

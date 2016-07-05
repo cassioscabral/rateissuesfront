@@ -29,6 +29,7 @@ import assets from './assets' // eslint-disable-line import/no-unresolved
 import {port, auth, analytics, locales} from './config'
 import configureStore from './store/configureStore'
 import {setRuntimeVariable} from './actions/runtime'
+import {userLogin} from './actions/user'
 import Provide from './components/Provide'
 import {setLocale} from './actions/intl'
 
@@ -75,6 +76,13 @@ app.use(passport.initialize())
 
 app.get('/login/auth0',
   passport.authenticate('auth0', {scope: ['email', 'user_location'], session: false})
+)
+
+app.get('/logout/auth0',
+  (req, res) => {
+    res.clearCookie('id_token')
+    res.redirect('/')
+  }
 )
 
 app.get('/login/auth0/return',
@@ -132,6 +140,15 @@ app.get('*', async (req, res, next) => {
       name: 'availableLocales',
       value: locales
     }))
+
+    if(req.user){
+      store.dispatch(userLogin({
+        id: req.user.id,
+        email: req.user.email,
+        displayName: req.user.displayName,
+        picture: req.user.picture
+      }))
+    }
 
     await store.dispatch(setLocale({
       locale
