@@ -27,18 +27,9 @@
     ]
   },
   {
-    "id": "navigation.loginOrSignup",
-    "description": "Sign up link in header",
-    "defaultMessage": "login/Sign up",
-    "message": "",
-    "files": [
-      "src/components/Navigation/Navigation.js"
-    ]
-  },
-  {
     "id": "storyinput.button",
     "description": "message displayed in storyinput button",
-    "defaultMessage": "Commit",
+    "defaultMessage": "Post",
     "message": "",
     "files": [
       "src/components/StoryInput/StoryInput.js"
@@ -51,6 +42,15 @@
     "message": "",
     "files": [
       "src/components/StoryInput/StoryInput.js"
+    ]
+  },
+  {
+    "id": "navigation.enter",
+    "description": "Enter link in header",
+    "defaultMessage": "Enter",
+    "message": "",
+    "files": [
+      "src/components/Navigation/Navigation.js"
     ]
   },
   {

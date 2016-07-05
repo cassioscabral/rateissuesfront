@@ -159,7 +159,7 @@ app.get('*', async (req, res, next) => {
       query: req.query,
       context: {
         store,
-        insertCss: styles => css.push(styles._getCss()), // eslint-disable-line no-underscore-dangle
+        insertCss: (...styles) => { styles.forEach(style => css.push(style._getCss())) }, // eslint-disable-line no-underscore-dangle
         setTitle: value => (data.title = value),
         setMeta: (key, value) => (data[key] = value)
       },

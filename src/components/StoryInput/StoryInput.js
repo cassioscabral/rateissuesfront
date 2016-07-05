@@ -2,6 +2,8 @@ import React from 'react'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import {defineMessages, FormattedMessage, injectIntl} from 'react-intl'
 import s from './StoryInput.scss'
+import su from '../../styles/utils.scss'
+import cn from 'classnames'
 
 const messages = defineMessages({
   inputPlaceholder: {
@@ -11,7 +13,7 @@ const messages = defineMessages({
   },
   button:{
     id: 'storyinput.button',
-    defaultMessage: 'Commit',
+    defaultMessage: 'Post',
     description: 'message displayed in storyinput button'
   }
 })
@@ -23,6 +25,7 @@ function StoryInput () {
         <textarea
           rows="3"
           placeholder={ messages.inputPlaceholder.defaultMessage }
+          className={ cn(su.noOutline, su.noResize) }
         />
         <button><FormattedMessage { ...messages.button }  /></button>
       </div>
@@ -30,4 +33,4 @@ function StoryInput () {
   )
 }
 
-export default injectIntl(withStyles(s)(StoryInput))
+export default injectIntl(withStyles(s, su)(StoryInput))

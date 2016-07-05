@@ -26,15 +26,15 @@ const messages = defineMessages({
     defaultMessage: 'Contact',
     description: 'Contact link in header'
   },
-  loginOrSignup: {
-    id: 'navigation.loginOrSignup',
-    defaultMessage: 'login/Sign up',
-    description: 'Sign up link in header'
-  },
   logout: {
     id: 'navigation.logout',
     defaultMessage: 'logout',
     description: 'logout link in header'
+  },
+  enter: {
+    id: 'navigation.enter',
+    defaultMessage: 'Enter',
+    description: 'Enter link in header'
   }
 })
 
@@ -55,7 +55,7 @@ function Navigation ({className, id}) {
           className={ cx(s.link, s.highlight) }
           href="/login/auth0"
         >
-          <FormattedMessage { ...messages.loginOrSignup } />
+          <FormattedMessage { ...messages.enter } />
         </a>
       )
     }
@@ -86,12 +86,6 @@ function Navigation ({className, id}) {
 Navigation.propTypes = {
   className: PropTypes.string
 }
-
-// Navigation.propTypes = {
-//   currentLocale: PropTypes.string.isRequired,
-//   availableLocales: PropTypes.arrayOf(PropTypes.string).isRequired,
-//   setLocale: PropTypes.func.isRequired
-// }
 
 export default connect(state => ({
   id: state.user.id

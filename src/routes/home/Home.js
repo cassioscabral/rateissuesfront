@@ -13,7 +13,7 @@ import s from './Home.scss'
 import Story from '../../components/Story'
 import StoryInput from '../../components/StoryInput'
 
-const title = 'React Starter Kit'
+const title = 'Rate Issues'
 
 function Home ({news}, context) {
   context.setTitle(title)
