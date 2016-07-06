@@ -19,7 +19,7 @@ function Story ({story, index}) {
       className={ s.newsItem }
     >
       <span className={ s.newsTitle }>
-        <a href={ story.link }>{ story.title }</a>
+        { story.body }
         { ' ' }
         <span className={ s.publishedDate }>
           <FormattedRelative value={ story.publishedDate } />

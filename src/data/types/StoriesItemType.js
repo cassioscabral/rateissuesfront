@@ -16,11 +16,9 @@ import {
 const StoriesItemType = new ObjectType({
   name: 'NewsItem',
   fields: {
-    title: {type: new NonNull(StringType)},
-    link: {type: new NonNull(StringType)},
-    author: {type: StringType},
-    publishedDate: {type: new NonNull(StringType)},
-    contentSnippet: {type: StringType}
+    id: {type: new NonNull(StringType)},
+    body: {type: new NonNull(StringType)},
+    publishedDate: {type: new NonNull(StringType)}
   }
 })
 

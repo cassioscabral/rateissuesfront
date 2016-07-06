@@ -23,7 +23,7 @@ export default {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        query: '{stories{title,link,publishedDate,contentSnippet}}'
+        query: '{stories{id,body,publishedDate}}'
       }),
       credentials: 'include'
     })
