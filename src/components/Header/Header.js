@@ -14,7 +14,7 @@ import s from './Header.scss'
 import {connect} from 'react-redux'
 import Link from '../Link'
 import Navigation from '../Navigation'
-import LanguageSwitcher from '../LanguageSwitcher'
+// import LanguageSwitcher from '../LanguageSwitcher'
 
 const messages = defineMessages({
   brand: {
@@ -45,19 +45,23 @@ function Header ({displayName, picture}) {
   return (
     <div className={ s.root }>
       <div className={ s.container }>
-        <Link
-          className={ s.brand }
-          to="/"
-          >
-          <span className={ s.brandTxt }>
-            <FormattedMessage { ...messages.brand } />
-          </span>
-        </Link>
-        <div className={ s.linkHolder }>
-          <LanguageSwitcher />
-          <Navigation className={ s.nav }
-            user={ renderUser(onUserClick) }
-          />
+        <div className="leftHeader">
+          <Link
+            className={ s.brand }
+            to="/"
+            >
+            <span className={ s.brandTxt }>
+              <FormattedMessage { ...messages.brand } />
+            </span>
+          </Link>
+        </div>
+        <div className="rightHeader">
+          <div className={ s.linkHolder }>
+            { renderUser(onUserClick) }
+            { /* <LanguageSwitcher />*/ }
+            <Navigation className={ s.nav }
+            />
+          </div>
         </div>
       </div>
     </div>

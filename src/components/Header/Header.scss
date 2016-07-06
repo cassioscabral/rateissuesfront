@@ -62,9 +62,20 @@
 }
 
 .user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   img {
     height: 35px;
     width: 35px;
     margin: 0 5px;
   }
+}
+
+.leftHeader {
+  align-items: flex-start;
+}
+
+.rightHeader {
+  align-items: flex-end;
 }

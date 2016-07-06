@@ -14,6 +14,8 @@ import cx from 'classnames'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import s from './Navigation.scss'
 import Link from '../Link'
+ import {FaAngleDown} from 'react-icons/lib/fa'
+
 
 const messages = defineMessages({
   about: {
@@ -38,25 +40,17 @@ const messages = defineMessages({
   }
 })
 
-function Navigation ({className, id, user}) {
+function Navigation ({className, userId}) {
   // TODO specify which id is that
   const renderLogin = () => {
-    if (id && user) {
+    if (userId) {
       return (
-        <div className={ s.userNavigation }>
-          { user }
-          <ul>
-            <li>opt 1</li>
-            <li>
-              <a
-                className={ cx(s.link, s.highlight) }
-                href="/logout/auth0"
-              >
-                <FormattedMessage { ...messages.logout } />
-              </a>
-            </li>
-          </ul>
-        </div>
+        <a
+          className={ cx(s.link, s.highlight) }
+          href="/logout/auth0"
+        >
+          <FormattedMessage { ...messages.logout } />
+        </a>
       )
     } else {
       return (
@@ -88,6 +82,7 @@ function Navigation ({className, id, user}) {
       </Link>
       <span className={ s.spacer }> | </span>
       { renderLogin() }
+      <FaAngleDown color={ 'white' } />
     </div>
   )
 }
@@ -97,5 +92,5 @@ Navigation.propTypes = {
 }
 
 export default connect(state => ({
-  id: state.user.id
+  userId: state.user.id
 }))(withStyles(s)(Navigation))
