@@ -5,7 +5,8 @@
     "message": "",
     "description": "Brand name displayed in header",
     "files": [
-      "src/components/Header/Header.js"
+      "src/components/Header/Header.js",
+      "src\\components\\Header\\Header.js"
     ]
   },
   {
@@ -64,6 +65,15 @@
     "files": [
       "src/components/Navigation/Navigation.js",
       "src\\components\\Navigation\\Navigation.js"
+    ]
+  },
+  {
+    "id": "userInfo.pictureAlt",
+    "description": "User picture alt message",
+    "defaultMessage": "user's picture",
+    "message": "",
+    "files": [
+      "src\\components\\UserInfo\\UserInfo.js"
     ]
   }
 ]

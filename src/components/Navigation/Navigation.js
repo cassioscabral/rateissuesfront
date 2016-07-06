@@ -14,8 +14,6 @@ import cx from 'classnames'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import s from './Navigation.scss'
 import Link from '../Link'
- import {FaAngleDown} from 'react-icons/lib/fa'
-
 
 const messages = defineMessages({
   about: {
@@ -82,7 +80,6 @@ function Navigation ({className, userId}) {
       </Link>
       <span className={ s.spacer }> | </span>
       { renderLogin() }
-      <FaAngleDown color={ 'white' } />
     </div>
   )
 }

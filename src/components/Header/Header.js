@@ -15,6 +15,8 @@ import {connect} from 'react-redux'
 import Link from '../Link'
 import Navigation from '../Navigation'
 // import LanguageSwitcher from '../LanguageSwitcher'
+import {FaAngleDown} from 'react-icons/lib/fa'
+import UserInfo from '../UserInfo'
 
 const messages = defineMessages({
   brand: {
@@ -31,13 +33,13 @@ function Header ({displayName, picture}) {
     if (picture) {
       return (
         <div className={ s.user }
-          onClick={ onClick }
           >
-          <img
-            src={ picture }
-            alt="user's picture"
-          />
-          { displayName }
+          <UserInfo picture={ picture }
+            displayName={ displayName } >
+          </UserInfo>
+          <FaAngleDown color={ 'white' }
+            onClick={ onClick }
+            />
         </div>
       )
     }
@@ -57,10 +59,9 @@ function Header ({displayName, picture}) {
         </div>
         <div className="rightHeader">
           <div className={ s.linkHolder }>
-            { renderUser(onUserClick) }
             { /* <LanguageSwitcher />*/ }
-            <Navigation className={ s.nav }
-            />
+            <Navigation className={ s.nav } />
+            { renderUser(onUserClick) }
           </div>
         </div>
       </div>
