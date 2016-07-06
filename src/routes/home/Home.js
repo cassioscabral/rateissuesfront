@@ -36,8 +36,8 @@ function Home ({stories}, context) {
 
 Home.propTypes = {
   stories: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
     contentSnippet: PropTypes.string
   })).isRequired
 }
