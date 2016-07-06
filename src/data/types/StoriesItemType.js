@@ -13,7 +13,7 @@ import {
   GraphQLNonNull as NonNull
 } from 'graphql'
 
-const NewsItemType = new ObjectType({
+const StoriesItemType = new ObjectType({
   name: 'NewsItem',
   fields: {
     title: {type: new NonNull(StringType)},
@@ -24,4 +24,4 @@ const NewsItemType = new ObjectType({
   }
 })
 
-export default NewsItemType
+export default StoriesItemType

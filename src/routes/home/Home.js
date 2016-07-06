@@ -15,14 +15,14 @@ import StoryInput from '../../components/StoryInput'
 
 const title = 'Rate Issues'
 
-function Home ({news}, context) {
+function Home ({stories}, context) {
   context.setTitle(title)
   return (
     <div className={ s.root }>
       <div className={ s.container }>
         <StoryInput />
-        <ul className={ s.news }>
-          { news.map((item, index) => (
+        <ul className={ s.stories }>
+          { stories.map((item, index) => (
             <Story
               key={ index }
               story={ item }
@@ -35,7 +35,7 @@ function Home ({news}, context) {
 }
 
 Home.propTypes = {
-  news: PropTypes.arrayOf(PropTypes.shape({
+  stories: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
     contentSnippet: PropTypes.string

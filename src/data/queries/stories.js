@@ -9,7 +9,7 @@
 
 import {GraphQLList as List} from 'graphql'
 import fetch from '../../core/fetch'
-import NewsItemType from '../types/NewsItemType'
+import StoriesItemType from '../types/StoriesItemType'
 
 // React.js News Feed (RSS)
 const url = 'http://ajax.googleapis.com/ajax/services/feed/load' +
@@ -20,7 +20,7 @@ let lastFetchTask
 let lastFetchTime = new Date(1970, 0, 1)
 
 const news = {
-  type: new List(NewsItemType),
+  type: new List(StoriesItemType),
   resolve () {
     if (lastFetchTask) {
       return lastFetchTask
