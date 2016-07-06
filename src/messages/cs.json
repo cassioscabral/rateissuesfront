@@ -17,7 +17,8 @@
     "message": "Vaše firma",
     "description": "Brand name displayed in header",
     "files": [
-      "src/components/Header/Header.js"
+      "src/components/Header/Header.js",
+      "src\\components\\Header\\Header.js"
     ]
   },
   {

@@ -24,11 +24,15 @@ const messages = defineMessages({
   }
 })
 
+const onUserClick = () => { console.log('testss') }
+
 function Header ({displayName, picture}) {
-  const renderUser = () => {
+  const renderUser = (onClick = null) => {
     if (picture) {
       return (
-        <div className={ s.user }>
+        <div className={ s.user }
+          onClick={ onClick }
+          >
           <img
             src={ picture }
             alt="user's picture"
@@ -49,10 +53,11 @@ function Header ({displayName, picture}) {
             <FormattedMessage { ...messages.brand } />
           </span>
         </Link>
-        { renderUser() }
         <div className={ s.linkHolder }>
           <LanguageSwitcher />
-          <Navigation className={ s.nav } />
+          <Navigation className={ s.nav }
+            user={ renderUser(onUserClick) }
+          />
         </div>
       </div>
     </div>

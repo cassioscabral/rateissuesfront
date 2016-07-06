@@ -38,18 +38,27 @@ const messages = defineMessages({
   }
 })
 
-function Navigation ({className, id}) {
+function Navigation ({className, id, user}) {
+  // TODO specify which id is that
   const renderLogin = () => {
-    if (id) {
+    if (id && user) {
       return (
-        <a
-          className={ cx(s.link, s.highlight) }
-          href="/logout/auth0"
-        >
-          <FormattedMessage { ...messages.logout } />
-        </a>
+        <div className={ s.userNavigation }>
+          { user }
+          <ul>
+            <li>opt 1</li>
+            <li>
+              <a
+                className={ cx(s.link, s.highlight) }
+                href="/logout/auth0"
+              >
+                <FormattedMessage { ...messages.logout } />
+              </a>
+            </li>
+          </ul>
+        </div>
       )
-    }else{
+    } else {
       return (
         <a
           className={ cx(s.link, s.highlight) }
