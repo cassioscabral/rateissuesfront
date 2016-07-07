@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import {defineMessages, FormattedMessage, injectIntl} from 'react-intl'
 import s from './StoryInput.scss'
@@ -18,19 +18,29 @@ const messages = defineMessages({
   }
 })
 
-function StoryInput () {
-  return (
-    <div className={ s.root } >
-      <div className={ s.container } >
-        <textarea
-          rows="3"
-          placeholder={ messages.inputPlaceholder.defaultMessage }
-          className={ cn(su.noOutline, su.noResize) }
-        />
-        <button><FormattedMessage { ...messages.button }  /></button>
+class StoryInput extends Component {
+  render (){
+    return (
+      <div className={ s.root } >
+        <div className={ s.container } >
+          <textarea
+            rows="3"
+            placeholder={ messages.inputPlaceholder.defaultMessage }
+            className={ cn(su.noOutline, su.noResize) }
+            ref="input"
+          />
+          <button onClick={ () => {
+              if (this.refs.input.value !== '') {
+                this.props.onClick(this.refs.input.value)
+              }
+              this.refs.input.value=''
+            } } >
+            <FormattedMessage { ...messages.button }  />
+          </button>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default injectIntl(withStyles(s, su)(StoryInput))

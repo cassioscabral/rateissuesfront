@@ -1,5 +1,6 @@
 import {
-  LOAD_STORIES_SUCCESS
+  LOAD_STORIES_SUCCESS,
+  ADD_STORY
 } from '../constants'
 
 export function loadStories ({stories}) {
@@ -7,6 +8,17 @@ export function loadStories ({stories}) {
     type: LOAD_STORIES_SUCCESS,
     payload: {
       stories
+    }
+  }
+}
+
+export function addStory (body) {
+  return {
+    type: ADD_STORY,
+    payload: {
+      id:'',
+      body,
+      publishedDate: new Date()
     }
   }
 }

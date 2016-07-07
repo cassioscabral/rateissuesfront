@@ -13,12 +13,13 @@ import s from './Feed.scss'
 import Story from '../Story'
 import StoryInput from '../StoryInput'
 import {connect} from 'react-redux'
+import {addStory} from '../../actions/stories'
 
-function Feed ({stories}) {
+function Feed ({stories,addStory}) {
   return (
     <div className={ s.root }>
       <div className={ s.container }>
-        <StoryInput />
+        <StoryInput onClick={ addStory } />
         <ul className={ s.stories }>
           { stories.map((item, index) => (
             <Story
@@ -36,4 +37,4 @@ Feed.contextTypes = {setTitle: PropTypes.func.isRequired}
 
 export default connect(state => ({
   stories: state.stories
-}))(withStyles(s)(Feed))
+}),{addStory})(withStyles(s)(Feed))

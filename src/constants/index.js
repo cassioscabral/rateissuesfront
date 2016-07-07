@@ -6,3 +6,4 @@ export const SET_LOCALE_ERROR = 'SET_LOCALE_ERROR'
 export const USER_LOGIN = 'USER_LOGIN'
 
 export const LOAD_STORIES_SUCCESS = 'LOAD_STORIES_SUCCESS'
+export const ADD_STORY = 'ADD_STORY'
