@@ -35,7 +35,8 @@ function Header ({displayName, picture}) {
         <div className={ s.user }
           >
           <UserInfo picture={ picture }
-            displayName={ displayName } >
+            displayName={ displayName }
+            >
           </UserInfo>
           <FaAngleDown color={ 'white' }
             onClick={ onClick }
