@@ -73,4 +73,4 @@ function Header ({displayName, picture}) {
 export default connect(state => ({
   displayName: state.user.displayName,
   picture: state.user.picture
-}))(withStyles(s)(injectIntl(withStyles(s)(Header))))
+}))((injectIntl(withStyles(s)(Header))))
