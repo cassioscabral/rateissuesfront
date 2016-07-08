@@ -22,4 +22,4 @@ function Sample ({someProp}) {
 
 export default connect(state => ({
   displayName: state.user.displayName
-}))(withStyles(s)(injectIntl(withStyles(s)(Sample))))
+}))((injectIntl(withStyles(s)(Sample))))
