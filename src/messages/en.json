@@ -15,7 +15,8 @@
     "message": "",
     "description": "About link in header",
     "files": [
-      "src/components/Navigation/Navigation.js"
+      "src/components/Navigation/Navigation.js",
+      "src\\components\\Navigation\\Navigation.js"
     ]
   },
   {
@@ -24,7 +25,8 @@
     "message": "",
     "description": "Contact link in header",
     "files": [
-      "src/components/Navigation/Navigation.js"
+      "src/components/Navigation/Navigation.js",
+      "src\\components\\Navigation\\Navigation.js"
     ]
   },
   {
@@ -51,7 +53,8 @@
     "defaultMessage": "Enter",
     "message": "",
     "files": [
-      "src/components/Navigation/Navigation.js"
+      "src/components/Navigation/Navigation.js",
+      "src\\components\\Navigation\\Navigation.js"
     ]
   },
   {
@@ -60,7 +63,17 @@
     "defaultMessage": "logout",
     "message": "",
     "files": [
-      "src/components/Navigation/Navigation.js"
+      "src/components/Navigation/Navigation.js",
+      "src\\components\\Navigation\\Navigation.js"
+    ]
+  },
+  {
+    "id": "userInfo.pictureAlt",
+    "description": "User picture alt message",
+    "defaultMessage": "user's picture",
+    "message": "",
+    "files": [
+      "src\\components\\UserInfo\\UserInfo.js"
     ]
   }
 ]

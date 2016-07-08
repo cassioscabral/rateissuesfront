@@ -46,6 +46,10 @@ const config = {
 
   module: {
     loaders: [
+      {
+        test: /react-icons[\\\/](.)*(.js)$/,
+        loader: 'babel-loader'
+      },
       // BEGIN auth0
       {
         test: /auth0-lock[\\\/].*\.js$/,
