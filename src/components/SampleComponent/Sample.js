@@ -1,6 +1,6 @@
 import React from 'react'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
-import s from './Story.scss'
+import s from './Sample.scss'
 import {defineMessages, injectIntl} from 'react-intl'
 import {connect} from 'react-redux'
 
