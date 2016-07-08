@@ -6,7 +6,7 @@
 
 RateIssues will solve those problems, build to help you to develop and contribute with open-source code
 
-** This is a free project and it will always be, in the future we might have sponsors(maybe donators also) to support the production app**
+**This is a free project and it will always be, in the future we might have sponsors(maybe donators also) to support the production app**
 
 ## Main features
  * Tech news feed, tips and help for developers
