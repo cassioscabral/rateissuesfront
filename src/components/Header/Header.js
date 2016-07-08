@@ -17,6 +17,7 @@ import Navigation from '../Navigation'
 // import LanguageSwitcher from '../LanguageSwitcher'
 import {FaAngleDown} from 'react-icons/lib/fa'
 import UserInfo from '../UserInfo'
+import PopUpMenu from '../PopUpMenu'
 
 const messages = defineMessages({
   brand: {
@@ -28,7 +29,29 @@ const messages = defineMessages({
 
 const onUserClick = () => { console.log('testss') }
 
+const menuItems = [
+  {
+    headingTitle: 'Section 1',
+    order: 1,
+    menuItems: [
+      {
+        text: 'MenuItem 1',
+        url: 'https://github.com/cassioscabral/rateissuesfront',
+        icon: null,
+        order: 1
+      },
+      {
+        text: 'MenuItem 2',
+        url: 'https://github.com/cassioscabral/rateissuesfront/issues',
+        icon: null,
+        order: 2
+      }
+    ]
+  }
+]
+
 function Header ({displayName, picture}) {
+  let showMenu = false
   const renderUser = (onClick = null) => {
     if (picture) {
       return (
@@ -41,6 +64,7 @@ function Header ({displayName, picture}) {
           <FaAngleDown color={ 'white' }
             onClick={ onClick }
             />
+            { showMenu ? <PopUpMenu menuItems={ menuItems } /> : false }
         </div>
       )
     }
