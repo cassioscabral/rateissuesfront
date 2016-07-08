@@ -14,7 +14,7 @@ const messages = defineMessages({
 
 function Sample ({someProp}) {
   return (
-    <div>
+    <div className={ s.root }>
       { messages.sampleText } { someProp }
     </div>
   )
