@@ -31,9 +31,8 @@ class StoryInput extends Component {
           />
           <button onClick={ () => {
               let bodyStoryInput = this.refs.bodyStoryInput
-              const bodyValue = bodyStoryInput.value
-              if (bodyValue !== '') {
-                this.props.onClick(bodyValue)
+              if (bodyStoryInput.value !== '') {
+                this.props.onClick(bodyStoryInput.value)
               }
               bodyStoryInput.value=''
             } } >

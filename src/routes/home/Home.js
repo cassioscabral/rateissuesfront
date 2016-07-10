@@ -4,14 +4,21 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import s from './Home.scss'
 import {connect} from 'react-redux'
 import {loadStories} from '../../actions/stories'
+import StoryInput from '../../components/StoryInput'
+import {addStory} from '../../actions/stories'
 
 const title = 'Rate Issues'
 
-function Home ({stories,loadStories}, context) {
+function Home ({stories,loadStories,addStory}, context) {
   context.setTitle(title)
   loadStories({stories: stories})
   return (
-    <Feed />
+    <div className={ s.root }>
+      <div className={ s.container }>
+        <StoryInput onClick={ addStory } />
+        <Feed />
+      </div>
+    </div>
   )
 }
 
@@ -24,7 +31,7 @@ Home.propTypes = {
 }
 
 export default connect(() => ({
-
 }), {
-  loadStories
+  loadStories,
+  addStory
 })(withStyles(s)(Home))
