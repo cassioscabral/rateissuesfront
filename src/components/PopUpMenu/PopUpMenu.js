@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, {PropTypes as RP} from 'react'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import s from './PopUpMenu.scss'
 
@@ -46,16 +46,16 @@ function PopUpMenu ({menuItems}) {
 }
 
 PopUpMenu.propTypes = {
-  menuItems: React.PropTypes.arrayOf(
-    React.PropTypes.shape({
-      headingTitle: React.PropTypes.string,
-      order: React.PropTypes.number,
-      menuItems: React.PropTypes.arrayOf(
-        React.PropTypes.shape({
-          text: React.PropTypes.string.isRequired,
-          url: React.PropTypes.string.isRequired,
-          icon: React.PropTypes.string,
-          order: React.PropTypes.number
+  menuItems: RP.arrayOf(
+    RP.shape({
+      headingTitle: RP.string,
+      order: RP.number,
+      menuItems: RP.arrayOf(
+        RP.shape({
+          text: RP.string.isRequired,
+          url: RP.string.isRequired,
+          icon: RP.string,
+          order: RP.number
         })
       )
     })
