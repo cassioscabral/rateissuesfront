@@ -27,14 +27,15 @@ class StoryInput extends Component {
             rows="3"
             placeholder={ messages.inputPlaceholder.defaultMessage }
             className={ cn(su.noOutline, su.noResize) }
-            ref="input"
+            ref="bodyStoryInput"
           />
           <button onClick={ () => {
-              let input = this.refs.input.value
-              if (input !== '') {
-                this.props.onClick(input)
+              let bodyStoryInput = this.refs.bodyStoryInput
+              const bodyValue = bodyStoryInput.value
+              if (bodyValue !== '') {
+                this.props.onClick(bodyValue)
               }
-              input=''
+              bodyStoryInput.value=''
             } } >
             <FormattedMessage { ...messages.button }  />
           </button>
