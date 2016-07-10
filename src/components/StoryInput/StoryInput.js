@@ -6,8 +6,8 @@ import su from '../../styles/utils.scss'
 import cn from 'classnames'
 
 const messages = defineMessages({
-  inputPlaceholder: {
-    id: 'storyinput.input.placeholder',
+  storyInputPlaceholder: {
+    id: 'storyinput.bodyStoryInput.placeholder',
     defaultMessage: 'Share with us...',
     description: 'placeholder displayed in storyinput input'
   },
@@ -25,7 +25,7 @@ class StoryInput extends Component {
         <div className={ s.container } >
           <textarea
             rows="3"
-            placeholder={ messages.inputPlaceholder.defaultMessage }
+            placeholder={ messages.storyInputPlaceholder.defaultMessage }
             className={ cn(su.noOutline, su.noResize) }
             ref="bodyStoryInput"
           />
