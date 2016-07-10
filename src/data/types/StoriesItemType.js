@@ -14,7 +14,7 @@ import {
 } from 'graphql'
 
 const StoriesItemType = new ObjectType({
-  name: 'NewsItem',
+  name: 'StoriesItem',
   fields: {
     id: {type: new NonNull(StringType)},
     body: {type: new NonNull(StringType)},

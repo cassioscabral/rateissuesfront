@@ -26,11 +26,11 @@ let items = [
   {id:'13',body:'13',publishedDate: new Date()}
 ]
 
-const news = {
+const stories = {
   type: new List(StoriesItemType),
   resolve () {
     return items
   }
 }
 
-export default news
+export default stories
