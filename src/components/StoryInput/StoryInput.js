@@ -30,10 +30,11 @@ class StoryInput extends Component {
             ref="input"
           />
           <button onClick={ () => {
-              if (this.refs.input.value !== '') {
-                this.props.onClick(this.refs.input.value)
+              let input = this.refs.input.value
+              if (input !== '') {
+                this.props.onClick(input)
               }
-              this.refs.input.value=''
+              input=''
             } } >
             <FormattedMessage { ...messages.button }  />
           </button>
