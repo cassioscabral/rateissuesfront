@@ -23,15 +23,15 @@ export default {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        query: '{news{title,link,publishedDate,contentSnippet}}'
+        query: '{stories{id,body,publishedDate}}'
       }),
       credentials: 'include'
     })
     const {data} = await resp.json()
-    if (!data || !data.news) {
-      throw new Error('Failed to load the news feed.')
+    if (!data || !data.stories) {
+      throw new Error('Failed to load the stories feed.')
     }
-    return <Home news={ data.news } />
+    return <Home stories={ data.stories } />
   }
 
 }

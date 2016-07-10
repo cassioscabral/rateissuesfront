@@ -16,11 +16,10 @@ function Story ({story, index}) {
   return (
     <li
       key={ index }
-      className={ s.newsItem }
+      className={ s.story }
     >
-      <span className={ s.newsTitle }>
-        <a href={ story.link }>{ story.title }</a>
-        { ' ' }
+      <span className={ s.storyTitle }>
+        { story.body }
         <span className={ s.publishedDate }>
           <FormattedRelative value={ story.publishedDate } />
         </span>
