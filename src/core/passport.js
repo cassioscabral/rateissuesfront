@@ -49,7 +49,7 @@ passport.use(new Auth0Strategy({
   domain: env.auth0.CLIENT_DOMAIN,
   clientID: env.auth0.CLIENT_ID,
   clientSecret: env.auth0.CLIENT_SECRET,
-  callbackURL: 'http://localhost:3001/login/auth0/return',
+  callbackURL: '/login/auth0/return',
   profileFields: ['name', 'email', 'link', 'locale', 'timezone'],
   passReqToCallback: true
 }, (req, accessToken, refreshToken, profile, done) => {
