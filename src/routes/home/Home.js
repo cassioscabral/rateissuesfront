@@ -11,7 +11,7 @@ const title = 'Rate Issues'
 
 function Home ({stories,loadStories,addStory}, context) {
   context.setTitle(title)
-  loadStories({stories: stories})
+  loadStories()
   return (
     <div className={ s.root }>
       <div className={ s.container }>
@@ -23,12 +23,6 @@ function Home ({stories,loadStories,addStory}, context) {
 }
 
 Home.contextTypes = {setTitle: PropTypes.func.isRequired}
-Home.propTypes = {
-  stories: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    body: PropTypes.string.isRequired
-  })).isRequired
-}
 
 export default connect(() => ({
 }), {
