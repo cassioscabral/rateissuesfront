@@ -1,5 +1,6 @@
 import StoriesItemType from '../types/StoriesItemType'
 import StoriesInputItemType from '../types/StoriesInputItemType'
+import Story from '../models/Story'
 
 const addStory = {
   name: 'addStory',
@@ -7,8 +8,8 @@ const addStory = {
   args: {
     story: {type: StoriesInputItemType}
   },
-  resolve (value, {story}) {
-    return {id:'01',body:story.body, publishedDate: new Date()}
+  async resolve (value, {story}) {
+    return await Story.create({body: story.body, publishedDate:new Date()})
   }
 }
 
