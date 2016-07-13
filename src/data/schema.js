@@ -17,6 +17,8 @@ import content from './queries/content'
 import stories from './queries/stories'
 import intl from './queries/intl'
 
+import mutationStories from './mutations/stories'
+
 const schema = new Schema({
   query: new ObjectType({
     name: 'Query',
@@ -25,6 +27,12 @@ const schema = new Schema({
       content,
       stories,
       intl
+    }
+  }),
+  mutation: new ObjectType({
+    name: 'Mutation',
+    fields: {
+      mutationStories
     }
   })
 })
