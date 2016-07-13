@@ -41,7 +41,7 @@ import Story from '../models/Story'
 const stories = {
   type: new List(StoriesItemType),
   async resolve () {
-    return await Story.findAll({order: 'id DESC'})
+    return await Story.findAll({order: 'publishedDate DESC'})
   }
 }
 
