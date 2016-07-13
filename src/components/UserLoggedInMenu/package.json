@@ -1,0 +1,6 @@
+{
+  "name": "UserLoggedInMenu",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./UserLoggedInMenu.js"
+}
