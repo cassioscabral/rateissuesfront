@@ -1,19 +1,19 @@
 import React, {PropTypes as RP} from 'react'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import s from './PopUpMenu.scss'
+import cx from 'classnames'
 
-const generateSections = (sections) => {
-  console.log(sections)
+const generateMenuSections = (menuSections) => {
   return (
-    <ol>
+    <ol className={ s.menu }>
       {
-        sections.map((section) => {
+        menuSections.map((menuSection) => {
           return (
-            // section.headingTitle
-            <ol>
-              <li>{ section.headingTitle }</li>
+            // menuSection.headingTitle
+            <ol className={ s.menuSection }>
+              <li className={ s.sectionHeadingTitle }>{ menuSection.headingTitle }</li>
               {
-                section.menuItems.map((menuItem) => {
+                menuSection.menuItems.map((menuItem) => {
                   return MenuItem(menuItem)
                 })
               }
@@ -27,9 +27,9 @@ const generateSections = (sections) => {
 
 function MenuItem ({text, url, icon}) {
   return (
-    <li>
+    <li className={ s.menuItem }>
       <a href={ url }
-        className={ icon }
+        className={ cx(s.menuLink, icon) }
         >
         { text }
       </a>
@@ -39,8 +39,8 @@ function MenuItem ({text, url, icon}) {
 
 function PopUpMenu ({menuItems}) {
   return (
-    <div>
-      { generateSections(menuItems) }
+    <div className={ s.root }>
+      { generateMenuSections(menuItems) }
     </div>
   )
 }
