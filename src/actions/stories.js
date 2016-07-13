@@ -35,12 +35,29 @@ export function loadStories () {
 }
 
 export function addStory (body) {
-  return {
-    type: ADD_STORY,
-    payload: {
-      id:'',
-      body,
-      publishedDate: new Date()
-    }
+  return (dispatch) => {
+    fetch('/graphql', {
+      method: 'post',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        query: `mutation{addStory(story:{body:"${body}"}){id,body,publishedDate}}`
+      }),
+      credentials: 'include'
+    })
+    .then(res => res.json())
+    .then(
+      data => {
+        console.log(data)
+        dispatch(
+          {
+            type: ADD_STORY,
+            payload: {...data.data.addStory}
+          }
+        )
+      }
+    )
   }
 }
