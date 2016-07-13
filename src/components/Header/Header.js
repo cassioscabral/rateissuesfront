@@ -15,8 +15,9 @@ import {connect} from 'react-redux'
 import Link from '../Link'
 import Navigation from '../Navigation'
 // import LanguageSwitcher from '../LanguageSwitcher'
-import {FaAngleDown} from 'react-icons/lib/fa'
+
 import UserInfo from '../UserInfo'
+import UserLoggedInMenu from '../UserLoggedInMenu'
 
 const messages = defineMessages({
   brand: {
@@ -26,11 +27,9 @@ const messages = defineMessages({
   }
 })
 
-const onUserClick = () => { console.log('testss') }
-
 function Header ({displayName, picture}) {
-  const renderUser = (onClick = null) => {
-    if (picture) {
+  const renderUser = () => {
+    if (picture) { // user is logged in
       return (
         <div className={ s.user }
           >
@@ -38,9 +37,7 @@ function Header ({displayName, picture}) {
             displayName={ displayName }
             >
           </UserInfo>
-          <FaAngleDown color={ 'white' }
-            onClick={ onClick }
-            />
+          <UserLoggedInMenu />
         </div>
       )
     }
@@ -62,7 +59,7 @@ function Header ({displayName, picture}) {
           <div className={ s.linkHolder }>
             { /* <LanguageSwitcher />*/ }
             <Navigation className={ s.nav } />
-            { renderUser(onUserClick) }
+            { renderUser() }
           </div>
         </div>
       </div>
@@ -73,4 +70,4 @@ function Header ({displayName, picture}) {
 export default connect(state => ({
   displayName: state.user.displayName,
   picture: state.user.picture
-}))(withStyles(s)(injectIntl(withStyles(s)(Header))))
+}))((injectIntl(withStyles(s)(Header))))

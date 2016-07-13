@@ -64,7 +64,16 @@
     "defaultMessage": "user's picture",
     "message": "",
     "files": [
-      "src\\components\\UserInfo\\UserInfo.js"
+      "src/components/UserInfo/UserInfo.js"
+    ]
+  },
+  {
+    "id": "sample.sampleText",
+    "description": "SampleDescription",
+    "defaultMessage": "Sample",
+    "message": "",
+    "files": [
+      "src/components/SampleComponent/Sample.js"
     ]
   },
   {
