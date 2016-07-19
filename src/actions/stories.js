@@ -15,7 +15,7 @@ export function loadStories () {
       }
     })
     fetch('/graphql', {
-      method: 'post',
+      method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
@@ -55,7 +55,7 @@ export function loadStories () {
 export function addStory (body) {
   return (dispatch) => {
     fetch('/graphql', {
-      method: 'post',
+      method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
