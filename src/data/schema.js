@@ -12,20 +12,17 @@ import {
   GraphQLObjectType as ObjectType
 } from 'graphql'
 
-import me from './queries/me'
-import content from './queries/content'
-import stories from './queries/stories'
-import intl from './queries/intl'
+import query from './queries'
+import mutation from './mutations'
 
 const schema = new Schema({
   query: new ObjectType({
     name: 'Query',
-    fields: {
-      me,
-      content,
-      stories,
-      intl
-    }
+    fields: query
+  }),
+  mutation: new ObjectType({
+    name: 'Mutation',
+    fields: mutation
   })
 })
 

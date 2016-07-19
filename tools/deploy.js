@@ -16,7 +16,7 @@ import fetch from './lib/fetch'
 const getRemote = (slot) => ({
   name: slot || 'production',
   url: 'https://git.heroku.com/rateissues.git',
-  website: `http://rateissues${slot ? `-${slot}` : ''}.herokuapp.com`
+  website: 'http://rateissues.herokuapp.com'
 })
 
 /**

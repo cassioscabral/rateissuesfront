@@ -1,14 +1,40 @@
 import {
   LOAD_STORIES_SUCCESS,
+  LOAD_STORIES_ERROR,
+  LOAD_STORIES,
   ADD_STORY
 } from '../constants'
 
-export default function runtime (state = [], action) {
+export default function runtime (state = {
+  stories:[],
+  isfetching: false,
+  completed: false,
+  error: false
+}, action) {
   switch (action.type) {
+    case LOAD_STORIES:
+      return{
+        ... state,
+        isfetching: true
+      }
     case LOAD_STORIES_SUCCESS:
-      return [...action.payload.stories]
+      return {
+        stories:[...action.payload.stories],
+        error: false,
+        completed: true,
+        isfetching: false
+      }
+    case LOAD_STORIES_ERROR:
+      return{
+        ... state,
+        isfetching: false,
+        error: action.payload.error
+      }
     case ADD_STORY:
-      return [action.payload, ...state]
+      return {
+        ... state,
+        stories:[action.payload, ...state.stories]
+      }
     default:
       return state
   }

@@ -63,21 +63,21 @@
     ]
   },
   {
-    "id": "sample.sampleText",
-    "description": "SampleDescription",
-    "defaultMessage": "Sample",
-    "message": "",
-    "files": [
-      "src/components/SampleComponent/Sample.js"
-    ]
-  },
-  {
     "id": "storyinput.bodyStoryInput.placeholder",
     "description": "placeholder displayed in storyinput input",
     "defaultMessage": "Share with us...",
     "message": "",
     "files": [
       "src/components/StoryInput/StoryInput.js"
+    ]
+  },
+  {
+    "id": "sample.sampleText",
+    "description": "SampleDescription",
+    "defaultMessage": "Sample",
+    "message": "",
+    "files": [
+      "src/components/SampleComponent/Sample.js"
     ]
   }
 ]

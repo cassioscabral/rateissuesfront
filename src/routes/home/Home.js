@@ -1,5 +1,5 @@
 import Feed from '../../components/Feed'
-import React, {PropTypes} from 'react'
+import React, {Component, PropTypes} from 'react'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import s from './Home.scss'
 import {connect} from 'react-redux'
@@ -9,26 +9,27 @@ import {addStory} from '../../actions/stories'
 
 const title = 'Rate Issues'
 
-function Home ({stories,loadStories,addStory}, context) {
-  context.setTitle(title)
-  loadStories({stories: stories})
-  return (
-    <div className={ s.root }>
-      <div className={ s.container }>
-        <StoryInput onClick={ addStory } />
-        <Feed />
+class Home extends Component {
+  constructor (props) {
+    super(props)
+  }
+  componentWillMount (){
+    this.context.setTitle(title)
+    this.props.loadStories()
+  }
+  render (){
+    return (
+      <div className={ s.root }>
+        <div className={ s.container }>
+          <StoryInput onClick={ this.props.addStory } />
+          <Feed />
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 Home.contextTypes = {setTitle: PropTypes.func.isRequired}
-Home.propTypes = {
-  stories: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    body: PropTypes.string.isRequired
-  })).isRequired
-}
 
 export default connect(() => ({
 }), {

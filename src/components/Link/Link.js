@@ -19,11 +19,15 @@ function isModifiedEvent (event) {
 }
 
 class Link extends Component { // eslint-disable-line react/prefer-stateless-function
-
   static propTypes = {
     to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
     onClick: PropTypes.func
+
   };
+
+  constructor (props) {
+    super(props)
+  }
 
   handleClick = (event) => {
     let allowTransition = true
