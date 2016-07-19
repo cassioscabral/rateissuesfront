@@ -5,8 +5,7 @@
     "message": "",
     "description": "Brand name displayed in header",
     "files": [
-      "src/components/Header/Header.js",
-      "src\\components\\Header\\Header.js"
+      "src/components/Header/Header.js"
     ]
   },
   {
@@ -15,8 +14,7 @@
     "message": "",
     "description": "About link in header",
     "files": [
-      "src/components/Navigation/Navigation.js",
-      "src\\components\\Navigation\\Navigation.js"
+      "src/components/Navigation/Navigation.js"
     ]
   },
   {
@@ -25,8 +23,7 @@
     "message": "",
     "description": "Contact link in header",
     "files": [
-      "src/components/Navigation/Navigation.js",
-      "src\\components\\Navigation\\Navigation.js"
+      "src/components/Navigation/Navigation.js"
     ]
   },
   {
@@ -44,8 +41,7 @@
     "defaultMessage": "Enter",
     "message": "",
     "files": [
-      "src/components/Navigation/Navigation.js",
-      "src\\components\\Navigation\\Navigation.js"
+      "src/components/Navigation/Navigation.js"
     ]
   },
   {
@@ -54,8 +50,7 @@
     "defaultMessage": "logout",
     "message": "",
     "files": [
-      "src/components/Navigation/Navigation.js",
-      "src\\components\\Navigation\\Navigation.js"
+      "src/components/Navigation/Navigation.js"
     ]
   },
   {
