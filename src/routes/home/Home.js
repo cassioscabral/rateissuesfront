@@ -10,6 +10,9 @@ import {addStory} from '../../actions/stories'
 const title = 'Rate Issues'
 
 class Home extends Component {
+  constructor (props) {
+    super(props)
+  }
   componentWillMount (){
     this.context.setTitle(title)
     this.props.loadStories()
