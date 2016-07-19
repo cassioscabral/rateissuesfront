@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import {defineMessages} from 'react-intl'
+import {defineMessages, intlShape, injectIntl} from 'react-intl'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import s from './UserInfo.scss'
 
@@ -11,12 +11,12 @@ const messages = defineMessages({
   }
 })
 
-function UserInfo ({picture, pictureAlt = {...messages.pictureAlt}, displayName}) {
+function UserInfo ({picture, intl, displayName}) {
   return (
     <div className={ s.userInfo }>
       <img
         src={ picture }
-        alt={ pictureAlt }
+        alt={ intl.formatMessage(messages.pictureAlt) }
       />
       { displayName }
     </div>
@@ -26,7 +26,8 @@ function UserInfo ({picture, pictureAlt = {...messages.pictureAlt}, displayName}
 UserInfo.propTypes = {
   picture: PropTypes.string,
   displayName: PropTypes.string.isRequired,
-  pictureAlt: PropTypes.string
+  pictureAlt: PropTypes.string,
+  intl: intlShape.isRequired
 }
 
-export default withStyles(s)(UserInfo)
+export default injectIntl(withStyles(s)(UserInfo))
