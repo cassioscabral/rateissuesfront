@@ -30,10 +30,13 @@ const messages = defineMessages({
 function Header ({displayName, picture}) {
   const renderUser = () => {
     if (picture) { // user is logged in
+      // fix user image issue
+      // whitout a variable, picture and pictureAlt are undefined
+      const userInfoPicture = picture
       return (
         <div className={ s.user }
           >
-          <UserInfo picture={ picture }
+          <UserInfo picture={ userInfoPicture }
             displayName={ displayName }
             >
           </UserInfo>

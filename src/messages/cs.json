@@ -17,8 +17,7 @@
     "message": "Vaše firma",
     "description": "Brand name displayed in header",
     "files": [
-      "src/components/Header/Header.js",
-      "src\\components\\Header\\Header.js"
+      "src/components/Header/Header.js"
     ]
   },
   {
@@ -27,8 +26,7 @@
     "message": "O nás",
     "description": "About link in header",
     "files": [
-      "src/components/Navigation/Navigation.js",
-      "src\\components\\Navigation\\Navigation.js"
+      "src/components/Navigation/Navigation.js"
     ]
   },
   {
@@ -37,8 +35,7 @@
     "message": "Kontakt",
     "description": "Contact link in header",
     "files": [
-      "src/components/Navigation/Navigation.js",
-      "src\\components\\Navigation\\Navigation.js"
+      "src/components/Navigation/Navigation.js"
     ]
   },
   {
@@ -74,8 +71,7 @@
     "defaultMessage": "Enter",
     "message": "",
     "files": [
-      "src/components/Navigation/Navigation.js",
-      "src\\components\\Navigation\\Navigation.js"
+      "src/components/Navigation/Navigation.js"
     ]
   },
   {
@@ -84,8 +80,7 @@
     "defaultMessage": "logout",
     "message": "",
     "files": [
-      "src/components/Navigation/Navigation.js",
-      "src\\components\\Navigation\\Navigation.js"
+      "src/components/Navigation/Navigation.js"
     ]
   },
   {
