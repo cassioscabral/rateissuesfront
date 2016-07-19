@@ -29,5 +29,5 @@ function Feed ({stories}) {
 Feed.contextTypes = {setTitle: PropTypes.func.isRequired}
 
 export default connect(state => ({
-  stories: state.stories
+  stories: state.stories.stories
 }))(withStyles(s)(Feed))
