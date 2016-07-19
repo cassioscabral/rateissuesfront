@@ -68,7 +68,6 @@ export function addStory (body) {
     .then(res => res.json())
     .then(
       data => {
-        console.log(data)
         dispatch(
           {
             type: ADD_STORY,
