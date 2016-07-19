@@ -30,7 +30,7 @@ async function copy ({watch} = {}) {
     engines: pkg.engines,
     dependencies: pkg.dependencies,
     scripts: {
-      start: 'node server.js'
+      start: 'NODE_ENV=production node server.js'
     }
   }, null, 2))
 
