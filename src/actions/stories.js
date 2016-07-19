@@ -1,5 +1,7 @@
 import {
   LOAD_STORIES_SUCCESS,
+  LOAD_STORIES_ERROR,
+  LOAD_STORIES,
   ADD_STORY
 } from '../constants'
 
@@ -7,6 +9,11 @@ import fetch from '../core/fetch'
 
 export function loadStories () {
   return (dispatch) => {
+    dispatch({
+      type: LOAD_STORIES,
+      payload: {
+      }
+    })
     fetch('/graphql', {
       method: 'post',
       headers: {
@@ -26,6 +33,17 @@ export function loadStories () {
             type: LOAD_STORIES_SUCCESS,
             payload: {
               stories: data.data.stories
+            }
+          }
+        )
+      }
+    ).catch(
+      (e) => {
+        dispatch(
+          {
+            type: LOAD_STORIES_ERROR,
+            payload: {
+              error: e
             }
           }
         )
