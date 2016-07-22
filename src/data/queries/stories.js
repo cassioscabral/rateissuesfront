@@ -10,7 +10,7 @@
 import {GraphQLList as List} from 'graphql'
 import StoriesItemType from '../types/StoriesItemType'
 
-import Story from '../models/Story'
+import {Story, User} from '../models'
 
 // let items = [
 //   {id:'01',body:'https://medium.com/javascript-scene/12-books-every-javascript-developer-should-read-9da76157fb3#.z2x12e8p6',publishedDate: new Date()},
@@ -41,7 +41,14 @@ import Story from '../models/Story'
 const stories = {
   type: new List(StoriesItemType),
   async resolve () {
-    return await Story.findAll({order: 'publishedDate DESC'})
+      return await Story.findAll({
+        order: 'publishedDate DESC',
+        include: [{
+          model: User,
+          as: 'user'
+        }]
+      })
+
   }
 }
 

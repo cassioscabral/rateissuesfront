@@ -35,6 +35,11 @@ User.hasOne(UserProfile, {
   onDelete: 'cascade'
 })
 
+Story.belongsTo(User, {
+  foreignKey: 'userId',
+  as: 'user'
+})
+
 function sync (...args) {
   return sequelize.sync(...args)
 }
