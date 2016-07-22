@@ -38,22 +38,10 @@ import Story from '../models/Story'
 // }
 // seed()
 
-const userMock = {
-  id: 'id',
-  email: 'email',
-  displayName: 'displayName',
-  picture: 'picture'
-}
-
-const storiesMock = [
-  {id:'13',body:'13',publishedDate: new Date(), user:userMock}
-]
-
 const stories = {
   type: new List(StoriesItemType),
   async resolve () {
-    // return await Story.findAll({order: 'publishedDate DESC'})
-    return storiesMock
+    return await Story.findAll({order: 'publishedDate DESC'})
   }
 }
 

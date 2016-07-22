@@ -10,7 +10,7 @@
 import DataType from 'sequelize'
 import Model from '../sequelize'
 
-const User = Model.define('Story', {
+const Story = Model.define('Story', {
 
   id: {
     type: DataType.UUID,
@@ -30,4 +30,4 @@ const User = Model.define('Story', {
 
 })
 
-export default User
+export default Story
