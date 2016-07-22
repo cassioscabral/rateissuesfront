@@ -26,6 +26,14 @@ const User = Model.define('User', {
   emailConfirmed: {
     type: DataType.BOOLEAN,
     defaultValue: false
+  },
+
+  displayName: {
+    type: DataType.STRING(100)
+  },
+
+  picture: {
+    type: DataType.STRING(256)
   }
 
 }, {

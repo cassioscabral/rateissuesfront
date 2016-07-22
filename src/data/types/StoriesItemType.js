@@ -12,13 +12,15 @@ import {
   GraphQLString as StringType,
   GraphQLNonNull as NonNull
 } from 'graphql'
+import User from './UserType'
 
 const StoriesItemType = new ObjectType({
   name: 'StoriesItem',
   fields: {
     id: {type: new NonNull(StringType)},
     body: {type: new NonNull(StringType)},
-    publishedDate: {type: new NonNull(StringType)}
+    publishedDate: {type: new NonNull(StringType)},
+    user: {type: User}
   }
 })
 
