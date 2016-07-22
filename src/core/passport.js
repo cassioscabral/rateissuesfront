@@ -20,6 +20,8 @@ const createUser = (profile) => {
     id: profile.id,
     email: profile._json.email,
     emailVerified: true,
+    displayName: profile.nickname,
+    picture: profile.picture,
     logins: [
       {name: loginName, key: profile.id}
     ],
