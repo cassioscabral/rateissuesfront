@@ -68,12 +68,14 @@ export function addStory (body) {
     .then(res => res.json())
     .then(
       data => {
-        dispatch(
-          {
-            type: ADD_STORY,
-            payload: {story:{...data.data.addStory}}
-          }
-        )
+        if (!data.errors){
+          dispatch(
+            {
+              type: ADD_STORY,
+              payload: {story:{...data.data.addStory}}
+            }
+          )
+        }
       }
     )
   }

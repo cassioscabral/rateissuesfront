@@ -31,13 +31,9 @@ export default function runtime (state = {
         error: action.payload.error
       }
     case ADD_STORY:
-      if (action.payload.story.id){
-        return {
-          ... state,
-          stories:[action.payload.story, ...state.stories]
-        }
-      }else{
-        return {... state}
+      return {
+        ... state,
+        stories:[action.payload.story, ...state.stories]
       }
     default:
       return state
