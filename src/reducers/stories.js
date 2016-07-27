@@ -33,7 +33,7 @@ export default function runtime (state = {
     case ADD_STORY:
       return {
         ... state,
-        stories:[action.payload, ...state.stories]
+        stories:[action.payload.story, ...state.stories]
       }
     default:
       return state
