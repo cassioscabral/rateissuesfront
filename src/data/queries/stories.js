@@ -4,23 +4,28 @@ import StoriesItemType from '../types/StoriesItemType'
 import {Story, User, UserLogin, UserClaim, UserProfile} from '../models'
 
 let items = [
-  {id:'01',body:'https://medium.com/javascript-scene/12-books-every-javascript-developer-should-read-9da76157fb3#.z2x12e8p6',publishedDate: new Date()},
-  {id:'02',body:'http://stackoverflow.com/questions/7244321/how-do-i-update-a-github-forked-repository',publishedDate: new Date()},
-  {id:'03',body:'https://github.com/cassioscabral/rateissuesfront/issues/1',publishedDate: new Date()},
-  {id:'04',body:'https://www.quora.com/Which-programming-language-has-the-best-career-salary-opportunities-over-the-next-decade',publishedDate: new Date()},
-  {id:'05',body:'New version is ready!',publishedDate: new Date()},
-  {id:'06',body:'https://www.youtube.com/watch?v=KYzlpRvWZ6c&',publishedDate: new Date()},
-  {id:'07',body:'https://twitter.com/dan_abramov/status/738286536161136644',publishedDate: new Date()}
+  {body:'https://medium.com/javascript-scene/12-books-every-javascript-developer-should-read-9da76157fb3#.z2x12e8p6'},
+  {body:'http://stackoverflow.com/questions/7244321/how-do-i-update-a-github-forked-repository'},
+  {body:'https://github.com/cassioscabral/rateissuesfront/issues/1'},
+  {body:'https://www.quora.com/Which-programming-language-has-the-best-career-salary-opportunities-over-the-next-decade'},
+  {body:'New version is ready!'},
+  {body:'https://www.youtube.com/watch?v=KYzlpRvWZ6c&'},
+  {body:'https://twitter.com/dan_abramov/status/738286536161136644'}
 ]
 
 const seed = async () => {
-  const loginName = 'auth0'
-  const claimType = 'urn:auth0:github'
+  const stories = await Story.findAll({
+    order: 'publishedDate DESC',
+    include: [{
+      model: User,
+      as: 'user'
+    }]
+  })
+  if(stories.length < 1){
+    const loginName = 'auth0'
+    const claimType = 'urn:auth0:github'
 
-  const stories = await Story.all()
-  if (stories.length < 1){
-
-    const user = User.create({
+    const user = await User.create({
       id: 'rateissues|0001',
       email: 'admin@rateissues.com.br',
       emailVerified: true,
@@ -45,25 +50,21 @@ const seed = async () => {
         {model: UserProfile, as: 'profile'}
       ]
     })
-
+    let result = []
     for (let i = 0; i < items.length; i++) {
-      Story.create({body: items[i].body,userId:user.id})
+      let story = await Story.create({body: items[i].body, publishedDate:new Date(),userId:user.id})
+      result.push(story)
     }
+    return result
+  }else{
+    return stories
   }
 }
-seed()
 
 const stories = {
   type: new List(StoriesItemType),
   async resolve () {
-      return await Story.findAll({
-        order: 'publishedDate DESC',
-        include: [{
-          model: User,
-          as: 'user'
-        }]
-      })
-
+    return await seed()
   }
 }
 

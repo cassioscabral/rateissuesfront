@@ -71,7 +71,7 @@ export function addStory (body) {
         dispatch(
           {
             type: ADD_STORY,
-            payload: {...data.data.addStory}
+            payload: {story:{...data.data.addStory}}
           }
         )
       }
