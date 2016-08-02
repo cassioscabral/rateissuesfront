@@ -49,6 +49,7 @@
     "sqlite3": "3.1.4",
     "transform-loader": "^0.2.3",
     "universal-router": "1.2.1",
+    "urijs": "^1.18.1",
     "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {

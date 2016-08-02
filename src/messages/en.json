@@ -79,5 +79,14 @@
     "files": [
       "src/components/SampleComponent/Sample.js"
     ]
+  },
+  {
+    "id": "githubIssuePreview.githubIssuePreviewText",
+    "description": "GithubIssuePreview Description",
+    "defaultMessage": "GithubIssuePreview {customText}",
+    "message": "",
+    "files": [
+      "src/components/GithubIssuePreview/GithubIssuePreview.js"
+    ]
   }
 ]

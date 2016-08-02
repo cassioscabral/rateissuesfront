@@ -1,0 +1,6 @@
+{
+  "name": "GithubIssuePreview",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./GithubIssuePreview.js"
+}
