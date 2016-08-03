@@ -47,11 +47,16 @@ const createUser = (profile) => {
 /**
  * Sign in with auth0.
  */
+let callbackURL = '/login/auth0/return'
+if (process.env.NODE_ENV === 'development') {
+ callbackURL = 'http://localhost:3001/login/auth0/return'
+}
+
 passport.use(new Auth0Strategy({
   domain: env.auth0.CLIENT_DOMAIN,
   clientID: env.auth0.CLIENT_ID,
   clientSecret: env.auth0.CLIENT_SECRET,
-  callbackURL: '/login/auth0/return',
+  callbackURL,
   profileFields: ['name', 'email', 'link', 'locale', 'timezone'],
   passReqToCallback: true
 }, (req, accessToken, refreshToken, profile, done) => {
