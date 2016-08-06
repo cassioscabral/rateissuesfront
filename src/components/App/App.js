@@ -8,9 +8,11 @@
  */
 
 import React, {Component, PropTypes} from 'react'
+import ReduxToastr from 'react-redux-toastr'
 import emptyFunction from 'fbjs/lib/emptyFunction'
 import s from './App.scss'
 import Header from '../Header'
+import {toast} from '../../config.js'
 
 class App extends Component {
 
@@ -57,6 +59,11 @@ class App extends Component {
       <div>
         <Header />
         { this.props.children }
+        <ReduxToastr
+          timeOut={ toast.timeOut }
+          newestOnTop={ toast.newestOnTop }
+          position={ toast.position }
+        />
       </div>
     )
   }

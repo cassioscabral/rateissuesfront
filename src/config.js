@@ -48,3 +48,9 @@ export const auth = {
   }
 
 }
+
+export const toast = {
+  timeOut: 4000,
+  newestOnTop:false,
+  position:'top-left'
+}
