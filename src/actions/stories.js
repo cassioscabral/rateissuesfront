@@ -5,6 +5,7 @@ import {
   ADD_STORY
 } from '../constants'
 
+import {toastr} from 'react-redux-toastr'
 import fetch from '../core/fetch'
 
 export function loadStories () {
@@ -75,6 +76,8 @@ export function addStory (body) {
               payload: {story:{...data.data.addStory}}
             }
           )
+        }else{
+          toastr.error('Add story error:', 'User not found!')
         }
       }
     )

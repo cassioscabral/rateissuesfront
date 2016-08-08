@@ -1,4 +1,5 @@
 import {combineReducers} from 'redux'
+import {reducer as toastrReducer} from 'react-redux-toastr'
 import runtime from './runtime'
 import intl from './intl'
 import user from './user'
@@ -8,5 +9,6 @@ export default combineReducers({
   runtime,
   intl,
   user,
-  stories
+  stories,
+  toastr: toastrReducer
 })

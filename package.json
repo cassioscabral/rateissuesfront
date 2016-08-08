@@ -41,6 +41,7 @@
     "react-icons": "^2.2.0",
     "react-intl": "^2.1.0",
     "react-redux": "^4.4.5",
+    "react-redux-toastr": "^3.4.0",
     "redux": "^3.4.0",
     "redux-thunk": "^2.0.1",
     "sass-loader": "^4.0.0",
