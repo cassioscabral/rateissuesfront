@@ -9,9 +9,9 @@ import GitHub from 'github-api'
 class GithubIssuePreview extends Component {
   constructor (props) {
     super(props)
-    this.state = {issue: {}}
+    this.state = {issue: null}
   }
-  componentDidMount () {
+  componentWillMount () {
     console.log('componentDidMount')
     const gh = new GitHub()
     gh.getRateLimit().getRateLimit()
@@ -29,12 +29,18 @@ class GithubIssuePreview extends Component {
       this.setState({issue: response.data})
     })
   }
+  showIssueText () {
+    let issue = this.state.issue
+    return `Title: ${issue.title || ''} | State: ${issue.state || ''} | User: ${issue.user? issue.user.login : 'none'}`
+  }
   render () {
     return (
       <div className={ s.root }>
         *This is a Github Issue Preview*
         <br />
-        { /* Title: { issue1.title || '' } | State: { issue1.state || '' } | User: { issue1.user.login || '' } */}
+        <div>
+        { this.state.issue !== null ? this.showIssueText() : null }
+        </div>
       </div>
     )
   }
