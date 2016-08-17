@@ -33,16 +33,43 @@ class GithubIssuePreview extends Component {
     let issue = this.state.issue
     return `Title: ${issue.title || ''} | State: ${issue.state || ''} | User: ${issue.user? issue.user.login : 'none'}`
   }
+  // "https://api.github.com/repos/cassioscabral/rateissuesfront" => "rateissuesfront"
+  getRepoName (repositoryUrl) {
+    let splittedUrl = repositoryUrl.split('/')
+    return splittedUrl[splittedUrl.length - 1]
+  }
   render () {
-    return (
+    let issue = this.state.issue
+    return issue ? (
       <div className={ s.root }>
-        *This is a Github Issue Preview*
-        <br />
-        <div>
-        { this.state.issue !== null ? this.showIssueText() : null }
+        <div className={ s.header }>
+          <div className={ s.issueTitle }>
+            { issue.title }
+          </div>
+          <div className={ s.issueAuthorAvatar }>
+            <img
+              className={ s.issueAuthorAvatarImage }
+              src={ issue.user.avatar_url }
+              alt="Issue author avatar"
+              />
+          </div>
+        </div>
+        <div className={ s.issueBody }>
+          body:
+          <br />
+          { issue.body }
+        </div>
+        <div className={ s.footer }>
+          <div className={ s.issueRepository }>
+            Repository:
+            <a href={ issue.html_url }
+              target="_blank">
+              { this.getRepoName(issue.repository_url) }
+            </a>
+          </div>
         </div>
       </div>
-    )
+    ) : null
   }
 }
 

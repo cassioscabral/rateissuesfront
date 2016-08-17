@@ -1,5 +1,25 @@
 @import '../../styles/variables.scss';
 
 .root {
+  display: flex;
+  flex-direction: column;
+}
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.issueAuthorAvatarImage {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.issueBody {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
 }
