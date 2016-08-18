@@ -12,6 +12,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import s from './Story.scss'
 import {FormattedRelative} from 'react-intl'
 import PreviewUrl from '../PreviewUrl'
+import Ranking from '../Ranking'
 
 function Story ({story, index}) {
   return (
@@ -20,10 +21,14 @@ function Story ({story, index}) {
       className={ s.story }
     >
       <span className={ s.storyTitle }>
-        <PreviewUrl url={ story.body }> 
-          {/* TODO extract URL from text */}
+        <PreviewUrl url={ story.body }>
+          { /* TODO extract URL from text */ }
         </PreviewUrl>
-        {/*{ story.body }*/}
+        <Ranking
+          rankings={ story.rankings }
+          storyId={ story.id }
+        />
+        { /* { story.body }*/ }
         <span className={ s.publishedDate }>
           <FormattedRelative value={ story.publishedDate } />
         </span>

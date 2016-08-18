@@ -2,7 +2,8 @@ import {
   LOAD_STORIES_SUCCESS,
   LOAD_STORIES_ERROR,
   LOAD_STORIES,
-  ADD_STORY
+  ADD_STORY,
+  ADD_LIKE
 } from '../constants'
 
 export default function runtime (state = {
@@ -34,6 +35,17 @@ export default function runtime (state = {
       return {
         ... state,
         stories:[action.payload.story, ...state.stories]
+      }
+    case ADD_LIKE:
+      return {
+        ... state,
+        stories:[...state.stories.map((story) =>{
+          if(story.id === action.payload.story.id){
+            return action.payload.story
+          }else{
+            return story
+          }
+        })]
       }
     default:
       return state

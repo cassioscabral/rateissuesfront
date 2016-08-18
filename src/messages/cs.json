@@ -109,5 +109,32 @@
     "files": [
       "src/components/SampleComponent/Sample.js"
     ]
+  },
+  {
+    "id": "ranking.rankingLikes",
+    "description": "Amount of likes",
+    "defaultMessage": "{likes} Likes",
+    "message": "",
+    "files": [
+      "src/components/Ranking/Ranking.js"
+    ]
+  },
+  {
+    "id": "ranking.addLike",
+    "description": "Add like",
+    "defaultMessage": "Like",
+    "message": "",
+    "files": [
+      "src/components/Ranking/Ranking.js"
+    ]
+  },
+  {
+    "id": "ranking.removeLike",
+    "description": "Remove Like",
+    "defaultMessage": "Remove Like",
+    "message": "",
+    "files": [
+      "src/components/Ranking/Ranking.js"
+    ]
   }
 ]
