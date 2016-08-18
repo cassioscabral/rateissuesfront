@@ -13,6 +13,7 @@ import UserLogin from './UserLogin'
 import UserClaim from './UserClaim'
 import UserProfile from './UserProfile'
 import Story from './Story'
+import Ranking from './Ranking'
 
 User.hasMany(UserLogin, {
   foreignKey: 'userId',
@@ -40,9 +41,16 @@ Story.belongsTo(User, {
   as: 'user'
 })
 
+Story.hasMany(Ranking, {
+  foreignKey: 'storyId',
+  as: 'rankings',
+  onUpdate: 'cascade',
+  onDelete: 'cascade'
+})
+
 function sync (...args) {
   return sequelize.sync(...args)
 }
 
 export default {sync}
-export {User, UserLogin, UserClaim, UserProfile, Story}
+export {User, UserLogin, UserClaim, UserProfile, Story, Ranking}

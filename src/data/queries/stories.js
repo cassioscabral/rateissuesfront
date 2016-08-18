@@ -1,7 +1,7 @@
 import {GraphQLList as List} from 'graphql'
 import StoriesItemType from '../types/StoriesItemType'
 
-import {Story, User, UserLogin, UserClaim, UserProfile} from '../models'
+import {Story, User, UserLogin, UserClaim, UserProfile, Ranking} from '../models'
 
 let items = [
   {body:'https://medium.com/javascript-scene/12-books-every-javascript-developer-should-read-9da76157fb3#.z2x12e8p6'},
@@ -19,6 +19,9 @@ const seed = async () => {
     include: [{
       model: User,
       as: 'user'
+    },{
+      model: Ranking,
+      as: 'rankings'
     }]
   })
   if(stories.length < 1){
@@ -52,7 +55,8 @@ const seed = async () => {
     })
     let result = []
     for (let i = 0; i < items.length; i++) {
-      let story = await Story.create({body: items[i].body, publishedDate:new Date(),userId:user.id})
+      let story = await Story.create({body: items[i].body, publishedDate:new Date(),userId:user.id, rankings:[{userId: user.id}]},
+      {include: [{model: Ranking, as: 'rankings'}]})
       result.push(story)
     }
     return result
