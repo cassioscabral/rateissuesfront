@@ -11,3 +11,4 @@ export const LOAD_STORIES_ERROR = 'LOAD_STORIES_ERROR'
 export const ADD_STORY = 'ADD_STORY'
 
 export const ADD_LIKE = 'ADD_LIKE'
+export const REMOVE_LIKE = 'REMOVE_LIKE'

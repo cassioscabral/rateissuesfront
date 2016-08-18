@@ -3,7 +3,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import s from './Ranking.scss'
 import {defineMessages, injectIntl, FormattedMessage} from 'react-intl'
 import {connect} from 'react-redux'
-import {addLike} from '../../actions/stories'
+import {addLike, removeLike} from '../../actions/stories'
 
 const messages = defineMessages({
   rankingText: {
@@ -35,12 +35,12 @@ class Ranking extends Component {
           values={ {likes: this.props.rankings.length} }
         />
         <button onClick={ () => {
-          console.log(this.props)
           this.props.addLike(this.props.storyId)
         } } >
           <FormattedMessage { ...messages.addLike }  />
         </button>
         <button onClick={ () => {
+          this.props.removeLike(this.props.storyId)
         } } >
           <FormattedMessage { ...messages.removeLike }  />
         </button>
@@ -62,7 +62,8 @@ function mapStateToProps () {
 
 function mapDispatchToProps () {
   return {
-    addLike
+    addLike,
+    removeLike
   }
 }
 
