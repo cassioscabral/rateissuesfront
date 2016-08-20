@@ -64,7 +64,7 @@ export function addStory (body) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        query: `mutation{addStory(story:{body:"${body}"}){id,body,publishedDate}}`
+        query: `mutation{addStory(story:{body:"${body}"}){id,body,publishedDate,user{id,email,displayName,picture},rankings{id, userId, creationDate}}}`
       }),
       credentials: 'include'
     })

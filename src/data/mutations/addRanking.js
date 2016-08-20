@@ -1,12 +1,12 @@
 import StoriesItemType from '../types/StoriesItemType'
-import RankingInputItemType from '../types/RankingInputItemType'
+import StoriesInputItemType from '../types/StoriesInputItemType'
 import {Story, User, Ranking} from '../models'
 
 const addRanking = {
   name: 'addRanking',
   type: StoriesItemType,
   args: {
-    story: {type: RankingInputItemType}
+    story: {type: StoriesInputItemType}
   },
   async resolve (value, {story}) {
     let userId = value.request.user.id

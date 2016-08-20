@@ -1,14 +1,14 @@
 
 import {
   GraphQLInputObjectType as InputObjectType,
-  GraphQLString as StringType,
-  GraphQLNonNull as NonNull
+  GraphQLString as StringType
 } from 'graphql'
 
 const StoriesInputItemType = new InputObjectType({
   name: 'StoriesInput',
   fields: () => ({
-    body: {type: new NonNull(StringType)}
+    id: {type: StringType},
+    body: {type: StringType}
   })
 })
 

@@ -27,12 +27,16 @@ class Ranking extends Component {
   constructor (props) {
     super(props)
   }
+  getLikes () {
+    // intl is not showing 0
+    return this.props.rankings.length > 0 ? this.props.rankings.length : '0'
+  }
   render () {
     return (
       <div className={ s.root }>
         <FormattedMessage
           { ...messages.rankingText }
-          values={ {likes: this.props.rankings.length} }
+          values={ {likes: this.getLikes()} }
         />
         <button onClick={ () => {
           this.props.addLike(this.props.storyId)
