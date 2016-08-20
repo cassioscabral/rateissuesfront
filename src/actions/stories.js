@@ -24,7 +24,7 @@ export function loadStories () {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        query: '{stories{id,body,publishedDate,user{id,email,displayName,picture},rankings{id,userId}}}'
+        query: '{stories{id,body,publishedDate,user{id,email,displayName,picture},rankings{id, userId, creationDate}}}'
       }),
       credentials: 'include'
     })
@@ -95,7 +95,7 @@ export function removeLike (id) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        query: `mutation{removeRanking(story:{id:"${id}"}){id,body,publishedDate,user{id,email,displayName,picture},rankings{id,userId}}}`
+        query: `mutation{removeRanking(story:{id:"${id}"}){id,body,publishedDate,user{id,email,displayName,picture},rankings{id, userId, creationDate}}}`
       }),
       credentials: 'include'
     })
@@ -127,7 +127,7 @@ export function addLike (id) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        query: `mutation{addRanking(story:{id:"${id}"}){id,body,publishedDate,user{id,email,displayName,picture},rankings{id,userId}}}`
+        query: `mutation{addRanking(story:{id:"${id}"}){id,body,publishedDate,user{id,email,displayName,picture},rankings{id, userId, creationDate}}}`
       }),
       credentials: 'include'
     })

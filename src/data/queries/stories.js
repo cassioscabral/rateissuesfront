@@ -55,7 +55,7 @@ const seed = async () => {
     })
     let result = []
     for (let i = 0; i < items.length; i++) {
-      let story = await Story.create({body: items[i].body, publishedDate:new Date(),userId:user.id, rankings:[{userId: user.id}]},
+      let story = await Story.create({body: items[i].body, publishedDate:new Date(),userId:user.id, rankings:[{userId: user.id, creationDate: new Date()}]},
       {include: [{model: Ranking, as: 'rankings'}]})
       result.push(story)
     }

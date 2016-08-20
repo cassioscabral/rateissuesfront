@@ -15,7 +15,7 @@ const addRanking = {
     if (user){
       let ranking = await Ranking.findOne({where: {userId, storyId}})
       if (! ranking){
-        Ranking.create({userId, storyId})
+        Ranking.create({userId, storyId, creationDate: new Date()})
       }
       let result = await Story.findById(storyId, {
         include: [{

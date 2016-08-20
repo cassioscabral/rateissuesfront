@@ -20,6 +20,11 @@ const Ranking = Model.define('Ranking', {
 
   userId: {
     type: DataType.UUID
+  },
+
+  creationDate: {
+    type: DataType.DATE,
+    allowNull: false
   }
 
 })

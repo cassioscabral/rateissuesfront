@@ -17,7 +17,8 @@ const RankingsItemType = new ObjectType({
   name: 'RankingsItem',
   fields: {
     id: {type: new NonNull(StringType)},
-    userId: {type: new NonNull(StringType)}
+    userId: {type: new NonNull(StringType)},
+    creationDate: {type: new NonNull(StringType)}
   }
 })
 
