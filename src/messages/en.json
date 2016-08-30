@@ -81,30 +81,30 @@
     ]
   },
   {
-    "id": "ranking.rankingLikes",
-    "description": "Amount of likes",
-    "defaultMessage": "{likes} Likes",
-    "message": "",
-    "files": [
-      "src/components/Ranking/Ranking.js"
-    ]
-  },
-  {
-    "id": "ranking.addLike",
+    "id": "upVote.addUpVote",
     "description": "Add like",
     "defaultMessage": "Like",
     "message": "",
     "files": [
-      "src/components/Ranking/Ranking.js"
+      "src/components/UpVote/UpVote.js"
     ]
   },
   {
-    "id": "ranking.removeLike",
+    "id": "upVote.removeUpVote",
     "description": "Remove Like",
     "defaultMessage": "Remove Like",
     "message": "",
     "files": [
-      "src/components/Ranking/Ranking.js"
+      "src/components/UpVote/UpVote.js"
+    ]
+  },
+  {
+    "id": "upVote.upVoteLikes",
+    "description": "Amount of likes",
+    "defaultMessage": "{likes} Likes",
+    "message": "",
+    "files": [
+      "src/components/UpVote/UpVote.js"
     ]
   }
 ]

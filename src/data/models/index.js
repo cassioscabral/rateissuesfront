@@ -13,7 +13,7 @@ import UserLogin from './UserLogin'
 import UserClaim from './UserClaim'
 import UserProfile from './UserProfile'
 import Story from './Story'
-import Ranking from './Ranking'
+import UpVote from './UpVote'
 
 User.hasMany(UserLogin, {
   foreignKey: 'userId',
@@ -41,9 +41,9 @@ Story.belongsTo(User, {
   as: 'user'
 })
 
-Story.hasMany(Ranking, {
+Story.hasMany(UpVote, {
   foreignKey: 'storyId',
-  as: 'rankings',
+  as: 'upvotes',
   onUpdate: 'cascade',
   onDelete: 'cascade'
 })
@@ -53,4 +53,4 @@ function sync (...args) {
 }
 
 export default {sync}
-export {User, UserLogin, UserClaim, UserProfile, Story, Ranking}
+export {User, UserLogin, UserClaim, UserProfile, Story, UpVote}

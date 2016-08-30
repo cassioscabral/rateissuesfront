@@ -2,8 +2,8 @@ import {
   LOAD_STORIES_SUCCESS,
   LOAD_STORIES_ERROR,
   ADD_STORY,
-  ADD_LIKE,
-  REMOVE_LIKE
+  ADD_UP_VOTE,
+  REMOVE_UP_VOTE
 } from '../constants'
 
 import {toastr} from 'react-redux-toastr'
@@ -19,7 +19,7 @@ function getStory () {
             displayName,
             picture
           },
-          rankings{
+          upvotes{
             id,
             userId,
             creationDate
@@ -70,11 +70,11 @@ export function addStory (body) {
   }
 }
 
-export function removeLike (id) {
+export function removeUpVote (id) {
   return (dispatch) => {
     graphql.query(
       `mutation{
-        removeRanking(story:{id:"${id}"}){
+        removeUpVote(story:{id:"${id}"}){
           ${getStory()}
         }
       }`,
@@ -82,8 +82,8 @@ export function removeLike (id) {
         if (!data.errors){
           dispatch(
             {
-              type: REMOVE_LIKE,
-              payload: {story:{...data.data.removeRanking}}
+              type: REMOVE_UP_VOTE,
+              payload: {story:{...data.data.removeUpVote}}
             }
           )
         }else{
@@ -94,11 +94,11 @@ export function removeLike (id) {
   }
 }
 
-export function addLike (id) {
+export function addUpVote (id) {
   return (dispatch) => {
     graphql.query(
       `mutation{
-        addRanking(story:{id:"${id}"}){
+        addUpVote(story:{id:"${id}"}){
           ${getStory()}
         }
       }`,
@@ -106,8 +106,8 @@ export function addLike (id) {
         if (!data.errors){
           dispatch(
             {
-              type: ADD_LIKE,
-              payload: {story:{...data.data.addRanking}}
+              type: ADD_UP_VOTE,
+              payload: {story:{...data.data.addUpVote}}
             }
           )
         }else{

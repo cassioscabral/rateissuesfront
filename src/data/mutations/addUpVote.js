@@ -1,9 +1,9 @@
 import StoriesItemType from '../types/StoriesItemType'
 import StoriesInputItemType from '../types/StoriesInputItemType'
-import {Story, User, Ranking} from '../models'
+import {Story, User, UpVote} from '../models'
 
-const addRanking = {
-  name: 'addRanking',
+const addUpVote = {
+  name: 'addUpVote',
   type: StoriesItemType,
   args: {
     story: {type: StoriesInputItemType}
@@ -13,17 +13,17 @@ const addRanking = {
     let storyId = story.id
     let user = await User.findById(userId)
     if (user){
-      let ranking = await Ranking.findOne({where: {userId, storyId}})
-      if (! ranking){
-        Ranking.create({userId, storyId, creationDate: new Date()})
+      let upvote = await UpVote.findOne({where: {userId, storyId}})
+      if (! upvote){
+        UpVote.create({userId, storyId, creationDate: new Date()})
       }
       let result = await Story.findById(storyId, {
         include: [{
           model: User,
           as: 'user'
         },{
-          model: Ranking,
-          as: 'rankings'
+          model: UpVote,
+          as: 'upvotes'
         }]
       })
       return result
@@ -33,4 +33,4 @@ const addRanking = {
   }
 }
 
-export default addRanking
+export default addUpVote

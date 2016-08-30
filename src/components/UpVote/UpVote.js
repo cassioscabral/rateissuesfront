@@ -1,60 +1,60 @@
 import React, {PropTypes, Component} from 'react'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
-import s from './Ranking.scss'
+import s from './UpVote.scss'
 import {defineMessages, injectIntl, FormattedMessage} from 'react-intl'
 import {connect} from 'react-redux'
-import {addLike, removeLike} from '../../actions/stories'
+import {addUpVote, removeUpVote} from '../../actions/stories'
 
 const messages = defineMessages({
-  rankingText: {
-    id: 'ranking.rankingLikes',
+  upVoteText: {
+    id: 'upVote.upVoteLikes',
     defaultMessage: '{likes} Likes',
     description: 'Amount of likes'
   },
-  addLike: {
-    id: 'ranking.addLike',
+  addUpVote: {
+    id: 'upVote.addUpVote',
     defaultMessage: 'Like',
     description: 'Add like'
   },
-  removeLike: {
-    id: 'ranking.removeLike',
+  removeUpVote: {
+    id: 'upVote.removeUpVote',
     defaultMessage: 'Remove Like',
     description: 'Remove Like'
   }
 })
 
-class Ranking extends Component {
+class UpVote extends Component {
   constructor (props) {
     super(props)
   }
   getLikes () {
     // intl is not showing 0
-    return this.props.rankings.length > 0 ? this.props.rankings.length : '0'
+    return this.props.upvotes.length > 0 ? this.props.upvotes.length : '0'
   }
   render () {
     return (
       <div className={ s.root }>
         <FormattedMessage
-          { ...messages.rankingText }
+          { ...messages.upVoteText }
           values={ {likes: this.getLikes()} }
         />
         <button onClick={ () => {
-          this.props.addLike(this.props.storyId)
+          this.props.addUpVote(this.props.storyId)
         } } >
-          <FormattedMessage { ...messages.addLike }  />
+          <FormattedMessage { ...messages.addUpVote }  />
         </button>
         <button onClick={ () => {
-          this.props.removeLike(this.props.storyId)
+          this.props.removeUpVote(this.props.storyId)
         } } >
-          <FormattedMessage { ...messages.removeLike }  />
+          <FormattedMessage { ...messages.removeUpVote }  />
         </button>
       </div>
     )
   }
 }
 
-Ranking.propTypes = {
-  rankings: PropTypes.arrayOf(React.PropTypes.object),
+UpVote.propTypes = {
+  upvotes: PropTypes.arrayOf(React.PropTypes.object),
   storyId: PropTypes.string.isRequired
 }
 
@@ -66,9 +66,9 @@ function mapStateToProps () {
 
 function mapDispatchToProps () {
   return {
-    addLike,
-    removeLike
+    addUpVote,
+    removeUpVote
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps())((injectIntl(withStyles(s)(Ranking))))
+export default connect(mapStateToProps, mapDispatchToProps())((injectIntl(withStyles(s)(UpVote))))

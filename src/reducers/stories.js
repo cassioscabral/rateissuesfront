@@ -3,8 +3,8 @@ import {
   LOAD_STORIES_ERROR,
   LOAD_STORIES,
   ADD_STORY,
-  ADD_LIKE,
-  REMOVE_LIKE
+  ADD_UP_VOTE,
+  REMOVE_UP_VOTE
 } from '../constants'
 
 export default function runtime (state = {
@@ -37,7 +37,7 @@ export default function runtime (state = {
         ... state,
         stories:[action.payload.story, ...state.stories]
       }
-    case ADD_LIKE:
+    case ADD_UP_VOTE:
       return {
         ... state,
         stories:[...state.stories.map((story) =>{
@@ -48,7 +48,7 @@ export default function runtime (state = {
           }
         })]
       }
-    case REMOVE_LIKE:
+    case REMOVE_UP_VOTE:
       return {
         ... state,
         stories:[...state.stories.map((story) =>{

@@ -12,7 +12,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import s from './Story.scss'
 import {FormattedRelative} from 'react-intl'
 import PreviewUrl from '../PreviewUrl'
-import Ranking from '../Ranking'
+import UpVote from '../UpVote'
 
 function Story ({story, index}) {
   return (
@@ -24,8 +24,8 @@ function Story ({story, index}) {
         <PreviewUrl url={ story.body }>
           { /* TODO extract URL from text */ }
         </PreviewUrl>
-        <Ranking
-          rankings={ story.rankings }
+        <UpVote
+          upvotes={ story.upvotes }
           storyId={ story.id }
         />
         { /* { story.body }*/ }

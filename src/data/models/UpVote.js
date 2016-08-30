@@ -10,7 +10,7 @@
 import DataType from 'sequelize'
 import Model from '../sequelize'
 
-const Ranking = Model.define('Ranking', {
+const UpVote = Model.define('UpVote', {
 
   id: {
     type: DataType.UUID,
@@ -29,4 +29,4 @@ const Ranking = Model.define('Ranking', {
 
 })
 
-export default Ranking
+export default UpVote

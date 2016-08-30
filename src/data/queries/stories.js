@@ -21,9 +21,9 @@ const seed = async () => {
   if(stories.length < 1){
     const user = await User.create('rateissues|0001', 'admin@rateissues.com.br', 'Admin')
     let result = []
-    let ranking = [{userId: user.id, creationDate: new Date()}]
+    let upVote = [{userId: user.id, creationDate: new Date()}]
     for (let i = 0; i < items.length; i++) {
-      let story = await Story.create(items[i].body, user.id, ranking)
+      let story = await Story.create(items[i].body, user.id, upVote)
       result.push(story)
     }
     return result
