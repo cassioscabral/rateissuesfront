@@ -1,0 +1,6 @@
+{
+  "name": "Upvote",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./Upvote.js"
+}

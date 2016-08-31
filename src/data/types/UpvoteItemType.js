@@ -10,21 +10,16 @@
 import {
   GraphQLObjectType as ObjectType,
   GraphQLString as StringType,
-  GraphQLNonNull as NonNull,
-  GraphQLList as ListType
+  GraphQLNonNull as NonNull
 } from 'graphql'
-import User from './UserType'
-import UpvoteItem from './UpvoteItemType'
 
-const StoriesItemType = new ObjectType({
-  name: 'StoriesItem',
+const UpvoteItemType = new ObjectType({
+  name: 'UpvoteItem',
   fields: {
     id: {type: new NonNull(StringType)},
-    body: {type: new NonNull(StringType)},
-    publishedDate: {type: new NonNull(StringType)},
-    user: {type: User},
-    upvotes: {type: new ListType(UpvoteItem)}
+    userId: {type: new NonNull(StringType)},
+    creationDate: {type: new NonNull(StringType)}
   }
 })
 
-export default StoriesItemType
+export default UpvoteItemType

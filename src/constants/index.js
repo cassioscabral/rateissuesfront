@@ -9,3 +9,6 @@ export const LOAD_STORIES = 'LOAD_STORIES'
 export const LOAD_STORIES_SUCCESS = 'LOAD_STORIES_SUCCESS'
 export const LOAD_STORIES_ERROR = 'LOAD_STORIES_ERROR'
 export const ADD_STORY = 'ADD_STORY'
+
+export const UPVOTE = 'UPVOTE'
+export const DOWNVOTE = 'DOWNVOTE'

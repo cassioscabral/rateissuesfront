@@ -109,5 +109,32 @@
     "files": [
       "src/components/SampleComponent/Sample.js"
     ]
+  },
+  {
+    "id": "upvote.upvoteLikes",
+    "description": "Amount of likes",
+    "defaultMessage": "{likes} Likes",
+    "message": "",
+    "files": [
+      "src/components/Upvote/Upvote.js"
+    ]
+  },
+  {
+    "id": "upvote.downvote",
+    "description": "Remove Like",
+    "defaultMessage": "Remove Like",
+    "message": "",
+    "files": [
+      "src/components/Upvote/Upvote.js"
+    ]
+  },
+  {
+    "id": "upvote.upvote",
+    "description": "Add like",
+    "defaultMessage": "Like",
+    "message": "",
+    "files": [
+      "src/components/Upvote/Upvote.js"
+    ]
   }
 ]

@@ -1,7 +1,9 @@
 import {GraphQLList as List} from 'graphql'
 import StoriesItemType from '../types/StoriesItemType'
-
-import {Story, User, UserLogin, UserClaim, UserProfile} from '../models'
+import {
+  Story,
+  User
+} from '../db'
 
 let items = [
   {body:'https://medium.com/javascript-scene/12-books-every-javascript-developer-should-read-9da76157fb3#.z2x12e8p6'},
@@ -14,45 +16,14 @@ let items = [
 ]
 
 const seed = async () => {
-  const stories = await Story.findAll({
-    order: 'publishedDate DESC',
-    include: [{
-      model: User,
-      as: 'user'
-    }]
-  })
-  if(stories.length < 1){
-    const loginName = 'auth0'
-    const claimType = 'urn:auth0:github'
+  const stories = await Story.findAll()
 
-    const user = await User.create({
-      id: 'rateissues|0001',
-      email: 'admin@rateissues.com.br',
-      emailVerified: true,
-      displayName: 'Admin',
-      picture: '',
-      logins: [
-        {name: loginName, key: 'rateissues|0001'}
-      ],
-      claims: [
-        {type: claimType, value: 'rateissues|0001'}
-      ],
-      profile: {
-        displayName: 'Admin',
-        picture: '',
-        accessToken: '',
-        clientID: ''
-      }
-    }, {
-      include: [
-        {model: UserLogin, as: 'logins'},
-        {model: UserClaim, as: 'claims'},
-        {model: UserProfile, as: 'profile'}
-      ]
-    })
+  if(stories.length < 1){
+    const user = await User.create('rateissues|0001', 'admin@rateissues.com.br', 'Admin')
     let result = []
+    let upvote = [{userId: user.id, creationDate: new Date()}]
     for (let i = 0; i < items.length; i++) {
-      let story = await Story.create({body: items[i].body, publishedDate:new Date(),userId:user.id})
+      let story = await Story.create(items[i].body, user.id, upvote)
       result.push(story)
     }
     return result
