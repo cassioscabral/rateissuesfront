@@ -14,7 +14,7 @@ import {
   GraphQLList as ListType
 } from 'graphql'
 import User from './UserType'
-import UpVoteItem from './UpVoteItemType'
+import UpvoteItem from './UpvoteItemType'
 
 const StoriesItemType = new ObjectType({
   name: 'StoriesItem',
@@ -23,7 +23,7 @@ const StoriesItemType = new ObjectType({
     body: {type: new NonNull(StringType)},
     publishedDate: {type: new NonNull(StringType)},
     user: {type: User},
-    upvotes: {type: new ListType(UpVoteItem)}
+    upvotes: {type: new ListType(UpvoteItem)}
   }
 })
 

@@ -1,9 +1,9 @@
 import addStory from './addStory'
-import addUpVote from './addUpVote'
-import removeUpVote from './removeUpVote'
+import upvote from './upvote'
+import downvote from './downvote'
 
 export default {
   addStory,
-  addUpVote,
-  removeUpVote
+  upvote,
+  downvote
 }

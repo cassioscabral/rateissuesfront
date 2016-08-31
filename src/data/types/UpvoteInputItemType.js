@@ -5,11 +5,11 @@ import {
   GraphQLNonNull as NonNull
 } from 'graphql'
 
-const UpVoteInputItemType = new InputObjectType({
-  name: 'UpVoteInput',
+const UpvoteInputItemType = new InputObjectType({
+  name: 'UpvoteInput',
   fields: () => ({
     id: {type: new NonNull(StringType)}
   })
 })
 
-export default UpVoteInputItemType
+export default UpvoteInputItemType

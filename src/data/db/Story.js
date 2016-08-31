@@ -1,11 +1,11 @@
-import {Story, UpVote, User} from '../models'
+import {Story, Upvote, User} from '../models'
 
 async function create (body, userId, upvotes = []) {
   let publishedDate = new Date()
   return await Story.create(
     {body, publishedDate, userId, upvotes},
     {include: [
-      {model: UpVote, as: 'upvotes'}
+      {model: Upvote, as: 'upvotes'}
     ]}
   )
 }
@@ -17,7 +17,7 @@ async function findAll () {
       model: User,
       as: 'user'
     },{
-      model: UpVote,
+      model: Upvote,
       as: 'upvotes'
     }]
   })

@@ -1,23 +1,23 @@
 import StoriesItemType from '../types/StoriesItemType'
-import UpVoteInputItemType from '../types/UpVoteInputItemType'
-import {Story, User, UpVote} from '../models'
+import UpvoteInputItemType from '../types/UpvoteInputItemType'
+import {Story, User, Upvote} from '../models'
 
-const removeUpVote = {
-  name: 'removeUpVote',
+const removeUpvote = {
+  name: 'removeUpvote',
   type: StoriesItemType,
   args: {
-    story: {type: UpVoteInputItemType}
+    story: {type: UpvoteInputItemType}
   },
   async resolve (value, {story}) {
     let userId = value.request.user.id
     let storyId = story.id
-    await UpVote.destroy({where: {userId, storyId}})
+    await Upvote.destroy({where: {userId, storyId}})
     let result = await Story.findById(storyId, {
       include: [{
         model: User,
         as: 'user'
       },{
-        model: UpVote,
+        model: Upvote,
         as: 'upvotes'
       }]
     })
@@ -25,4 +25,4 @@ const removeUpVote = {
   }
 }
 
-export default removeUpVote
+export default removeUpvote

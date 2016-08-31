@@ -13,8 +13,8 @@ import {
   GraphQLNonNull as NonNull
 } from 'graphql'
 
-const UpVoteItemType = new ObjectType({
-  name: 'UpVoteItem',
+const UpvoteItemType = new ObjectType({
+  name: 'UpvoteItem',
   fields: {
     id: {type: new NonNull(StringType)},
     userId: {type: new NonNull(StringType)},
@@ -22,4 +22,4 @@ const UpVoteItemType = new ObjectType({
   }
 })
 
-export default UpVoteItemType
+export default UpvoteItemType

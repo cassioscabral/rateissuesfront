@@ -1,6 +1,6 @@
 {
-  "name": "UpVote",
+  "name": "Upvote",
   "version": "0.0.0",
   "private": true,
-  "main": "./UpVote.js"
+  "main": "./Upvote.js"
 }

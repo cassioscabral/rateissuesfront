@@ -2,8 +2,8 @@ import {
   LOAD_STORIES_SUCCESS,
   LOAD_STORIES_ERROR,
   ADD_STORY,
-  ADD_UP_VOTE,
-  REMOVE_UP_VOTE
+  UPVOTE,
+  DOWNVOTE
 } from '../constants'
 
 import {toastr} from 'react-redux-toastr'
@@ -70,11 +70,11 @@ export function addStory (body) {
   }
 }
 
-export function removeUpVote (id) {
+export function downvote (id) {
   return (dispatch) => {
     graphql.query(
       `mutation{
-        removeUpVote(story:{id:"${id}"}){
+        downvote(story:{id:"${id}"}){
           ${getStory()}
         }
       }`,
@@ -82,8 +82,8 @@ export function removeUpVote (id) {
         if (!data.errors){
           dispatch(
             {
-              type: REMOVE_UP_VOTE,
-              payload: {story:{...data.data.removeUpVote}}
+              type: DOWNVOTE,
+              payload: {story:{...data.data.downvote}}
             }
           )
         }else{
@@ -94,11 +94,11 @@ export function removeUpVote (id) {
   }
 }
 
-export function addUpVote (id) {
+export function upvote (id) {
   return (dispatch) => {
     graphql.query(
       `mutation{
-        addUpVote(story:{id:"${id}"}){
+        upvote(story:{id:"${id}"}){
           ${getStory()}
         }
       }`,
@@ -106,8 +106,8 @@ export function addUpVote (id) {
         if (!data.errors){
           dispatch(
             {
-              type: ADD_UP_VOTE,
-              payload: {story:{...data.data.addUpVote}}
+              type: UPVOTE,
+              payload: {story:{...data.data.upvote}}
             }
           )
         }else{
