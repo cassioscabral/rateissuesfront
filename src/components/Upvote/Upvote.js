@@ -4,6 +4,7 @@ import s from './Upvote.scss'
 import {defineMessages, injectIntl, FormattedMessage} from 'react-intl'
 import {connect} from 'react-redux'
 import {upvote, downvote} from '../../actions/stories'
+import {FaAngleUp, FaAngleDown} from 'react-icons/lib/fa'
 
 const messages = defineMessages({
   upvoteText: {
@@ -32,22 +33,24 @@ class Upvote extends Component {
     return this.props.upvotes.length > 0 ? this.props.upvotes.length : '0'
   }
   render () {
+    let upvote = () => {
+      this.props.upvote(this.props.storyId)
+    }
+    let downvote = () => {
+      this.props.downvote(this.props.storyId)
+    }
     return (
       <div className={ s.root }>
         <FormattedMessage
           { ...messages.upvoteText }
           values={ {likes: this.getLikes()} }
         />
-        <button onClick={ () => {
-          this.props.upvote(this.props.storyId)
-        } } >
-          <FormattedMessage { ...messages.upvote }  />
-        </button>
-        <button onClick={ () => {
-          this.props.downvote(this.props.storyId)
-        } } >
-          <FormattedMessage { ...messages.downvote }  />
-        </button>
+        <FaAngleUp color={ 'black' }
+          onClick={ upvote }
+        />
+        <FaAngleDown color={ 'black' }
+          onClick={ downvote }
+        />
       </div>
     )
   }

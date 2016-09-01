@@ -116,7 +116,8 @@
     "defaultMessage": "{likes} Likes",
     "message": "",
     "files": [
-      "src/components/Upvote/Upvote.js"
+      "src/components/Upvote/Upvote.js",
+      "src\\components\\Upvote\\Upvote.js"
     ]
   },
   {
@@ -125,7 +126,8 @@
     "defaultMessage": "Remove Like",
     "message": "",
     "files": [
-      "src/components/Upvote/Upvote.js"
+      "src/components/Upvote/Upvote.js",
+      "src\\components\\Upvote\\Upvote.js"
     ]
   },
   {
@@ -134,7 +136,8 @@
     "defaultMessage": "Like",
     "message": "",
     "files": [
-      "src/components/Upvote/Upvote.js"
+      "src/components/Upvote/Upvote.js",
+      "src\\components\\Upvote\\Upvote.js"
     ]
   }
 ]
