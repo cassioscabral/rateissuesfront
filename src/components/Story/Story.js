@@ -1,12 +1,3 @@
-/**
- * React Starter Kit (https://www.reactstarterkit.com/)
- *
- * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
 import React from 'react'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import s from './Story.scss'
@@ -20,19 +11,25 @@ function Story ({story, index}) {
       key={ index }
       className={ s.story }
     >
-      <span className={ s.storyTitle }>
-        <PreviewUrl url={ story.body }>
-          { /* TODO extract URL from text */ }
-        </PreviewUrl>
+      <div className="upvote-wrapper">
         <Upvote
           upvotes={ story.upvotes }
           storyId={ story.id }
         />
-        { /* { story.body }*/ }
-        <span className={ s.publishedDate }>
-          <FormattedRelative value={ story.publishedDate } />
+      </div>
+
+      <div className="story-content">
+        <span className={ s.storyTitle }>
+          <PreviewUrl url={ story.body }>
+            { /* TODO extract URL from text */ }
+          </PreviewUrl>
+
+          { /* { story.body }*/ }
+          <span className={ s.publishedDate }>
+            <FormattedRelative value={ story.publishedDate } />
+          </span>
         </span>
-      </span>
+      </div>
     </li>
   )
 }

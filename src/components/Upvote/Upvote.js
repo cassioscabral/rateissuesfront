@@ -1,56 +1,43 @@
 import React, {PropTypes, Component} from 'react'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import s from './Upvote.scss'
-import {defineMessages, injectIntl, FormattedMessage} from 'react-intl'
 import {connect} from 'react-redux'
 import {upvote, downvote} from '../../actions/stories'
 import {FaAngleUp, FaAngleDown} from 'react-icons/lib/fa'
 
-const messages = defineMessages({
-  upvoteText: {
-    id: 'upvote.upvoteLikes',
-    defaultMessage: '{likes} Likes',
-    description: 'Amount of likes'
-  },
-  upvote: {
-    id: 'upvote.upvote',
-    defaultMessage: 'Like',
-    description: 'Add like'
-  },
-  downvote: {
-    id: 'upvote.downvote',
-    defaultMessage: 'Remove Like',
-    description: 'Remove Like'
-  }
-})
-
 class Upvote extends Component {
   constructor (props) {
     super(props)
+    this.state = {upvoted: false}
   }
-  getLikes () {
-    // intl is not showing 0
-    return this.props.upvotes.length > 0 ? this.props.upvotes.length : '0'
+  upvoted () {
+    return this.state.upvoted
   }
   render () {
     let upvote = () => {
       this.props.upvote(this.props.storyId)
+      this.setState({upvoted: true})
     }
     let downvote = () => {
       this.props.downvote(this.props.storyId)
+      this.setState({upvoted: false})
     }
+    let upvotes = this.props.upvotes.length || 0
     return (
       <div className={ s.root }>
-        <FormattedMessage
-          { ...messages.upvoteText }
-          values={ {likes: this.getLikes()} }
+        <FaAngleUp
+          color={ this.upvoted() ? 'green' : 'black' }
+          size={ 24 }
+          style={
+            {
+              cursor: 'pointer'
+            }
+          }
+          onClick={ this.upvoted() ? downvote : upvote }
         />
-        <FaAngleUp color={ 'black' }
-          onClick={ upvote }
-        />
-        <FaAngleDown color={ 'black' }
-          onClick={ downvote }
-        />
+        <div className="upvotes-counter">
+          { upvotes }
+        </div>
       </div>
     )
   }
@@ -74,4 +61,5 @@ function mapDispatchToProps () {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps())((injectIntl(withStyles(s)(Upvote))))
+export default
+connect(mapStateToProps, mapDispatchToProps()) ((withStyles(s)(Upvote)))
