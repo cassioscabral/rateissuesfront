@@ -20,12 +20,12 @@ class GithubIssuePreview extends Component {
   }
   componentWillMount () {
     const gh = new GitHub()
-
     this.getGithubRequestLimit(gh)
+    let {username, repository, issueNumber} = this.getInfoFromURL(this.props.url)
 
     gh
-    .getIssues('cassioscabral', 'rateissuesfront')
-    .getIssue(1)
+    .getIssues(username, repository)
+    .getIssue(issueNumber)
     .then((response) => {
       console.log('issue 1 response', response) // response data have the issue
       this.setState({issue: response.data})
@@ -36,9 +36,18 @@ class GithubIssuePreview extends Component {
     return `Title: ${issue.title || ''} | State: ${issue.state || ''} | User: ${issue.user? issue.user.login : 'none'}`
   }
   // "https://api.github.com/repos/cassioscabral/rateissuesfront" => "rateissuesfront"
-  getRepoName (repositoryUrl) {
-    let splittedUrl = repositoryUrl.split('/')
+  getRepoName (url) {
+    let splittedUrl = url.split('/')
     return splittedUrl[splittedUrl.length - 1]
+  }
+  // 'https://github.com/cassioscabral/rateissuesfront/issues/1'
+  getInfoFromURL (url) {
+    let splittedUrl = url.split('/')
+    return {
+      username: splittedUrl[splittedUrl.length - 4],
+      issueNumber: splittedUrl[splittedUrl.length - 1],
+      repository: splittedUrl[splittedUrl.length - 3]
+    }
   }
   render () {
     let issue = this.state.issue
@@ -79,4 +88,4 @@ GithubIssuePreview.propTypes = {
   url: PropTypes.string.isRequired
 }
 
-export default ((withStyles(s)(GithubIssuePreview)))
+export default (withStyles(s)(GithubIssuePreview))
