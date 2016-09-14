@@ -23,6 +23,10 @@ class PreviewUrl extends Component {
     if (isDomain('github.com', url)) {
       return <GithubIssuePreview url={ url }></GithubIssuePreview>
     }
+    if (isDomain('twitter.com', url)) {
+      // https://api.twitter.com/1.1/statuses/show.json?id=210462857140252672
+      return <p>Twitter Preview</p>
+    }
 
     return url
   }
