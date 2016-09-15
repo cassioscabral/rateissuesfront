@@ -17,6 +17,8 @@ import login from './login'
 import register from './register'
 import content from './content'
 import error from './error'
+import repository from './repository'
+import issue from './issue'
 
 export default {
 
@@ -24,11 +26,13 @@ export default {
 
   children: [
     home,
+    issue,
+    repository,
     contact,
     login,
     register,
-    content,
-    error
+    error,
+    content
   ],
 
   async action ({next, render, context}) {
