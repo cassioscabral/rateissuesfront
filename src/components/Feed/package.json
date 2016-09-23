@@ -1,6 +1,0 @@
-{
-  "name": "Feed",
-  "version": "0.0.0",
-  "private": true,
-  "main": "./Feed.js"
-}
