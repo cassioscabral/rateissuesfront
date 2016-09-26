@@ -9,15 +9,14 @@ RateIssues will solve those problems, build to help you to develop and contribut
 **This is a free project and it will always be, in the future we might have sponsors(maybe donators also) to support the production app**
 
 ## Main features
- * Tech news feed, tips and help for developers
- * Interact with issues, rating, upvoting or ranking
- * Make the contributions more social and engaging,
- "Who are the devs around my area contributing ?"
+ * Find an open-source project to contribute
+ * Give you more suitables issues to choose from and start working right away
+ * Make the contributions more social and engaging
 
 
 This project it was redone thinking about those new features above. To check the old project check the old version branch [here](https://github.com/cassioscabral/rateissuesfront/tree/old_rateissues)
 
-## Moqups and screenshots
+## Mockups
 
 Add page
 ![add_page](https://cloud.githubusercontent.com/assets/2073557/18833987/deecd3a8-83c9-11e6-928f-3a66e2184196.png)
@@ -41,6 +40,4 @@ For instructions in how to install, run and other tech stuff go to the [wiki](ht
 
 This app that you see on the screenshot from the old interface focus on giving the user issues and nothing more than that. Maybe this would work but the user would only have two reasons to go back to the app, rate issues or search for issues, it feels like too much work to find anything interesting
 
-The main reason for the change was to give the user something more interesting to come back to the app
-
-With that in mind, the app is going trough a whole change and focusing in delivery more interesting content, give the user less issues but more accurate to your likes without searching every time for a new issue
+The main reason for the change was to give the user the power to find a nice project that fits his expertise and from that choose issues more related with his areas of interest.
