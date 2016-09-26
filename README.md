@@ -19,7 +19,14 @@ This project it was redone thinking about those new features above. To check the
 
 ## Moqups and screenshots
 
-![mockup](https://cloud.githubusercontent.com/assets/2073557/16440233/3bc5fe08-3d96-11e6-9c69-3f283cc11af8.png)
+Add page
+![add_page](https://cloud.githubusercontent.com/assets/2073557/18833987/deecd3a8-83c9-11e6-928f-3a66e2184196.png)
+
+Search page
+![search_page](https://cloud.githubusercontent.com/assets/2073557/18834469/6fbf86d0-83cc-11e6-9510-4a8372686d15.png)
+
+Explore page
+![explore_page](https://cloud.githubusercontent.com/assets/2073557/18834821/66a8df72-83ce-11e6-990e-0eb19b5dd97c.png)
 
 Early mockup that I made with the awesome online app [Moqups](https://moqups.com/). Thanks to the Moqups team for giving me permission to export the file free of charge.
 
