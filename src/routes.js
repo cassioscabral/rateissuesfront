@@ -1,7 +1,8 @@
-import Home from 'components/Home/home';
-import Posts from 'components/Posts/posts';
-import Post from 'components/Posts/post';
-import NotFound from 'components/NotFound/notFound';
+import Home from 'components/Home/home'
+import Posts from 'components/Posts/posts'
+import Post from 'components/Posts/post'
+import Add from 'components/Add/add'
+import NotFound from 'components/NotFound/notFound'
 
 const routes = {
   '/': {
@@ -14,9 +15,12 @@ const routes = {
     name: 'post',
     component: Post
   },
+  '/add': {
+    component: Add
+  },
   '*': {
     component: NotFound
   }
-};
+}
 
-export default routes;
+export default routes
