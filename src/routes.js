@@ -2,6 +2,7 @@ import Home from 'components/Home/home'
 import Posts from 'components/Posts/posts'
 import Post from 'components/Posts/post'
 import Add from 'components/Add/add'
+import SearchProject from 'components/SearchProject/search'
 import NotFound from 'components/NotFound/notFound'
 
 const routes = {
@@ -17,6 +18,9 @@ const routes = {
   },
   '/add': {
     component: Add
+  },
+  '/search': {
+    component: SearchProject
   },
   '*': {
     component: NotFound
