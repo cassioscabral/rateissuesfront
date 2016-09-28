@@ -1,25 +1,25 @@
-import Vue from 'vue';
-import template from './posts.html';
+import Vue from 'vue'
+import template from './posts.html'
 
-import { postsResource } from 'src/helpers/resources';
+import {postsResource} from 'src/helpers/resources'
 
 export default Vue.extend({
   template,
 
-  data() {
+  data () {
     return {
       posts: []
-    };
+    }
   },
 
   route: {
-    data(){
+    data (){
       return postsResource.get().then((response) => {
-        return this.$set('posts', response.data);
+        return this.$set('posts', response.data)
       }, (errorResponse) => {
         // Handle error...
-        console.log('API responded with:', errorResponse.status);
-      });
+        console.log('API responded with:', errorResponse.status)
+      })
     }
   }
-});
+})

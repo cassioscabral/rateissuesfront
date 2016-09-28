@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue from 'vue'
 
 export default Vue.extend({
   template: `
@@ -6,5 +6,5 @@ export default Vue.extend({
         <h1 class="page-header">Not found...</h1>
         <p class="lead">Sorry :(</p>
     </div>
-  `,
-});
+  `
+})

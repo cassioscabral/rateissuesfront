@@ -1,11 +1,11 @@
-var path = require('path');
-var webpack = require('webpack');
-var merge = require('webpack-merge');
-var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+var path = require('path')
+var webpack = require('webpack')
+var merge = require('webpack-merge')
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
-var config = require('../package.json').config;
-var webpackBase = require('./webpack.base.js');
+var config = require('../package.json').config
+var webpackBase = require('./webpack.base.js')
 
 module.exports = merge(webpackBase, {
   devtool: '#eval-source-map',
@@ -36,4 +36,4 @@ module.exports = merge(webpackBase, {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ]
-});
+})

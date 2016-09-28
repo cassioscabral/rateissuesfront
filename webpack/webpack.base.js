@@ -1,5 +1,7 @@
-var path = require('path');
-var autoprefixer = require('autoprefixer');
+var path = require('path')
+var autoprefixer = require('autoprefixer')
+var jeet = require('jeet')
+// var pathToJeet = require('jeet').includePaths
 
 module.exports = {
 
@@ -12,7 +14,7 @@ module.exports = {
     publicPath: '/',
     filename: '[name].[hash].js',
     sourceMapFilename: '[name].[hash].js.map',
-    chunkFilename: '[id].chunk.js',
+    chunkFilename: '[id].chunk.js'
   },
 
   resolve: {
@@ -36,6 +38,11 @@ module.exports = {
     ],
 
     loaders: [
+      {
+        test: /\.vue$/, // a regex for matching all files that end in `.vue`
+        loader: 'vue'   // loader to use for matched files
+      },
+
       {
         test: /\.html$/,
         loader: 'vue-html'
@@ -78,7 +85,27 @@ module.exports = {
     formatter: require('eslint-friendly-formatter')
   },
 
-  postcss: function() {
-    return [autoprefixer];
+  // vue: {
+  //   loaders: {
+  //     stylus: {
+  //       includePaths: [pathToJeet]
+  //     }
+  //   }
+  // },
+
+  // vueLoader: {
+  //   includePaths: [pathToJeet]
+  // },
+  //
+  // styleLoader: {
+  //   includePaths: [pathToJeet]
+  // },
+
+  stylus: {
+    use: [jeet()]
+  },
+
+  postcss: function () {
+    return [autoprefixer]
   }
-};
+}
