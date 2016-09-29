@@ -21,7 +21,7 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-@import '../../assets/third-parties/jeet'
+@import '../../assets/third-party/jeet'
 .add-component
   center(960px)
 </style>
