@@ -18,7 +18,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.html'],
+    extensions: ['', '.js', '.html', '.vue'],
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
       'src': path.resolve(__dirname, '../src'),
