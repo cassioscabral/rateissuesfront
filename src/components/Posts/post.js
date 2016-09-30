@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import {postsResource} from 'src/helpers/resources'
+import {db} from 'src/helpers/firebase'
 
 import template from './post.html'
 
@@ -15,12 +15,7 @@ export default Vue.extend({
   route: {
     data () {
       const id = this.$route.params.id
-      return postsResource.get({id}).then((response) => {
-        return this.$set('post', response.data)
-      }, (errorResponse) => {
-        // Handle error...
-        console.log('API responded with:', errorResponse.status)
-      })
+      this.$bindAsObject('post', db.ref(`posts/${id}`))
     }
   }
 })

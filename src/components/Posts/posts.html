@@ -6,7 +6,7 @@
     <div class="list-group">
         <a class="list-group-item"
            v-for="post in posts"
-           v-link="{ name: 'post', params: { id: post.id }}">
+           v-link="{ name: 'post', params: { id: post['.key'] }}">
             {{post.title}}
         </a>
     </div>
