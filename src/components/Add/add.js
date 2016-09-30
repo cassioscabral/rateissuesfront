@@ -28,6 +28,8 @@ export default Vue.extend({
         title,
         body
       })
+      this.title = null
+      this.body = null
     }
   }
 })
