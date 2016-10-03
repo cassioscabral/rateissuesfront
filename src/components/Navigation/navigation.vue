@@ -31,7 +31,7 @@ export default {
     return {}
   },
   computed: {},
-  ready () {},
+  mounted () {},
   methods: {},
   components: {}
 }

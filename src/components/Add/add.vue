@@ -57,7 +57,7 @@ export default {
     return {}
   },
   computed: {},
-  ready () {
+  mounted () {
   },
   methods: {
     checkInput (input) {
