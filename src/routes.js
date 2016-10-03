@@ -6,29 +6,14 @@ import SearchProject from 'components/SearchProject/search'
 import ExploreProject from 'components/ExploreProject/explore'
 import NotFound from 'components/NotFound/notFound'
 
-const routes = {
-  '/': {
-    component: Home
-  },
-  '/posts': {
-    component: Posts
-  },
-  '/post/:id': {
-    name: 'post',
-    component: Post
-  },
-  '/add': {
-    component: Add
-  },
-  '/search': {
-    component: SearchProject
-  },
-  '/explore': {
-    component: ExploreProject
-  },
-  '*': {
-    component: NotFound
-  }
-}
+const routes = [
+  {path: '/', component: Home},
+  {path: '/posts', component: Posts},
+  {path: '/post/:id', component: Post},
+  {path: '/add', component: Add},
+  {path: '/search', component: SearchProject},
+  {path: '/explore', component: ExploreProject},
+  {path: '/*', component: NotFound}
+]
 
 export default routes

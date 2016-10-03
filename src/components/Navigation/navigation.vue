@@ -1,26 +1,30 @@
 <template>
 <nav class="navbar navbar-static-top">
   <ul class="nav navbar-nav">
-      <li class="brand">
-        <a v-link="{ path: '/', exact: true }">
-            <img alt="Brand" src="~assets/images/logo.png" height="20">
-        </a>
-      </li>
-      <li v-link-active>
-          <a v-link="{ path: '/', exact: true }">Home</a>
-      </li>
-      <li v-link-active>
-          <a v-link="{ path: '/posts' }">Posts</a>
-      </li>
-      <li v-link-active>
-          <a v-link="{ path: '/add' }">Add</a>
-      </li>
-      <li v-link-active>
-          <a v-link="{ path: '/search' }">Search</a>
-      </li>
-      <li v-link-active>
-          <a v-link="{ path: '/explore' }">Explore</a>
-      </li>
+      <router-link class="brand" tag="li" to="/" exact>
+        <img alt="Brand" src="~assets/images/logo.png" height="20">
+      </router-link>
+
+      <router-link tag="li" to="/" exact>
+        <a>Home</a>
+      </router-link>
+
+      <router-link tag="li" to="/posts">
+        <a>Posts</a>
+      </router-link>
+
+      <router-link tag="li" to="/add">
+        <a>Add</a>
+      </router-link>
+
+      <router-link tag="li" to="/search">
+        <a>Search</a>
+      </router-link>
+
+      <router-link tag="li" to="/explore">
+        <a>Explore</a>
+      </router-link>
+
   </ul>
 </nav>
 </template>

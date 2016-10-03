@@ -5,5 +5,7 @@
 
     <p>{{post.body}}</p>
 
-    <a v-link="{ path: '/posts' }">&laquo; Back to posts</a>
+    <router-link to="/posts">
+      <a>&laquo; Back to posts</a>
+    </router-link>
 </div>

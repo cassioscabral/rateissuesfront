@@ -11,11 +11,10 @@ import 'src/style.scss'
 
 const router = new VueRouter({
   hashbang: false,
-  history: true,
-  linkActiveClass: 'active'
+  mode: 'history',
+  linkActiveClass: 'active',
+  routes
 })
-
-router.map(routes)
 
 const App = Vue.extend({
   components: {Navigation}
