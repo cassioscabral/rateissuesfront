@@ -1,10 +1,10 @@
-var path = require('path');
-var webpack = require('webpack');
-var merge = require('webpack-merge');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var WebpackCleanupPlugin = require('webpack-cleanup-plugin');
+var path = require('path')
+var webpack = require('webpack')
+var merge = require('webpack-merge')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var WebpackCleanupPlugin = require('webpack-cleanup-plugin')
 
-var webpackBase = require('./webpack.base.js');
+var webpackBase = require('./webpack.base.js')
 
 module.exports = merge(webpackBase, {
   plugins: [
@@ -26,6 +26,6 @@ module.exports = merge(webpackBase, {
       compressor: {
         warnings: false
       }
-    }),
+    })
   ]
-});
+})

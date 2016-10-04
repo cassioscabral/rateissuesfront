@@ -16,10 +16,13 @@ const router = new VueRouter({
   routes
 })
 
-const App = Vue.extend({
-  components: {Navigation}
+// TODO container and router-view is disappearing
+export default new Vue({
+  router,
+  el: '#app',
+  components: {Navigation},
+  template: 'index.html',
+  render: h => h(Navigation)
 })
 
-router.start(App, '#app')
-
-export {router}
+// router.start(App, '#app')

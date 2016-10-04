@@ -58,6 +58,7 @@ export default {
   },
   computed: {},
   mounted () {
+    console.log('Add.vue mounted')
   },
   methods: {
     checkInput (input) {
