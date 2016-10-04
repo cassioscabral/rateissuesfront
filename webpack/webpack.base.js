@@ -1,7 +1,5 @@
 var path = require('path')
 var autoprefixer = require('autoprefixer')
-var jeet = require('jeet')
-// var pathToJeet = require('jeet').includePaths
 
 module.exports = {
 
@@ -83,26 +81,6 @@ module.exports = {
 
   eslint: {
     formatter: require('eslint-friendly-formatter')
-  },
-
-  // vue: {
-  //   loaders: {
-  //     stylus: {
-  //       includePaths: [pathToJeet]
-  //     }
-  //   }
-  // },
-
-  // vueLoader: {
-  //   includePaths: [pathToJeet]
-  // },
-  //
-  // styleLoader: {
-  //   includePaths: [pathToJeet]
-  // },
-
-  stylus: {
-    use: [jeet()]
   },
 
   postcss: function () {

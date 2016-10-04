@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
-import Navigation from 'components/Navigation/navigation'
+import App from './App'
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
@@ -15,14 +15,11 @@ const router = new VueRouter({
   linkActiveClass: 'active',
   routes
 })
+console.log('router', router)
 
 // TODO container and router-view is disappearing
-export default new Vue({
+new Vue({
   router,
   el: '#app',
-  components: {Navigation},
-  template: 'index.html',
-  render: h => h(Navigation)
+  render: h => h(App)
 })
-
-// router.start(App, '#app')

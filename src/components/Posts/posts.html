@@ -13,7 +13,7 @@
       class="list-group"
       v-for="post in posts"
       tag="div"
-      to="/{ name: 'post', params: { id: post.id }}">
+      :to="/{ name: 'post', params: { id: post.id }}">
       <a class="list-group-item">{{post.title}}</a>
     </router-link>
     </div>

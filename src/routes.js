@@ -6,7 +6,6 @@ import SearchProject from 'components/SearchProject/search'
 import ExploreProject from 'components/ExploreProject/explore'
 import NotFound from 'components/NotFound/notFound'
 
-console.log('loading routes')
 const routes = [
   {path: '/', component: Home},
   {path: '/posts', component: Posts},

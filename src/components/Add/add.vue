@@ -1,15 +1,15 @@
 <template>
-  <div class="add-component">
-    <h1>Add a project</h1>
-    <div class="control">
-      <input type="text"
-        placeholder="Find a project"
-        @change="checkInput">
-    </div>
-    <div class="results">
-      <h3>Results</h3>
-    </div>
+<div class="add-component">
+  <h1>Add a project</h1>
+  <div class="control">
+    <input type="text"
+      placeholder="Find a project"
+      :change="checkInput">
   </div>
+  <div class="results">
+    <h3>Results</h3>
+  </div>
+</div>
 </template>
 
 <script>
@@ -57,9 +57,6 @@ export default {
     return {}
   },
   computed: {},
-  mounted () {
-    console.log('Add.vue mounted')
-  },
   methods: {
     checkInput (input) {
       let inputValue = input.target.value
