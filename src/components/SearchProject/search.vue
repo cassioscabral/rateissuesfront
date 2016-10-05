@@ -1,3 +1,4 @@
+<template>
 <div>
   <h1>Search for projects</h1>
 
@@ -10,3 +11,18 @@
     Project results
   </div>
 </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {}
+  },
+  computed: {},
+  methods: {},
+  components: {}
+}
+</script>
+
+<style lang="css">
+</style>
