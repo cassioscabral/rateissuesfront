@@ -1,3 +1,4 @@
+<template>
 <div>
     <div class="page-header">
         <h1>My awesome <img src="~assets/images/logo.png" height="36" alt=""> project</h1>
@@ -25,3 +26,19 @@
         nostra, per inceptos himenaeos.</p>
 
 </div>
+
+</template>
+
+<script>
+export default {
+  data () {
+    return {}
+  },
+  computed: {},
+  methods: {},
+  components: {}
+}
+</script>
+
+<style>
+</style>
