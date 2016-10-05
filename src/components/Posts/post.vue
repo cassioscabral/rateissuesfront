@@ -1,11 +1,22 @@
+<template>
+<div>
+    <div class="page-header">
+        <h1>{{post.title}}</h1>
+    </div>
+
+    <p>{{post.body}}</p>
+
+    <router-link to="/posts">
+      <a>&laquo; Back to posts</a>
+    </router-link>
+</div>
+</template>
+
+<script>
 import Vue from 'vue'
 import {postsResource} from 'src/helpers/resources'
 
-import template from './post.html'
-
 export default Vue.extend({
-  template,
-
   data () {
     return {
       post: {}
@@ -23,4 +34,10 @@ export default Vue.extend({
       })
     }
   }
+  
 })
+
+</script>
+
+<style>
+</style>
