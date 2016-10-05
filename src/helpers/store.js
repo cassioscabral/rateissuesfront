@@ -7,6 +7,9 @@ const store = new DataStore()
 
 store.registerAdapter(dataSource, adapter, {default: true})
 
-store.defineMapper('project')
+const project = store.defineMapper('project')
 
-export default store
+export {
+  store as default,
+  project
+}
