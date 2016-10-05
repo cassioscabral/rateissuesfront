@@ -21,3 +21,9 @@ Vue.http.interceptors.push((request, next) => {
 
 export const postsResource = Vue.resource('posts{/id}')
 export const projectResource = Vue.resource('project{/id}')
+
+
+// js-data example
+// let {project} = require('./store')
+// project.create({name: 'John'})
+// project.find('-KTH0amscJRT9G17IL3J').then(data => console.log(data))
