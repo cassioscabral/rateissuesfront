@@ -21,3 +21,17 @@ export default {
   methods: {}
 }
 </script>
+
+<style>
+@import 'reset.css';
+@import 'https://fonts.googleapis.com/css?family=Oswald';
+
+html, body {
+  height: 100%;
+}
+body {
+  font-family: 'Oswald', sans-serif;
+  height: 100%;
+  background: #f7f7f7;
+}
+</style>
