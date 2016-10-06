@@ -15,9 +15,7 @@ const router = new VueRouter({
   linkActiveClass: 'active',
   routes
 })
-console.log('router', router)
 
-// TODO container and router-view is disappearing
 new Vue({
   router,
   el: '#app',
