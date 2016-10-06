@@ -9,10 +9,6 @@
         <a>Home</a>
       </router-link>
 
-      <router-link tag="li" to="/posts">
-        <a>Posts</a>
-      </router-link>
-
       <router-link tag="li" to="/add">
         <a>Add</a>
       </router-link>

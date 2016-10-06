@@ -19,7 +19,6 @@ Vue.http.interceptors.push((request, next) => {
   })
 })
 
-export const postsResource = Vue.resource('posts{/id}')
 export const projectResource = Vue.resource('project{/id}')
 
 
