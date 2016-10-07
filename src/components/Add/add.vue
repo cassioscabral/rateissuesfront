@@ -3,18 +3,26 @@
   <h1>Add a project</h1>
   <div class="control">
     <input type="text"
-      placeholder="Find a project"
-      :change="checkInput">
+      placeholder="rateissues"
+      @change="checkInput">
   </div>
   <div class="results">
-    <h3>Results</h3>
+    <h2 v-show="searchResult.length > 0">Results</h2>
+    <project-preview
+      class="result-item"
+      v-for="result in searchResult"
+      :project="result">
+
+    </project-preview>
   </div>
 </div>
 </template>
 
 <script>
 import GitHub from 'github-api'
+import ProjectPreview from 'src/components/Project/ProjectPreview'
 
+// TODO move Github functions to a common place
 let getGithubRequestLimit = () => {
   let githubInstance = new GitHub()
   githubInstance.getRateLimit().getRateLimit()
@@ -25,6 +33,14 @@ let getGithubRequestLimit = () => {
   }).catch(function (error) {
       console.log('Error fetching rate limit', error.message)
   })
+}
+
+let search = (input) => {
+  const gh = new GitHub()
+  console.log('gh', gh)
+  const search = gh.search()
+  console.log('search', search)
+  return search.forRepositories({q: input})
 }
 
 let getIssue = (url) => {
@@ -54,7 +70,9 @@ let getInfoFromURL =  (url) => {
 
 export default {
   data () {
-    return {}
+    return {
+      searchResult: []
+    }
   },
   computed: {},
   methods: {
@@ -62,11 +80,17 @@ export default {
       let inputValue = input.target.value
       // TODO check URL
       // let infoFromURL = getInfoFromURL(inputValue)
-      let issue = getIssue(inputValue)
-      console.log('issue', issue)
+      // let searchResult = search(inputValue).then(result => result)
+      search(inputValue).then(response => {
+        console.log('search response', response)
+        this.searchResult = response.data
+      })
+      // console.log('searchResult', searchResult)
     }
   },
-  components: {}
+  components: {
+    ProjectPreview
+  }
 }
 </script>
 <style lang="stylus" scoped>
@@ -93,5 +117,8 @@ h1 {
 .results {
   display: flex
   flex-direction: column
+  h2 {
+    margin: 15px 0
+  }
 }
 </style>
