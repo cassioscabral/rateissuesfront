@@ -47,11 +47,12 @@ export default {
   .project-preview {
     display: flex
     min-height: 150px
-    width: 100%
+    width: 80%
     flex-direction: column
     border: 1px solid rgb(168, 168, 168)
     margin-bottom: 30px
     padding: 10px
+    cursor: pointer
     .project-header {
       display: flex
       flex-direction: row

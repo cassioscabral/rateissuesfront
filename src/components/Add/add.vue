@@ -40,7 +40,8 @@ let search = (input) => {
   console.log('gh', gh)
   const search = gh.search()
   console.log('search', search)
-  return search.forRepositories({q: input})
+  // return search.forRepositories({path: input })
+  return search._request('GET', `https://api.github.com/search/repositories?type=all&sort=updated&per_page=10 &q=${input}`)
 }
 
 let getIssue = (url) => {
@@ -74,6 +75,9 @@ export default {
       searchResult: []
     }
   },
+  created () {
+    getGithubRequestLimit()
+  },
   computed: {},
   methods: {
     checkInput (input) {
@@ -81,9 +85,10 @@ export default {
       // TODO check URL
       // let infoFromURL = getInfoFromURL(inputValue)
       // let searchResult = search(inputValue).then(result => result)
+      let resultsLimit = 10
       search(inputValue).then(response => {
         console.log('search response', response)
-        this.searchResult = response.data
+        this.searchResult = response.data.items
       })
       // console.log('searchResult', searchResult)
     }
@@ -115,8 +120,11 @@ h1 {
 }
 
 .results {
+  width: 100%
   display: flex
   flex-direction: column
+  justify-content: center
+  align-items: center
   h2 {
     margin: 15px 0
   }
