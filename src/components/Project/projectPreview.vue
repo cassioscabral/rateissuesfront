@@ -13,7 +13,7 @@
       <div class="project-owner-avatar">
         <!-- TODO move to a separate component -->
         <div class="owner-profile">
-          <img :src="project.owner.avatar_url" alt="" />
+          <img :src="project.owner.avatar_url" alt="Project owner avatar" :title="project.owner.login" />
         </div>
       </div>
     </div>
