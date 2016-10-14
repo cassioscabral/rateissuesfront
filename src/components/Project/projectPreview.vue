@@ -22,10 +22,15 @@
         {{project.description}}
       </p>
     </div>
+    <div class="actions">
+      <button type="button" name="button" @click="addProject">Add</button>
+    </div>
   </div>
 </template>
 
 <script>
+import {project as ProjectMapper} from 'src/helpers/store'
+
 export default {
   props: {
     project: {
@@ -38,7 +43,12 @@ export default {
     }
   },
   computed: {},
-  methods: {},
+  methods: {
+    addProject () {
+      ProjectMapper.create({name: this.project.full_name, project: this.project})
+      .then(response => { console.log('Response', response )})
+    }
+  },
   components: {}
 }
 </script>
