@@ -20,7 +20,7 @@
 
 <script>
 import GitHub from 'github-api'
-import ProjectPreview from 'src/components/Project/ProjectPreview'
+import ProjectPreview from 'src/components/Project/projectPreview'
 
 // TODO move Github functions to a common place
 let getGithubRequestLimit = () => {
