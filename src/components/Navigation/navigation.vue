@@ -21,18 +21,44 @@
         <a>Explore</a>
       </router-link>
 
+      <li class="dropdown">
+        <a v-show="!user" v-on:click="login">login</a>
+        <img v-if="user" v-bind:src="user.photoURL" alt="user image" class="user-avatar" />
+        <span v-if="user" class="user-name">{{user.displayName}}</span>
+        <ul v-show="user" class="dropdown-list">
+          <li>
+            <a v-on:click="logout">logout</a>
+          </li>
+        </ul>
+      </li>
+
   </ul>
 </nav>
 </template>
 
 <script>
+import auth from 'src/helpers/auth'
+
 export default {
   data () {
-    return {}
+    return {
+      user: null
+    }
+  },
+  created () {
+    auth.load((data) => {this.user = data.user})
   },
   computed: {},
   mounted () {},
-  methods: {},
+  methods: {
+    login(){
+      auth.login((data) => {this.user = data.user})
+    },
+    logout(){
+      auth.logout()
+      this.user = null
+    }
+  },
   components: {}
 }
 </script>
@@ -73,5 +99,24 @@ ul {
       text-decoration: none
     }
   }
+}
+.dropdown {
+  position:relative
+  &:hover > ul {
+  	display:block
+  }
+}
+.dropdown-list {
+  position:absolute;
+  top:100%;
+  display:none;
+}
+.user-avatar {
+  width: 30px
+  height: 30px
+  padding-right: 5px
+}
+.user-name {
+  padding-right: 10px
 }
 </style>
