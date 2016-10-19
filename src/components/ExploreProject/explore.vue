@@ -34,7 +34,7 @@ export default {
   created () {
   },
   beforeRouteEnter (to, from, next) {
-    ProjectMapper.findAll(projects => {
+    ProjectMapper.findAll().then(projects => {
       console.log('All Projects', projects);
       next(vm => {
         vm.projects = projects
