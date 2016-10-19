@@ -38,25 +38,27 @@
 
 <script>
 import auth from 'src/helpers/auth'
+import store from 'src/helpers/authStore'
+import Vuex from 'vuex'
 
 export default {
+  store: store,
   data () {
-    return {
-      user: null
-    }
+    return {}
   },
   created () {
     auth.load((data) => {this.user = data.user})
   },
-  computed: {},
+  computed: {
+    ... Vuex.mapGetters(['user'])
+  },
   mounted () {},
   methods: {
     login(){
-      auth.login((data) => {this.user = data.user})
+      auth.login()
     },
     logout(){
       auth.logout()
-      this.user = null
     }
   },
   components: {}

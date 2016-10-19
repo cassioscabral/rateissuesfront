@@ -1,44 +1,44 @@
 import {firebase} from './adapter.js'
+import store from 'src/helpers/authStore'
 
 const GITHUB_TOKEN_KEY = 'UserGithubToken'
 
-let user, token
 
-function load (callback) {
-  token = _getStoredToken()
-  if (token) { _signInWithCredential(callback) }
+function load () {
+  let token = _getStoredToken()
+  if (token) { _signInWithCredential(token) }
 }
-function login (callback) {
-  _signInWithPopup(callback)
+function login () {
+  _signInWithPopup()
 }
 function logout () {
   _signOut()
   _removeToken()
-}
-function getUser () {
-  return user
-}
-function getGithubAPI () {
-  return token
+  _clearStore()
 }
 
 
-function _signInWithCredential (callback) {
+function _signInWithCredential (token) {
   let credential = firebase.auth.GithubAuthProvider.credential(token)
-  firebase.auth().signInWithCredential(credential).then(function (result) {
-    user = result
-    callback({credential, user})
-  }).catch(_firebaseErrorHandler)
+  if (credential) {
+    firebase.auth().signInWithCredential(credential)
+    .then((result) => {
+      store.commit('ADD_USER', result)
+      store.commit('ADD_GITHUB_TOKEN', token)
+    })
+    .catch(_firebaseErrorHandler)
+  }else{
+    logout()
+  }
 }
-function _signInWithPopup (callback) {
+function _signInWithPopup () {
   let provider = new firebase.auth.GithubAuthProvider()
-  firebase.auth().signInWithPopup(provider).then(function (result) {
-    token = result.credential.accessToken
-    // SAVING BOTH FOR TEST
-    _storeLocalToken(token)
-    user = result.user
-    // ...
-    callback(result)
+  firebase.auth().signInWithPopup(provider)
+  .then((result) => {
+    store.commit('ADD_USER', result.user)
+    store.commit('ADD_GITHUB_TOKEN', result.credential.accessToken)
+
+    _storeLocalToken(result.credential.accessToken)
   }).catch(_firebaseErrorHandler)
 }
 function _signOut () {
@@ -58,17 +58,19 @@ function _firebaseErrorHandler (error) {
 function _getStoredToken () {
   return window.sessionStorage.getItem(GITHUB_TOKEN_KEY) || window.localStorage.getItem(GITHUB_TOKEN_KEY)
 }
-function _storeLocalToken () {
+function _storeLocalToken (token) {
   window.localStorage.setItem(GITHUB_TOKEN_KEY, token)
 }
 function _removeToken () {
   window.localStorage.removeItem(GITHUB_TOKEN_KEY)
 }
+function _clearStore () {
+  store.commit('REMOVE_USER')
+  store.commit('REMOVE_GITHUB_TOKEN')
+}
 
 export default {
   load,
   login,
-  logout,
-  getUser,
-  getGithubAPI
+  logout
 }
