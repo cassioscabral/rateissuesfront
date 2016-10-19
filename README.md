@@ -16,6 +16,11 @@ RateIssues will solve those problems, build to help you to develop and contribut
 
 This project it was redone thinking about those new features above. To check the old project check the old version branch [here](https://github.com/cassioscabral/rateissuesfront/tree/old_rateissues)
 
+## Screenshots
+
+Add page (Work in progress)
+![add_page_ss](https://cloud.githubusercontent.com/assets/2073557/19502127/0d7ef87c-9581-11e6-8248-e1421d175c25.png)
+
 ## Mockups
 
 Add page
