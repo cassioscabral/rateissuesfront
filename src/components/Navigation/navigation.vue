@@ -37,8 +37,7 @@
 </template>
 
 <script>
-import auth from 'src/helpers/auth'
-import store from 'src/helpers/authStore'
+import store from 'src/store/auth'
 import Vuex from 'vuex'
 
 export default {
@@ -47,19 +46,14 @@ export default {
     return {}
   },
   created () {
-    auth.load((data) => {this.user = data.user})
+    this.load()
   },
   computed: {
     ... Vuex.mapGetters(['user'])
   },
   mounted () {},
   methods: {
-    login(){
-      auth.login()
-    },
-    logout(){
-      auth.logout()
-    }
+    ... Vuex.mapActions(['logout', 'login', 'load'])
   },
   components: {}
 }
