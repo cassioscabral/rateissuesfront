@@ -37,11 +37,11 @@
 </template>
 
 <script>
-import store from 'src/store/auth'
+import Store from 'src/store/auth'
 import Vuex from 'vuex'
 
 export default {
-  store: store,
+  store: Store,
   data () {
     return {}
   },

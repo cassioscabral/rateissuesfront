@@ -17,7 +17,6 @@ let _firebaseErrorHandler = (error) => {
   }
 }
 
-
 export default new Vuex.Store({
   state: {
     user: null,
@@ -25,27 +24,27 @@ export default new Vuex.Store({
   },
 
   mutations:{
-    ADD_USER: (state, user) => {
+    ADD_USER (state, user) {
       state.user = user
     },
-    ADD_GITHUB_TOKEN: (state, token) => {
+    ADD_GITHUB_TOKEN (state, token) {
       state.githubToken = token
     },
-    REMOVE_USER: (state) => {
+    REMOVE_USER (state) {
       state.user = null
     },
-    REMOVE_GITHUB_TOKEN: (state) => {
+    REMOVE_GITHUB_TOKEN (state) {
       state.githubToken = null
     }
   },
 
   getters: {
-    user: (state) => {return state.user},
-    githubToken: (state) => {return state.githubToken}
+    user: (state) => state.user,
+    githubToken: (state) => state.githubToken
   },
 
   actions: {
-    load: (store) => {
+    load (store) {
       let token = window.localStorage.getItem(GITHUB_TOKEN_KEY)
       if (token) {
         let credential = firebase.auth.GithubAuthProvider.credential(token)
@@ -57,7 +56,7 @@ export default new Vuex.Store({
         .catch(_firebaseErrorHandler)
       }
     },
-    login: (store) => {
+    login (store) {
       let provider = new firebase.auth.GithubAuthProvider()
       firebase.auth().signInWithPopup(provider)
       .then((result) => {
@@ -67,7 +66,7 @@ export default new Vuex.Store({
         window.localStorage.setItem(GITHUB_TOKEN_KEY, result.credential.accessToken)
       }).catch(_firebaseErrorHandler)
     },
-    logout: (store) => {
+    logout (store) {
       firebase.auth().signOut().catch(_firebaseErrorHandler)
 
       window.localStorage.removeItem(GITHUB_TOKEN_KEY)
