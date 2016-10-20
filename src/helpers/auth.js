@@ -3,22 +3,21 @@ import store from 'src/helpers/authStore'
 
 const GITHUB_TOKEN_KEY = 'UserGithubToken'
 
-
-function load () {
+let load = () => {
   let token = _getStoredToken()
   if (token) { _signInWithCredential(token) }
 }
-function login () {
+let login = () => {
   _signInWithPopup()
 }
-function logout () {
+let logout = () => {
   _signOut()
   _removeToken()
   _clearStore()
 }
 
 
-function _signInWithCredential (token) {
+let _signInWithCredential = (token) => {
   let credential = firebase.auth.GithubAuthProvider.credential(token)
   if (credential) {
     firebase.auth().signInWithCredential(credential)
@@ -31,7 +30,7 @@ function _signInWithCredential (token) {
     logout()
   }
 }
-function _signInWithPopup () {
+let _signInWithPopup = () => {
   let provider = new firebase.auth.GithubAuthProvider()
   firebase.auth().signInWithPopup(provider)
   .then((result) => {
@@ -41,10 +40,10 @@ function _signInWithPopup () {
     _storeLocalToken(result.credential.accessToken)
   }).catch(_firebaseErrorHandler)
 }
-function _signOut () {
+let _signOut = () => {
   firebase.auth().signOut().catch(_firebaseErrorHandler)
 }
-function _firebaseErrorHandler (error) {
+let _firebaseErrorHandler = (error) => {
     console.log(error)
     // // Handle Errors here.
     // var errorCode = error.code;
@@ -55,16 +54,16 @@ function _firebaseErrorHandler (error) {
     // var credential = error.credential;
     // // ...
 }
-function _getStoredToken () {
-  return window.sessionStorage.getItem(GITHUB_TOKEN_KEY) || window.localStorage.getItem(GITHUB_TOKEN_KEY)
+let _getStoredToken = () => {
+  window.localStorage.getItem(GITHUB_TOKEN_KEY)
 }
-function _storeLocalToken (token) {
+let _storeLocalToken = (token) => {
   window.localStorage.setItem(GITHUB_TOKEN_KEY, token)
 }
-function _removeToken () {
+let _removeToken = () => {
   window.localStorage.removeItem(GITHUB_TOKEN_KEY)
 }
-function _clearStore () {
+let _clearStore = () => {
   store.commit('REMOVE_USER')
   store.commit('REMOVE_GITHUB_TOKEN')
 }

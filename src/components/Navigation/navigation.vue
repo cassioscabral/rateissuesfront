@@ -22,12 +22,12 @@
       </router-link>
 
       <li class="dropdown">
-        <a v-show="!user" v-on:click="login">login</a>
-        <img v-if="user" v-bind:src="user.photoURL" alt="user image" class="user-avatar" />
+        <a v-show="!user" @click="login">login</a>
+        <img v-if="user" :src="user.photoURL" alt="user image" class="user-avatar" />
         <span v-if="user" class="user-name">{{user.displayName}}</span>
         <ul v-show="user" class="dropdown-list">
           <li>
-            <a v-on:click="logout">logout</a>
+            <a @click="logout">logout</a>
           </li>
         </ul>
       </li>
