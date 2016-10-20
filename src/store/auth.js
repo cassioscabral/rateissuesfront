@@ -45,8 +45,9 @@ export default new Vuex.Store({
 
   actions: {
     load (store) {
+      let user = firebase.auth().currentUser
       let token = window.localStorage.getItem(GITHUB_TOKEN_KEY)
-      if (token) {
+      if (!user && token) {
         let credential = firebase.auth.GithubAuthProvider.credential(token)
         firebase.auth().signInWithCredential(credential)
         .then((result) => {
