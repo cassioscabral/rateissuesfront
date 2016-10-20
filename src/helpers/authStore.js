@@ -3,8 +3,8 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
-  user: {},
-  githubToken: ''
+  user: null,
+  githubToken: null
 }
 
 const mutations = {
@@ -23,8 +23,8 @@ const mutations = {
 }
 
 const getters = {
-  user: (state) => {state.user},
-  githubToken: (state) => {state.githubToken}
+  user: (state) => {return state.user},
+  githubToken: (state) => {return state.githubToken}
 }
 
 export default new Vuex.Store({

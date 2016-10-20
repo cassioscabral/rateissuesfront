@@ -55,7 +55,7 @@ let _firebaseErrorHandler = (error) => {
     // // ...
 }
 let _getStoredToken = () => {
-  window.localStorage.getItem(GITHUB_TOKEN_KEY)
+  return window.localStorage.getItem(GITHUB_TOKEN_KEY)
 }
 let _storeLocalToken = (token) => {
   window.localStorage.setItem(GITHUB_TOKEN_KEY, token)
