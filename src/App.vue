@@ -9,8 +9,10 @@
 
 <script>
 import Navigation from 'components/Navigation/navigation'
+import Store from 'src/store/index'
 
 export default {
+  store: Store,
   components: {
     Navigation
   },

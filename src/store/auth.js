@@ -1,15 +1,24 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
 import {firebase} from '../helpers/adapter.js'
-Vue.use(Vuex)
-
+import {ADD_USER, ADD_GITHUB_TOKEN, REMOVE_USER, REMOVE_GITHUB_TOKEN} from './mutations.js'
 
 const GITHUB_TOKEN_KEY = 'UserGithubToken'
 
 let _firebaseErrorHandler = (error) => {
-  switch (error.code) {
-    case 'auth/internal-error': // INVALID GITHUB TOKEN
-      window.localStorage.removeItem(GITHUB_TOKEN_KEY)
+  let code = error.code
+  let message = JSON.parse(error.message).error.message
+
+  let invalidGithubTokenCheck = 'Unsuccessful check authorization response from Github: {"message":"Not Found","documentation_url":"https://developer.github.com/v3"}'
+  let networkCheck = 'Network error, please try again.'
+
+  switch (code) {
+    case 'auth/network-request-failed': // TIMEOUT
+    case 'auth/internal-error':
+      if (message === invalidGithubTokenCheck){
+        window.localStorage.removeItem(GITHUB_TOKEN_KEY)
+      }
+      if (message === networkCheck){
+        // TODO: add retry function
+      }
       break
     case 'auth/popup-closed-by-user':
       break
@@ -17,24 +26,24 @@ let _firebaseErrorHandler = (error) => {
   }
 }
 
-export default new Vuex.Store({
+export default {
   state: {
-    user: null,
-    githubToken: null
+    user: {},
+    githubToken: ''
   },
 
   mutations:{
-    ADD_USER (state, user) {
+    [ADD_USER] (state, user) {
       state.user = user
     },
-    ADD_GITHUB_TOKEN (state, token) {
+    [ADD_GITHUB_TOKEN] (state, token) {
       state.githubToken = token
     },
-    REMOVE_USER (state) {
-      state.user = null
+    [REMOVE_USER] (state) {
+      state.user = {}
     },
-    REMOVE_GITHUB_TOKEN (state) {
-      state.githubToken = null
+    [REMOVE_GITHUB_TOKEN] (state) {
+      state.githubToken = ''
     }
   },
 
@@ -44,37 +53,37 @@ export default new Vuex.Store({
   },
 
   actions: {
-    load (store) {
+    load ({commit}) {
       let user = firebase.auth().currentUser
       let token = window.localStorage.getItem(GITHUB_TOKEN_KEY)
       if (!user && token) {
         let credential = firebase.auth.GithubAuthProvider.credential(token)
         firebase.auth().signInWithCredential(credential)
         .then((result) => {
-          store.commit('ADD_USER', result)
-          store.commit('ADD_GITHUB_TOKEN', token)
+          commit(ADD_USER, result)
+          commit(ADD_GITHUB_TOKEN, token)
         })
         .catch(_firebaseErrorHandler)
       }
     },
-    login (store) {
+    login ({commit}) {
       let provider = new firebase.auth.GithubAuthProvider()
       firebase.auth().signInWithPopup(provider)
       .then((result) => {
-        store.commit('ADD_USER', result.user)
-        store.commit('ADD_GITHUB_TOKEN', result.credential.accessToken)
+        commit(ADD_USER, result.user)
+        commit(ADD_GITHUB_TOKEN, result.credential.accessToken)
 
         window.localStorage.setItem(GITHUB_TOKEN_KEY, result.credential.accessToken)
       }).catch(_firebaseErrorHandler)
     },
-    logout (store) {
+    logout ({commit}) {
       firebase.auth().signOut().catch(_firebaseErrorHandler)
 
       window.localStorage.removeItem(GITHUB_TOKEN_KEY)
 
-      store.commit('REMOVE_USER')
-      store.commit('REMOVE_GITHUB_TOKEN')
+      commit(REMOVE_USER)
+      commit(REMOVE_GITHUB_TOKEN)
     }
   }
 
-})
+}

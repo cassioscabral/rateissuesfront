@@ -1,0 +1,4 @@
+export const ADD_USER = 'ADD_USER'
+export const ADD_GITHUB_TOKEN = 'ADD_GITHUB_TOKEN'
+export const REMOVE_USER = 'REMOVE_USER'
+export const REMOVE_GITHUB_TOKEN = 'REMOVE_GITHUB_TOKEN'

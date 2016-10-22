@@ -22,10 +22,10 @@
       </router-link>
 
       <li class="dropdown">
-        <a v-show="!user" @click="login">login</a>
-        <img v-if="user" :src="user.photoURL" alt="user image" class="user-avatar" />
-        <span v-if="user" class="user-name">{{user.displayName}}</span>
-        <ul v-show="user" class="dropdown-list">
+        <a v-show="Object.keys(user).length === 0" @click="login">login</a>
+        <img v-if="Object.keys(user).length > 0" :src="user.photoURL" alt="user image" class="user-avatar" />
+        <span v-if="Object.keys(user).length > 0" class="user-name">{{user.displayName}}</span>
+        <ul v-show="Object.keys(user).length > 0" class="dropdown-list">
           <li>
             <a @click="logout">logout</a>
           </li>
@@ -37,11 +37,9 @@
 </template>
 
 <script>
-import Store from 'src/store/auth'
-import Vuex from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  store: Store,
   data () {
     return {}
   },
@@ -49,11 +47,11 @@ export default {
     this.load()
   },
   computed: {
-    ... Vuex.mapGetters(['user'])
+    ... mapGetters(['user'])
   },
   mounted () {},
   methods: {
-    ... Vuex.mapActions(['logout', 'login', 'load'])
+    ... mapActions(['logout', 'login', 'load'])
   },
   components: {}
 }
