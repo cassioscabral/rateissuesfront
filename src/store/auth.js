@@ -7,15 +7,11 @@ let _firebaseErrorHandler = (error) => {
   let code = error.code
   let message = JSON.parse(error.message).error.message
 
-  let invalidGithubTokenCheck = 'Unsuccessful check authorization response from Github: {"message":"Not Found","documentation_url":"https://developer.github.com/v3"}'
   let networkCheck = 'Network error, please try again.'
 
   switch (code) {
     case 'auth/network-request-failed': // TIMEOUT
     case 'auth/internal-error':
-      if (message === invalidGithubTokenCheck){
-        window.localStorage.removeItem(GITHUB_TOKEN_KEY)
-      }
       if (message === networkCheck){
         // TODO: add retry function
       }
