@@ -22,10 +22,10 @@
       </router-link>
 
       <li class="dropdown">
-        <a v-show="Object.keys(user).length === 0" @click="login">login</a>
-        <img v-if="Object.keys(user).length > 0" :src="user.photoURL" alt="user image" class="user-avatar" />
-        <span v-if="Object.keys(user).length > 0" class="user-name">{{user.displayName}}</span>
-        <ul v-show="Object.keys(user).length > 0" class="dropdown-list">
+        <a v-show="!hasUser" @click="login">login</a>
+        <img v-if="hasUser" :src="user.photoURL" alt="user image" class="user-avatar" />
+        <span v-if="hasUser" class="user-name">{{user.displayName}}</span>
+        <ul v-show="hasUser" class="dropdown-list">
           <li>
             <a @click="logout">logout</a>
           </li>
@@ -47,7 +47,10 @@ export default {
     this.load()
   },
   computed: {
-    ... mapGetters(['user'])
+    ... mapGetters(['user']),
+    hasUser () {
+     return Object.keys(this.user).length > 0
+   }
   },
   mounted () {},
   methods: {
