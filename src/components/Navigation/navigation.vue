@@ -21,18 +21,41 @@
         <a>Explore</a>
       </router-link>
 
+      <li class="dropdown">
+        <a v-show="!hasUser" @click="login">login</a>
+        <img v-if="hasUser" :src="user.photoURL" alt="user image" class="user-avatar" />
+        <span v-if="hasUser" class="user-name">{{user.displayName}}</span>
+        <ul v-show="hasUser" class="dropdown-list">
+          <li>
+            <a @click="logout">logout</a>
+          </li>
+        </ul>
+      </li>
+
   </ul>
 </nav>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   data () {
     return {}
   },
-  computed: {},
+  created () {
+    this.load()
+  },
+  computed: {
+    ... mapGetters(['user']),
+    hasUser () {
+     return Object.keys(this.user).length > 0
+   }
+  },
   mounted () {},
-  methods: {},
+  methods: {
+    ... mapActions(['logout', 'login', 'load'])
+  },
   components: {}
 }
 </script>
@@ -73,5 +96,24 @@ ul {
       text-decoration: none
     }
   }
+}
+.dropdown {
+  position:relative
+  &:hover > ul {
+  	display:block
+  }
+}
+.dropdown-list {
+  position:absolute;
+  top:100%;
+  display:none;
+}
+.user-avatar {
+  width: 30px
+  height: 30px
+  padding-right: 5px
+}
+.user-name {
+  padding-right: 10px
 }
 </style>

@@ -17,4 +17,4 @@ const adapter = new FirebaseAdapter({
 })
 
 export default adapter
-export {dataSource}
+export {dataSource, firebase}
