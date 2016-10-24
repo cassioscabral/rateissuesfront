@@ -39,7 +39,7 @@ export default {
   },
 
   actions: {
-    load ({commit}) {
+    authLoad ({commit}) {
       firebase.auth().onAuthStateChanged((user) => {
         let currentUser = user || {}
         commit(ADD_CURRENT_USER, currentUser)

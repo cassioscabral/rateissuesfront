@@ -43,9 +43,7 @@ export default {
   data () {
     return {}
   },
-  created () {
-    this.load()
-  },
+  created () {},
   computed: {
     ... mapGetters(['currentUser']),
     hasUser () {
@@ -54,7 +52,7 @@ export default {
   },
   mounted () {},
   methods: {
-    ... mapActions(['logout', 'login', 'load'])
+    ... mapActions(['logout', 'login'])
   },
   components: {}
 }
