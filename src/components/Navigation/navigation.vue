@@ -23,8 +23,8 @@
 
       <li class="dropdown">
         <a v-show="!hasUser" @click="login">login</a>
-        <img v-if="hasUser" :src="user.photoURL" alt="user image" class="user-avatar" />
-        <span v-if="hasUser" class="user-name">{{user.displayName}}</span>
+        <img v-show="hasUser" :src="currentUser.photoURL" alt="user image" class="user-avatar" />
+        <span v-show="hasUser" class="user-name">{{currentUser.displayName}}</span>
         <ul v-show="hasUser" class="dropdown-list">
           <li>
             <a @click="logout">logout</a>
@@ -47,10 +47,10 @@ export default {
     this.load()
   },
   computed: {
-    ... mapGetters(['user']),
+    ... mapGetters(['currentUser']),
     hasUser () {
-     return Object.keys(this.user).length > 0
-   }
+      return Object.keys(this.currentUser).length > 0
+    }
   },
   mounted () {},
   methods: {

@@ -1,7 +1,5 @@
 import {firebase} from '../helpers/adapter.js'
-import {ADD_USER, ADD_GITHUB_TOKEN, REMOVE_USER, REMOVE_GITHUB_TOKEN} from './mutations.js'
-
-const GITHUB_TOKEN_KEY = 'UserGithubToken'
+import {ADD_CURRENT_USER, REMOVE_CURRENT_USER} from './mutations.js'
 
 let _firebaseErrorHandler = (error) => {
   let code = error.code
@@ -24,61 +22,40 @@ let _firebaseErrorHandler = (error) => {
 
 export default {
   state: {
-    user: {},
-    githubToken: ''
+    currentUser: {}
   },
 
   mutations:{
-    [ADD_USER] (state, user) {
-      state.user = user
+    [ADD_CURRENT_USER] (state, currentUser) {
+      state.currentUser = currentUser
     },
-    [ADD_GITHUB_TOKEN] (state, token) {
-      state.githubToken = token
-    },
-    [REMOVE_USER] (state) {
-      state.user = {}
-    },
-    [REMOVE_GITHUB_TOKEN] (state) {
-      state.githubToken = ''
+    [REMOVE_CURRENT_USER] (state) {
+      state.currentUser = {}
     }
   },
 
   getters: {
-    user: (state) => state.user,
-    githubToken: (state) => state.githubToken
+    currentUser: (state) => state.currentUser
   },
 
   actions: {
     load ({commit}) {
-      let user = firebase.auth().currentUser
-      let token = window.localStorage.getItem(GITHUB_TOKEN_KEY)
-      if (!user && token) {
-        let credential = firebase.auth.GithubAuthProvider.credential(token)
-        firebase.auth().signInWithCredential(credential)
-        .then((result) => {
-          commit(ADD_USER, result)
-          commit(ADD_GITHUB_TOKEN, token)
-        })
-        .catch(_firebaseErrorHandler)
-      }
+      firebase.auth().onAuthStateChanged((user) => {
+        let currentUser = user || {}
+        commit(ADD_CURRENT_USER, currentUser)
+      })
     },
-    login ({commit}) {
+    login () {
       let provider = new firebase.auth.GithubAuthProvider()
-      firebase.auth().signInWithPopup(provider)
-      .then((result) => {
-        commit(ADD_USER, result.user)
-        commit(ADD_GITHUB_TOKEN, result.credential.accessToken)
 
-        window.localStorage.setItem(GITHUB_TOKEN_KEY, result.credential.accessToken)
-      }).catch(_firebaseErrorHandler)
+      firebase.auth()
+      .signInWithPopup(provider)
+      .catch(_firebaseErrorHandler)
     },
-    logout ({commit}) {
-      firebase.auth().signOut().catch(_firebaseErrorHandler)
-
-      window.localStorage.removeItem(GITHUB_TOKEN_KEY)
-
-      commit(REMOVE_USER)
-      commit(REMOVE_GITHUB_TOKEN)
+    logout () {
+      firebase.auth()
+      .signOut()
+      .catch(_firebaseErrorHandler)
     }
   }
 
