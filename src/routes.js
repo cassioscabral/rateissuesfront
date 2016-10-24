@@ -1,4 +1,4 @@
-import Home from 'components/Home/home'
+// import Home from 'components/Home/home'
 import Add from 'components/Add/add'
 import SearchProject from 'components/SearchProject/search'
 import ExploreProject from 'components/ExploreProject/explore'
