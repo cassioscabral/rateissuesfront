@@ -9,6 +9,7 @@
 
 <script>
 import Navigation from 'components/Navigation/navigation'
+import { mapActions } from 'vuex'
 import Store from 'src/store/index'
 
 export default {
@@ -16,11 +17,16 @@ export default {
   components: {
     Navigation
   },
+  created () {
+    this.authLoad()
+  },
   data () {
     return {}
   },
   computed: {},
-  methods: {}
+  methods: {
+    ... mapActions(['authLoad'])
+  }
 }
 </script>
 
