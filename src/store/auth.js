@@ -22,27 +22,32 @@ let _firebaseErrorHandler = (error) => {
 
 export default {
   state: {
-    currentUser: {}
+    currentUser: {},
+    accessToken: ''
   },
 
   mutations:{
-    [ADD_CURRENT_USER] (state, currentUser) {
-      state.currentUser = currentUser
+    [ADD_CURRENT_USER] (state, payload) {
+      state.currentUser = payload.currentUser
+      state.accessToken = payload.accessToken
     },
     [REMOVE_CURRENT_USER] (state) {
       state.currentUser = {}
+      state.accessToken = ''
     }
   },
 
   getters: {
-    currentUser: (state) => state.currentUser
+    currentUser: (state) => state.currentUser,
+    accessToken: (state) => state.accessToken
   },
 
   actions: {
     authLoad ({commit}) {
       firebase.auth().onAuthStateChanged((user) => {
         let currentUser = user || {}
-        commit(ADD_CURRENT_USER, currentUser)
+        let accessToken = window.localStorage.getItem('GITHUB_TOKEN_KEY')
+        commit(ADD_CURRENT_USER, {currentUser, accessToken})
       })
     },
     login () {
@@ -51,11 +56,17 @@ export default {
       firebase.auth()
       .signInWithPopup(provider)
       .catch(_firebaseErrorHandler)
+      .then(data => {
+        window.localStorage.setItem('GITHUB_TOKEN_KEY', data.credential.accessToken)
+      })
     },
     logout () {
       firebase.auth()
       .signOut()
       .catch(_firebaseErrorHandler)
+      .then(()=>{
+        window.localStorage.removeItem('GITHUB_TOKEN_KEY')
+      })
     }
   }
 
