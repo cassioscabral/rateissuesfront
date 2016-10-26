@@ -13,10 +13,6 @@
         <a>Add</a>
       </router-link>
 
-      <router-link tag="li" to="/search">
-        <a>Search</a>
-      </router-link>
-
       <router-link tag="li" to="/explore">
         <a>Explore</a>
       </router-link>

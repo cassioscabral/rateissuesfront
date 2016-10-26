@@ -1,8 +1,19 @@
 <template>
 <div class="explore">
+  <div>
+    <h1>Search for projects</h1>
+
+    <input type="text">
+
+    <div class="refine-search">
+      Refine
+    </div>
+    <div class="projects">
+      Project results
+    </div>
+  </div>
 
   <div class="cards all-projects">
-
     <card
       v-for="project in githubProjects"
       :header="project.name"
