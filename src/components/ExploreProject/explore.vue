@@ -1,14 +1,18 @@
 <template>
-<div>
-  <h1>Explore for projects</h1>
+<div class="explore">
 
-  <div class="all-projects">
-    <div class="project" v-for="project in projects">
-      Project Name {{project.name}}
-    </div>
+  <div class="cards all-projects">
+
+    <card
+      v-for="project in githubProjects"
+      :header="project.name"
+      :body="project.description"
+      :footer="project.language"
+      :header-image="project.owner.avatar_url">
+    </card>
   </div>
 
-  <div class="filters">
+  <!-- <div class="filters">
     Filters
   </div>
 
@@ -18,12 +22,13 @@
 
   <section class="recent-section">
     <h4>Recent</h4>
-  </section>
+  </section> -->
 </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import Card from 'src/components/Shared/card'
 
 export default {
   data () {
@@ -33,14 +38,27 @@ export default {
     this.findProjects()
   },
   computed: {
-    ... mapGetters(['projects'])
+    ... mapGetters(['projects']),
+    githubProjects () {
+      return this.projects.map(p => p.project)
+    }
   },
   methods: {
     ... mapActions(['findProjects'])
   },
-  components: {}
+  components: {
+    Card
+  }
 }
 </script>
 
-<style>
+<style lang="stylus" scoped>
+.explore {
+  padding: 20px 0
+}
+.cards {
+  display: flex
+  justify-content: space-around
+  align-items: center
+}
 </style>

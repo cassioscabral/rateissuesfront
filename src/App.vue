@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import 'src/assets/utilities.scss'
 import Navigation from 'components/Navigation/navigation'
 import { mapActions } from 'vuex'
 import Store from 'src/store/index'
