@@ -9,7 +9,6 @@ Vue.use(VueResource)
 Vue.use(Vuex)
 
 import routes from 'src/routes'
-// import 'src/style.scss'
 
 const router = new VueRouter({
   hashbang: false,
