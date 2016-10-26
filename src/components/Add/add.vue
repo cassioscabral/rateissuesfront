@@ -4,13 +4,13 @@
   <div class="control">
     <input type="text"
       placeholder="rateissues"
-      @change="checkInput">
+      @change="githubSearch">
   </div>
   <div class="results">
-    <h2 v-show="searchResult.length > 0">Results</h2>
+    <h2 v-show="repositories.length > 0">Results</h2>
     <project-preview
       class="result-item"
-      v-for="result in searchResult"
+      v-for="result in repositories"
       :project="result">
 
     </project-preview>
@@ -19,79 +19,19 @@
 </template>
 
 <script>
-import GitHub from 'github-api'
 import ProjectPreview from 'src/components/Project/projectPreview'
-
-// TODO move Github functions to a common place
-let getGithubRequestLimit = () => {
-  let githubInstance = new GitHub()
-  githubInstance.getRateLimit().getRateLimit()
-  .then(function (resp) {
-      console.log('Limit remaining: ' + resp.data.rate.remaining)
-      // date constructor takes epoch milliseconds and we get epoch seconds
-      console.log('Reset date: ' + new Date(resp.data.rate.reset * 1000))
-  }).catch(function (error) {
-      console.log('Error fetching rate limit', error.message)
-  })
-}
-
-let search = (input) => {
-  const gh = new GitHub()
-  console.log('gh', gh)
-  const search = gh.search()
-  console.log('search', search)
-  // return search.forRepositories({path: input })
-  return search._request('GET', `https://api.github.com/search/repositories?type=all&sort=updated&per_page=10 &q=${input}`)
-}
-
-let getIssue = (url) => {
-  const gh = new GitHub()
-  let {username, repository, issueNumber} = getInfoFromURL(url)
-
-  gh
-  .getIssues(username, repository)
-  .getIssue(issueNumber)
-  .then((response) => {
-    console.log('issue 1 response', response) // response data have the issue
-    return response.data
-  })
-}
-
-// 'https://github.com/cassioscabral/rateissuesfront/issues/1'
-// should match a few URLs from Github before extract info
-// TODO change to extractInfoFromURL
-let getInfoFromURL =  (url) => {
-  let splittedUrl = url.split('/')
-  return {
-    username: splittedUrl[splittedUrl.length - 4],
-    issueNumber: splittedUrl[splittedUrl.length - 1],
-    repository: splittedUrl[splittedUrl.length - 3]
-  }
-}
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   data () {
-    return {
-      searchResult: []
-    }
+    return {}
   },
-  created () {
-    getGithubRequestLimit()
+  created () {},
+  computed: {
+    ... mapGetters(['repositories']),
   },
-  computed: {},
   methods: {
-    checkInput (input) {
-      let inputValue = input.target.value
-      // TODO check URL
-      // let infoFromURL = getInfoFromURL(inputValue)
-      // let searchResult = search(inputValue).then(result => result)
-      let resultsLimit = 10
-      search(inputValue).then(response => {
-        console.log('search response', response)
-        this.searchResult = response.data.items
-      })
-      // console.log('searchResult', searchResult)
-    }
+    ... mapActions(['githubSearch'])
   },
   components: {
     ProjectPreview
