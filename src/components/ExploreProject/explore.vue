@@ -4,7 +4,7 @@
 
   <div class="all-projects">
     <div class="project" v-for="project in projects">
-      Project Name {{project.name}} | Project obj: {{project.project}}
+      Project Name {{project.name}}
     </div>
   </div>
 
@@ -23,27 +23,21 @@
 </template>
 
 <script>
-import {project as ProjectMapper} from 'src/helpers/store'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   data () {
-    return {
-      projects: []
-    }
+    return {}
   },
   created () {
+    this.findProjects()
   },
-  beforeRouteEnter (to, from, next) {
-    ProjectMapper.findAll().then(projects => {
-      console.log('All Projects', projects);
-      next(vm => {
-        vm.projects = projects
-      })
-    })
-
+  computed: {
+    ... mapGetters(['projects'])
   },
-  computed: {},
-  methods: {},
+  methods: {
+    ... mapActions(['findProjects'])
+  },
   components: {}
 }
 </script>
