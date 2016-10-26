@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Avatar from 'src/components/shared/ownerAvatar'
+import Avatar from 'src/components/Shared/ownerAvatar'
 
 export default {
   props: ['header', 'body', 'footer', 'headerImage'],
