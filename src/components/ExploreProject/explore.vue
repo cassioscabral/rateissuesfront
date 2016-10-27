@@ -1,5 +1,17 @@
 <template>
 <div class="explore">
+  <div>
+    <h1>Search for projects</h1>
+
+    <input type="text" @change="findProjects">
+
+    <div class="refine-search">
+      Refine
+    </div>
+    <div class="projects">
+      Project results
+    </div>
+  </div>
 
   <div class="cards all-projects">
     <card
@@ -26,29 +38,22 @@
 </template>
 
 <script>
-import {project as ProjectMapper} from 'src/helpers/store'
+import { mapActions, mapGetters } from 'vuex'
 import Card from 'src/components/Shared/card'
 
 export default {
   data () {
-    return {
-      projects: []
-    }
+    return {}
   },
   created () {
+    this.findProjects()
   },
-  beforeRouteEnter (to, from, next) {
-    ProjectMapper.findAll().then(projects => {
-      console.log('All Projects', projects);
-      next(vm => {
-        // project === {..., project: {name, description, ...}}
-        vm.projects = projects.map(p => p.project)
-      })
-    })
-
+  computed: {
+    ... mapGetters(['projects'])
   },
-  computed: {},
-  methods: {},
+  methods: {
+    ... mapActions(['findProjects'])
+  },
   components: {
     Card
   }

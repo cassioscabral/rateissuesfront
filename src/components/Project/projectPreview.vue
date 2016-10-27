@@ -45,7 +45,7 @@ export default {
   computed: {},
   methods: {
     addProject () {
-      ProjectMapper.create({name: this.project.full_name, project: this.project})
+      ProjectMapper.create(this.project)
       .then(response => { console.log('Response', response )})
     }
   },
