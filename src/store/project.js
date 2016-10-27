@@ -20,8 +20,11 @@ export default {
   },
 
   actions: {
-    findProjects ({commit}) {
+    findProjects ({commit}, input) {
       let query = {}
+      if (input) {
+        query.where = {name:{contains: input.target.value}}
+      }
       ProjectMapper.findAll(query).then(projects => {
         commit(ADD_PROJECTS, projects)
       })

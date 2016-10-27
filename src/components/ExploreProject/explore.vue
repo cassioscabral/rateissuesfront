@@ -3,7 +3,7 @@
   <div>
     <h1>Search for projects</h1>
 
-    <input type="text">
+    <input type="text" @change="findProjects">
 
     <div class="refine-search">
       Refine
