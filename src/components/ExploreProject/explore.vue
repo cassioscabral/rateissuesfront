@@ -15,7 +15,7 @@
 
   <div class="cards all-projects">
     <card
-      v-for="project in githubProjects"
+      v-for="project in projects"
       :header="project.name"
       :body="project.description"
       :footer="project.language"
@@ -49,10 +49,7 @@ export default {
     this.findProjects()
   },
   computed: {
-    ... mapGetters(['projects']),
-    githubProjects () {
-      return this.projects.map(p => p.project)
-    }
+    ... mapGetters(['projects'])
   },
   methods: {
     ... mapActions(['findProjects'])
