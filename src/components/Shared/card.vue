@@ -2,21 +2,21 @@
 <div class="column col-xs-12" :class="colSizeClass">
   <div class="card">
     <div class="card-header">
-        <h4 class="card-title">{{title}} <slot name="avatar"></slot></h4>
-        <h6 class="card-meta">{{meta}}</h6>
+      <slot name="header">
+        <slot>
+          <h4 class="card-title">{{title}} <slot name="avatar"></slot></h4>
+          <h6 class="card-meta">{{meta}}</h6>
+        </slot>
+      </slot>
     </div>
     <div class="card-image">
-        <img :src="image" class="img-responsive" />
+      <img :src="image" class="img-responsive" />
     </div>
     <div class="card-body">
-        {{body}}
+      {{body}}
     </div>
-    <div class="card-footer" v-if="footerButtons">
-        <button
-          v-for="button in footerButtons"
-          class="btn">
-          {{button}}
-        </button>
+    <div class="card-footer">
+      <slot name="footer"></slot>
     </div>
   </div>
 </div>
@@ -36,9 +36,6 @@ export default {
     },
     body: {
       type: String
-    },
-    footerButtons: {
-      type: Array // of strings
     },
     image: {
       type: String
