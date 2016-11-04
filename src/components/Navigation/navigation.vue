@@ -99,6 +99,7 @@ ul {
 }
 .dropdown-list {
   position:absolute;
+  margin: 0;
   top:100%;
   display:none;
 }
