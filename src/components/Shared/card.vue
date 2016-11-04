@@ -1,5 +1,6 @@
 <template>
-  <div class="card column" :class="colSizeClass">
+<div class="column col-xs-12" :class="colSizeClass">
+  <div class="card">
     <div class="card-header">
         <h4 class="card-title">{{title}} <slot name="avatar"></slot></h4>
         <h6 class="card-meta">{{meta}}</h6>
@@ -17,6 +18,7 @@
           {{button}}
         </button>
     </div>
+  </div>
 </div>
 </template>
 
