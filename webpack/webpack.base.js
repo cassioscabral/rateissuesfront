@@ -21,7 +21,8 @@ module.exports = {
     alias: {
       'src': path.resolve(__dirname, '../src'),
       'assets': path.resolve(__dirname, '../src/assets'),
-      'components': path.resolve(__dirname, '../src/components')
+      'components': path.resolve(__dirname, '../src/components'),
+      'spectre': path.join(__dirname, '../node_modules/spectre.css')
     }
   },
 
@@ -60,6 +61,11 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: 'style!css!sass?sourceMap!postcss'
+      },
+
+      {
+        test: /\.less$/,
+        loader: 'style!css!less'
       },
 
       {
