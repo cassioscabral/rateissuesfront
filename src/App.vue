@@ -15,6 +15,7 @@ import { mapActions } from 'vuex'
 import Store from 'src/store/index'
 
 export default {
+  name: 'App',
   store: Store,
   components: {
     Navigation
@@ -35,21 +36,18 @@ export default {
 <style lang="less">
 // spectre override
 @import '~spectre/spectre.less';
-@core-color: #5764c6;
-@body-font-color: hotpink;
+// @core-color: #5764c6;
+// @body-font-color: hotpink;
 
 </style>
 
 <style>
 @import 'reset.css';
-@import 'https://fonts.googleapis.com/css?family=Oswald';
 
 html, body {
   height: 100%;
 }
 body {
-  font-family: 'Oswald', sans-serif;
   height: 100%;
-  background: #f7f7f7;
 }
 </style>
