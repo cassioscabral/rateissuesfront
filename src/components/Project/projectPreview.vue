@@ -65,8 +65,10 @@ export default {
   },
   methods: {
     addProject () {
-      ProjectMapper.create(this.project)
-      .then(response => { console.log('Response', response )})
+      ProjectMapper.create({
+        ... this.project,
+        tech: this.tecnology
+      })
     }
   },
   components: {}
