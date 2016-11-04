@@ -1,6 +1,8 @@
 <template>
-  <div class="project-preview">
-    <div class="project-header">
+  <card
+    :col-size="10"
+    :body="project.description">
+    <div slot="header" class="project-header">
       <div class="project-name">
         <a :href="project.html_url" target="_blank" :title="project.full_name">{{project.name}}</a>
       </div>
@@ -11,38 +13,35 @@
         {{project.stargazers_count}} ★
       </div>
       <div class="project-owner-avatar">
-        <!-- TODO move to a separate component -->
-        <div class="owner-profile">
-          <img :src="project.owner.avatar_url" alt="Project owner avatar" :title="project.owner.login" />
-        </div>
+        <avatar size="sm" :src="project.owner.avatar_url"></avatar>
       </div>
     </div>
-    <div class="project-body">
-      <p>
-        {{project.description}}
-      </p>
+    <div class="project-footer" slot="footer">
+      <div class="metadata">
+        <select v-model="currentTech">
+          <option>Choose one</option>
+          <option :value="tech" v-for="tech in techs" :disabled="!tech.active">{{tech.name}}</option>
+        </select>
+        <select v-model="currentTech.category" v-if="currentTech.name">
+          <option>Choose one</option>
+          <option :value="category" v-for="category in currentTech.categories">{{category}}</option>
+        </select>
+      </div>
+      <div class="actions">
+        <button type="button" name="button" @click="addProject">Add</button>
+      </div>
     </div>
-    <div class="metadata">
-      <select v-model="currentTech">
-        <option>Choose one</option>
-        <option :value="tech" v-for="tech in techs" :disabled="!tech.active">{{tech.name}}</option>
-      </select>
-      <select v-model="currentTech.category" v-if="currentTech.name">
-        <option>Choose one</option>
-        <option :value="category" v-for="category in currentTech.categories">{{category}}</option>
-      </select>
-    </div>
-    <div class="actions">
-      <button type="button" name="button" @click="addProject">Add</button>
-    </div>
-  </div>
+  </card>
 </template>
 
 <script>
+import Card from 'src/components/Shared/card'
+import Avatar from 'src/components/Shared/avatar'
 import {project as ProjectMapper} from 'src/helpers/store'
 import { mapGetters } from 'vuex'
 
 export default {
+  name: 'ProjectPreview',
   props: {
     project: {
       type: Object,
@@ -65,49 +64,27 @@ export default {
       })
     }
   },
-  components: {}
+  components: {
+    Card,
+    Avatar
+  }
 }
 </script>
 
 <style lang="stylus">
-  .project-preview {
-    display: flex
-    min-height: 150px
-    width: 80%
-    flex-direction: column
-    border: 1px solid rgb(168, 168, 168)
-    margin-bottom: 30px
-    padding: 10px
-    cursor: pointer
-    .project-header {
-      display: flex
-      flex-direction: row
-      justify-content: space-between
-      align-items: center
-      .project-name {
-        a {
-          text-decoration: none
-          color: rgb(134, 134, 134)
-          &:visited {
-            color: rgb(132, 5, 219)
-          }
-        }
+.project-header {
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+  .project-name {
+    a {
+      text-decoration: none
+      color: rgb(134, 134, 134)
+      &:visited {
+        color: rgb(132, 5, 219)
       }
     }
-    .project-body {
-      display: flex
-      margin: 20px 0 5px 0
-    }
   }
-  .project-info {
-    display: flex
-    flex-direction: row
-  }
-  .owner-profile {
-    img {
-      max-width: 40px
-      max-height: 40px
-      border-radius: 50%
-    }
-  }
+}
 </style>
