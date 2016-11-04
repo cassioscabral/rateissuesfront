@@ -1,47 +1,41 @@
 <template>
-<div class="explore">
-  <div>
-    <h1>Search for projects</h1>
+<div class="explore columns centered">
+  <div class="column col-12">
 
-    <input type="text" @change="findProjects">
+    <div class="search-section text-center">
+      <h1>Search for projects</h1>
 
-    <div class="refine-search">
-      Refine
+      <input type="text" @change="findProjects">
+
+      <div class="refine-search">
+        Refine
+      </div>
+      <div class="projects">
+        Project results
+      </div>
     </div>
-    <div class="projects">
-      Project results
+
+    <div class="columns cards all-projects">
+      <card
+        v-for="project in projects"
+        :col-size="3"
+        :title="project.name"
+        :meta="project.full_name"
+        :body="project.description">
+          <avatar slot="avatar" size="sm" :src="project.owner.avatar_url"></avatar>
+      </card>
     </div>
   </div>
-
-  <div class="cards all-projects">
-    <card
-      v-for="project in projects"
-      :header="project.name"
-      :body="project.description"
-      :footer="project.language"
-      :header-image="project.owner.avatar_url">
-    </card>
-  </div>
-
-  <!-- <div class="filters">
-    Filters
-  </div>
-
-  <section class="trending-section">
-    <h4>Trending</h4>
-  </section>
-
-  <section class="recent-section">
-    <h4>Recent</h4>
-  </section> -->
 </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import Card from 'src/components/Shared/card'
+import Avatar from 'src/components/Shared/avatar'
 
 export default {
+  name: 'explorePage',
   data () {
     return {}
   },
@@ -55,18 +49,14 @@ export default {
     ... mapActions(['findProjects'])
   },
   components: {
-    Card
+    Card,
+    Avatar
   }
 }
 </script>
 
 <style lang="stylus" scoped>
-.explore {
-  padding: 20px 0
-}
 .cards {
-  display: flex
-  justify-content: space-around
-  align-items: center
+  flex-wrap: wrap
 }
 </style>
