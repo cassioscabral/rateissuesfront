@@ -23,13 +23,13 @@
       </p>
     </div>
     <div class="metadata">
-      <select v-model="tecnology.name">
+      <select v-model="currentTech">
         <option>Choose one</option>
-        <option :value="tech.name" v-for="tech in techs" :disabled="!tech.active">{{tech.name}}</option>
+        <option :value="tech" v-for="tech in techs" :disabled="!tech.active">{{tech.name}}</option>
       </select>
-      <select v-model="tecnology.category" v-if="tecnology.name">
+      <select v-model="currentTech.category" v-if="currentTech.name">
         <option>Choose one</option>
-        <option :value="category" v-for="category in currentTecnology.categories">{{category}}</option>
+        <option :value="category" v-for="category in currentTech.categories">{{category}}</option>
       </select>
     </div>
     <div class="actions">
@@ -51,23 +51,17 @@ export default {
   },
   data () {
     return {
-      tecnology: {
-        name:'',
-        category:''
-      }
+      currentTech: {}
     }
   },
   computed: {
-    ... mapGetters(['techs']),
-    currentTecnology() {
-      return this.techs.find((tech) => tech.name === this.tecnology.name)
-    }
+    ... mapGetters(['techs'])
   },
   methods: {
     addProject () {
       ProjectMapper.create({
         ... this.project,
-        tech: this.tecnology
+        tech: this.currentTech
       })
     }
   },
