@@ -22,6 +22,16 @@
         {{project.description}}
       </p>
     </div>
+    <div class="metadata">
+      <select v-model="currentTech">
+        <option>Choose one</option>
+        <option :value="tech" v-for="tech in techs" :disabled="!tech.active">{{tech.name}}</option>
+      </select>
+      <select v-model="currentTech.category" v-if="currentTech.name">
+        <option>Choose one</option>
+        <option :value="category" v-for="category in currentTech.categories">{{category}}</option>
+      </select>
+    </div>
     <div class="actions">
       <button type="button" name="button" @click="addProject">Add</button>
     </div>
@@ -30,6 +40,7 @@
 
 <script>
 import {project as ProjectMapper} from 'src/helpers/store'
+import { mapGetters } from 'vuex'
 
 export default {
   props: {
@@ -40,13 +51,18 @@ export default {
   },
   data () {
     return {
+      currentTech: {}
     }
   },
-  computed: {},
+  computed: {
+    ... mapGetters(['techs'])
+  },
   methods: {
     addProject () {
-      ProjectMapper.create(this.project)
-      .then(response => { console.log('Response', response )})
+      ProjectMapper.create({
+        ... this.project,
+        tech: this.currentTech
+      })
     }
   },
   components: {}

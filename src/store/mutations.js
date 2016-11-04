@@ -3,3 +3,6 @@ export const REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER'
 
 export const ADD_PROJECTS = 'ADD_PROJECTS'
 export const REMOVE_PROJECTS = 'REMOVE_PROJECTS'
+
+export const ADD_TECHS = 'ADD_TECHS'
+export const REMOVE_TECHS = 'REMOVE_TECHS'

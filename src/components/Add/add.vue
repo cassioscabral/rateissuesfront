@@ -26,12 +26,14 @@ export default {
   data () {
     return {}
   },
-  created () {},
+  created () {
+    this.findTechs()
+  },
   computed: {
     ... mapGetters(['repositories']),
   },
   methods: {
-    ... mapActions(['githubSearch'])
+    ... mapActions(['githubSearch', 'findTechs'])
   },
   components: {
     ProjectPreview
