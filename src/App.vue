@@ -9,6 +9,7 @@
 
 <script>
 import 'src/assets/utilities.scss'
+
 import Navigation from 'components/Navigation/navigation'
 import { mapActions } from 'vuex'
 import Store from 'src/store/index'
@@ -30,6 +31,14 @@ export default {
   }
 }
 </script>
+
+<style lang="less">
+// spectre override
+@import '~spectre/spectre.less';
+@core-color: #5764c6;
+@body-font-color: hotpink;
+
+</style>
 
 <style>
 @import 'reset.css';
