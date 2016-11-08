@@ -30,7 +30,7 @@ export default {
     this.findTechs()
   },
   computed: {
-    ... mapGetters(['repositories']),
+    ... mapGetters(['repositories','projectsFilteredById']),
   },
   methods: {
     ... mapActions(['githubSearch', 'findTechs'])
