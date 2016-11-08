@@ -15,7 +15,6 @@
 
     </project-preview>
   </div>
-  {{projectsFilteredById}}
 </div>
 </template>
 
