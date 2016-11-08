@@ -9,7 +9,7 @@ export default {
   state: {
     projects: [],
     projectsFilteredById: {
-      query:[],
+      query:{},
       data:{}
     }
   },
@@ -47,7 +47,7 @@ export default {
         query.where = {id:{in: ids}}
       }
       ProjectMapper.findAll(query).then(projects => {
-        commit(ADD_PROJECTS_FILTERED_BY_ID, {query: ids, projects})
+        commit(ADD_PROJECTS_FILTERED_BY_ID, {query, projects})
       })
     },
     findProjects ({commit}, input) {
