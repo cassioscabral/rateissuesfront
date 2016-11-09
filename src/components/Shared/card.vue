@@ -12,6 +12,8 @@
     <div class="content">
       {{body}}
     </div>
+    <slot name="footer">
+    </slot>
   </div>
 </div>
 </template>
