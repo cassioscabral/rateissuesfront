@@ -15,6 +15,7 @@
     <div class="columns is-multiline">
       <div class="column" v-for="project in projects">
         <card
+          class="card"
           :title="project.name"
           :meta="project.full_name"
           :body="project.description">
@@ -66,6 +67,9 @@ export default {
   .title {
     margin-bottom: 2.2rem;
   }
+}
+.card {
+  margin: 0 auto;
 }
 .input {
   $primary-color: white;
