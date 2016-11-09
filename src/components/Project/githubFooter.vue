@@ -58,7 +58,7 @@ export default {
       let tech = {}
       ProjectMapper.create({
         ... this.project,
-        tech: Object.assign(this.currentTech.tech, {category:this.currentTech.category})
+        tech:{category:this.currentTech.category, name:this.currentTech.tech.name}
       })
     }
   },
