@@ -19,9 +19,6 @@
         <router-link class="nav-item" to="/explore">
           <a>Explore</a>
         </router-link>
-        <a class="nav-item">
-          Documentation
-        </a>
         <span class="nav-item">
           <a v-show="!hasUser" class="button is-primary" @click="login">login</a>
           <a class="nav-item" v-show="hasUser">
