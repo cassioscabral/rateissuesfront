@@ -34,23 +34,11 @@ export default {
 </script>
 
 <style lang="sass">
-@import '~bulma/sass/utilities/functions.sass';
-@import '~bulma/sass/utilities/variables.sass';
-@import '~bulma/sass/utilities/mixins.sass';
-@import '~bulma/sass/utilities/controls.sass';
-// bulma override
-// $body-background: black;
-
-@import '~bulma/sass/base/_all';
-@import '~bulma/sass/elements/_all';
-@import '~bulma/sass/components/_all';
-@import '~bulma/sass/grid/_all';
-@import '~bulma/sass/layout/_all';
+$body-background: black;
+@import '~bulma';
 </style>
 
 <style>
-@import 'reset.css';
-
 html, body {
   height: 100%;
 }
