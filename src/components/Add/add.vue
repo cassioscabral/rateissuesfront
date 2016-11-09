@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import ProjectPreview from 'src/components/Project/projectPreview2'
+import ProjectPreview from 'src/components/Project/projectPreview'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
