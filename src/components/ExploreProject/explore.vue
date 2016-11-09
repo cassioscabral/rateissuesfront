@@ -1,31 +1,35 @@
 <template>
 <div class="container main-container">
 
-<div class="">
-  <h1 class="title has-text-centered">Search for projects</h1>
-  <input class="input" type="text" placeholder="Name of project" @change="findProjects">
-</div>
+  <div class="container has-text-centered">
+    <h1 class="title">
+      Search for projects
+    </h1>
+    <h2 class="subtitle">
+      <input class="input" type="text" placeholder="Name of project" @change="findProjects">
+    </h2>
+  </div>
 
-<div class="container main-container">
-  <h1 class="title has-text-centered">Project results</h1>
-  <div class="columns is-multiline">
-    <div class="column" v-for="project in projects">
-      <card
-      :title="project.name"
-      :meta="project.full_name"
-      :body="project.description">
+  <div class="container main-container">
+    <h1 class="title has-text-centered">Project results</h1>
+    <div class="columns is-multiline">
+      <div class="column" v-for="project in projects">
+        <card
+        :title="project.name"
+        :meta="project.full_name"
+        :body="project.description">
 
-      <ProjectHeader
-      slot="header"
-      :avatar="project.owner.avatar_url"
-      :homepage="project.homepage"
-      :githubpage="project.html_url"
-      :name="project.name"
-      :userName="project.owner.login" />
-      </card>
+        <ProjectHeader
+        slot="header"
+        :avatar="project.owner.avatar_url"
+        :homepage="project.homepage"
+        :githubpage="project.html_url"
+        :name="project.name"
+        :userName="project.owner.login" />
+        </card>
+      </div>
     </div>
   </div>
-</div>
 
 </div>
 </template>

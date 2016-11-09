@@ -7,7 +7,7 @@
   </div>
   <div class="media-content">
     <p class="title is-5">
-      <a :href="homepage || githubpage">{{name}}</a>
+      <strong><a :href="homepage || githubpage">{{name}}</a></strong>
     </p>
     <p class="subtitle is-6">{{userName}}</p>
   </div>
@@ -42,5 +42,12 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
+@import "~bulma/sass/utilities/variables";
+.media-content {
+  p {
+    color: darken($primary, 10%) !important;
+  }
+
+}
 </style>

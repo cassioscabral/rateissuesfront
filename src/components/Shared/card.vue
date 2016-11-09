@@ -41,5 +41,12 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
+@import "~bulma/sass/utilities/variables";
+.media-content {
+  color: $green;
+}
+.content {
+  color: $primary;
+}
 </style>

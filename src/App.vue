@@ -1,10 +1,31 @@
 <template>
-<div id="app">
+<section id="app" class="hero is-primary is-medium is-bold">
+  <!-- Hero header: will stick at the top -->
   <navigation></navigation>
-  <div class="container">
-    <router-view></router-view>
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <router-view></router-view>
+    </div>
   </div>
-</div>
+
+  <!-- Hero footer: will stick at the bottom -->
+  <div class="hero-foot">
+    <nav class="tabs">
+      <div class="container">
+        <ul>
+          <li class="is-active"><a>Overview</a></li>
+          <li><a>Modifiers</a></li>
+          <li><a>Grid</a></li>
+          <li><a>Elements</a></li>
+          <li><a>Components</a></li>
+          <li><a>Layout</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>
 </template>
 
 <script>
@@ -35,6 +56,11 @@ export default {
 
 <style lang="sass">
 // $body-background: black;
+// @import "~bulma/sass/utilities/variables";
+// @import '~bulma/sass/utilities/functions.sass';
+// @import '~bulma/sass/utilities/variables.sass';
+// @import '~bulma/sass/utilities/mixins.sass';
+// @import '~bulma/sass/utilities/controls.sass';
 @import '~bulma';
 </style>
 
@@ -44,6 +70,7 @@ html, body {
 }
 body {
   height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
 .main-container{
