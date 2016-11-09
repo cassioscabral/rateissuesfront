@@ -61,6 +61,7 @@ export default {
 // @import '~bulma/sass/utilities/mixins.sass';
 // @import '~bulma/sass/utilities/controls.sass';
 @import '~bulma';
+@import '~font-awesome/css/font-awesome.min.css'
 </style>
 
 <style>

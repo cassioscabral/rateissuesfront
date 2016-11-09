@@ -6,6 +6,7 @@
 
   <GithubtHeader
     slot="header"
+    :isSaved="isSaved"
     :avatar="project.owner.avatar_url"
     :homepage="project.homepage"
     :githubpage="project.html_url"
