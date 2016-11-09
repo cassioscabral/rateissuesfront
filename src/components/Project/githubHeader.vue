@@ -1,26 +1,24 @@
 <template>
 <div class="level">
-  <div class="media level-item has-text-centered">
+  <div class="media level-item has-text-centered media-content">
     <div class="media-left">
       <figure class="image is-32x32">
         <img :src="avatar" alt="User image">
       </figure>
     </div>
-    <div class="media-content">
-      <p class="title">
-        <a target="_blank" :href="homepage || githubpage">{{name}}</a>
-      </p>
-    </div>
+    <p class="title">
+      <a target="_blank" :href="homepage || githubpage">{{name}}</a>
+    </p>
   </div>
   <div class="level-item has-text-centered">
 
   </div>
-  <div class="level-item has-text-centered">
+  <div class="level-item has-text-centered media-content">
     <p class="title is-5">
       {{language}}
     </p>
   </div>
-  <div class="level-item has-text-centered">
+  <div class="level-item has-text-centered media-content">
     <p class="title is-5">
       {{stargazersCount}} ★
     </p>
@@ -59,5 +57,11 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
+@import "~bulma/sass/utilities/variables";
+.media-content {
+  p {
+    color: darken($primary, 10%) !important;
+  }
+}
 </style>

@@ -48,6 +48,5 @@ export default {
   p {
     color: darken($primary, 10%) !important;
   }
-
 }
 </style>
