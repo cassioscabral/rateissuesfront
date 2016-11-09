@@ -27,12 +27,9 @@ export default {
     },
     body: {
       type: String
-<<<<<<< HEAD
     },
     image: {
       type: String
-=======
->>>>>>> origin
     }
   },
   data () {
