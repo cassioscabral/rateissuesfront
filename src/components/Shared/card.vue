@@ -45,6 +45,9 @@ export default {
 
 <style lang="sass" scoped>
 @import "~bulma/sass/utilities/variables";
+.card{
+  height: 100%;
+}
 .media-content {
   color: $green;
 }
