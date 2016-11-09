@@ -41,11 +41,11 @@ export default {
   },
 
   actions: {
-    findProjectsByIds ({commit}, ids) {
+    findProjectsByIds ({commit}, payload) {
       let query = {}
-      if (ids) {
-        query.where = {id:{in: ids}}
-      }
+      let ids = payload.ids || []
+      query.where = {id:{in: ids}}
+
       ProjectMapper.findAll(query).then(projects => {
         commit(ADD_PROJECTS_FILTERED_BY_ID, {query, projects})
       })
