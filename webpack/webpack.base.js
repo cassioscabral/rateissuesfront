@@ -22,7 +22,7 @@ module.exports = {
       'src': path.resolve(__dirname, '../src'),
       'assets': path.resolve(__dirname, '../src/assets'),
       'components': path.resolve(__dirname, '../src/components'),
-      'spectre': path.join(__dirname, '../node_modules/spectre.css')
+      'bulma': path.join(__dirname, '../node_modules/bulma')
     }
   },
 

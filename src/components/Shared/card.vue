@@ -1,22 +1,16 @@
 <template>
-<div class="column col-xs-12" :class="colSizeClass">
-  <div class="card">
-    <div class="card-header">
-        <h4 class="card-title">{{title}} <slot name="avatar"></slot></h4>
-        <h6 class="card-meta">{{meta}}</h6>
-    </div>
-    <div class="card-image">
-        <img :src="image" class="img-responsive" />
-    </div>
-    <div class="card-body">
-        {{body}}
-    </div>
-    <div class="card-footer" v-if="footerButtons">
-        <button
-          v-for="button in footerButtons"
-          class="btn">
-          {{button}}
-        </button>
+<div class="card">
+  <div class="card-content">
+    <slot name="header">
+      <div class="media">
+        <div class="media-content">
+          <p class="title is-5">{{title}}</p>
+          <p class="subtitle is-6">{{meta}}</p>
+        </div>
+      </div>
+    </slot>
+    <div class="content">
+      {{body}}
     </div>
   </div>
 </div>
@@ -25,9 +19,6 @@
 <script>
 export default {
   props: {
-    colSize: {
-      type: Number
-    },
     title: {
       type: String
     },
@@ -36,30 +27,16 @@ export default {
     },
     body: {
       type: String
-    },
-    footerButtons: {
-      type: Array // of strings
-    },
-    image: {
-      type: String
     }
   },
   data () {
     return {}
   },
-  computed: {
-    colSizeClass () {
-      return `col-${this.colSize}`
-    }
-  },
+  computed: {},
   methods: {},
-  components: {
-  }
+  components: {}
 }
 </script>
 
 <style lang="stylus" scoped>
-.avatar {
-  float: right
-}
 </style>
