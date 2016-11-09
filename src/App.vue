@@ -34,7 +34,7 @@ export default {
 </script>
 
 <style lang="sass">
-$body-background: black;
+// $body-background: black;
 @import '~bulma';
 </style>
 
