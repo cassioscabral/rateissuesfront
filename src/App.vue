@@ -57,4 +57,8 @@ html, body {
 body {
   height: 100%;
 }
+
+.main-container{
+  margin-top: 50px;
+}
 </style>
