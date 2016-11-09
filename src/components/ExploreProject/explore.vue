@@ -11,7 +11,7 @@
   </div>
 
   <div class="container main-container projects">
-    <h1 class="title has-text-centered">Project results</h1>
+    <h1 class="title has-text-centered">Projects</h1>
     <div class="columns is-multiline">
       <div class="column" v-for="project in projects">
         <card
@@ -68,7 +68,7 @@ export default {
   }
 }
 .input {
-  $primary-color: #4a6540;
+  $primary-color: white;
   $placeholder-color: darken($primary-color, 10%);
   width: 40%;
   background-color: rgba(255, 255, 255, 0.4);

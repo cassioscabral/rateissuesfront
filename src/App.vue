@@ -16,11 +16,10 @@
       <div class="container">
         <ul>
           <li class="is-active"><a>Overview</a></li>
-          <li><a>Modifiers</a></li>
-          <li><a>Grid</a></li>
-          <li><a>Elements</a></li>
-          <li><a>Components</a></li>
-          <li><a>Layout</a></li>
+          <li><a>About</a></li>
+          <li><a>Github</a></li>
+          <li><a>FAQ</a></li>
+          <li><a>Want to help?</a></li>
         </ul>
       </div>
     </nav>
