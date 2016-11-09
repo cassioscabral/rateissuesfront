@@ -8,10 +8,12 @@
 
 <div class="container main-container">
   <h1 class="title has-text-centered" v-show="repositories.length > 0">Results</h1>
-  <div class="columns is-multiline" v-for="result in repositories">
-    <project-preview
-    class="column is-8 is-offset-2"
-    :project="result" />
+  <div class="columns" v-for="result in repositories">
+    <div class="column is-8 is-offset-2">
+      <project-preview
+      class="is-fullwidth"
+      :project="result" />
+    </div>
   </div>
 </div>
 
