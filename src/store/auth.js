@@ -1,5 +1,5 @@
 import {firebase} from '../helpers/adapter.js'
-import {ADD_CURRENT_USER, REMOVE_CURRENT_USER} from './mutations.js'
+import {ADD_CURRENT_USER} from './mutations.js'
 
 let _firebaseErrorHandler = (error) => {
   let code = error.code
@@ -30,10 +30,6 @@ export default {
     [ADD_CURRENT_USER] (state, payload) {
       state.currentUser = payload.currentUser
       state.accessToken = payload.accessToken
-    },
-    [REMOVE_CURRENT_USER] (state) {
-      state.currentUser = {}
-      state.accessToken = ''
     }
   },
 
@@ -60,7 +56,9 @@ export default {
         window.localStorage.setItem('GITHUB_TOKEN_KEY', data.credential.accessToken)
       })
     },
-    logout () {
+    logout ({commit}) {
+      commit(ADD_CURRENT_USER, {currentUser:{}, accessToken:''})
+      
       firebase.auth()
       .signOut()
       .catch(_firebaseErrorHandler)
