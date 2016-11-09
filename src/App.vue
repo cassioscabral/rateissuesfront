@@ -71,7 +71,9 @@ body {
   height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
-
+.hero {
+  min-height: 100%;
+}
 .main-container{
   margin-top: 50px;
 }
