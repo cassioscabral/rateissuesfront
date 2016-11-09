@@ -1,38 +1,39 @@
 <template>
-<div class="explore columns centered">
-  <div class="column col-12">
+<div class="container main-container">
 
-    <div class="search-section text-center">
-      <h1>Search for projects</h1>
+<div class="">
+  <h1 class="title has-text-centered">Search for projects</h1>
+  <input class="input" type="text" placeholder="Name of project" @change="findProjects">
+</div>
 
-      <input type="text" @change="findProjects">
-
-      <div class="refine-search">
-        Refine
-      </div>
-      <div class="projects">
-        Project results
-      </div>
-    </div>
-
-    <div class="columns cards all-projects">
+<div class="container main-container">
+  <h1 class="title has-text-centered">Project results</h1>
+  <div class="columns is-multiline">
+    <div class="column" v-for="project in projects">
       <card
-        v-for="project in projects"
-        :col-size="3"
-        :title="project.name"
-        :meta="project.full_name"
-        :body="project.description">
-          <avatar slot="avatar" size="sm" :src="project.owner.avatar_url"></avatar>
+      :title="project.name"
+      :meta="project.full_name"
+      :body="project.description">
+
+      <ProjectHeader
+      slot="header"
+      :avatar="project.owner.avatar_url"
+      :homepage="project.homepage"
+      :githubpage="project.html_url"
+      :name="project.name"
+      :userName="project.owner.login" />
       </card>
     </div>
   </div>
+</div>
+
 </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import Card from 'src/components/Shared/card'
-import Avatar from 'src/components/Shared/avatar'
+import ProjectHeader from 'src/components/Project/projectHeader'
 
 export default {
   name: 'explorePage',
@@ -50,13 +51,10 @@ export default {
   },
   components: {
     Card,
-    Avatar
+    ProjectHeader
   }
 }
 </script>
 
 <style lang="stylus" scoped>
-.cards {
-  flex-wrap: wrap
-}
 </style>

@@ -1,22 +1,16 @@
 <template>
-<div class="column col-xs-12" :class="colSizeClass">
-  <div class="card">
-    <div class="card-header">
-      <slot name="header">
-        <slot>
-          <h4 class="card-title">{{title}} <slot name="avatar"></slot></h4>
-          <h6 class="card-meta">{{meta}}</h6>
-        </slot>
-      </slot>
-    </div>
-    <div class="card-image">
-      <img :src="image" class="img-responsive" />
-    </div>
-    <div class="card-body">
+<div class="card">
+  <div class="card-content">
+    <slot name="header">
+      <div class="media">
+        <div class="media-content">
+          <p class="title is-5">{{title}}</p>
+          <p class="subtitle is-6">{{meta}}</p>
+        </div>
+      </div>
+    </slot>
+    <div class="content">
       {{body}}
-    </div>
-    <div class="card-footer">
-      <slot name="footer"></slot>
     </div>
   </div>
 </div>
@@ -25,9 +19,6 @@
 <script>
 export default {
   props: {
-    colSize: {
-      type: Number
-    },
     title: {
       type: String
     },
@@ -36,27 +27,22 @@ export default {
     },
     body: {
       type: String
+<<<<<<< HEAD
     },
     image: {
       type: String
+=======
+>>>>>>> origin
     }
   },
   data () {
     return {}
   },
-  computed: {
-    colSizeClass () {
-      return `col-${this.colSize}`
-    }
-  },
+  computed: {},
   methods: {},
-  components: {
-  }
+  components: {}
 }
 </script>
 
 <style lang="stylus" scoped>
-.avatar {
-  float: right
-}
 </style>
