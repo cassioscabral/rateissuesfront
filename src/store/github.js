@@ -40,7 +40,7 @@ export default {
       dispatch('githubUpdateProjects')
     },
     githubUpdateProjects ({dispatch, state}){
-      let ids = state.repositories.map(data => data.id) || []
+      let ids = Object.keys(state.repositories).map(key => Number(key))
       dispatch('findProjectsByIds', {ids})
     }
 

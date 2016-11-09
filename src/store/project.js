@@ -1,9 +1,7 @@
 import {project as ProjectMapper} from 'src/helpers/store'
 import {
   ADD_PROJECTS,
-  REMOVE_PROJECTS,
-  ADD_PROJECTS_FILTERED_BY_ID,
-  REMOVE_PROJECTS_FILTERED_BY_ID} from './mutations.js'
+  ADD_PROJECTS_FILTERED_BY_ID} from './mutations.js'
 
 export default {
   state: {
@@ -15,23 +13,18 @@ export default {
   },
 
   mutations:{
-    [ADD_PROJECTS] (state, projects) {
-      state.projects = projects
-    },
-    [REMOVE_PROJECTS] (state) {
-      state.projects = []
+    [ADD_PROJECTS] (state, payload) {
+      state.projects = payload.projects
     },
     [ADD_PROJECTS_FILTERED_BY_ID] (state, payload) {
+      let projects = payload.projects.reduce((previous, current) => {
+        previous[current.id] = {...current}
+        return previous
+      },{})
       state.projectsFilteredById = {
         query: payload.query,
-        data: payload.projects.reduce((previous, current) => {
-          previous[current.id] = current
-          return previous
-        },{})
+        data: projects
       }
-    },
-    [REMOVE_PROJECTS_FILTERED_BY_ID] (state) {
-      state.projectsFilteredById = []
     }
   },
 
@@ -56,7 +49,7 @@ export default {
         query.where = {full_name:{contains: input.target.value}}
       }
       ProjectMapper.findAll(query).then(projects => {
-        commit(ADD_PROJECTS, projects)
+        commit(ADD_PROJECTS, {projects})
       })
     }
   }
