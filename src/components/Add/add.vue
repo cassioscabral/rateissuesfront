@@ -12,6 +12,7 @@
     <div class="column is-8 is-offset-2">
       <project-preview
       class="is-fullwidth"
+      :isSaved="!!projectsFilteredById.data[result.id]"
       :project="result" />
     </div>
   </div>

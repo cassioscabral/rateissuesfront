@@ -1,5 +1,5 @@
 import {tech as TechMapper} from 'src/helpers/store'
-import {ADD_TECHS, REMOVE_TECHS} from './mutations.js'
+import {ADD_TECHS} from './mutations.js'
 
 export default {
   state: {
@@ -9,9 +9,6 @@ export default {
   mutations:{
     [ADD_TECHS] (state, techs) {
       state.techs = techs
-    },
-    [REMOVE_TECHS] (state) {
-      state.techs = []
     }
   },
 

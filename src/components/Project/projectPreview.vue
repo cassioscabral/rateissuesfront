@@ -6,6 +6,7 @@
 
   <GithubtHeader
     slot="header"
+    :isSaved="isSaved"
     :avatar="project.owner.avatar_url"
     :homepage="project.homepage"
     :githubpage="project.html_url"
@@ -15,6 +16,7 @@
 
   <GithubtFooter
     slot="footer"
+    v-show="!isSaved"
     :techs="techs"
     :project="project"/>
 </card>
@@ -29,6 +31,9 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'ProjectPreview',
   props: {
+    isSaved: {
+      type: Boolean
+    },
     project: {
       type: Object,
       required: true

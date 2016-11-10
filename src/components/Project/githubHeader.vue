@@ -1,6 +1,6 @@
 <template>
-<div class="level">
-  <div class="media level-item has-text-centered media-content">
+<div class="level media-content">
+  <div class="level-left">
     <div class="media-left">
       <figure class="image is-32x32">
         <img :src="avatar" alt="User image">
@@ -10,18 +10,21 @@
       <a target="_blank" :href="homepage || githubpage">{{name}}</a>
     </p>
   </div>
-  <div class="level-item has-text-centered">
 
-  </div>
-  <div class="level-item has-text-centered media-content">
-    <p class="title is-5">
-      {{language}}
-    </p>
-  </div>
-  <div class="level-item has-text-centered media-content">
-    <p class="title is-5">
-      {{stargazersCount}} ★
-    </p>
+  <div class="level-right">
+    <div class="level-item">
+      <p class="title is-5">
+        {{language}}
+      </p>
+    </div>
+    <div class="level-item">
+      <p class="title is-5">
+        {{stargazersCount}} ★
+      </p>
+    </div>
+    <div class="level-item">
+      <i class="fa fa-check-circle" aria-hidden="true" v-show="isSaved"></i>
+    </div>
   </div>
 </div>
 </template>
@@ -29,6 +32,9 @@
 <script>
 export default {
   props: {
+    isSaved: {
+      type: Boolean
+    },
     avatar: {
       type: String
     },
