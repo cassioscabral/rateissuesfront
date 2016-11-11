@@ -2,18 +2,30 @@
 <div class="level">
   <div class="level-item has-text-centered">
     <span class="select">
-     <select v-model="currentTech.tech">
-       <option>Choose one</option>
-       <option :value="tech" v-for="tech in techs" :disabled="!tech.active">{{tech.name}}</option>
+     <select v-model="tech">
+       <option :value="{}">Choose one</option>
+       <option
+          v-for="tech in techs"
+          :value="tech"
+          :disabled="!tech.active">
+          {{tech.name}}
+        </option>
      </select>
    </span>
   </div>
 
-  <div class="level-item has-text-centered">
+  <div class="level-item has-text-centered" v-show="hasTechSelected">
     <span class="select">
-      <select v-model="currentTech.category" :class="{'is-disabled':!currentTech.tech.name}">
-        <option>Choose one</option>
-        <option :value="category" v-for="category in currentTech.tech.categories">{{category}}</option>
+      <select
+        v-model="category"
+        :class="{'is-disabled': !hasTechSelected}">
+        <!-- empty string will reset the category -->
+        <option :value="''">Choose one</option>
+        <option
+          v-for="category in tech.categories"
+          :value="category">
+          {{category}}
+        </option>
       </select>
     </span>
   </div>
@@ -23,7 +35,7 @@
       class="button is-primary"
       type="button"
       @click="addProject"
-      :class="{'is-disabled':currentTech.category === 'Choose one' || !currentTech.category}">
+      :class="{'is-disabled': !category}">
       Add
     </button>
   </div>
@@ -32,6 +44,7 @@
 
 <script>
 import {project as ProjectMapper} from 'src/helpers/store'
+import {isEmpty} from 'lodash'
 
 export default {
   props: {
@@ -46,25 +59,23 @@ export default {
   },
   data () {
     return {
-      currentTech: {
-        tech:{},
-        category: ''
-      }
+      tech:{},
+      category: ''
     }
   },
-  computed: {},
+  computed: {
+    hasTechSelected () {
+      return !isEmpty(this.tech)
+    }
+  },
   methods: {
     addProject () {
-      let tech = {}
       ProjectMapper.create({
-        ... this.project,
-        tech:{category:this.currentTech.category, name:this.currentTech.tech.name}
+        ...this.project,
+        tech: {category: this.category, name: this.tech.name}
       })
     }
   },
   components: {}
 }
 </script>
-
-<style lang="stylus" scoped>
-</style>
