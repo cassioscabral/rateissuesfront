@@ -23,7 +23,10 @@
       </p>
     </div>
     <div class="level-item">
-      <i class="fa fa-check-circle" aria-hidden="true" v-show="isSaved"></i>
+      <span class="hint--bottom" aria-label="Project added">
+        <i class="fa fa-check-circle" aria-hidden="true" v-show="isSaved">
+        </i>
+      </span>
     </div>
   </div>
 </div>
