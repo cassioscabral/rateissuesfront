@@ -1,10 +1,11 @@
 <template>
 <div class="container main-container">
 
-<div>
-  <h1 class="title has-text-centered">Add a project</h1>
-  <input class="input" type="text" placeholder="rateissues" @change="githubSearch">
-</div>
+<centered-input
+  title="Add a project"
+  :input-handler="githubSearch"
+  input-placeholder="rateissues">
+</centered-input>
 
 <div class="container main-container">
   <h1 class="title has-text-centered" v-show="repositories.length > 0">Results</h1>
@@ -24,6 +25,7 @@
 <script>
 import ProjectPreview from 'src/components/Project/projectPreview'
 import { mapActions, mapGetters } from 'vuex'
+import CenteredInput from 'src/components/Shared/centeredInput'
 
 export default {
   data () {
@@ -39,7 +41,8 @@ export default {
     ... mapActions(['githubSearch', 'findTechs'])
   },
   components: {
-    ProjectPreview
+    ProjectPreview,
+    CenteredInput
   }
 }
 </script>

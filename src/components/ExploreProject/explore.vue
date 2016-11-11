@@ -1,14 +1,11 @@
 <template>
 <div class="container main-container">
 
-  <div class="container has-text-centered">
-    <h1 class="title">
-      Explore
-    </h1>
-    <h2 class="subtitle">
-      <input class="input" type="text" placeholder="Search projects" @change="findProjects">
-    </h2>
-  </div>
+  <centered-input
+    title="Explore"
+    :input-handler="findProjects"
+    input-placeholder="Search projects">
+  </centered-input>
 
   <div class="container main-container projects">
     <h1 class="title has-text-centered">Projects</h1>
@@ -39,6 +36,7 @@
 import { mapActions, mapGetters } from 'vuex'
 import Card from 'src/components/Shared/card'
 import ProjectHeader from 'src/components/Project/projectHeader'
+import CenteredInput from 'src/components/Shared/centeredInput'
 
 export default {
   name: 'explorePage',
@@ -56,7 +54,8 @@ export default {
   },
   components: {
     Card,
-    ProjectHeader
+    ProjectHeader,
+    CenteredInput
   }
 }
 </script>
@@ -70,32 +69,5 @@ export default {
 }
 .card {
   margin: 0 auto;
-}
-.input {
-  $primary-color: white;
-  $placeholder-color: darken($primary-color, 10%);
-  width: 40%;
-  background-color: rgba(255, 255, 255, 0.4);
-  color: $primary-color;
-  margin: 6rem;
-  font-size: 1.6rem;
-  text-align: center;
-  height: 3rem;
-
-  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: $placeholder-color;
-  }
-  &::-moz-placeholder { /* Firefox 19+ */
-    color: $placeholder-color;
-  }
-  &:-ms-input-placeholder { /* IE 10+ */
-    color: $placeholder-color;
-  }
-  &:-moz-placeholder { /* Firefox 18- */
-    color: $placeholder-color;
-  }
-  &:-moz-placeholder { /* Firefox 18- */
-    color: $placeholder-color;
-  }
 }
 </style>
