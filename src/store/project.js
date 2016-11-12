@@ -2,7 +2,8 @@ import {project as ProjectMapper} from 'src/helpers/store'
 import {
   ADD_PROJECTS,
   ADD_PROJECTS_FILTERED_BY_ID,
-  ADD_PROJECT
+  ADD_PROJECT,
+  PROJECTS_FETCHING
 } from './mutations.js'
 
 export default {
@@ -11,7 +12,9 @@ export default {
     projectsFilteredById: {
       query:{},
       data:{}
-    }
+    },
+    // keys are project IDs with Boolean values. Ex.: {'projectId': true}
+    projectsFetching: {}
   },
 
   mutations:{
@@ -26,12 +29,16 @@ export default {
     },
     [ADD_PROJECT] (state, {project}) {
       state.projects = [...state.projects, project]
+    },
+    [PROJECTS_FETCHING] (state, {projectsFetching}) {
+      state.projectsFetching = projectsFetching
     }
   },
 
   getters: {
     projects: (state) => state.projects,
-    projectsFilteredById: (state) => state.projectsFilteredById
+    projectsFilteredById: (state) => state.projectsFilteredById,
+    projectsFetching: (state) => state.projectsFetching
   },
 
   actions: {
@@ -58,7 +65,11 @@ export default {
       })
     },
     async addProject ({commit, state}, project) {
+      let projectId = `${project.id}`
       try {
+        commit(PROJECTS_FETCHING, {
+          projectsFetching: {...state.projectsFetching, [projectId]: true}
+        })
         let newProject = await ProjectMapper.create({
           ...project
         })
@@ -75,6 +86,10 @@ export default {
         })
       } catch (err) {
         console.error(err)
+      } finally {
+        commit(PROJECTS_FETCHING, {
+          projectsFetching: {...state.projectsFetching, [projectId]: false}
+        })
       }
     }
   }

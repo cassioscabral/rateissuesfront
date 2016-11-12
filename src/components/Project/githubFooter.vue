@@ -33,9 +33,12 @@
   <div class="level-item has-text-centered">
     <button
       class="button is-primary"
+      :class="{
+        'is-disabled': !category,
+        'is-loading': projectIsFetching
+      }"
       type="button"
-      @click="submitProject"
-      :class="{'is-disabled': !category}">
+      @click="submitProject">
       Add
     </button>
   </div>
@@ -44,7 +47,7 @@
 
 <script>
 import {project as ProjectMapper} from 'src/helpers/store'
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import {isEmpty} from 'lodash'
 
 export default {
@@ -65,8 +68,12 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(['projectsFetching']),
     hasTechSelected () {
       return !isEmpty(this.tech)
+    },
+    projectIsFetching () {
+      return this.projectsFetching[this.project.id] || false
     }
   },
   methods: {
