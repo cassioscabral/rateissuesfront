@@ -23,8 +23,9 @@
         <option :value="''">Category</option>
         <option
           v-for="category in tech.categories"
-          :value="category">
-          {{category}}
+          :disabled="!category.active"
+          :value="category.name">
+          {{category.name}}
         </option>
       </select>
     </span>
