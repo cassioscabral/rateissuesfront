@@ -81,7 +81,7 @@ module.exports = {
 
   babel: {
     presets: ['es2015'],
-    plugins: ['transform-object-rest-spread','transform-runtime']
+    plugins: ['transform-object-rest-spread','transform-runtime', 'transform-async-to-generator']
   },
 
   eslint: {
