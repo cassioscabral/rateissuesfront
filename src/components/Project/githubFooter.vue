@@ -3,7 +3,7 @@
   <div class="level-item has-text-centered">
     <span class="select">
      <select v-model="tech">
-       <option :value="{}">Choose one</option>
+       <option :value="{}">Tech</option>
        <option
           v-for="tech in techs"
           :value="tech"
@@ -20,7 +20,7 @@
         v-model="category"
         :class="{'is-disabled': !hasTechSelected}">
         <!-- empty string will reset the category -->
-        <option :value="''">Choose one</option>
+        <option :value="''">Category</option>
         <option
           v-for="category in tech.categories"
           :value="category">
@@ -34,7 +34,7 @@
     <button
       class="button is-primary"
       type="button"
-      @click="addProject"
+      @click="submitProject"
       :class="{'is-disabled': !category}">
       Add
     </button>
@@ -44,6 +44,7 @@
 
 <script>
 import {project as ProjectMapper} from 'src/helpers/store'
+import { mapActions } from 'vuex'
 import {isEmpty} from 'lodash'
 
 export default {
@@ -69,11 +70,16 @@ export default {
     }
   },
   methods: {
-    addProject () {
-      ProjectMapper.create({
-        ...this.project,
-        tech: {category: this.category, name: this.tech.name}
-      })
+    ...mapActions(['addProject']),
+    submitProject () {
+      this.addProject(
+        // new project
+        {
+          ...this.project,
+          tech: {category: this.category, name: this.tech.name}
+        }
+      )
+
     }
   },
   components: {}
