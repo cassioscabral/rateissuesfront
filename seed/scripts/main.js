@@ -4,7 +4,8 @@ import {tech as TechMapper, project as ProjectMapper} from '../../src/helpers/st
 import techs from '../techs/index.js'
 import projects from '../projects/index.js'
 
-const search = new GitHub().search()
+let accessToken = ''
+const search = new GitHub({token:accessToken}).search()
 
 const counterLogger = (length, name) => {
   let index = 0
@@ -18,17 +19,11 @@ const counterLogger = (length, name) => {
 const store = (item, mapper) => {
   return mapper
   .create(item)
-  .catch(err => {
-    console.log(err)
-  })
 }
 
 const find = (query, mapper) => {
   return mapper
   .findAll(query)
-  .catch(err => {
-    console.log(err)
-  })
 }
 
 const getFullName = (link) => {
@@ -40,7 +35,7 @@ const getFullName = (link) => {
   link = link.split('github.com/')[1]
   let args = link.split('/')
   if (args.length === 2 && args[0] && args[1]) {
-    data.full_name = `${args[0]}/${args[1]}`
+    data.data = `${args[0]}/${args[1]}`
   }else{
     data.error = true
   }
@@ -48,37 +43,108 @@ const getFullName = (link) => {
   return data
 }
 
-const techLogger = counterLogger(techs.length, 'Tech')
-techs
-.forEach(async (tech) => {
-  const query = {where: {id: {'===': tech.id}}}
-  const hasTech = await find(query, TechMapper)
+const asyncSeries = (fns, promise) => {
+  return fns.reduce((p, fn) => {
+    return p.then(fn)
+  }, promise)
+}
 
-  if (!hasTech){
-    console.log('Saving...')
-    await store(tech, TechMapper)
+const debug = (module) => {
+  return (err) => {
+    console.log('-------------------')
+    console.log(`err: ${module}: ${err}`)
+    console.log('-------------------')
   }
+}
 
-  techLogger()
-})
+const tasks = Promise
+.resolve()
+.catch(debug('tasks'))
 
-projects
-.forEach((project) => {
-  const projectLogger = counterLogger(project.links.length, `${project.tech.name}/${project.tech.category}`)
-  project.links.forEach(async link => {
-    const fullName = await getFullName(link)
-    if (!fullName.error) {
-      const query = {where: {full_name: {'===': fullName.data}}}
-      const hasProject = await find(query, ProjectMapper)
+const techLogger = counterLogger(techs.length, 'Tech')
+const techTasks = techs.reduce(
+  (previous, current) => {
+    const tech = current
+    const query = {where: {id: {'===': tech.id}}}
+    previous.push(() => {
+      return find(query, TechMapper)
+      .catch(debug('findTech'))
+      .then(techFound => {
+        if (techFound.length === 0){// not found
+          console.log('Saving...')
+          store(tech, TechMapper)
+          .catch(debug('storeTech'))
+        }else {
+          console.log('tech found:', techFound[0].name)
+        }
+      })
+      .then(techLogger)
+    })
 
-      if (!hasProject){
-        console.log('Saving...')
-        let githubData = search
-          ._request('GET', `https://api.github.com/repos/${fullName.data}`)
-        await store({...githubData.data, tech: project.tech})
-      }
-    }
+    return previous
+  },
+  []
+)
+asyncSeries(techTasks, tasks)
 
-    projectLogger()
-  })
-})
+
+const projectTasks= projects.reduce(
+  (previous, current) => {
+    const project = current
+    const projectLogger = counterLogger(project.links.length, `${project.tech.name}/${project.tech.category}`)
+
+    project.links.reduce(
+      (previous, current) => {
+        const link = current
+        const fullName = getFullName(link)
+        const query = {where: {full_name: {'===': fullName.data}}}
+
+        if (!fullName.error) {
+          previous.push(() => {
+            console.log('searching...', fullName.data)
+            return find(query, ProjectMapper)
+            .catch(debug('findProject'))
+            .then(projectsFound => {
+              if (projectsFound.length === 0){// not found
+                console.log('Not found:', fullName.data)
+                return search
+                ._request('GET', `https://api.github.com/repos/${fullName.data}`)
+                .catch(debug('github'))
+                .then(githubData => {
+                  if (githubData.data.message === 'Not Found'){
+                    console.log('Github: Not found')
+                  }else{
+                    console.log('Saving...', githubData.data.full_name)
+                    return store({...githubData.data, tech: project.tech}, ProjectMapper)
+                    .catch(debug('storeProject'))
+                    .then(() => {
+                      console.log('Saved:', githubData.data.full_name)
+                    })
+                  }
+                })
+                .catch(err => {
+                  console.log(err)
+                })
+              }else {
+                console.log('project found:', projectsFound[0].full_name)
+              }
+            })
+            .then(projectLogger)
+          })
+        }else {
+          previous.push(() => {
+            projectLogger()
+          })
+        }
+
+        return previous
+      },
+      previous
+    )
+
+    return previous
+  },
+  []
+)
+
+asyncSeries(projectTasks, tasks)
