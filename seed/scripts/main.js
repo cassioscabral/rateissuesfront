@@ -16,14 +16,18 @@ const counterLogger = (length, name) => {
 }
 
 const store = (item, mapper) => {
-  return mapper.create(item)
+  return mapper
+  .create(item)
+  .catch(err => {
+    console.log(err)
+  })
 }
 
 const find = (query, mapper) => {
   return mapper
   .findAll(query)
-  .then(result => {
-    return result.length > 0
+  .catch(err => {
+    console.log(err)
   })
 }
 
@@ -46,65 +50,35 @@ const getFullName = (link) => {
 
 const techLogger = counterLogger(techs.length, 'Tech')
 techs
-.forEach((tech) => {
+.forEach(async (tech) => {
   const query = {where: {id: {'===': tech.id}}}
+  const hasTech = await find(query, TechMapper)
 
-  find(query, TechMapper)
-  .then(data => {
-    if (data) {
-      techLogger()
-    }else{
-      store(tech, TechMapper)
-      .then(() => {
-        techLogger()
-      })
-      .catch(err => {
-        console.error(err)
-        techLogger()
-      })
-    }
-  })
-  .catch(err => {
-    console.error(err)
-    techLogger()
-  })
+  if (!hasTech){
+    console.log('Saving...')
+    await store(tech, TechMapper)
+  }
+
+  techLogger()
 })
 
 projects
 .forEach((project) => {
   const projectLogger = counterLogger(project.links.length, `${project.tech.name}/${project.tech.category}`)
-  project.links.forEach(link => {
-    const fullName = getFullName(link)
-    if (fullName.error) {
-      projectLogger()
-    }else{
+  project.links.forEach(async link => {
+    const fullName = await getFullName(link)
+    if (!fullName.error) {
       const query = {where: {full_name: {'===': fullName.data}}}
-      find(query, ProjectMapper)
-      .then(data => {
-        if (data) {
-          projectLogger()
-        }else{
-          search
+      const hasProject = await find(query, ProjectMapper)
+
+      if (!hasProject){
+        console.log('Saving...')
+        let githubData = search
           ._request('GET', `https://api.github.com/repos/${fullName.data}`)
-          .then(data => {
-            store({
-              ... data.data,
-              tech: project.tech
-            })
-            .then(() => {
-              projectLogger()
-            })
-            .catch(err => {
-              console.error(err)
-              projectLogger()
-            })
-          })
-        }
-      })
-      .catch(err => {
-        console.error(err)
-        projectLogger()
-      })
+        await store({...githubData.data, tech: project.tech})
+      }
     }
+
+    projectLogger()
   })
 })
