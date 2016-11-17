@@ -139,28 +139,31 @@ const Project = {
 
 const tasks = Async.createPromise('tasks')
 
-const techTasks = techs.reduce((previous, tech, index, array) => {
-  previous.push(() => {
-    return Tech.createTask(tech, index, array.length)
-  })
 
-  return previous
-},[])
+const techTasks = techs.map((tech, index, array) => {
+  return () => {
+    return Tech.createTask(tech, index, array.length)
+  }
+})
+
 
 const projectTasks = projects.reduce((previous, current) => {
   const tech = current.tech
 
-  current.links.reduce((previous, link, index, array) => {
-    previous.push(() => {
+  const tasks = current.links.map((link, index, array) => {
+    return () => {
       return Project.createTask({tech, link}, index, array.length)
-    })
+    }
+  })
 
-    return previous
-  }, previous)
-
-  return previous
+  return [...previous, ...tasks]
 },[])
 
-Async.createQueue([...techTasks, ...projectTasks, () => {
+Async.createQueue([
+  Logger.log('Starting: techs'),
+  ...techTasks,
+    Logger.log('Starting: projects'),
+  ...projectTasks,
+  () => {
   process.exit()
-}], tasks)
+  }], tasks)
