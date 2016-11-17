@@ -11,7 +11,7 @@ const Logger = {
       console.log('-------------------')
     }
   },
-  log (message){
+  asyncLog (message){
     return (data) => {
       console.log(message)
       return data
@@ -111,13 +111,13 @@ class Tech {
 
     return Async
     .createPromise(ID)
-    .then(Logger.log(`${ID}: searching on DB`))
+    .then(Logger.asyncLog(`${ID}: searching on DB`))
     .then(this.createIDQuery())
     .then(API.findOneTech)
     .then(API.preventUpdate)
-    .then(Logger.log('saving on DB'))
+    .then(Logger.asyncLog('saving on DB'))
     .then(API.storeTech)
-    .then(Logger.log('saved'))
+    .then(Logger.asyncLog('saved'))
     .catch(Logger.debug(ID))
   }
 }
@@ -153,19 +153,19 @@ class Project {
 
     return Async
     .createPromise(link)
-    .then(Logger.log(`${link}: searching on DB`))
+    .then(Logger.asyncLog(`${link}: searching on DB`))
     .then(this.getFullName())
     .then(this.createFullNameQuery)
     .then(API.findOneProject)
     .then(API.preventUpdate)
-    .then(Logger.log('searching on Github'))
+    .then(Logger.asyncLog('searching on Github'))
     .then(this.getFullName())
     .then(API.findOneGithub)
-    .then(Logger.log('saving on DB'))
+    .then(Logger.asyncLog('saving on DB'))
     .then((githubData) => {
       return API.storeProject({...githubData, tech})
     })
-    .then(Logger.log('saved'))
+    .then(Logger.asyncLog('saved'))
     .catch(Logger.debug(link))
   }
 }
@@ -196,9 +196,9 @@ const projectTasks = projects.reduce((previous, current) => {
 },[])
 
 Async.createQueue([
-  Logger.log('Starting: techs'),
+  Logger.asyncLog('Starting: techs'),
   ...techTasks,
-  Logger.log('Starting: projects'),
+  Logger.asyncLog('Starting: projects'),
   ...projectTasks,
   () => {
   process.exit()
