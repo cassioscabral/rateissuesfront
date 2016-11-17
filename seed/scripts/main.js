@@ -34,18 +34,28 @@ const Async = {
 }
 
 const DB = {
-  project: {name: 'project', mapper: ProjectMapper},
-  tech: {name: 'tech', mapper: TechMapper},
-  store (item, db) {
-    return db.mapper
-    .create(item)
-    .catch(`${db.name}Store`)
+  storeProject (item) {
+    return DB.store(item, 'project', ProjectMapper)
   },
-  find (query, db) {
-    return db.mapper
+  storeTech (item) {
+    return DB.store(item, 'tech', TechMapper)
+  },
+  store (item, name, mapper) {
+    return mapper
+    .create(item)
+    .catch(`${name}Store`)
+  },
+  findProject (query) {
+    return DB.find(query, 'project', ProjectMapper)
+  },
+  findTech (query) {
+    return DB.find(query, 'tech', TechMapper)
+  },
+  find (query, name, mapper) {
+    return mapper
     .findAll(query)
     .then(items => items.length > 0 ? items[0] : null)
-    .catch(`${db.name}Find`)
+    .catch(`${name}Find`)
   }
 }
 
@@ -84,7 +94,7 @@ const Tech = {
     .then(Logger.log(`${id}: searching on DB`))
     .then(Tech.createQuery(tech))
     .then((query) => {
-      return DB.find(query, DB.tech)
+      return DB.findTech(query)
     })
     .then(savedTech => {
       if (savedTech) {
@@ -93,7 +103,7 @@ const Tech = {
     })
     .then(Logger.log('saving on DB'))
     .then(() => {
-      DB.store(tech, DB.tech)
+      DB.storeTech(tech)
     })
     .then(Logger.log('saved'))
     .catch(Logger.debug(id))
@@ -116,7 +126,7 @@ const Project = {
     .then(Logger.log('searching on DB'))
     .then(Project.createQuery(fullName))
     .then((query) => {
-      return DB.find(query, DB.project)
+      return DB.findProject(query)
     })
     .then(savedProject => {
       if (savedProject) {
@@ -129,7 +139,7 @@ const Project = {
     })
     .then(Logger.log('saving on DB'))
     .then((githubData) => {
-      DB.store({...githubData, tech: project.tech}, DB.project)
+      DB.storeProject({...githubData, tech: project.tech})
     })
     .then(Logger.log('saved'))
     .catch(Logger.debug('Project'))
