@@ -41,7 +41,12 @@ class Resource {
 
 class APIHandler {
   constructor (resources={}) {
-    this.resources = resources
+    this.resources = {}
+    for (const resource of resources){
+      this.resources[resource.name] = resource.mapper
+      this[`findOne${resource.name}`] = this.findOne(resource.name)
+      this[`store${resource.name}`] = this.store(resource.name)
+    }
   }
 
   preventUpdate (item) {
@@ -51,32 +56,31 @@ class APIHandler {
   }
 
   store (resourceName) {
-    const resource = this.resources[resourceName]
+    const mapper = this.resources[resourceName]
 
     return (item) => {
-      return resource.mapper
+      return mapper
       .create(item)
-      .catch(`${resource.name}Store`)
+      .catch(`${resourceName}Store`)
     }
-
   }
 
   findOne (resourceName) {
-    const resource = this.resources[resourceName]
+    const mapper = this.resources[resourceName]
 
     return (query) => {
-      return resource.mapper
+      return mapper
       .findAll(query)
       .then(items => items.length > 0 ? items[0] : null)
-      .catch(`${resource.name}Find`)
+      .catch(`${resourceName}Find`)
     }
   }
 }
 
-const resources = {
-  'Tech': new Resource('Tech', TechMapper),
-  'Project': new Resource('Project', ProjectMapper),
-  'GitHub': new Resource(
+const resources = [
+  new Resource('Tech', TechMapper),
+  new Resource('Project', ProjectMapper),
+  new Resource(
     'GitHub',
     {findAll (fullName) {
       const search = new GitHub().search()
@@ -87,7 +91,7 @@ const resources = {
       .then(result => [result.data])
     }}
   )
-}
+]
 const API = new APIHandler(resources)
 
 class Tech {
@@ -109,10 +113,10 @@ class Tech {
     .createPromise(ID)
     .then(Logger.log(`${ID}: searching on DB`))
     .then(this.createIDQuery())
-    .then(API.findOne('Tech'))
+    .then(API.findOneTech)
     .then(API.preventUpdate)
     .then(Logger.log('saving on DB'))
-    .then(API.store('Tech'))
+    .then(API.storeTech)
     .then(Logger.log('saved'))
     .catch(Logger.debug(ID))
   }
@@ -152,14 +156,14 @@ class Project {
     .then(Logger.log(`${link}: searching on DB`))
     .then(this.getFullName())
     .then(this.createFullNameQuery)
-    .then(API.findOne('Project'))
+    .then(API.findOneProject)
     .then(API.preventUpdate)
     .then(Logger.log('searching on Github'))
     .then(this.getFullName())
-    .then(API.findOne('Github'))
+    .then(API.findOneGithub)
     .then(Logger.log('saving on DB'))
     .then((githubData) => {
-      return API.store('Project')({...githubData, tech})
+      return API.storeProject({...githubData, tech})
     })
     .then(Logger.log('saved'))
     .catch(Logger.debug(link))
