@@ -39,22 +39,6 @@ class Resource {
   }
 }
 
-const resources = {
-  'Tech': new Resource('Tech', TechMapper),
-  'Project': new Resource('Project', ProjectMapper),
-  'GitHub': new Resource(
-    'GitHub',
-    {findAll (fullName) {
-      const search = new GitHub().search()
-
-      return search
-      ._request('GET', `https://api.github.com/repos/${fullName}`)
-      .catch(Logger.debug('github'))
-      .then(result => [result.data])
-    }}
-  )
-}
-
 class DBHandler {
   constructor (resources={}) {
     this.resources = resources
@@ -89,8 +73,22 @@ class DBHandler {
   }
 }
 
-const DB = new DBHandler(resources)
+const resources = {
+  'Tech': new Resource('Tech', TechMapper),
+  'Project': new Resource('Project', ProjectMapper),
+  'GitHub': new Resource(
+    'GitHub',
+    {findAll (fullName) {
+      const search = new GitHub().search()
 
+      return search
+      ._request('GET', `https://api.github.com/repos/${fullName}`)
+      .catch(Logger.debug('github'))
+      .then(result => [result.data])
+    }}
+  )
+}
+const DB = new DBHandler(resources)
 
 class Tech {
   constructor (tech) {
@@ -130,6 +128,7 @@ class Project {
     return () => {
       const path = link.split('github.com/')[1]
       const [owner, repo] = path.split('/')
+
       if (owner && repo) {
         return `${owner}/${repo}`
       }else{
