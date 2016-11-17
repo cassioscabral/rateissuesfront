@@ -8,6 +8,7 @@
     "port": 3000
   },
   "scripts": {
+    "seed": "babel-node ./seed/scripts/main.js --presets es2015,stage-2",
     "start": "webpack-dev-server --inline --progress --colors --history-api-fallback --config webpack/development.js",
     "build": "webpack -p --config webpack/production.js",
     "lint:js": "./node_modules/.bin/eslint src; exit 0;"
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.3.7",
+    "babel-cli": "^6.18.0",
     "babel-core": "^6.10.4",
     "babel-eslint": "^7.0.0",
     "babel-loader": "^6.2.4",
