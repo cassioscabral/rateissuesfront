@@ -7,7 +7,6 @@ import projects from '../projects/index.js'
 const Logger = {
   debug (module) {
     return (err) => {
-      console.log('-------------------')
       console.log(`${module}: ${err}`)
       console.log('-------------------')
     }
