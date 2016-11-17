@@ -32,56 +32,65 @@ const Async = {
   }
 }
 
-const DB = {
-  isSaved (item) {
+class Resource {
+  constructor (name, mapper) {
+    this.name = name
+    this.mapper = mapper
+  }
+}
+
+const resources = {
+  'Tech': new Resource('Tech', TechMapper),
+  'Project': new Resource('Project', ProjectMapper),
+  'GitHub': new Resource(
+    'GitHub',
+    {findAll (fullName) {
+      const search = new GitHub().search()
+
+      return search
+      ._request('GET', `https://api.github.com/repos/${fullName}`)
+      .catch(Logger.debug('github'))
+      .then(result => [result.data])
+    }}
+  )
+}
+
+class DBHandler {
+  constructor (resources={}) {
+    this.resources = resources
+  }
+
+  preventUpdate (item) {
     if (item) {
       throw 'is already saved'
     }
-  },
-  storeProject (item) {
-    return DB.store(item, 'project', ProjectMapper)
-  },
-  storeTech (item) {
-    return DB.store(item, 'tech', TechMapper)
-  },
-  store (item, name, mapper) {
-    return mapper
-    .create(item)
-    .catch(`${name}Store`)
-  },
-  findOneProject (query) {
-    return DB.findOne(query, 'project', ProjectMapper)
-  },
-  findOneTech (query) {
-    return DB.findOne(query, 'tech', TechMapper)
-  },
-  findOne (query, name, mapper) {
-    return mapper
-    .findAll(query)
-    .then(items => items.length > 0 ? items[0] : null)
-    .catch(`${name}Find`)
   }
-}
 
-const GH = {
-  getFullName (link) {
-    const path = link.split('github.com/')[1]
-    const [owner, repo] = path.split('/')
-    if (owner && repo) {
-      return `${owner}/${repo}`
-    }else{
-      throw `Cannot get fullName from: ${link}`
+  store (resourceName) {
+    const resource = this.resources[resourceName]
+
+    return (item) => {
+      return resource.mapper
+      .create(item)
+      .catch(`${resource.name}Store`)
     }
-  },
-  search (fullName) {
-    const search = new GitHub().search()
 
-    return search
-    ._request('GET', `https://api.github.com/repos/${fullName}`)
-    .catch(Logger.debug('github'))
-    .then(result => result.data)
+  }
+
+  findOne (resourceName) {
+    const resource = this.resources[resourceName]
+
+    return (query) => {
+      return resource.mapper
+      .findAll(query)
+      .then(items => items.length > 0 ? items[0] : null)
+      .catch(`${resource.name}Find`)
+    }
   }
 }
+
+const DB = new DBHandler(resources)
+
 
 class Tech {
   constructor (tech) {
@@ -102,15 +111,14 @@ class Tech {
     .createPromise(ID)
     .then(Logger.log(`${ID}: searching on DB`))
     .then(this.createIDQuery())
-    .then(DB.findOneTech)
-    .then(DB.isSaved)
+    .then(DB.findOne('Tech'))
+    .then(DB.preventUpdate)
     .then(Logger.log('saving on DB'))
-    .then(DB.storeTech)
+    .then(DB.store('Tech'))
     .then(Logger.log('saved'))
     .catch(Logger.debug(ID))
   }
 }
-
 
 class Project {
   constructor (project) {
@@ -120,7 +128,13 @@ class Project {
   getFullName () {
     const link = this.project.link
     return () => {
-      return GH.getFullName(link)
+      const path = link.split('github.com/')[1]
+      const [owner, repo] = path.split('/')
+      if (owner && repo) {
+        return `${owner}/${repo}`
+      }else{
+        throw `Cannot get fullName from: ${link}`
+      }
     }
   }
 
@@ -139,14 +153,14 @@ class Project {
     .then(Logger.log(`${link}: searching on DB`))
     .then(this.getFullName())
     .then(this.createFullNameQuery)
-    .then(DB.findOneProject)
-    .then(DB.isSaved)
+    .then(DB.findOne('Project'))
+    .then(DB.preventUpdate)
     .then(Logger.log('searching on Github'))
     .then(this.getFullName())
-    .then(GH.search)
+    .then(DB.findOne('Github'))
     .then(Logger.log('saving on DB'))
     .then((githubData) => {
-      DB.storeProject({...githubData, tech})
+      return DB.store('Project')({...githubData, tech})
     })
     .then(Logger.log('saved'))
     .catch(Logger.debug(link))
@@ -181,7 +195,7 @@ const projectTasks = projects.reduce((previous, current) => {
 Async.createQueue([
   Logger.log('Starting: techs'),
   ...techTasks,
-    Logger.log('Starting: projects'),
+  Logger.log('Starting: projects'),
   ...projectTasks,
   () => {
   process.exit()
