@@ -34,6 +34,11 @@ const Async = {
 }
 
 const DB = {
+  isSaved (item) {
+    if (item) {
+      throw 'is already saved'
+    }
+  },
   storeProject (item) {
     return DB.store(item, 'project', ProjectMapper)
   },
@@ -45,13 +50,13 @@ const DB = {
     .create(item)
     .catch(`${name}Store`)
   },
-  findProject (query) {
-    return DB.find(query, 'project', ProjectMapper)
+  findOneProject (query) {
+    return DB.findOne(query, 'project', ProjectMapper)
   },
-  findTech (query) {
-    return DB.find(query, 'tech', TechMapper)
+  findOneTech (query) {
+    return DB.findOne(query, 'tech', TechMapper)
   },
-  find (query, name, mapper) {
+  findOne (query, name, mapper) {
     return mapper
     .findAll(query)
     .then(items => items.length > 0 ? items[0] : null)
@@ -79,90 +84,95 @@ const GH = {
   }
 }
 
-const Tech = {
-  createQuery (tech) {
+class Tech {
+  constructor (tech) {
+    this.tech = tech
+  }
+
+  createIDQuery () {
+    const ID = this.tech.id
     return () => {
-      return {where: {id: {'===': tech.id}}}
+      return {where: {id: {'===': ID}}}
     }
-  },
-  createTask (tech, position, total) {
-    const id = tech.id
+  }
+
+  createTask () {
+    const ID = this.tech.id
 
     return Async
-    .createPromise(tech)
-    .then(Logger.log(`Tech: ${position+1}/${total}`))
-    .then(Logger.log(`${id}: searching on DB`))
-    .then(Tech.createQuery(tech))
-    .then((query) => {
-      return DB.findTech(query)
-    })
-    .then(savedTech => {
-      if (savedTech) {
-        throw 'is already saved'
-      }
-    })
+    .createPromise(ID)
+    .then(Logger.log(`${ID}: searching on DB`))
+    .then(this.createIDQuery())
+    .then(DB.findOneTech)
+    .then(DB.isSaved)
     .then(Logger.log('saving on DB'))
-    .then(() => {
-      DB.storeTech(tech)
-    })
+    .then(DB.storeTech)
     .then(Logger.log('saved'))
-    .catch(Logger.debug(id))
+    .catch(Logger.debug(ID))
   }
 }
 
-const Project = {
-  createQuery (fullName) {
-    return {where: {full_name: {'===': fullName}}}
-  },
-  createTask (project, position, total) {
-    let fullName = ''
+
+class Project {
+  constructor (project) {
+    this.project = project
+  }
+
+  getFullName () {
+    const link = this.project.link
+    return () => {
+      return GH.getFullName(link)
+    }
+  }
+
+  createFullNameQuery (fullName) {
+    return () => {
+      return {where: {full_name: {'===': fullName}}}
+    }
+  }
+
+  createTask () {
+    const link = this.project.link
+    const tech = this.project.tech
 
     return Async
-    .createPromise()
-    .then(() => {
-      fullName = GH.getFullName(project.link)
-    })
-    .then(Logger.log(`Project: ${position+1}/${total}`))
-    .then(Logger.log('searching on DB'))
-    .then(Project.createQuery(fullName))
-    .then((query) => {
-      return DB.findProject(query)
-    })
-    .then(savedProject => {
-      if (savedProject) {
-        throw 'is already saved'
-      }
-    })
+    .createPromise(link)
+    .then(Logger.log(`${link}: searching on DB`))
+    .then(this.getFullName())
+    .then(this.createFullNameQuery)
+    .then(DB.findOneProject)
+    .then(DB.isSaved)
     .then(Logger.log('searching on Github'))
-    .then(() => {
-      return GH.search(fullName)
-    })
+    .then(this.getFullName())
+    .then(GH.search)
     .then(Logger.log('saving on DB'))
     .then((githubData) => {
-      DB.storeProject({...githubData, tech: project.tech})
+      DB.storeProject({...githubData, tech})
     })
     .then(Logger.log('saved'))
-    .catch(Logger.debug('Project'))
+    .catch(Logger.debug(link))
   }
 }
-
 
 const tasks = Async.createPromise('tasks')
 
 
-const techTasks = techs.map((tech, index, array) => {
+const techTasks = techs.map((tech) => {
   return () => {
-    return Tech.createTask(tech, index, array.length)
+    return new Tech(tech)
+    .createTask()
+    .catch('Tech')
   }
 })
-
 
 const projectTasks = projects.reduce((previous, current) => {
   const tech = current.tech
 
-  const tasks = current.links.map((link, index, array) => {
+  const tasks = current.links.map((link) => {
     return () => {
-      return Project.createTask({tech, link}, index, array.length)
+      return new Project({tech, link})
+      .createTask()
+      .catch('Project')
     }
   })
 
