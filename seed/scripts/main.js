@@ -39,7 +39,7 @@ class Resource {
   }
 }
 
-class DBHandler {
+class APIHandler {
   constructor (resources={}) {
     this.resources = resources
   }
@@ -88,7 +88,7 @@ const resources = {
     }}
   )
 }
-const DB = new DBHandler(resources)
+const API = new APIHandler(resources)
 
 class Tech {
   constructor (tech) {
@@ -109,10 +109,10 @@ class Tech {
     .createPromise(ID)
     .then(Logger.log(`${ID}: searching on DB`))
     .then(this.createIDQuery())
-    .then(DB.findOne('Tech'))
-    .then(DB.preventUpdate)
+    .then(API.findOne('Tech'))
+    .then(API.preventUpdate)
     .then(Logger.log('saving on DB'))
-    .then(DB.store('Tech'))
+    .then(API.store('Tech'))
     .then(Logger.log('saved'))
     .catch(Logger.debug(ID))
   }
@@ -152,14 +152,14 @@ class Project {
     .then(Logger.log(`${link}: searching on DB`))
     .then(this.getFullName())
     .then(this.createFullNameQuery)
-    .then(DB.findOne('Project'))
-    .then(DB.preventUpdate)
+    .then(API.findOne('Project'))
+    .then(API.preventUpdate)
     .then(Logger.log('searching on Github'))
     .then(this.getFullName())
-    .then(DB.findOne('Github'))
+    .then(API.findOne('Github'))
     .then(Logger.log('saving on DB'))
     .then((githubData) => {
-      return DB.store('Project')({...githubData, tech})
+      return API.store('Project')({...githubData, tech})
     })
     .then(Logger.log('saved'))
     .catch(Logger.debug(link))
