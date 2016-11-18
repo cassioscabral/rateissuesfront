@@ -23,7 +23,8 @@
             :homepage="project.homepage"
             :githubpage="project.html_url"
             :name="project.name"
-            :userName="project.owner.login" />
+            :userName="project.owner.login"
+            :project="project" />
         </card>
       </div>
     </div>
@@ -47,10 +48,10 @@ export default {
     this.findProjects()
   },
   computed: {
-    ... mapGetters(['projects'])
+    ...mapGetters(['projects'])
   },
   methods: {
-    ... mapActions(['findProjects'])
+    ...mapActions(['findProjects'])
   },
   components: {
     Card,

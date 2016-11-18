@@ -13,7 +13,7 @@ import routes from 'src/routes'
 const router = new VueRouter({
   hashbang: false,
   mode: 'history',
-  linkActiveClass: 'active',
+  linkActiveClass: 'is-active',
   routes
 })
 
