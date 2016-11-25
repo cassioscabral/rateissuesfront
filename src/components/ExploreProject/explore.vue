@@ -13,17 +13,17 @@
       <div class="column" v-for="project in projects">
         <card
           class="card"
-          :title="project.name"
-          :meta="project.full_name"
-          :body="project.description">
+          :title="project.githubData.name"
+          :meta="project.githubData.full_name"
+          :body="project.githubData.description">
 
           <ProjectHeader
             slot="header"
-            :avatar="project.owner.avatar_url"
-            :homepage="project.homepage"
-            :githubpage="project.html_url"
-            :name="project.name"
-            :userName="project.owner.login" />
+            :avatar="project.githubData.owner.avatar_url"
+            :homepage="project.githubData.homepage"
+            :githubpage="project.githubData.html_url"
+            :name="project.githubData.name"
+            :userName="project.githubData.owner.login" />
         </card>
       </div>
     </div>
