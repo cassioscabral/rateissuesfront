@@ -47,10 +47,10 @@ export default {
     this.findProjects()
   },
   computed: {
-    ... mapGetters(['projects'])
+    ...mapGetters(['projects'])
   },
   methods: {
-    ... mapActions(['findProjects'])
+    ...mapActions(['findProjects'])
   },
   components: {
     Card,

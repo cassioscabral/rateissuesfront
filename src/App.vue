@@ -1,5 +1,5 @@
 <template>
-<section id="app" class="hero is-primary is-medium is-bold">
+<section id="app" class="hero is-primary is-bold">
   <!-- Hero header: will stick at the top -->
   <navigation></navigation>
 
@@ -15,7 +15,7 @@
     <nav class="tabs">
       <div class="container">
         <ul>
-          <li class="is-active"><a>Overview</a></li>
+          <li><a>Overview</a></li>
           <li><a>About</a></li>
           <li><a>Github</a></li>
           <li><a>FAQ</a></li>
