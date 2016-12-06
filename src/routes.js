@@ -15,7 +15,7 @@ const routes = [
     component: Project,
     children: [
       {
-        path: 'about',
+        path: '',
         name: 'project-about',
         component: ProjectAbout
       }

@@ -1,6 +1,6 @@
 <template>
-<div class="project container">
-  <h1 class="heading">Project Page</h1>
+<div class="project container" v-if="hasProject">
+  <h1 class="heading">{{project.githubData.name}}</h1>
   <div class="tabs">
     <ul>
       <li><router-link :to="{ path: 'about' }" append>About</router-link></li>
@@ -16,13 +16,13 @@
 
 <script>
 import store from 'src/helpers/store'
+import {isEmpty} from 'lodash'
 
 export default {
   name: 'ProjectPage',
   async beforeRouteEnter (to, from, next) {
     try {
       let project = await store.find('project', to.params.id)
-      console.log('project', project)
       next(vm => {
         vm.project = project
       })
@@ -32,10 +32,14 @@ export default {
   },
   data () {
     return {
-      project: {}
+      project: null
     }
   },
-  computed: {},
+  computed: {
+    hasProject () {
+      return !isEmpty(this.project)
+    }
+  },
   methods: {},
   components: {
   }
