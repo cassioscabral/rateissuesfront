@@ -3,7 +3,7 @@
   <h1 class="heading">{{project.githubData.name}}</h1>
   <div class="tabs">
     <ul>
-      <li><router-link :to="{ path: 'about' }" append>About</router-link></li>
+      <li><router-link :to="{ name: 'project-about' }">About</router-link></li>
       <li><a>F.A.Q.</a></li>
       <li><a>Q & A</a></li>
       <li><a>Issues</a></li>
