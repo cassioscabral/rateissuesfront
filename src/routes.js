@@ -6,9 +6,9 @@ import ProjectAbout from 'components/Project/projectAbout'
 import NotFound from 'components/NotFound/notFound'
 
 const routes = [
-  {path: '/', name: 'home',component: ExploreProject},
-  {path: '/add', name: 'add',component: Add},
-  {path: '/explore', name: 'explore',component: ExploreProject},
+  {path: '/', name: 'home', component: ExploreProject},
+  {path: '/add', name: 'add', component: Add},
+  {path: '/explore', name: 'explore', component: ExploreProject},
   {
     path: '/project/:id',
     name: 'project',
