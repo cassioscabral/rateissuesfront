@@ -9,7 +9,7 @@
     <p class="title is-5">
       <!-- <strong><a :href="homepage || githubpage">{{name}}</a></strong> -->
       <strong>
-        <router-link :to="{ name: 'project', params: { id: project.id }}">{{name}}
+        <router-link :to="{ name: 'project', params: { id: project.githubData.id }}">{{name}}
         </router-link>
       </strong>
     </p>
@@ -21,27 +21,20 @@
 <script>
 export default {
   props: {
-    avatar: {
-      type: String
-    },
-    homepage: {
-      type: String
-    },
-    githubpage: {
-      type: String
-    },
-    name: {
-      type: String
-    },
-    userName: {
-      type: String
-    },
     project: {
-      type: Object
+      type: Object,
+      required: true
     }
   },
   data () {
-    return {}
+    let gh = this.project.githubData
+    return {
+      avatar: gh.owner.avatar_url,
+      homepage: gh.homepage,
+      githubpage: gh.html_url,
+      name: gh.name,
+      userName: gh.owner.login
+    }
   },
   computed: {},
   methods: {},

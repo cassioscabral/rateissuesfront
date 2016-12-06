@@ -19,11 +19,7 @@
 
           <ProjectHeader
             slot="header"
-            :avatar="project.githubData.owner.avatar_url"
-            :homepage="project.githubData.homepage"
-            :githubpage="project.githubData.html_url"
-            :name="project.githubData.name"
-            :userName="project.githubData.owner.login" />
+            :project="project"/>
         </card>
       </div>
     </div>
