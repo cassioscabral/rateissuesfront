@@ -7,7 +7,11 @@
   </div>
   <div class="media-content">
     <p class="title is-5">
-      <strong><a :href="homepage || githubpage">{{name}}</a></strong>
+      <!-- <strong><a :href="homepage || githubpage">{{name}}</a></strong> -->
+      <strong>
+        <router-link :to="{ name: 'project', params: { id: project.id }}">{{name}}
+        </router-link>
+      </strong>
     </p>
     <p class="subtitle is-6">{{userName}}</p>
   </div>
@@ -31,6 +35,9 @@ export default {
     },
     userName: {
       type: String
+    },
+    project: {
+      type: Object
     }
   },
   data () {
