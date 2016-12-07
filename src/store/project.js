@@ -48,7 +48,7 @@ export default {
       let query = {}
       query.where = {id: {in: ids}}
 
-      ProjectMapper.findAll(query).then(projects => {
+      ProjectMapper.findAll(query, {with: ['category']}).then(projects => {
         // transform from array to object with id as keys
         let projectsFilteredById = projects.reduce((previous, current) => {
           previous[current.id] = {...current}
