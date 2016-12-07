@@ -7,11 +7,31 @@ const store = new DataStore()
 
 store.registerAdapter(dataSource, adapter, {default: true})
 
-const project = store.defineMapper('project')
+const category = store.defineMapper('category',{
+  relations: {
+    hasMany: {
+      project: {
+        foreignKeys: 'categoryIds',
+        localField: 'projects'
+      }
+    }
+  }
+})
 const tech = store.defineMapper('tech')
+const project = store.defineMapper('project',{
+  relations: {
+    hasMany: {
+      category: {
+        localKeys: 'categoryIds',
+        localField: 'categories'
+      }
+    }
+  }
+})
 
 export {
   store as default,
   project,
-  tech
+  tech,
+  category
 }

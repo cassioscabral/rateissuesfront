@@ -1,4 +1,6 @@
-import {project as ProjectMapper} from 'src/helpers/store'
+import {
+  project as ProjectMapper
+  } from 'src/helpers/store'
 import {
   ADD_PROJECTS,
   ADD_PROJECTS_FILTERED_BY_ID,
@@ -46,7 +48,7 @@ export default {
       let query = {}
       query.where = {id: {in: ids}}
 
-      ProjectMapper.findAll(query).then(projects => {
+      ProjectMapper.findAll(query, {with: ['category']}).then(projects => {
         // transform from array to object with id as keys
         let projectsFilteredById = projects.reduce((previous, current) => {
           previous[current.id] = {...current}
@@ -60,7 +62,8 @@ export default {
       if (input) {
         query.where = {full_name:{contains: input.target.value}}
       }
-      ProjectMapper.findAll(query).then(projects => {
+      ProjectMapper.findAll(query, {with: ['category']})
+      .then(projects => {
         commit(ADD_PROJECTS, {projects})
       })
     },
