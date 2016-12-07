@@ -1,4 +1,6 @@
-import {project as ProjectMapper} from 'src/helpers/store'
+import {
+  project as ProjectMapper
+  } from 'src/helpers/store'
 import {
   ADD_PROJECTS,
   ADD_PROJECTS_FILTERED_BY_ID,
@@ -60,7 +62,8 @@ export default {
       if (input) {
         query.where = {full_name:{contains: input.target.value}}
       }
-      ProjectMapper.findAll(query).then(projects => {
+      ProjectMapper.findAll(query, {with: ['category']})
+      .then(projects => {
         commit(ADD_PROJECTS, {projects})
       })
     },
