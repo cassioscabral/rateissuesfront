@@ -1,16 +1,52 @@
 <template>
 <div class="project container" v-if="hasProject">
-  <h1 class="heading">{{project.githubData.name}}</h1>
-  <div class="tabs">
-    <ul>
-      <li><router-link :to="{ name: 'project-about' }">About</router-link></li>
-      <li><a>F.A.Q.</a></li>
-      <li><a>Q & A</a></li>
-      <li><a>Issues</a></li>
-    </ul>
+  <div class="columns is-multiline">
+
+    <div class="column is-12 project-info">
+      <div class="columns">
+        <div class="column is-2 project-avatar">
+          AVATAR
+        </div>
+        <div class="column is-5 extra-info-1">
+          EXTRA INFO 1
+        </div>
+        <div class="column is-5 extra-info-2">
+          EXTRA INFO 2
+        </div>
+      </div>
+    </div>
+
+    <div class="column is-12 project-stats">
+      STATS
+    </div>
+    <div class="column is-12 project-community">
+      <div class="columns">
+        <div class="column is-6">
+          POLLS
+        </div>
+        <div class="column is-6">
+          Q.A / F.A.Q.
+        </div>
+      </div>
+    </div>
+    <div class="column is-12 project-issues">
+      <h3>Issues</h3>
+      <div class="columns">
+        <div class="column is-3">
+          Unknown
+        </div>
+        <div class="column is-3">
+          EASY
+        </div>
+        <div class="column is-3">
+          MEDIUM
+        </div>
+        <div class="column is-3">
+          HARD
+        </div>
+      </div>
+    </div>
   </div>
-  <!-- Sub components will render here  -->
-  <router-view></router-view>
 </div>
 </template>
 
