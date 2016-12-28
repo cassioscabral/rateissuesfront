@@ -9,7 +9,7 @@
     <p class="title is-5">
       <!-- <strong><a :href="homepage || githubpage">{{name}}</a></strong> -->
       <strong>
-        <router-link :to="{ name: 'project-about', params: { id: project.githubData.id }}">
+        <router-link :to="{ name: 'project', params: { id: project.githubData.id }}">
           {{name}}
         </router-link>
       </strong>
