@@ -71,5 +71,12 @@
     "webpack-cleanup-plugin": "^0.4.0",
     "webpack-dev-server": "^1.14.1",
     "webpack-merge": "^2.0.0"
-  }
+  },
+  "name": "rateissuesfront",
+  "version": "1.0.0",
+  "description": "App to engage people with open-source development",
+  "main": "index.js",
+  "repository": "https://github.com/cassioscabral/rateissuesfront.git",
+  "author": "Cassio Cabral <cassioscabral@gmail.com>",
+  "license": "MIT"
 }
