@@ -20,7 +20,7 @@
     "js-data": "^3.0.0-beta.10",
     "js-data-firebase": "^3.0.0-rc.1",
     "lodash": "^4.16.6",
-    "vue": "^2.0.1",
+    "vue": "^2.1.4",
     "vue-resource": "^1.0.3",
     "vue-router": "^2.0.0",
     "vuex": "^2.0.0"
@@ -66,9 +66,17 @@
     "vue-html-loader": "^1.2.3",
     "vue-loader": "^10.0.2",
     "vue-style-loader": "^1.0.0",
+    "vue-template-compiler": "^2.1.6",
     "webpack": "^1.13.1",
     "webpack-cleanup-plugin": "^0.4.0",
     "webpack-dev-server": "^1.14.1",
     "webpack-merge": "^2.0.0"
-  }
+  },
+  "name": "rateissuesfront",
+  "version": "1.0.0",
+  "description": "App to engage people with open-source development",
+  "main": "index.js",
+  "repository": "https://github.com/cassioscabral/rateissuesfront.git",
+  "author": "Cassio Cabral <cassioscabral@gmail.com>",
+  "license": "MIT"
 }

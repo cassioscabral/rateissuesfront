@@ -3,9 +3,7 @@
   <header class="nav">
     <div class="container">
       <div class="nav-left">
-        <router-link class="nav-item is-brand" to="/" exact>
-          <img alt="Brand" src="~assets/images/logo.png">
-        </router-link>
+
       </div>
       <span class="nav-toggle">
         <span></span>

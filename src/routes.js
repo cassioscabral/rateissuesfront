@@ -2,7 +2,6 @@
 import Add from 'components/Add/add'
 import ExploreProject from 'components/ExploreProject/explore'
 import Project from 'components/Project/project'
-import ProjectAbout from 'components/Project/projectAbout'
 import NotFound from 'components/NotFound/notFound'
 
 const routes = [
@@ -12,14 +11,7 @@ const routes = [
   {
     path: '/project/:id',
     name: 'project',
-    component: Project,
-    children: [
-      {
-        path: 'about',
-        name: 'project-about',
-        component: ProjectAbout
-      }
-    ]
+    component: Project
   },
   {path: '/*', component: NotFound}
 ]
