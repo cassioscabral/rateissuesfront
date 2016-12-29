@@ -3,7 +3,9 @@
   <header class="nav">
     <div class="container">
       <div class="nav-left">
-
+        <router-link class="nav-item is-brand" to="/" exact>
+          <img alt="Brand" src="~assets/images/logo.png">
+        </router-link>
       </div>
       <span class="nav-toggle">
         <span></span>
@@ -23,7 +25,7 @@
             <img :src="currentUser.photoURL" alt="user image" class="user-image"/>
             <span>{{currentUser.displayName}}</span>
           </a>
-          <a v-show="hasUser" class="button is-light is-outlined" @click="logout">logout</a>
+          <a v-show="hasUser" class="button is-outlined" @click="logout">logout</a>
         </span>
       </div>
     </div>

@@ -1,30 +1,10 @@
 <template>
-<section id="app" class="hero is-primary is-bold">
-  <!-- Hero header: will stick at the top -->
+<div id="app">
   <navigation></navigation>
 
-  <!-- Hero content: will be in the middle -->
-  <div class="hero-body">
-    <div class="container has-text-centered">
-      <router-view></router-view>
-    </div>
-  </div>
+  <router-view></router-view>
 
-  <!-- Hero footer: will stick at the bottom -->
-  <div class="hero-foot">
-    <nav class="tabs">
-      <div class="container">
-        <ul>
-          <li><a>Overview</a></li>
-          <li><a>About</a></li>
-          <li><a>Github</a></li>
-          <li><a>FAQ</a></li>
-          <li><a>Want to help?</a></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-</section>
+</div>
 </template>
 
 <script>

@@ -20,13 +20,15 @@
     "js-data": "^3.0.0-beta.10",
     "js-data-firebase": "^3.0.0-rc.1",
     "lodash": "^4.16.6",
+    "postcss-nested": "^1.0.0",
+    "postcss-sorting": "^1.7.0",
     "vue": "^2.1.4",
     "vue-resource": "^1.0.3",
     "vue-router": "^2.0.0",
     "vuex": "^2.0.0"
   },
   "devDependencies": {
-    "autoprefixer": "^6.3.7",
+    "autoprefixer": "^6.6.0",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.10.4",
     "babel-eslint": "^7.0.0",

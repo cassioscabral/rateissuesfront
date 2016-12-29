@@ -38,30 +38,10 @@ export default {
 
 <style lang="sass" scoped>
 .input {
-  $primary-color: white;
-  $placeholder-color: darken($primary-color, 10%);
   width: 40%;
-  background-color: rgba(255, 255, 255, 0.4);
-  color: $primary-color;
   margin: 6rem;
   font-size: 1.6rem;
   text-align: center;
   height: 3rem;
-
-  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: $placeholder-color;
-  }
-  &::-moz-placeholder { /* Firefox 19+ */
-    color: $placeholder-color;
-  }
-  &:-ms-input-placeholder { /* IE 10+ */
-    color: $placeholder-color;
-  }
-  &:-moz-placeholder { /* Firefox 18- */
-    color: $placeholder-color;
-  }
-  &:-moz-placeholder { /* Firefox 18- */
-    color: $placeholder-color;
-  }
 }
 </style>
