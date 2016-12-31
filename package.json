@@ -19,7 +19,7 @@
     "hint.css": "^2.4.1",
     "js-data": "^3.0.0-beta.10",
     "js-data-firebase": "^3.0.0-rc.1",
-    "lodash": "^4.16.6",
+    "lodash": "^4.17.4",
     "postcss-nested": "^1.0.0",
     "postcss-sorting": "^1.7.0",
     "vue": "^2.1.4",
