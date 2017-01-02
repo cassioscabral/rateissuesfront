@@ -64,7 +64,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^2.3.1",
     "url-loader": "^0.5.7",
-    "vue-hot-reload-api": "^2.0.6",
+    "vue-hot-reload-api": "^2.0.7",
     "vue-html-loader": "^1.2.3",
     "vue-loader": "^10.0.2",
     "vue-style-loader": "^1.0.0",
