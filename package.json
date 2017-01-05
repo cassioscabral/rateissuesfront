@@ -40,7 +40,7 @@
     "babel-preset-stage-2": "^6.11.0",
     "browser-sync": "^2.13.0",
     "browser-sync-webpack-plugin": "^1.1.0",
-    "bulma": "^0.2.3",
+    "bulma": "^0.3.0",
     "css-loader": "^0.26.1",
     "eslint": "^3.0.1",
     "eslint-friendly-formatter": "^2.0.5",
