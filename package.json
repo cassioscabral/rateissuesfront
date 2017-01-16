@@ -22,7 +22,7 @@
     "lodash": "^4.16.6",
     "postcss-nested": "^1.0.0",
     "postcss-sorting": "^1.7.0",
-    "vue": "^2.1.4",
+    "vue": "^2.1.9",
     "vue-resource": "^1.0.3",
     "vue-router": "^2.0.0",
     "vuex": "^2.0.0"
