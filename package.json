@@ -14,7 +14,7 @@
     "lint:js": "./node_modules/.bin/eslint src; exit 0;"
   },
   "dependencies": {
-    "firebase": "^3.4.1",
+    "firebase": "^3.6.6",
     "github-api": "^2.3.0",
     "hint.css": "^2.4.1",
     "js-data": "^3.0.0-beta.10",
