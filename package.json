@@ -42,7 +42,7 @@
     "browser-sync-webpack-plugin": "^1.1.0",
     "bulma": "^0.3.0",
     "css-loader": "^0.26.1",
-    "eslint": "^3.0.1",
+    "eslint": "^3.14.1",
     "eslint-friendly-formatter": "^2.0.5",
     "eslint-loader": "^1.4.1",
     "eslint-plugin-html": "^1.5.1",
