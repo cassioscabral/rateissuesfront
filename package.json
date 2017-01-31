@@ -67,7 +67,7 @@
     "vue-hot-reload-api": "^2.0.6",
     "vue-html-loader": "^1.2.3",
     "vue-loader": "^10.0.2",
-    "vue-style-loader": "^1.0.0",
+    "vue-style-loader": "^2.0.0",
     "vue-template-compiler": "^2.1.6",
     "webpack": "^1.13.1",
     "webpack-cleanup-plugin": "^0.4.0",
