@@ -3,6 +3,8 @@
 [![GitHub closed issues](https://img.shields.io/github/issues-closed/cassioscabral/rateissuesfront.svg)]()
 [![GitHub raw issues](https://img.shields.io/github/issues-raw/cassioscabral/rateissuesfront.svg)]()</center>
 
+# This project has been discontinued 
+
 # Rate Issues
 
 - Have you ever wonder how to contribute to an open-source project ?
